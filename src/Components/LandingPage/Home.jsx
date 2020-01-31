@@ -15,6 +15,16 @@ function Home() {
             Mauris vel eleifend ex. Fusce eu enim vel ex dignissim 
             pretium. Ut non fringilla enim..
         </p>
+        <div className="homeLinks">
+            <div className="homeLink">
+                <i class="fas fa-clipboard-list"></i>
+                <a id="reg" href="#">Register</a>
+            </div>
+            <div className="homeLink">
+                <i class="fas fa-arrow-circle-down"></i>
+                <a id="log" href="#">Login</a>
+            </div>
+        </div>
       </div>
     );
   }

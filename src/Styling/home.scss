@@ -36,3 +36,57 @@ p {
     margin-top: -50px;
     font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.homeLinks {
+    display: flex;
+    margin: -50px;
+    align-items: center;
+    
+    .homeLink {
+        display: flex;
+        align-items: center;
+        margin: 0 20px;
+
+        i {
+            margin: 0 13px 8px 0;
+            font-size: 2.7em;
+        }
+    
+        .fa-arrow-circle-down {
+            color: rgb(43, 142, 255);
+        }
+
+        .fa-clipboard-list {
+            color: rgb(186, 43, 214);
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.5s;
+            font-size: 2.1em;
+            line-height: 1.4;
+            font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #log {
+            color: rgb(43, 142, 255);
+        }
+
+        #reg {
+            color: rgb(186, 43, 214);
+        }
+    }
+
+    .homeLink:hover {
+
+        #log {
+            color: rgb(106, 175, 255);
+            transition: 0.5s;
+        }
+
+        #reg {
+            color: rgb(218, 100, 241);
+            transition: 0.5s;
+        }
+    }
+}
