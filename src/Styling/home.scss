@@ -1,0 +1,38 @@
+.homeBlock {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 20px auto;
+    align-items: center;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 5.6em;
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    transition: 1s;
+    font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    .secondLine {
+        font-size: 1.4em;
+    }
+
+    .jobWord {
+        color: rgb(0, 81, 255);
+    }
+}
+
+p {
+    display: inline-block;
+    font-size: 2em;
+    padding: 40px;
+    font-weight: -300;
+    color: black;
+    line-height: 1.4;
+    margin-top: -50px;
+    font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
