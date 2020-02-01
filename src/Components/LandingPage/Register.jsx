@@ -5,6 +5,7 @@ import Error from '../../helpers/Error';
 import { registerUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
+import '../../Styling/register.scss';
 
 class Register extends Component {
   constructor(props) {
