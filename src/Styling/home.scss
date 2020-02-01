@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+.logo {
+    width: 500px;
+    margin-bottom: -50px;
+}
+
 .homeBlock {
     display: flex;
     flex-direction: column;
@@ -15,7 +22,7 @@ h1 {
     line-height: 1.1;
     letter-spacing: -2px;
     transition: 1s;
-    font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Oswald', sans-serif;
 
     .secondLine {
         font-size: 1.4em;
@@ -34,12 +41,12 @@ p {
     color: black;
     line-height: 1.4;
     margin-top: -50px;
-    font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .homeLinks {
     display: flex;
-    margin: -50px;
+    margin: -30px;
     align-items: center;
     
     .homeLink {
@@ -65,7 +72,7 @@ p {
             transition: 0.5s;
             font-size: 2.1em;
             line-height: 1.4;
-            font-family: Colfax, "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: 'Oswald', sans-serif;
         }
 
         #log {
