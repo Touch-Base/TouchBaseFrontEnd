@@ -5,6 +5,7 @@ import { navigate } from '@reach/router';
 import { Formik } from 'formik';
 import { loginUser } from '../../actions/index';
 import * as Yup from 'yup';
+import '../../Styling/login.scss';
 
 class Login extends Component {
     constructor(props) {
