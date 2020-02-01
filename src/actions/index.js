@@ -28,7 +28,7 @@ export function registerUser(payload) {
 
       dispatch({ type: REGISTERING_USER });
 
-      return axios.post(`https://steveo-server.herokuapp.com/api/users/register/`, payload)
+      return axios.post(`https://touch-base-server.herokuapp.com/api/users/register/`, payload)
         .then((response) => {
           dispatch({ type: REGISTERED_USER, payload: response.data });
 
@@ -53,7 +53,7 @@ export function loginUser(payload) {
 
       dispatch({ type: LOGGING_IN });
 
-      return axios.post(`https://steveo-server.herokuapp.com/api/users/login/`, payload)
+      return axios.post(`https://touch-base-server.herokuapp.com/api/users/login/`, payload)
         .then((response) => {
           console.log(response.data)
           dispatch({ type: LOGIN_SUCCESS, payload: response.data });
