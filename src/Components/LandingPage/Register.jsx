@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import '../scss/register.scss';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../helpers/Error';
 import { registerUser } from '../actions/index';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
-import AbsoluteWrapper from '../Components/AbsoluteWrapper';
 
 class Register extends Component {
   constructor(props) {

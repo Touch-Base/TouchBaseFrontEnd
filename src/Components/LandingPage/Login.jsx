@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import '../scss/login.scss';
-import AbsoluteWrapper from '../Components/AbsoluteWrapper';
 import Error from '../helpers/Error';
-import { loginUser } from '../actions/index';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
 import { Formik } from 'formik';
@@ -30,77 +27,75 @@ class Login extends Component {
 
     render() {
         return(
-        <AbsoluteWrapper>
-            <div className="login">
-                <h1>LOGIN</h1>
-                <a className="loginLink" href="/register">Don't have an account?</a>
-                {/* These initial values make up the values necessary to complete the form,
-                we update these values using Formik properties. */}
+        <div className="login">
+            <h1>LOGIN</h1>
+            <a className="loginLink" href="/register">Don't have an account?</a>
+            {/* These initial values make up the values necessary to complete the form,
+            we update these values using Formik properties. */}
 
-                <Formik 
-                    initialValues={{ 
-                        email: '', 
-                        password: ''
-                    }} 
-                        validationSchema={this.validationSchema}
-                        onSubmit={(values, {setSubmitting, resetForm}) => {
-                            setSubmitting(true);
+            <Formik 
+                initialValues={{ 
+                    email: '', 
+                    password: ''
+                }} 
+                    validationSchema={this.validationSchema}
+                    onSubmit={(values, {setSubmitting, resetForm}) => {
+                        setSubmitting(true);
 
-                            const { email, password } = values;
+                        const { email, password } = values;
 
-                            this.props.loginUser({
-                            "email": email,
-                            "password": password
-                        })
-                        // successful login prompts to main page 
+                        this.props.loginUser({
+                        "email": email,
+                        "password": password
+                    })
+                    // successful login prompts to main page 
 
-                        .then(() => {
-                            navigate('/dashboard/');
-                                
-                        })
-                        .catch((err) => {
-                            console.error(err)
-                        })
-                        }}
-                    >
-                        {({ 
-                            values, 
-                            errors, 
-                            touched, 
-                            handleChange, 
-                            handleBlur, 
-                            handleSubmit, 
-                            isSubmitting 
-                        }) => (
-                            <form onSubmit={handleSubmit} className="registerForm">
-                                <input 
-                                type="email" 
-                                id="email" 
-                                placeholder="EMAIL *" 
-                                name="email"
-                                onChange={handleChange}
-                                value={values.email}
-                                onBlur={handleBlur} 
-                                className={touched.email && errors.email ? "hasError" : "validInput"}
-                                />
-                                <Error touched={touched.email} message={errors.email} />
-                                <input 
-                                type="password" 
-                                id="password" 
-                                placeholder="PASSWORD *" 
-                                name="password"
-                                onChange={handleChange}
-                                value={values.password}
-                                onBlur={handleBlur} 
-                                className={touched.password && errors.password ? "hasError" : "validInput"}
-                                />
-                                <Error touched={touched.password} message={errors.password} />
-                                <button type="submit" disabled={isSubmitting}>LOGIN</button>
-                            </form>
-                    )}
-            </Formik>
-            </div>
-        </AbsoluteWrapper>
+                    .then(() => {
+                        navigate('/dashboard/');
+                            
+                    })
+                    .catch((err) => {
+                        console.error(err)
+                    })
+                    }}
+                >
+                    {({ 
+                        values, 
+                        errors, 
+                        touched, 
+                        handleChange, 
+                        handleBlur, 
+                        handleSubmit, 
+                        isSubmitting 
+                    }) => (
+                        <form onSubmit={handleSubmit} className="registerForm">
+                            <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="EMAIL *" 
+                            name="email"
+                            onChange={handleChange}
+                            value={values.email}
+                            onBlur={handleBlur} 
+                            className={touched.email && errors.email ? "hasError" : "validInput"}
+                            />
+                            <Error touched={touched.email} message={errors.email} />
+                            <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="PASSWORD *" 
+                            name="password"
+                            onChange={handleChange}
+                            value={values.password}
+                            onBlur={handleBlur} 
+                            className={touched.password && errors.password ? "hasError" : "validInput"}
+                            />
+                            <Error touched={touched.password} message={errors.password} />
+                            <button type="submit" disabled={isSubmitting}>LOGIN</button>
+                        </form>
+                )}
+        </Formik>
+        </div>
         )
     }
 }
