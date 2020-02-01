@@ -3,6 +3,7 @@ import Error from '../helpers/Error';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
 import { Formik } from 'formik';
+import { loginUser } from '../../actions/index';
 import * as Yup from 'yup';
 
 class Login extends Component {

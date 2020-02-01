@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../helpers/Error';
-import { registerUser } from '../actions/index';
+import { registerUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
 
@@ -40,121 +40,119 @@ validationSchema = Yup.object().shape({
 // This is the Sign Up form, using Formik
 render() {
   return (
-    <AbsoluteWrapper>
-      <div className="register">
-        <h1>SIGN UP</h1>
-        <a className="loginLink" href="/login">Already have an account?</a>
-        {/* These initial values make up the values necessary to complete the form,
-        we update these values using Formik properties. */}
+    <div className="register">
+      <h1>SIGN UP</h1>
+      <a className="loginLink" href="/login">Already have an account?</a>
+      {/* These initial values make up the values necessary to complete the form,
+      we update these values using Formik properties. */}
 
-        <Formik 
-          initialValues={{ 
-            firstName: '', 
-            lastName: '', 
-            email: '', 
-            password: '', 
-            confirmPassword: '' 
-          }} 
-          validationSchema={this.validationSchema}
-          onSubmit={(values, {setSubmitting, resetForm}) => {
-            setSubmitting(true);
+      <Formik 
+        initialValues={{ 
+          firstName: '', 
+          lastName: '', 
+          email: '', 
+          password: '', 
+          confirmPassword: '' 
+        }} 
+        validationSchema={this.validationSchema}
+        onSubmit={(values, {setSubmitting, resetForm}) => {
+          setSubmitting(true);
 
-            const { firstName, lastName, email, password } = values;
+          const { firstName, lastName, email, password } = values;
 
-            this.props.registerUser({
-              "firstname": firstName,
-              "lastname": lastName,
-              "email": email,
-              "password": password
-          })
-          // successful register prompts to main page 
+          this.props.registerUser({
+            "firstname": firstName,
+            "lastname": lastName,
+            "email": email,
+            "password": password
+        })
+        // successful register prompts to main page 
 
-          .then(() => {
-              navigate('/dashboard/');
-                
-          })
-          .catch((err) => {
-              console.error(err)
-          })
-          }}
-        >
-          {({ 
-            values, 
-            errors, 
-            touched, 
-            handleChange, 
-            handleBlur, 
-            handleSubmit, 
-            isSubmitting 
-          }) => (
-            <form onSubmit={handleSubmit} className="registerForm">
-              <div className="firstLast">
-                <div className="oneInput">
-                  <input 
-                    type="text" 
-                    id="firstName" 
-                    placeholder="FIRST NAME *" 
-                    name="firstName"
-                    onChange={handleChange}
-                    value={values.firstName}
-                    onBlur={handleBlur} 
-                    className={(touched.firstName && errors.firstName) ? "hasError" : "validInput"}
-                  />
-                  <Error touched={touched.firstName} message={errors.firstName} />
-                </div>
-                <div className="oneInput">
-                  <input 
-                    type="text" 
-                    id="lastName" 
-                    placeholder="LAST NAME *" 
-                    name="lastName"
-                    onChange={handleChange}
-                    value={values.lastName}
-                    onBlur={handleBlur} 
-                    className={touched.lastName && errors.lastName ? "hasError" : "validInput"}
-                  />
-                  <Error touched={touched.lastName} message={errors.lastName} />
-                </div>
+        .then(() => {
+            navigate('/dashboard/');
+              
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+        }}
+      >
+        {({ 
+          values, 
+          errors, 
+          touched, 
+          handleChange, 
+          handleBlur, 
+          handleSubmit, 
+          isSubmitting 
+        }) => (
+          <form onSubmit={handleSubmit} className="registerForm">
+            <div className="firstLast">
+              <div className="oneInput">
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  placeholder="FIRST NAME *" 
+                  name="firstName"
+                  onChange={handleChange}
+                  value={values.firstName}
+                  onBlur={handleBlur} 
+                  className={(touched.firstName && errors.firstName) ? "hasError" : "validInput"}
+                />
+                <Error touched={touched.firstName} message={errors.firstName} />
               </div>
+              <div className="oneInput">
                 <input 
-                  type="email" 
-                  id="email" 
-                  placeholder="EMAIL *" 
-                  name="email"
+                  type="text" 
+                  id="lastName" 
+                  placeholder="LAST NAME *" 
+                  name="lastName"
                   onChange={handleChange}
-                  value={values.email}
+                  value={values.lastName}
                   onBlur={handleBlur} 
-                  className={touched.email && errors.email ? "hasError" : "validInput"}
+                  className={touched.lastName && errors.lastName ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.email} message={errors.email} />
-                <input 
-                  type="password" 
-                  id="password" 
-                  placeholder="PASSWORD *" 
-                  name="password"
-                  onChange={handleChange}
-                  value={values.password}
-                  onBlur={handleBlur} 
-                  className={touched.password && errors.password ? "hasError" : "validInput"}
+                <Error touched={touched.lastName} message={errors.lastName} />
+              </div>
+            </div>
+              <input 
+                type="email" 
+                id="email" 
+                placeholder="EMAIL *" 
+                name="email"
+                onChange={handleChange}
+                value={values.email}
+                onBlur={handleBlur} 
+                className={touched.email && errors.email ? "hasError" : "validInput"}
+              />
+              <Error touched={touched.email} message={errors.email} />
+              <input 
+                type="password" 
+                id="password" 
+                placeholder="PASSWORD *" 
+                name="password"
+                onChange={handleChange}
+                value={values.password}
+                onBlur={handleBlur} 
+                className={touched.password && errors.password ? "hasError" : "validInput"}
+              />
+              <Error touched={touched.password} message={errors.password} />
+              <input 
+                type="password" 
+                id="confirmPassword" 
+                placeholder="CONFIRM PASSWORD *" 
+                name="confirmPassword"
+                onChange={handleChange}
+                value={values.confirmPassword}
+                onBlur={handleBlur} 
+                className={touched.confirmPassword && errors.confirmPassword ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.password} message={errors.password} />
-                <input 
-                  type="password" 
-                  id="confirmPassword" 
-                  placeholder="CONFIRM PASSWORD *" 
-                  name="confirmPassword"
-                  onChange={handleChange}
-                  value={values.confirmPassword}
-                  onBlur={handleBlur} 
-                  className={touched.confirmPassword && errors.confirmPassword ? "hasError" : "validInput"}
-                  />
-                  <Error touched={touched.confirmPassword} message={errors.confirmPassword} />
-              <button type="submit" disabled={isSubmitting}>REGISTER</button>
-            </form>
-          )}
-        </Formik>
-      </div>
-      </AbsoluteWrapper>
+                <Error touched={touched.confirmPassword} message={errors.confirmPassword} />
+            <button type="submit" disabled={isSubmitting}>REGISTER</button>
+          </form>
+        )}
+      </Formik>
+    </div>
   );
   }
 }
