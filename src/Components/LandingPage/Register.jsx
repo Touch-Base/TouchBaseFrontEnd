@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import Error from '../helpers/Error';
+import Error from '../../helpers/Error';
 import { registerUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
