@@ -12,12 +12,6 @@ export const LOGGING_IN = 'LOGGING_IN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const FAILED_LOGIN = 'FAILED_LOGIN';
 
-// export const ADD_LOCATION = 'ADD_LOCATION';
-// export const ADD_HOLES = 'ADD_HOLES';
-// export const ADD_PLAYERS = 'ADD_PLAYERS';
-// export const SCORES_STORE = 'SCORES_STORE';
-
-
 /// THIS ACTION REGISTERS A USER
 
 export function registerUser(payload) {
@@ -68,36 +62,3 @@ export function loginUser(payload) {
   
         }
 }
-
-// export function addLocation(location) {
-
-//   return dispatch => {
-
-//     dispatch({ type: ADD_LOCATION, payload: location })
-//   }
-// }
-
-// export function addHoles(holes) {
-
-//   return dispatch => {
-
-//     dispatch({ type: ADD_HOLES, payload: holes })
-//   }
-// }
-
-// export function addPlayers(players) {
-
-//   return dispatch => {
-
-//     dispatch({ type: ADD_PLAYERS, payload: players })
-//   }
-// }
-
-// export function scoresToStore(newPlayers) {
-
-//   return dispatch => {
-
-//     dispatch({ type: ADD_PLAYERS, payload: newPlayers })
-//   }
-// }
-
