@@ -1,12 +1,27 @@
-// Colfax Font
-@font-face {font-family: "Colfax"; src: url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.eot"); src: url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.woff") format("woff"), url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/79d3d0edf8779b35f874cf201ae9d29c.svg#Colfax") format("svg"); }
+.topBar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid rgb(223, 223, 223);
+
+    img {
+        width: 100px;
+        transition: 0.5;
+        opacity: 0.8;
+    }
+
+    img:hover {
+        opacity: 1;
+        transition: 0.5;
+    }
+}
 
 nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 30px;
-    border-bottom: 1px solid rgb(223, 223, 223);
+    width: 70%;
 
     a {
         font-size: 1.6em;
