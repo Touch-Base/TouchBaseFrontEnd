@@ -8,15 +8,11 @@ function Overview(props) {
         <div className="overviewPage">
             <h1>Welcome {props.firstname}!</h1>
             <p>
-                Lorem Ipsum is simply dummy text 
-                of the printing and typesetting 
-                industry. Lorem Ipsum has been the 
-                industry's standard dummy text ever 
-                since the 1500s, when an unknown 
-                printer took a galley of type and 
-                scrambled it to make a type specimen 
-                book. It has survived not only five centuries, 
-                but also the leap
+                Take a load off of your job search with TouchBase, 
+                the best tool for organizing your career development. 
+                Add and search through jobs you've applied to, and
+                make optimal use of the connections you've made along the way.
+                TouchBase brings you closer to that final offer letter.
             </p>
             <div className="jobsAndConnections">
                 <div className="jobsCount">
