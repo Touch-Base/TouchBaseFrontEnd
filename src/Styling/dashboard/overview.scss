@@ -1,0 +1,31 @@
+.overviewPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        width: 60%;
+    }
+
+    .jobsAndConnections {
+        display: flex;  
+        margin-top: -50px; 
+        
+        .jobsCount {
+            display: flex;
+            border: solid red 2px;
+        }
+
+        .numberOne {
+            font-size: 3em;
+            color: red;
+        }
+        
+        h2 {
+            padding: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5em;
+        }
+    }
+}

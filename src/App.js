@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <LandingPage path="/">>
+        <LandingPage path="/">
           <Home path="/" />
           <Register path="register" />
           <Login path="login" />
