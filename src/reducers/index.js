@@ -20,11 +20,11 @@ let initialState = {
 
 // /* persistent storage */
 
-// // const persistedState = localStorage.getItem('reduxState');
+const persistedState = localStorage.getItem('reduxState');
 
-// // if (persistedState) {
-// //     initialState = JSON.parse(persistedState)
-// // }
+if (persistedState) {
+    initialState = JSON.parse(persistedState)
+}
 
 // /* reducer */
 

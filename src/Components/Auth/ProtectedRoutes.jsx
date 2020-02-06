@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Redirect } from '@reach/router';
 import Dashboard from '../Dashboard/Dashboard';
 import Overview from '../Dashboard/Overview';
+import Profile from '../Dashboard/Profile';
 
 function ProtectedRoutes() {
     // eslint-disable-next-line consistent-return
@@ -25,6 +26,7 @@ function ProtectedRoutes() {
         <Router>
           <Dashboard path="/">
             <Overview path="/" />
+            <Profile path="/profile" />
           </Dashboard>
         </Router>
       );
