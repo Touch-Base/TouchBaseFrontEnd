@@ -8,18 +8,47 @@
         width: 60%;
     }
 
+    button {
+        margin-top: 30px;
+        font-size: 1.5em;
+        font-family: 'Oswald', sans-serif;
+        background: none;
+        padding: 10px 40px;
+        border: solid black 2px;
+        border-radius: 4px;
+        transition: 0.5s;
+    }
+
+    button:hover {
+        transition: 0.5s;
+        padding: 5px 20px;
+        border: solid red 2px;
+        
+    }
+
     .jobsAndConnections {
         display: flex;  
         margin-top: -50px; 
+        height: 100px;
         
         .jobsCount {
             display: flex;
-            border: solid red 2px;
+            align-items: center;
+        }
+
+        .connectionsCount {
+            display: flex;
+            align-items: center;
         }
 
         .numberOne {
-            font-size: 3em;
+            font-size: 5em;
             color: red;
+        }
+
+        .numberTwo {
+            font-size: 5em;
+            color: blue;
         }
         
         h2 {
