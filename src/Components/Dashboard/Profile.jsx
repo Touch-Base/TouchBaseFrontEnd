@@ -24,13 +24,11 @@ function Profile(props) {
         email: Yup.string()
         .email("Must be a valid email address")
         .required("Must enter an email"),
-        age: Yup.number()
-        .max(3, "Must be a valid age"),
         location: Yup.string()
         .max(20, "Must be shorter than 20"),
         position: Yup.string()
         .max(20, "Must be shorter than 20"),
-        about: Yup.string()
+        summary: Yup.string()
         .max(1000, "Must be under 1000 characters.")
         })
 
@@ -42,7 +40,7 @@ function Profile(props) {
                 <h2>Age: {props.age}</h2>
                 <h2>Location: {props.location}</h2>
                 <h2>Position: {props.position}</h2>
-                <h2>About: {props.about}</h2>
+                <h2>Summary: {props.summary}</h2>
             </div>
             
     {/* These initial values make up the values necessary to complete the form,
@@ -56,22 +54,27 @@ function Profile(props) {
           age: props.age,
           location: props.location,
           position: props.position,
-          about: props.about
+          summary: props.summary
         }} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
-          const { firstname, lastname, email, age, location, about } = values;
+          const { firstname, lastname, email, age, location, summary } = values;
+          const token = localStorage.getItem('token')
 
-          this.props.updateUser({
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
-            age: age,
-            location: location,
-            about: about
-        })
+          props.updateUser({
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                age: age,
+                location: location,
+                summary: summary
+            },
+            {
+                headers: { Authorization: token }
+            }
+        )
 
         // successful user update 
         .then(() => {
@@ -79,7 +82,7 @@ function Profile(props) {
               
         })
         .catch((err) => {
-            console.error(err)
+            console.error("Here", err)
         })
         }}
       >
@@ -184,19 +187,19 @@ function Profile(props) {
                 <Error touched={touched.position} message={errors.position} />
               </div>
 
-              {/* ABOUT INPUT */}
+              {/* SUMMARY INPUT */}
               <div className="userInput">
                 <input 
                   type="text" 
-                  id="about" 
-                  placeholder={props.about}
-                  name="about"
+                  id="summary" 
+                  placeholder={props.summary}
+                  name="summary"
                   onChange={handleChange}
-                  value={values.about}
+                  value={values.summary}
                   onBlur={handleBlur} 
-                  className={(touched.about && errors.about) ? "hasError" : "validInput"}
+                  className={(touched.summary && errors.summary) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.about} message={errors.about} />
+                <Error touched={touched.summary} message={errors.summary} />
               </div>
 
 
@@ -218,7 +221,7 @@ const mapStateToProps = (state) => {
         age: state.user.age,
         location: state.user.location,
         position: state.user.position,
-        about: state.user.about
+        summary: state.user.summary
     }
   }
 

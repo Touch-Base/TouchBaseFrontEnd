@@ -29,6 +29,7 @@ export function registerUser(payload) {
 
       return axios.post(`https://touch-base-server.herokuapp.com/api/users/register/`, payload)
         .then((response) => {
+
           dispatch({ type: REGISTERED_USER, payload: response.data });
 
           localStorage.setItem('token', response.data.token);

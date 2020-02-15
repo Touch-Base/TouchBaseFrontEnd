@@ -19,7 +19,7 @@ let initialState = {
         password: '',
         age: '',
         location: '',
-        about: '',
+        summary: '',
         position: ''
         },
     token: '',
@@ -116,7 +116,7 @@ const reducer = (state = initialState, action) => {
                     age: action.payload.user.age,
                     location: action.payload.user.location,
                     position: action.payload.user.position,
-                    about: action.payload.user.about
+                    summary: action.payload.user.summary
                 }
             }
         }
