@@ -4,7 +4,10 @@ import {
     FAILED_REGISTER,
     LOGGING_IN,
     LOGIN_SUCCESS,
-    FAILED_LOGIN
+    FAILED_LOGIN,
+    UPDATING_USER,
+    USER_UPDATE_SUCCESS,
+    FAILED_USER_UPDATE
 } from '../actions/index';
 
 
@@ -14,6 +17,10 @@ let initialState = {
         lastname: '',
         email: '',
         password: '',
+        age: '',
+        location: '',
+        about: '',
+        position: ''
         },
     token: '',
 }
@@ -49,9 +56,6 @@ const reducer = (state = initialState, action) => {
                     email: action.payload.user.email,
                     password: action.payload.user.password
                 },
-                game: {
-                    ...state.game
-                },
                 token: action.payload.token
             }
         }
@@ -81,14 +85,43 @@ const reducer = (state = initialState, action) => {
                     email: action.payload.user.email,
                     password: action.payload.user.password
                 },
-                game: {
-                    ...state.game
-                },
                 token: action.payload.token
             }
         }
 
         case FAILED_LOGIN: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// UPDATING USER CASES
+
+        case UPDATING_USER: {
+            return {
+                ...state
+            }
+        }
+
+        case USER_UPDATE_SUCCESS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    firstname: action.payload.user.firstname,
+                    lastname: action.payload.user.lastname,
+                    email: action.payload.user.email,
+                    password: action.payload.user.password,
+                    age: action.payload.user.age,
+                    location: action.payload.user.location,
+                    position: action.payload.user.position,
+                    about: action.payload.user.about
+                }
+            }
+        }
+
+        case FAILED_USER_UPDATE: {
             return {
                 ...state,
                 error: action.payload.error

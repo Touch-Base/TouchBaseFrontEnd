@@ -12,6 +12,11 @@ export const LOGGING_IN = 'LOGGING_IN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const FAILED_LOGIN = 'FAILED_LOGIN';
 
+// UPDATING A USER
+export const UPDATING_USER = 'UPDATING_USER';
+export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
+export const FAILED_USER_UPDATE = 'FAILED_USER_UPDATE';
+
 /// THIS ACTION REGISTERS A USER
 
 export function registerUser(payload) {
@@ -61,4 +66,29 @@ export function loginUser(payload) {
         })
   
         }
+}
+
+
+/// THIS ACTION UPDATES A USER
+
+export function updateUser(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: UPDATING_USER });
+
+    return axios.put(`https://touch-base-server.herokuapp.com/api/users/update/`, payload)
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: USER_UPDATE_SUCCESS, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_USER_UPDATE, payload: error })
+      })
+
+      }
 }
