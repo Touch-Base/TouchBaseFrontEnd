@@ -1,15 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
-import Job from './Job.jsx';
+// import JobCard from './JobCard';
+import axios from 'axios';
 
 function Jobs(props) {
 
+    const getJobs = event => {
+      event.preventDefault();
+
+      axios.get('https://touch-base-server.herokuapp.com/api/jobs/getall', {
+        headers: {
+          Authorization: localStorage.getItem('token')
+        }})
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }	
+
     return(
         <div className="jobsPage">
-          {props.jobs.map(job => {
-            return <Job job={job} />
-           })}
+          <button onClick={getJobs}>get jobs</button>
+          {/* {props.jobs.map(job => {
+            return <JobCard job={job} />
+           })} */}
         </div>
         )
     }

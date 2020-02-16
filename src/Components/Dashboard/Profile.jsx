@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import '../../Styling/dashboard/profile.scss'
 import { Formik } from 'formik';
 import * as Yup from 'yup';

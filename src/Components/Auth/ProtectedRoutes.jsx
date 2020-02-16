@@ -3,6 +3,7 @@ import { Router, Redirect } from '@reach/router';
 import Dashboard from '../Dashboard/Dashboard';
 import Overview from '../Dashboard/Overview';
 import Profile from '../Dashboard/Profile';
+import Jobs from '../Dashboard/Jobs';
 
 function ProtectedRoutes() {
     // eslint-disable-next-line consistent-return
@@ -27,6 +28,7 @@ function ProtectedRoutes() {
           <Dashboard path="/">
             <Overview path="/" />
             <Profile path="/profile" />
+            <Jobs path="/jobs" />
           </Dashboard>
         </Router>
       );
