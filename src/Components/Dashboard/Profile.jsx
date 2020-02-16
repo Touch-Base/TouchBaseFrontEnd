@@ -33,18 +33,6 @@ function Profile(props) {
         .max(1000, "Must be under 1000 characters.")
         })
 
-    const getUser = event => {
-      event.preventDefault();
-
-      axios.get(`https://touch-base-server.herokuapp.com/api/users/useremail/`)
-        .then(res => {
-          console.log(res.data)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
-
     return(
         <div className="profilePage">
             <div className="profileBlock">
@@ -222,7 +210,6 @@ function Profile(props) {
           </form>
         )}
       </Formik>
-      <button onClick={getUser}>get user</button>
     </div>
         )
     }
