@@ -206,7 +206,7 @@ function Profile(props) {
               </div>
 
 
-              <button type="submit" disabled={isSubmitting}>UPDATE USER</button>
+              <button type="submit">UPDATE USER</button>
           </form>
         )}
       </Formik>

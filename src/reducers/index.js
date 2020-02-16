@@ -83,7 +83,11 @@ const reducer = (state = initialState, action) => {
                     firstname: action.payload.user.firstname,
                     lastname: action.payload.user.lastname,
                     email: action.payload.user.email,
-                    password: action.payload.user.password
+                    password: action.payload.user.password,
+                    age: action.payload.user.age,
+                    location: action.payload.user.location,
+                    position: action.payload.user.position,
+                    summary: action.payload.user.summary
                 },
                 token: action.payload.token
             }
