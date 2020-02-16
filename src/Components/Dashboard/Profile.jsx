@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import '../../Styling/dashboard/profile.scss'
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -27,10 +28,22 @@ function Profile(props) {
         location: Yup.string()
         .max(20, "Must be shorter than 20"),
         position: Yup.string()
-        .max(20, "Must be shorter than 20"),
+        .max(30, "Must be shorter than 30"),
         summary: Yup.string()
         .max(1000, "Must be under 1000 characters.")
         })
+
+    const getUser = event => {
+      event.preventDefault();
+
+      axios.get(`https://touch-base-server.herokuapp.com/api/users/useremail/`)
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
 
     return(
         <div className="profilePage">
@@ -60,8 +73,10 @@ function Profile(props) {
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
-          const { firstname, lastname, email, age, location, summary } = values;
-          const token = localStorage.getItem('token')
+          const { firstname, lastname, email, age, location, position, summary } = values;
+          const headers = {
+            Authorization: localStorage.getItem('token'),
+          }
 
           props.updateUser({
                 firstname: firstname,
@@ -69,11 +84,10 @@ function Profile(props) {
                 email: email,
                 age: age,
                 location: location,
-                summary: summary
+                summary: summary,
+                position: position
             },
-            {
-                headers: { Authorization: token }
-            }
+            headers
         )
 
         // successful user update 
@@ -207,6 +221,7 @@ function Profile(props) {
           </form>
         )}
       </Formik>
+      <button onClick={getUser}>get user</button>
     </div>
         )
     }

@@ -79,8 +79,12 @@ export function updateUser(payload) {
   return dispatch => {
 
     dispatch({ type: UPDATING_USER });
+    console.log(payload)
 
-    return axios.put(`https://touch-base-server.herokuapp.com/api/users/update/`, payload)
+    return axios.put(`https://touch-base-server.herokuapp.com/api/users/update/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
       .then((response) => {
         console.log(response.data)
         dispatch({ type: USER_UPDATE_SUCCESS, payload: response.data });
