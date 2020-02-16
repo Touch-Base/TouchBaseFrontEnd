@@ -60,6 +60,7 @@ function Profile(props) {
       we update these values using Formik properties. */}
 
       <Formik 
+        enableReinitialize
         initialValues={{ 
           firstname: props.firstname, 
           lastname: props.lastname, 
