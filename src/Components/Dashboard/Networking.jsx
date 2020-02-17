@@ -1,19 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../Styling/dashboard/jobs.scss'
-// import JobCard from './JobCard';
-import JobForm from './JobForm';
-import JobCard from './JobCard';
-import axios from 'axios';
+import '../../Styling/dashboard/networking.scss'
 
-function Jobs(props) {
+
+function Networking(props) {
 
     return(
-        <div className="jobsPage">
-           <JobForm />
-           {props.jobs.map(job => {
-            return <JobCard job={job} />
-           })}
+        <div className="networkingPage">
+            networking page
         </div>
         )
     }
@@ -32,5 +26,5 @@ const mapStateToProps = (state) => {
     connect(
         mapStateToProps,
         null
-    )(Jobs)
+    )(Networking)
   );

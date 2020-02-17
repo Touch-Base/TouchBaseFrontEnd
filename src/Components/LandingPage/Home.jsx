@@ -12,11 +12,11 @@ function Home() {
         </h1>
         <div className="homeLinks">
             <div className="homeLink">
-                <i class="fas fa-clipboard-list"></i>
+                <i className="fas fa-clipboard-list"></i>
                 <a id="reg" href="/register">Register</a>
             </div>
             <div className="homeLink">
-                <i class="fas fa-arrow-circle-down"></i>
+                <i className="fas fa-arrow-circle-down"></i>
                 <a id="log" href="/login">Login</a>
             </div>
         </div>

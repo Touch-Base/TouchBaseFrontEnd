@@ -2,9 +2,28 @@ import {
     REGISTERING_USER,
     REGISTERED_USER,
     FAILED_REGISTER,
+
     LOGGING_IN,
     LOGIN_SUCCESS,
-    FAILED_LOGIN
+    FAILED_LOGIN,
+
+    UPDATING_USER,
+    USER_UPDATE_SUCCESS,
+    FAILED_USER_UPDATE,
+
+    ////////////
+    ADDING_JOB,
+    ADDED_JOB,
+    FAILED_ADD_JOB,
+
+    UPDATING_JOB,
+    UPDATED_JOB,
+    FAILED_UPDATE_JOB,
+
+    ////////////
+    FILLING_STATE_JOBS,
+    FILLED_JOBS,
+    FAILED_FILLED_JOBS
 } from '../actions/index';
 
 
@@ -14,6 +33,11 @@ let initialState = {
         lastname: '',
         email: '',
         password: '',
+        age: '',
+        location: '',
+        summary: '',
+        position: '',
+        jobs: ''
         },
     token: '',
 }
@@ -49,9 +73,6 @@ const reducer = (state = initialState, action) => {
                     email: action.payload.user.email,
                     password: action.payload.user.password
                 },
-                game: {
-                    ...state.game
-                },
                 token: action.payload.token
             }
         }
@@ -79,16 +100,99 @@ const reducer = (state = initialState, action) => {
                     firstname: action.payload.user.firstname,
                     lastname: action.payload.user.lastname,
                     email: action.payload.user.email,
-                    password: action.payload.user.password
-                },
-                game: {
-                    ...state.game
+                    password: action.payload.user.password,
+                    age: action.payload.user.age,
+                    location: action.payload.user.location,
+                    position: action.payload.user.position,
+                    summary: action.payload.user.summary
                 },
                 token: action.payload.token
             }
         }
 
         case FAILED_LOGIN: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// UPDATING USER CASES
+
+        case UPDATING_USER: {
+            return {
+                ...state
+            }
+        }
+
+        case USER_UPDATE_SUCCESS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    firstname: action.payload.user.firstname,
+                    lastname: action.payload.user.lastname,
+                    email: action.payload.user.email,
+                    password: action.payload.user.password,
+                    age: action.payload.user.age,
+                    location: action.payload.user.location,
+                    position: action.payload.user.position,
+                    summary: action.payload.user.summary
+                }
+            }
+        }
+
+        case FAILED_USER_UPDATE: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+        
+        /// FILL STATE WITH JOBS, CONNECTIONS, EVENTS
+
+        case FILLING_STATE_JOBS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_JOBS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: action.payload.allJobs
+                }
+            }
+        }
+
+        case FAILED_FILLED_JOBS: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// ADDING JOB CASES
+
+        case ADDING_JOB: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_JOB: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: action.payload.allJobs
+                }
+            }
+        }
+
+        case FAILED_ADD_JOB: {
             return {
                 ...state,
                 error: action.payload.error
