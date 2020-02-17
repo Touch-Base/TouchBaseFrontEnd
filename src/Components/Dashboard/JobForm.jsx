@@ -50,26 +50,23 @@ const validationSchema = Yup.object().shape({
 
           const { position, company, link, method, appDate, notes, interview } = values;
 
-          console.log(values)
-        //   props.addJob({
-        //         position: position,
-        //         company: company,
-        //         link: link,
-        //         method: method,
-        //         appDate: appDate,
-        //         notes: notes,
-        //         interview: interview
-        //     }
-        // )
-
-        // successful job added
-        // .then(() => {
-        //     console.log("added job!")
+          props.addJob({
+                position: position,
+                company: company,
+                link: link,
+                method: method,
+                appDate: appDate,
+                notes: notes,
+                interview: interview
+            }
+        )
+        .then(() => {
+            console.log("added job!")
               
-        // })
-        // .catch((err) => {
-        //     console.error("Here", err)
-        // })
+        })
+        .catch((err) => {
+            console.error("Here", err)
+        })
         }}
       >
         {({ 
@@ -205,7 +202,9 @@ const validationSchema = Yup.object().shape({
     )
 }
 
-
+const mapDispatchToProps = {
+    addJob: addJob
+}
 
 
 const mapStateToProps = (state) => {
@@ -220,6 +219,6 @@ const mapStateToProps = (state) => {
 export default(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(JobForm)
   );

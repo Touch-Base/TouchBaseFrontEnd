@@ -17,6 +17,11 @@ export const UPDATING_USER = 'UPDATING_USER';
 export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
 export const FAILED_USER_UPDATE = 'FAILED_USER_UPDATE';
 
+// ADDING A JOB
+export const ADDING_JOB = 'ADDING_JOB';
+export const ADDED_JOB = 'ADDED_JOB';
+export const FAILED_ADD_JOB = 'FAILED_ADD_JOB';
+
 /// THIS ACTION REGISTERS A USER
 
 export function registerUser(payload) {
@@ -93,6 +98,33 @@ export function updateUser(payload) {
       .catch((error) => {
         console.log(error)
         dispatch({ type: FAILED_USER_UPDATE, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION ADDS A JOB FOR A USER
+
+export function addJob(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: ADDING_JOB });
+
+    return axios.post(`https://touch-base-server.herokuapp.com/api/jobs/add/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: ADDED_JOB, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_ADD_JOB, payload: error })
       })
 
       }

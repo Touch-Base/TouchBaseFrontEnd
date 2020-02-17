@@ -7,7 +7,10 @@ import {
     FAILED_LOGIN,
     UPDATING_USER,
     USER_UPDATE_SUCCESS,
-    FAILED_USER_UPDATE
+    FAILED_USER_UPDATE,
+    ADDING_JOB,
+    ADDED_JOB,
+    FAILED_ADD_JOB
 } from '../actions/index';
 
 
@@ -20,7 +23,8 @@ let initialState = {
         age: '',
         location: '',
         summary: '',
-        position: ''
+        position: '',
+        jobs: ''
         },
     token: '',
 }
@@ -126,6 +130,31 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_USER_UPDATE: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// ADDING JOB CASES
+
+        case ADDING_JOB: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_JOB: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: action.payload.allJobs
+                }
+            }
+        }
+
+        case FAILED_ADD_JOB: {
             return {
                 ...state,
                 error: action.payload.error
