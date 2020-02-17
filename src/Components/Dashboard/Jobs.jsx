@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 // import JobCard from './JobCard';
+import JobForm from './JobForm';
 import axios from 'axios';
 
 function Jobs(props) {
@@ -27,6 +28,8 @@ function Jobs(props) {
           {/* {props.jobs.map(job => {
             return <JobCard job={job} />
            })} */}
+
+           <JobForm />
         </div>
         )
     }
