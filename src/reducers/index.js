@@ -2,15 +2,28 @@ import {
     REGISTERING_USER,
     REGISTERED_USER,
     FAILED_REGISTER,
+
     LOGGING_IN,
     LOGIN_SUCCESS,
     FAILED_LOGIN,
+
     UPDATING_USER,
     USER_UPDATE_SUCCESS,
     FAILED_USER_UPDATE,
+
+    ////////////
     ADDING_JOB,
     ADDED_JOB,
-    FAILED_ADD_JOB
+    FAILED_ADD_JOB,
+
+    UPDATING_JOB,
+    UPDATED_JOB,
+    FAILED_UPDATE_JOB,
+
+    ////////////
+    FILLING_STATE_JOBS,
+    FILLED_JOBS,
+    FAILED_FILLED_JOBS
 } from '../actions/index';
 
 
@@ -130,6 +143,31 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_USER_UPDATE: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+        
+        /// FILL STATE WITH JOBS, CONNECTIONS, EVENTS
+
+        case FILLING_STATE_JOBS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_JOBS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: action.payload.allJobs
+                }
+            }
+        }
+
+        case FAILED_FILLED_JOBS: {
             return {
                 ...state,
                 error: action.payload.error

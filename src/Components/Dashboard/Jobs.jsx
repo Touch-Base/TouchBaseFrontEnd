@@ -8,24 +8,8 @@ import axios from 'axios';
 
 function Jobs(props) {
 
-    const getJobs = event => {
-      event.preventDefault();
-
-      axios.get('https://touch-base-server.herokuapp.com/api/jobs/getall', {
-        headers: {
-          Authorization: localStorage.getItem('token')
-        }})
-        .then(res => {
-          console.log(res.data)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }	
-
     return(
         <div className="jobsPage">
-          <button onClick={getJobs}>get jobs</button>
            <JobForm />
            {props.jobs.map(job => {
             return <JobCard job={job} />
@@ -33,6 +17,7 @@ function Jobs(props) {
         </div>
         )
     }
+
 
 const mapStateToProps = (state) => {
     return {

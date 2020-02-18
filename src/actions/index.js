@@ -2,6 +2,8 @@ import axios from 'axios';
 
 // export action types
 
+      //////////////// USER \\\\\\\\\\\\\\\\\ 
+
 // REGISTERING A USER
 export const REGISTERING_USER = 'REGISTERING_USER';
 export const REGISTERED_USER = 'REGISTERED_USER';
@@ -17,10 +19,27 @@ export const UPDATING_USER = 'UPDATING_USER';
 export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
 export const FAILED_USER_UPDATE = 'FAILED_USER_UPDATE';
 
+
+  //////////////// FILLING STATE  \\\\\\\\\\\\\\\\\ 
+
+// FILLING THE STATE WITH THE JOBS, CONNECTIONS,EVENTS
+export const FILLING_STATE_JOBS = 'FILLING_STATE_JOBS';
+export const FILLED_JOBS = 'FILLED_JOBS';
+export const FAILED_FILLED_JOBS = 'FAILED_FILLED_JOBS'
+
+        //////////////// JOBS  \\\\\\\\\\\\\\\\\ 
+
 // ADDING A JOB
 export const ADDING_JOB = 'ADDING_JOB';
 export const ADDED_JOB = 'ADDED_JOB';
 export const FAILED_ADD_JOB = 'FAILED_ADD_JOB';
+
+// UPDATING A JOB
+export const UPDATING_JOB = 'UPDATING_JOB';
+export const UPDATED_JOB = 'UPDATED_JOB';
+export const FAILED_UPDATE_JOB = 'FAILED_UPDATE_JOB';
+
+
 
 /// THIS ACTION REGISTERS A USER
 
@@ -125,6 +144,61 @@ export function addJob(payload) {
       .catch((error) => {
         console.log(error)
         dispatch({ type: FAILED_ADD_JOB, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION UPDATES A JOB FOR A USER
+
+export function editJob(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: UPDATING_JOB });
+
+    return axios.put(`https://touch-base-server.herokuapp.com/api/jobs/update/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: UPDATED_JOB, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_UPDATE_JOB, payload: error })
+      })
+
+      }
+}
+
+/// FILL STATE WITH JOBS
+
+export function fillStateJobs() {
+
+  return dispatch => {
+
+    const token = localStorage.getItem('token')
+    dispatch({ type: FILLING_STATE_JOBS });
+
+    /// GETTING JOBS 
+
+    return axios.get('https://touch-base-server.herokuapp.com/api/jobs/getall', {
+      headers: {
+        Authorization: token
+      }})
+      .then(response => {
+        console.log(response.data)
+        dispatch({ type: FILLED_JOBS, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_FILLED_JOBS, payload: error })
       })
 
       }
