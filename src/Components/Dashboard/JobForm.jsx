@@ -4,7 +4,6 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/jobs.scss';
-import axios from 'axios';
 import { addJob } from '../../actions/index';
 
 function JobForm(props) {
