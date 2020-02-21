@@ -19,6 +19,11 @@ import {
     UPDATING_JOB,
     UPDATED_JOB,
     FAILED_UPDATE_JOB,
+    
+    ////////////
+    ADDING_CONNECTION,
+    ADDED_CONNECTION,
+    FAILED_ADD_CONNECTION,
 
     ////////////
     FILLING_STATE_JOBS,
@@ -249,6 +254,31 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_JOB: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+         /// ADDING CONNECTION CASES
+
+        case ADDING_CONNECTION: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_CONNECTION: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connections: action.payload.allConnections
+                }
+            }
+        }
+
+        case FAILED_ADD_CONNECTION: {
             return {
                 ...state,
                 error: action.payload.error
