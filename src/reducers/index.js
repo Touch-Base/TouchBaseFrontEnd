@@ -23,7 +23,15 @@ import {
     ////////////
     FILLING_STATE_JOBS,
     FILLED_JOBS,
-    FAILED_FILLED_JOBS
+    FAILED_FILLED_JOBS,
+    
+    FILLING_STATE_CONNECTIONS,
+    FILLED_CONNECTIONS,
+    FAILED_FILLED_CONNECTIONS,
+    
+    FILLING_STATE_EVENTS,
+    FILLED_EVENTS,
+    FAILED_FILLED_EVENTS
 } from '../actions/index';
 
 
@@ -168,6 +176,52 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_FILLED_JOBS: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+        case FILLING_STATE_CONNECTIONS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_CONNECTIONS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connections: action.payload.allConnections
+                }
+            }
+        }
+
+        case FAILED_FILLED_CONNECTIONS: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+        case FILLING_STATE_EVENTS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_EVENTS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: action.payload.allEvents
+                }
+            }
+        }
+
+        case FAILED_FILLED_EVENTS: {
             return {
                 ...state,
                 error: action.payload.error
