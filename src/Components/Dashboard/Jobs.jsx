@@ -8,21 +8,26 @@ import axios from 'axios';
 
 function Jobs(props) {
     
-    const [ switch, toggleSwitch ] = useState(false);
+    let jobOrganizer = 'table'
+    let toggleColor = 'blue'
+    let organizeType = 'TABLE'
+
+    const [ tswitch, toggleSwitch ] = useState(false);
     
-    if (switch) {
-        let jobOrganizer = 'table'
-        let toggleColor = 'blue'
-        let organizeType = 'TABLE'
+    if (tswitch === false) {
+        return null
+    }
     else {
         let jobOrganizer = 'blocks'
         let toggleColor = 'purple'
         let organizeType = 'BLOCKS'
+    }
         
     const changeCards = event => {
         event.preventDefault();
         
-        toggleSwitch(!switch);
+        toggleSwitch(!tswitch);
+    }
 
     return(
         <div className={jobOrganizer}>

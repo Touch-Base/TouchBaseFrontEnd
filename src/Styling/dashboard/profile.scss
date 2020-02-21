@@ -3,4 +3,13 @@
     height: 500px;
     border: solid red 2px;
     margin: 0 auto;
+
+    .profileBlock {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
 }

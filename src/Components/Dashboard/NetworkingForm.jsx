@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
-import '../../Styling/dashboard/connections.scss';
+import '../../Styling/dashboard/networking.scss';
 import { addConnection } from '../../actions/index';
 
 function ConnectionForm(props) {
@@ -30,9 +30,9 @@ const validationSchema = Yup.object().shape({
     .max(20, "Must be shorter than 20")
     .required("Must enter a company"),
     phone: Yup.string()
-    .max(20, "Must be shorter than 20")
+    .max(20, "Must be shorter than 20"),
     email: Yup.string()
-    .max(20, "Must be shorter than 20")
+    .max(20, "Must be shorter than 20"),
     notes: Yup.string()
     .max(1000, "Must be under 1000 characters.")
     })
@@ -60,7 +60,7 @@ const validationSchema = Yup.object().shape({
                 lastname: lastname,
                 title: title,
                 company: company,
-                phone: phone
+                phone: phone,
                 email: email,
                 notes: notes
             }
