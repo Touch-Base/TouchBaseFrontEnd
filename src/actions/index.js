@@ -47,6 +47,13 @@ export const UPDATING_JOB = 'UPDATING_JOB';
 export const UPDATED_JOB = 'UPDATED_JOB';
 export const FAILED_UPDATE_JOB = 'FAILED_UPDATE_JOB';
 
+    //////////////// CONNECTIONS  \\\\\\\\\\\\\\\\\ 
+
+// ADDING A CONNECTION
+export const ADDING_CONNECTION = 'ADDING_CONNECTION';
+export const ADDED_CONNECTION = 'ADDED_CONNECTION';
+export const FAILED_ADD_CONNECTION = 'FAILED_ADD_CONNECTION';
+
 
 
 /// THIS ACTION REGISTERS A USER
@@ -179,6 +186,33 @@ export function editJob(payload) {
       .catch((error) => {
         console.log(error)
         dispatch({ type: FAILED_UPDATE_JOB, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION ADDS A CONNECTION FOR A USER
+
+export function addConnection(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: ADDING_CONNECTION });
+
+    return axios.post(`https://touch-base-server.herokuapp.com/api/connection/add/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: ADDED_CONNECTION, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_ADD_CONNECTION, payload: error })
       })
 
       }
