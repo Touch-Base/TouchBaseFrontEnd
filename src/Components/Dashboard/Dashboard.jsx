@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import DashboardNav from './DashboardNav';
-import { fillStateJobs } from '../../actions/index';
+import { fillStateJobs, fillStateConnections, fillStateEvents } from '../../actions/index';
 import '../../Styling/dashboard/dashboard.scss';
 
 
@@ -10,6 +10,8 @@ function Dashboard(props) {
     useEffect(() => {
         // code to run on component mount
         props.fillStateJobs();
+        props.fillStateConnections();
+        props.fillStateEvents();
         console.log('adding everything')
       }, [])
 
@@ -24,7 +26,9 @@ function Dashboard(props) {
     }
 
 const mapDispatchToProps = {
-    fillStateJobs: fillStateJobs
+    fillStateJobs: fillStateJobs,
+    fillStateConnections: fillStateConnections,
+    fillStateEvents: fillStateEvents
     }
 
 const mapStateToProps = (state) => {
