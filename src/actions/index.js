@@ -54,6 +54,14 @@ export const ADDING_CONNECTION = 'ADDING_CONNECTION';
 export const ADDED_CONNECTION = 'ADDED_CONNECTION';
 export const FAILED_ADD_CONNECTION = 'FAILED_ADD_CONNECTION';
 
+    //////////////// EVENTS  \\\\\\\\\\\\\\\\\ 
+
+// ADDING AN EVENT
+export const ADDING_EVENT = 'ADDING_EVENT';
+export const ADDED_EVENT = 'ADDED_EVENT';
+export const FAILED_ADD_EVENT = 'FAILED_ADD_EVENT';
+
+
 
 
 /// THIS ACTION REGISTERS A USER
@@ -201,7 +209,7 @@ export function addConnection(payload) {
 
     dispatch({ type: ADDING_CONNECTION });
 
-    return axios.post(`https://touch-base-server.herokuapp.com/api/connection/add/`, payload, {
+    return axios.post(`https://touch-base-server.herokuapp.com/api/connections/add/`, payload, {
       headers: {
         Authorization: localStorage.getItem('token')
       }})
@@ -213,6 +221,33 @@ export function addConnection(payload) {
       .catch((error) => {
         console.log(error)
         dispatch({ type: FAILED_ADD_CONNECTION, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION ADDS AN EVENT FOR A USER
+
+export function addEvent(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: ADDING_EVENT });
+
+    return axios.post(`https://touch-base-server.herokuapp.com/api/events/add/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: ADDED_EVENT, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_ADD_EVENT, payload: error })
       })
 
       }
