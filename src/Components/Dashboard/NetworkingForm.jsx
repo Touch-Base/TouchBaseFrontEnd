@@ -85,23 +85,53 @@ const validationSchema = Yup.object().shape({
         }) => (
           <form onSubmit={handleSubmit} className="updateConnectionForm">
               
-              {/* POSITION INPUT */}
-              <div className="jobInput">
+              {/* FIRSTNAME INPUT */}
+              <div className="connectionInput">
                 <input 
                   type="text" 
-                  id="position" 
-                  placeholder="Position"
-                  name="position"
+                  id="firstname" 
+                  placeholder="First Name"
+                  name="firstname"
                   onChange={handleChange}
-                  value={values.position}
+                  value={values.firstname}
                   onBlur={handleBlur} 
-                  className={(touched.position && errors.position) ? "hasError" : "validInput"}
+                  className={(touched.firstname && errors.firstname) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.position} message={errors.position} />
+                <Error touched={touched.firstname} message={errors.firstname} />
               </div>
               
+              {/* LASTNAME INPUT */}
+              <div className="connectionInput">
+                <input 
+                  type="text" 
+                  id="lastname" 
+                  placeholder="Last Name"
+                  name="lastname"
+                  onChange={handleChange}
+                  value={values.lastname}
+                  onBlur={handleBlur} 
+                  className={(touched.lastname && errors.lastname) ? "hasError" : "validInput"}
+                />
+                <Error touched={touched.lastname} message={errors.lastname} />
+              </div>
+
+              {/* TITLE INPUT */}
+              <div className="connectionInput">
+                <input 
+                  type="text" 
+                  id="title" 
+                  placeholder="Title"
+                  name="title"
+                  onChange={handleChange}
+                  value={values.title}
+                  onBlur={handleBlur} 
+                  className={(touched.title && errors.title) ? "hasError" : "validInput"}
+                />
+                <Error touched={touched.title} message={errors.title} />
+              </div>
+
               {/* COMPANY INPUT */}
-              <div className="jobInput">
+              <div className="connectionInput">
                 <input 
                   type="text" 
                   id="company" 
@@ -115,60 +145,38 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.company} message={errors.company} />
               </div>
 
-              {/* LINK INPUT */}
-              <div className="jobInput">
+              {/* PHONE INPUT */}
+              <div className="connectionInput">
                 <input 
                   type="text" 
-                  id="link" 
-                  placeholder="Link"
-                  name="link"
+                  id="phone" 
+                  placeholder="Phone Number"
+                  name="phone"
                   onChange={handleChange}
-                  value={values.link}
+                  value={values.phone}
                   onBlur={handleBlur} 
-                  className={(touched.link && errors.link) ? "hasError" : "validInput"}
+                  className={(touched.phone && errors.phone) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.link} message={errors.link} />
+                <Error touched={touched.phone} message={errors.phone} />
               </div>
 
-              {/* METHOD INPUT */}
-              <div className="jobInput">
-                <label>
-                    Method
-                </label>
-                <select
-                    name="method"
-                    value={values.method}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                >
-                    <option value="" label="Select a method" />
-                    <option value="LinkedIn" label="LinkedIn" />
-                    <option value="Connection" label="Connection" />
-                    <option value="Job Website" label="Job Website" />
-                    <option value="Company Site" label="Company Site" />
-                    <option value="Other" label="Other" />
-                </select>
-                {errors.method && touched.method &&
-                <div className="input-feedback">{errors.method}</div>}
-              </div>
-
-              {/* APP DATE INPUT */}
-              <div className="jobInput">
+              {/* EMAIL INPUT */}
+              <div className="connectionInput">
                 <input 
                   type="text" 
-                  id="appDate" 
-                  placeholder="Application Date"
-                  name="appDate"
+                  id="email" 
+                  placeholder="Email"
+                  name="email"
                   onChange={handleChange}
-                  value={values.appDate}
+                  value={values.email}
                   onBlur={handleBlur} 
-                  className={(touched.appDate && errors.appDate) ? "hasError" : "validInput"}
+                  className={(touched.email && errors.email) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.appDate} message={errors.appDate} />
+                <Error touched={touched.email} message={errors.email} />
               </div>
 
               {/* NOTES INPUT */}
-              <div className="jobInput">
+              <div className="connectionInput">
                 <input 
                   type="text" 
                   id="notes" 
@@ -182,23 +190,6 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.notes} message={errors.notes} />
               </div>
 
-              {/* INTERVIEW INPUT */}
-              <div className="jobInput">
-                <label>
-                    Interview
-                </label>
-                <input
-                    name="interview"
-                    id="interview"
-                    type="checkbox"
-                    value={values.interview}
-                    checked={values.interview}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                />
-                <Error touched={touched.interview} message={errors.interview} />
-              </div>
-
 
               <button type="submit">ADD JOB</button>
           </form>
@@ -208,7 +199,7 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addJob: addJob
+    addConnection: addConnection
 }
 
 
@@ -217,7 +208,7 @@ const mapStateToProps = (state) => {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         email: state.user.email,
-        jobs: state.user.jobs
+        connections: state.user.connections
     }
   }
 
@@ -225,5 +216,5 @@ export default(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(JobForm)
+    )(ConnectionForm)
   );
