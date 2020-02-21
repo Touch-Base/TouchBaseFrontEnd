@@ -16,11 +16,11 @@ const validationSchema = Yup.object().shape({
     firstname: Yup.string()
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20")
-    .required("Must enter a company"),
+    .required("Must enter a first name"),
     lastname: Yup.string()
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20")
-    .required("Must enter a company"),
+    .required("Must enter a last name"),
     title: Yup.string()
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20")
