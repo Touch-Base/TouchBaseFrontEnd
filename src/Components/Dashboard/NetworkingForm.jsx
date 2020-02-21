@@ -191,7 +191,7 @@ const validationSchema = Yup.object().shape({
               </div>
 
 
-              <button type="submit">ADD JOB</button>
+              <button type="submit">ADD CONNECTION</button>
           </form>
         )}
       </Formik>

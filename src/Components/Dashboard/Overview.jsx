@@ -16,10 +16,10 @@ function Overview(props) {
             </p>
             <div className="jobsAndConnections">
                 <div className="jobsCount">
-                    <h2>Jobs Applied:</h2><h2 className="numberOne">0</h2>
+                    <h2>Jobs Applied:</h2><h2 className="numberOne">{props.jobsTotal}</h2>
                 </div>
                 <div className="connectionsCount">
-                    <h2>Connections:</h2><h2 className="numberTwo">0</h2>
+                    <h2>Connections:</h2><h2 className="numberTwo">{props.connectionsTotal}</h2>
                 </div>
             </div>
             <button>Get Started!</button>
@@ -31,7 +31,9 @@ const mapStateToProps = (state) => {
     return {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
-        email: state.user.email
+        email: state.user.email,
+        jobsTotal: state.user.jobsTotal,
+        connectionsTotal: state.user.connectionsTotal
     }
   }
   

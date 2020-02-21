@@ -14,24 +14,18 @@ function Jobs(props) {
 
     const [ tswitch, toggleSwitch ] = useState(false);
     
-    if (tswitch === false) {
-        return null
-    }
-    else {
-        let jobOrganizer = 'blocks'
-        let toggleColor = 'purple'
-        let organizeType = 'BLOCKS'
-    }
         
     const changeCards = event => {
         event.preventDefault();
         
         toggleSwitch(!tswitch);
+
+        console.log(tswitch)
     }
 
     return(
         <div className={jobOrganizer}>
-            <button onClick={changeCards} className={toggleColor}>{organizeType}</button>
+           <button onClick={changeCards} className={toggleColor}>{organizeType}</button>
            <JobForm />
            {props.jobs.map(job => {
             return <JobCard job={job} />
