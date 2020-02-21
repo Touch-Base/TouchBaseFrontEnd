@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 // import JobCard from './JobCard';
@@ -7,9 +7,26 @@ import JobCard from './JobCard';
 import axios from 'axios';
 
 function Jobs(props) {
+    
+    const [ switch, toggleSwitch ] = useState(false);
+    
+    if (switch) {
+        let jobOrganizer = 'table'
+        let toggleColor = 'blue'
+        let organizeType = 'TABLE'
+    else {
+        let jobOrganizer = 'blocks'
+        let toggleColor = 'purple'
+        let organizeType = 'BLOCKS'
+        
+    const changeCards = event => {
+        event.preventDefault();
+        
+        toggleSwitch(!switch);
 
     return(
-        <div className="jobsPage">
+        <div className={jobOrganizer}>
+            <button onClick={changeCards} className={toggleColor}>{organizeType}</button>
            <JobForm />
            {props.jobs.map(job => {
             return <JobCard job={job} />
