@@ -34,32 +34,28 @@ const validationSchema = Yup.object().shape({
         <Formik 
         enableReinitialize
         initialValues={{ 
-          position: '', 
-          company: '', 
-          link: '', 
-          method: '',
-          appDate: '',
-          notes: '',
-          interview: false
+          name: '', 
+          location: '', 
+          date: '', 
+          description: '',
+          attended: false
         }} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
-          const { position, company, link, method, appDate, notes, interview } = values;
+          const { name, location, date, description, attended } = values;
 
-          props.addJob({
-                position: position,
-                company: company,
-                link: link,
-                method: method,
-                appDate: appDate,
-                notes: notes,
-                interview: interview
+          props.addEvent({
+                name: name,
+                location: location,
+                date: date,
+                description: description,
+                attended: attended
             }
         )
         .then(() => {
-            console.log("added job!")
+            console.log("added event!")
               
         })
         .catch((err) => {
@@ -76,124 +72,69 @@ const validationSchema = Yup.object().shape({
           handleSubmit, 
           isSubmitting 
         }) => (
-          <form onSubmit={handleSubmit} className="updateUserForm">
+          <form onSubmit={handleSubmit} className="updateEventForm">
               
-              {/* POSITION INPUT */}
-              <div className="jobInput">
+              {/* NAME INPUT */}
+              <div className="eventInput">
                 <input 
                   type="text" 
-                  id="position" 
-                  placeholder="Position"
-                  name="position"
+                  id="name" 
+                  placeholder="Event Name"
+                  name="name"
                   onChange={handleChange}
-                  value={values.position}
+                  value={values.name}
                   onBlur={handleBlur} 
-                  className={(touched.position && errors.position) ? "hasError" : "validInput"}
+                  className={(touched.name && errors.name) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.position} message={errors.position} />
+                <Error touched={touched.name} message={errors.name} />
               </div>
               
-              {/* COMPANY INPUT */}
-              <div className="jobInput">
+              {/* LOCATION INPUT */}
+              <div className="eventInput">
                 <input 
                   type="text" 
-                  id="company" 
-                  placeholder="Company"
-                  name="company"
+                  id="location" 
+                  placeholder="Location"
+                  name="location"
                   onChange={handleChange}
-                  value={values.company}
+                  value={values.location}
                   onBlur={handleBlur} 
-                  className={(touched.company && errors.company) ? "hasError" : "validInput"}
+                  className={(touched.location && errors.location) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.company} message={errors.company} />
+                <Error touched={touched.location} message={errors.location} />
               </div>
 
-              {/* LINK INPUT */}
-              <div className="jobInput">
+              {/* DATE INPUT */}
+              <div className="eventInput">
                 <input 
                   type="text" 
-                  id="link" 
-                  placeholder="Link"
-                  name="link"
+                  id="date" 
+                  placeholder="Date"
+                  name="date"
                   onChange={handleChange}
-                  value={values.link}
+                  value={values.date}
                   onBlur={handleBlur} 
-                  className={(touched.link && errors.link) ? "hasError" : "validInput"}
+                  className={(touched.date && errors.date) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.link} message={errors.link} />
+                <Error touched={touched.date} message={errors.date} />
               </div>
 
-              {/* METHOD INPUT */}
-              <div className="jobInput">
-                <label>
-                    Method
-                </label>
-                <select
-                    name="method"
-                    value={values.method}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                >
-                    <option value="" label="Select a method" />
-                    <option value="LinkedIn" label="LinkedIn" />
-                    <option value="Connection" label="Connection" />
-                    <option value="Job Website" label="Job Website" />
-                    <option value="Company Site" label="Company Site" />
-                    <option value="Other" label="Other" />
-                </select>
-                {errors.method && touched.method &&
-                <div className="input-feedback">{errors.method}</div>}
-              </div>
-
-              {/* APP DATE INPUT */}
-              <div className="jobInput">
+              {/* DESCRIPTION INPUT */}
+              <div className="eventInput">
                 <input 
                   type="text" 
-                  id="appDate" 
-                  placeholder="Application Date"
-                  name="appDate"
+                  id="description" 
+                  placeholder="Description"
+                  name="description"
                   onChange={handleChange}
-                  value={values.appDate}
+                  value={values.description}
                   onBlur={handleBlur} 
-                  className={(touched.appDate && errors.appDate) ? "hasError" : "validInput"}
+                  className={(touched.description && errors.description) ? "hasError" : "validInput"}
                 />
-                <Error touched={touched.appDate} message={errors.appDate} />
+                <Error touched={touched.description} message={errors.description} />
               </div>
-
-              {/* NOTES INPUT */}
-              <div className="jobInput">
-                <input 
-                  type="text" 
-                  id="notes" 
-                  placeholder="Notes"
-                  name="notes"
-                  onChange={handleChange}
-                  value={values.notes}
-                  onBlur={handleBlur} 
-                  className={(touched.notes && errors.notes) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.notes} message={errors.notes} />
-              </div>
-
-              {/* INTERVIEW INPUT */}
-              <div className="jobInput">
-                <label>
-                    Interview
-                </label>
-                <input
-                    name="interview"
-                    id="interview"
-                    type="checkbox"
-                    value={values.interview}
-                    checked={values.interview}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                />
-                <Error touched={touched.interview} message={errors.interview} />
-              </div>
-
-
-              <button type="submit">ADD JOB</button>
+                    
+              <button type="submit">ADD EVENT</button>
           </form>
         )}
       </Formik>
@@ -201,7 +142,7 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addJob: addJob
+    addEvent: addEvent
 }
 
 
@@ -210,7 +151,7 @@ const mapStateToProps = (state) => {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         email: state.user.email,
-        jobs: state.user.jobs
+        events: state.user.events
     }
   }
 
@@ -218,5 +159,5 @@ export default(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(JobForm)
+    )(EventForm)
   );
