@@ -57,7 +57,9 @@ let initialState = {
         position: '',
         jobs: '',
         connections: '',
-        events: ''
+        events: '',
+        jobsTotal: 0,
+        connectionsTotal: 0
         },
     token: '',
 }
@@ -182,7 +184,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    jobs: action.payload.allJobs
+                    jobs: action.payload.allJobs,
+                    jobsTotal: action.payload.allJobs.length
                 }
             }
         }
@@ -205,7 +208,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    connections: action.payload.allConnections
+                    connections: action.payload.allConnections,
+                    connectionsTotal: action.payload.allConnections.length
                 }
             }
         }
