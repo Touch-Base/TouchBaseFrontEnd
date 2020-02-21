@@ -19,11 +19,29 @@ import {
     UPDATING_JOB,
     UPDATED_JOB,
     FAILED_UPDATE_JOB,
+    
+    ////////////
+    ADDING_CONNECTION,
+    ADDED_CONNECTION,
+    FAILED_ADD_CONNECTION,
+    
+    ////////////
+    ADDING_EVENT,
+    ADDED_EVENT,
+    FAILED_ADD_EVENT,
 
     ////////////
     FILLING_STATE_JOBS,
     FILLED_JOBS,
-    FAILED_FILLED_JOBS
+    FAILED_FILLED_JOBS,
+    
+    FILLING_STATE_CONNECTIONS,
+    FILLED_CONNECTIONS,
+    FAILED_FILLED_CONNECTIONS,
+    
+    FILLING_STATE_EVENTS,
+    FILLED_EVENTS,
+    FAILED_FILLED_EVENTS
 } from '../actions/index';
 
 
@@ -37,7 +55,9 @@ let initialState = {
         location: '',
         summary: '',
         position: '',
-        jobs: ''
+        jobs: '',
+        connections: '',
+        events: ''
         },
     token: '',
 }
@@ -173,6 +193,52 @@ const reducer = (state = initialState, action) => {
                 error: action.payload.error
             }
         }
+            
+        case FILLING_STATE_CONNECTIONS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_CONNECTIONS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connections: action.payload.allConnections
+                }
+            }
+        }
+
+        case FAILED_FILLED_CONNECTIONS: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+        case FILLING_STATE_EVENTS: {
+            return {
+                ...state
+            }
+        }
+
+        case FILLED_EVENTS: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: action.payload.allEvents
+                }
+            }
+        }
+
+        case FAILED_FILLED_EVENTS: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
 
         /// ADDING JOB CASES
 
@@ -193,6 +259,56 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_JOB: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+         /// ADDING CONNECTION CASES
+
+        case ADDING_CONNECTION: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_CONNECTION: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connections: action.payload.allConnections
+                }
+            }
+        }
+
+        case FAILED_ADD_CONNECTION: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+        /// ADDING EVENT CASES
+
+        case ADDING_EVENT: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_EVENT: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: action.payload.allEvents
+                }
+            }
+        }
+
+        case FAILED_ADD_EVENT: {
             return {
                 ...state,
                 error: action.payload.error

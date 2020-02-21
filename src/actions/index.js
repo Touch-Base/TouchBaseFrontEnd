@@ -27,6 +27,14 @@ export const FILLING_STATE_JOBS = 'FILLING_STATE_JOBS';
 export const FILLED_JOBS = 'FILLED_JOBS';
 export const FAILED_FILLED_JOBS = 'FAILED_FILLED_JOBS'
 
+export const FILLING_STATE_CONNECTIONS = 'FILLING_STATE_CONNECTIONS';
+export const FILLED_CONNECTIONS = 'FILLED_CONNECTIONS';
+export const FAILED_FILLED_CONNECTIONS = 'FAILED_FILLED_CONNECTIONS'
+
+export const FILLING_STATE_EVENTS = 'FILLING_STATE_EVENTS';
+export const FILLED_EVENTS = 'FILLED_EVENTS';
+export const FAILED_FILLED_EVENTS = 'FAILED_FILLED_EVENTS'
+
         //////////////// JOBS  \\\\\\\\\\\\\\\\\ 
 
 // ADDING A JOB
@@ -38,6 +46,21 @@ export const FAILED_ADD_JOB = 'FAILED_ADD_JOB';
 export const UPDATING_JOB = 'UPDATING_JOB';
 export const UPDATED_JOB = 'UPDATED_JOB';
 export const FAILED_UPDATE_JOB = 'FAILED_UPDATE_JOB';
+
+    //////////////// CONNECTIONS  \\\\\\\\\\\\\\\\\ 
+
+// ADDING A CONNECTION
+export const ADDING_CONNECTION = 'ADDING_CONNECTION';
+export const ADDED_CONNECTION = 'ADDED_CONNECTION';
+export const FAILED_ADD_CONNECTION = 'FAILED_ADD_CONNECTION';
+
+    //////////////// EVENTS  \\\\\\\\\\\\\\\\\ 
+
+// ADDING AN EVENT
+export const ADDING_EVENT = 'ADDING_EVENT';
+export const ADDED_EVENT = 'ADDED_EVENT';
+export const FAILED_ADD_EVENT = 'FAILED_ADD_EVENT';
+
 
 
 
@@ -176,6 +199,60 @@ export function editJob(payload) {
       }
 }
 
+/// THIS ACTION ADDS A CONNECTION FOR A USER
+
+export function addConnection(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: ADDING_CONNECTION });
+
+    return axios.post(`https://touch-base-server.herokuapp.com/api/connections/add/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: ADDED_CONNECTION, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_ADD_CONNECTION, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION ADDS AN EVENT FOR A USER
+
+export function addEvent(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: ADDING_EVENT });
+
+    return axios.post(`https://touch-base-server.herokuapp.com/api/events/add/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        console.log(response.data)
+        dispatch({ type: ADDED_EVENT, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_ADD_EVENT, payload: error })
+      })
+
+      }
+}
+
 /// FILL STATE WITH JOBS
 
 export function fillStateJobs() {
@@ -199,6 +276,62 @@ export function fillStateJobs() {
       .catch((error) => {
         console.log(error)
         dispatch({ type: FAILED_FILLED_JOBS, payload: error })
+      })
+
+      }
+}
+
+/// FILL STATE WITH CONNECTIONS
+
+export function fillStateConnections() {
+
+  return dispatch => {
+
+    const token = localStorage.getItem('token')
+    dispatch({ type: FILLING_STATE_CONNECTIONS });
+
+    /// GETTING JOBS 
+
+    return axios.get('https://touch-base-server.herokuapp.com/api/connections/getall', {
+      headers: {
+        Authorization: token
+      }})
+      .then(response => {
+        console.log(response.data)
+        dispatch({ type: FILLED_CONNECTIONS, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_FILLED_CONNECTIONS, payload: error })
+      })
+
+      }
+}
+
+/// FILL STATE WITH EVENTS
+
+export function fillStateEvents() {
+
+  return dispatch => {
+
+    const token = localStorage.getItem('token')
+    dispatch({ type: FILLING_STATE_EVENTS });
+
+    /// GETTING JOBS 
+
+    return axios.get('https://touch-base-server.herokuapp.com/api/events/getall', {
+      headers: {
+        Authorization: token
+      }})
+      .then(response => {
+        console.log(response.data)
+        dispatch({ type: FILLED_EVENTS, payload: response.data });
+      })
+
+      .catch((error) => {
+        console.log(error)
+        dispatch({ type: FAILED_FILLED_EVENTS, payload: error })
       })
 
       }

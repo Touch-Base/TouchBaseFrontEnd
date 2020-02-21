@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
-import NetworkingForm from './NetworkingForm';
-import NetworkingCard from './NetworkingCard';
+import EventForm from './EventForm';
+import EventCard from './EventCard';
 
 
-function Networking(props) {
+function Events(props) {
 
     return(
-        <div className="networkingPage">
-            <NetworkingForm />
-            {props.connections.map( connection => {
-                return <NetworkingCard connection={connection} />
+        <div className="events">
+            <EventForm />
+            {props.events.map( event => {
+                return <EventCard event={event} />
             })}
         </div>
         )
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         email: state.user.email,
-        connections: state.user.connections
+        events: state.user.events
     }
   }
   
