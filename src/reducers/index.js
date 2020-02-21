@@ -24,6 +24,11 @@ import {
     ADDING_CONNECTION,
     ADDED_CONNECTION,
     FAILED_ADD_CONNECTION,
+    
+    ////////////
+    ADDING_EVENT,
+    ADDED_EVENT,
+    FAILED_ADD_EVENT,
 
     ////////////
     FILLING_STATE_JOBS,
@@ -279,6 +284,31 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_CONNECTION: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+        /// ADDING EVENT CASES
+
+        case ADDING_EVENT: {
+            return {
+                ...state
+            }
+        }
+
+        case ADDED_EVENT: {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: action.payload.allEvents
+                }
+            }
+        }
+
+        case FAILED_ADD_EVENT: {
             return {
                 ...state,
                 error: action.payload.error
