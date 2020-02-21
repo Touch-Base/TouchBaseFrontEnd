@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
+import NetworkingForm from './NetworkingForm';
+import NetworkingCard from './NetworkingCard';
 
 
 function Networking(props) {
 
     return(
         <div className="networkingPage">
-            networking page
+            <NetworkingForm />
+            {props.connections.map( connection => {
+                return <NetworkingCard connection={connection} />
+            })}
         </div>
         )
     }
@@ -18,7 +23,7 @@ const mapStateToProps = (state) => {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         email: state.user.email,
-        jobs: state.user.jobs
+        connections: state.user.connections
     }
   }
   
