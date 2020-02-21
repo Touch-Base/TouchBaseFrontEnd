@@ -41,32 +41,32 @@ const validationSchema = Yup.object().shape({
         <Formik 
         enableReinitialize
         initialValues={{ 
-          position: '', 
-          company: '', 
-          link: '', 
-          method: '',
-          appDate: '',
-          notes: '',
-          interview: false
+          firstname: '', 
+          lastname: '', 
+          title: '', 
+          company: '',
+          phone: '',
+          email: '',
+          notes: ''
         }} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
-          const { position, company, link, method, appDate, notes, interview } = values;
+          const { firstname, lastname, title, company, phone, email, notes } = values;
 
-          props.addJob({
-                position: position,
+          props.addConnection({
+                firstname: firstname,
+                lastname: lastname,
+                title: title,
                 company: company,
-                link: link,
-                method: method,
-                appDate: appDate,
-                notes: notes,
-                interview: interview
+                phone: phone
+                email: email,
+                notes: notes
             }
         )
         .then(() => {
-            console.log("added job!")
+            console.log("added connection!")
               
         })
         .catch((err) => {
@@ -83,7 +83,7 @@ const validationSchema = Yup.object().shape({
           handleSubmit, 
           isSubmitting 
         }) => (
-          <form onSubmit={handleSubmit} className="updateUserForm">
+          <form onSubmit={handleSubmit} className="updateConnectionForm">
               
               {/* POSITION INPUT */}
               <div className="jobInput">
