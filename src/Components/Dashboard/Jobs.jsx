@@ -6,6 +6,8 @@ import JobCard from './JobCard';
 
 function Jobs(props) {
 
+    // these empty values are passed to the jobs form 
+    // for adding a new job
     const initialValues = { 
         position: '', 
         company: '', 
@@ -18,7 +20,9 @@ function Jobs(props) {
 
     return(
         <div className="jobsPage">
-           <JobForm initialValues={initialValues} />
+            {/* this job form is only 
+            for adding a job, checking with an 'adding' prop */}
+           <JobForm initialValues={initialValues} adding={true}/>
            {props.jobs.map(job => {
             return <JobCard job={job} key={job.id} />
            })}

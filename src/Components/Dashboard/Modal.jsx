@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../../Styling/dashboard/formmodal.scss'
 
 class Modal extends Component {
 
@@ -6,7 +7,9 @@ class Modal extends Component {
     if(!this.props.visible){
           return null;
     } else {
-    return <div>{this.props.children}</div>;
+    return <div className="modal">
+                {this.props.children}
+            </div>;
     }
   }
 }

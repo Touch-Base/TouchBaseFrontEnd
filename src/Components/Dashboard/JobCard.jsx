@@ -11,8 +11,6 @@ function Job(props) {
       event.preventDefault();
 
       setVisibility(!visible)
-
-      console.log(visible)
     }
 
 
@@ -26,6 +24,7 @@ function Job(props) {
           <button onClick={showForm}>EDIT</button>
           <Modal visible={visible}>
             <JobForm initialValues={props.job} />
+            <button onClick={showForm}>CLOSE</button>
           </Modal>
         </div>
         )
