@@ -14,7 +14,7 @@ function DashboardNav() {
             <a href="profile">Profile</a>
             <a href="jobs">Jobs</a>
             <a href="networking">Networking</a>
-            <a href="jobs">Events</a>
+            <a href="events">Events</a>
             <button onClick={signOut}>sign out</button>
         </nav>
     )

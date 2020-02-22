@@ -31,5 +31,5 @@ const mapStateToProps = (state) => {
     connect(
         mapStateToProps,
         null
-    )(Networking)
+    )(Events)
   );
