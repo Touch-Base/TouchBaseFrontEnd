@@ -3,6 +3,7 @@ import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
 import Modal from './Modal';
 import axios from 'axios';
+import { deleteJob } from '../../actions/index';
 
 
 function Job(props) {
@@ -17,18 +18,13 @@ function Job(props) {
       setVisibility(!visible)
     }
 
-    const deleteJob = event => {
+    const deleteButton = event => {
       event.preventDefault();
 
-      const token = localStorage.getItem('token');
       const id = props.job.id
 
-      return axios.delete(`https://touch-base-server.herokuapp.com/api/jobs/delete/${id}`, {
-      headers: {
-        Authorization: token
-      }})
+      props.deleteJob(id)
       .then( res => {
-        console.log(res.data)
         setVisibility(false)
       })
       .catch( err => {
@@ -48,11 +44,20 @@ function Job(props) {
           <Modal visible={visible}>
             <JobForm initialValues={props.job} id={props.job.id} />
             <button onClick={showForm}>CLOSE</button>
-            <button onClick={deleteJob}>DELETE JOB</button>
+            <button onClick={deleteButton}>DELETE JOB</button>
           </Modal>
         </div>
         )
     }
 
+    const mapDispatchToProps = {
+      deleteJob: deleteJob    
+    }
+
+    export default(
+      connect(
+          null,
+          mapDispatchToProps
+      )(Job)
+    );
   
-  export default Job;
