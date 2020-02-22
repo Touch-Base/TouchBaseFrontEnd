@@ -5,6 +5,8 @@ import Modal from './Modal';
 
 function Job(props) {
 
+    // this controls the visibility of the modal for the form
+    
     const [ visible, setVisibility ] = useState(false);
 
     const showForm = event => {

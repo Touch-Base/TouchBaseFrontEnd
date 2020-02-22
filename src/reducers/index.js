@@ -16,9 +16,9 @@ import {
     ADDED_JOB,
     FAILED_ADD_JOB,
 
-    // UPDATING_JOB,
-    // UPDATED_JOB,
-    // FAILED_UPDATE_JOB,
+    UPDATING_JOB,
+    UPDATED_JOB,
+    FAILED_UPDATE_JOB,
     
     ////////////
     ADDING_CONNECTION,
@@ -264,6 +264,33 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_JOB: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// UPDATING JOB CASES
+
+        case UPDATING_JOB: {
+            return {
+                ...state
+            }
+        }
+
+        case UPDATED_JOB: {
+            /// this maps through the jobs array 
+            /// and only changes the job that was updated
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: state.jobs.map(job => job.id === action.payload.id ? action.payload : job)
+                }
+            }
+        }
+
+        case FAILED_UPDATE_JOB: {
             return {
                 ...state,
                 error: action.payload.error
