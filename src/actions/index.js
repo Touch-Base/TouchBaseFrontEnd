@@ -177,7 +177,6 @@ export function addJob(payload) {
 export function editJob(payload) {
 
   /* update data here */
-  console.log(payload)
 
   return dispatch => {
 
@@ -188,12 +187,10 @@ export function editJob(payload) {
         Authorization: localStorage.getItem('token')
       }})
       .then((response) => {
-        console.log(response.data)
         dispatch({ type: UPDATED_JOB, payload: response.data });
       })
 
       .catch((error) => {
-        console.log(error)
         dispatch({ type: FAILED_UPDATE_JOB, payload: error })
       })
 

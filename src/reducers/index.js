@@ -281,11 +281,12 @@ const reducer = (state = initialState, action) => {
         case UPDATED_JOB: {
             /// this maps through the jobs array 
             /// and only changes the job that was updated
+
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    jobs: state.user.jobs.map(job => job.id === action.payload.id ? action.payload : job)
+                    jobs: state.user.jobs.map(job => job.id === action.payload.updatedjob.id ? action.payload.updatedjob : job)
                 }
             }
         }
