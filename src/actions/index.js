@@ -177,6 +177,7 @@ export function addJob(payload) {
 export function editJob(payload) {
 
   /* update data here */
+  console.log(payload)
 
   return dispatch => {
 

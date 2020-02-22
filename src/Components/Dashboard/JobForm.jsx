@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/jobs.scss';
-import { addJob } from '../../actions/index';
+import { addJob, editJob } from '../../actions/index';
 
 function JobForm(props) {
 
@@ -40,19 +40,22 @@ const validationSchema = Yup.object().shape({
           setSubmitting(true);
 
           const { position, company, link, method, appDate, notes, interview } = values;
-
-
+          const payload = {
+            position: position,
+            company: company,
+            link: link,
+            method: method,
+            appDate: appDate,
+            notes: notes,
+            interview: interview
+            }
+          
+          /// checks if form is either adding or updating a job
+          /// before submitting
           if(props.adding) {
-            props.addJob({
-                position: position,
-                company: company,
-                link: link,
-                method: method,
-                appDate: appDate,
-                notes: notes,
-                interview: interview
-                }
-            )
+
+            props.addJob(payload)
+
             .then(() => {
                 console.log("added job!")
                   
@@ -61,9 +64,17 @@ const validationSchema = Yup.object().shape({
                 console.error("Here", err)
             })}
           else {
-            return null;
+            props.editJob(payload)
+            
+            .then(() => {
+                console.log("updated job!")
+                  
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })}
           }
-        }}
+        }
       >
         {({ 
           values, 
@@ -193,7 +204,8 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addJob: addJob
+    addJob: addJob,
+    editJob: editJob
 }
 
 
