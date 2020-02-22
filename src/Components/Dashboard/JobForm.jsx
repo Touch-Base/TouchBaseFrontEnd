@@ -75,7 +75,6 @@ const validationSchema = Yup.object().shape({
               <div className="jobInput">
                 <input 
                   type="text" 
-                  id="position" 
                   placeholder="Position"
                   name="position"
                   onChange={handleChange}
@@ -90,7 +89,6 @@ const validationSchema = Yup.object().shape({
               <div className="jobInput">
                 <input 
                   type="text" 
-                  id="company" 
                   placeholder="Company"
                   name="company"
                   onChange={handleChange}
@@ -105,7 +103,6 @@ const validationSchema = Yup.object().shape({
               <div className="jobInput">
                 <input 
                   type="text" 
-                  id="link" 
                   placeholder="Link"
                   name="link"
                   onChange={handleChange}
@@ -141,8 +138,7 @@ const validationSchema = Yup.object().shape({
               {/* APP DATE INPUT */}
               <div className="jobInput">
                 <input 
-                  type="text" 
-                  id="appDate" 
+                  type="text"  
                   placeholder="Application Date"
                   name="appDate"
                   onChange={handleChange}
@@ -157,7 +153,6 @@ const validationSchema = Yup.object().shape({
               <div className="jobInput">
                 <input 
                   type="text" 
-                  id="notes" 
                   placeholder="Notes"
                   name="notes"
                   onChange={handleChange}
@@ -175,7 +170,6 @@ const validationSchema = Yup.object().shape({
                 </label>
                 <input
                     name="interview"
-                    id="interview"
                     type="checkbox"
                     value={values.interview}
                     checked={values.interview}

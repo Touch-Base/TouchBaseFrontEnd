@@ -16,9 +16,9 @@ import {
     ADDED_JOB,
     FAILED_ADD_JOB,
 
-    UPDATING_JOB,
-    UPDATED_JOB,
-    FAILED_UPDATE_JOB,
+    // UPDATING_JOB,
+    // UPDATED_JOB,
+    // FAILED_UPDATE_JOB,
     
     ////////////
     ADDING_CONNECTION,

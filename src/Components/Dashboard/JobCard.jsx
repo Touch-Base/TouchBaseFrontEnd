@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
+import Modal from './Modal';
 
 function Job(props) {
 
@@ -14,7 +15,6 @@ function Job(props) {
       console.log(visible)
     }
 
-    let updateForm = 'test'
 
     return(
         <div className="jobCard">
@@ -24,9 +24,9 @@ function Job(props) {
           <h2>{props.job.method}</h2>
           <h3>Notes: {props.job.notes}</h3>
           <button onClick={showForm}>EDIT</button>
-          <div className={updateForm}>
+          <Modal visible={visible}>
             <JobForm initialValues={props.job} />
-          </div>
+          </Modal>
         </div>
         )
     }
