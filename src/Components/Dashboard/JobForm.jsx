@@ -47,7 +47,8 @@ const validationSchema = Yup.object().shape({
             method: method,
             appDate: appDate,
             notes: notes,
-            interview: interview
+            interview: interview,
+            id: props.id || null
             }
           
           /// checks if form is either adding or updating a job

@@ -285,7 +285,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    jobs: state.jobs.map(job => job.id === action.payload.id ? action.payload : job)
+                    jobs: state.user.jobs.map(job => job.id === action.payload.id ? action.payload : job)
                 }
             }
         }

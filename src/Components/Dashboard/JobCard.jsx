@@ -6,7 +6,7 @@ import Modal from './Modal';
 function Job(props) {
 
     // this controls the visibility of the modal for the form
-    
+
     const [ visible, setVisibility ] = useState(false);
 
     const showForm = event => {
@@ -25,7 +25,7 @@ function Job(props) {
           <h3>Notes: {props.job.notes}</h3>
           <button onClick={showForm}>EDIT</button>
           <Modal visible={visible}>
-            <JobForm initialValues={props.job} />
+            <JobForm initialValues={props.job} id={props.job.id} />
             <button onClick={showForm}>CLOSE</button>
           </Modal>
         </div>
