@@ -321,7 +321,7 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        case FAILED_UPDATE_JOB: {
+        case FAILED_DELETE_JOB: {
             return {
                 ...state,
                 error: action.payload.error

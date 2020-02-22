@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 import JobForm from './JobForm';
 import JobCard from './JobCard';
+import { deleteJob } from '../../actions/index';
 
 function Jobs(props) {
 
@@ -24,7 +25,7 @@ function Jobs(props) {
             for adding a job, checking with an 'adding' prop */}
            <JobForm initialValues={initialValues} adding={true}/>
            {props.jobs.map(job => {
-            return <JobCard job={job} key={job.id} />
+            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
            })}
         </div>
         )
@@ -39,10 +40,14 @@ const mapStateToProps = (state) => {
         jobs: state.user.jobs
     }
   }
+
+  const mapDispatchToProps = {
+    deleteJob: deleteJob    
+  }
   
   export default(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(Jobs)
   );

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
 import Modal from './Modal';
-import axios from 'axios';
-import { deleteJob } from '../../actions/index';
 
 
 function Job(props) {
@@ -23,7 +21,7 @@ function Job(props) {
 
       const id = props.job.id
 
-      props.deleteJob(id)
+      props.removeJob(id)
       .then( res => {
         setVisibility(false)
       })
@@ -42,7 +40,7 @@ function Job(props) {
           <h3>Notes: {props.job.notes}</h3>
           <button onClick={showForm}>EDIT</button>
           <Modal visible={visible}>
-            <JobForm initialValues={props.job} id={props.job.id} />
+            <JobForm initialValues={props.job} editing={true} id={props.job.id} />
             <button onClick={showForm}>CLOSE</button>
             <button onClick={deleteButton}>DELETE JOB</button>
           </Modal>
@@ -50,14 +48,5 @@ function Job(props) {
         )
     }
 
-    const mapDispatchToProps = {
-      deleteJob: deleteJob    
-    }
-
-    export default(
-      connect(
-          null,
-          mapDispatchToProps
-      )(Job)
-    );
+    export default Job;
   
