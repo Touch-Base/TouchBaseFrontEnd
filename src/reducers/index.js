@@ -59,9 +59,9 @@ let initialState = {
         location: '',
         summary: '',
         position: '',
-        jobs: '',
-        connections: '',
-        events: '',
+        jobs: [],
+        connections: [],
+        events: [],
         jobsTotal: 0,
         connectionsTotal: 0
         },

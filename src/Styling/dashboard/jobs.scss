@@ -136,7 +136,7 @@
 
         .jobLink {
             position: absolute;
-            right: 25px;
+            right: 45px;
             top: 70px;
             padding: 13px;
             border-radius: 100px;
@@ -196,6 +196,15 @@
             i {
                 font-size: 2.7em;
                 color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .notes:hover {
+            cursor: pointer;
+
+            i {
+                color: rgba(255, 255, 255, 0.596);
                 transition: 0.5s;
             }
         }

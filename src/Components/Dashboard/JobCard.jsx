@@ -3,6 +3,8 @@ import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
 import { TwitterPicker } from 'react-color';
 import Modal from './Modal';
+import { connect } from 'react-redux';
+import { editJob } from '../../actions/index';
 
 
 function Job(props) {
@@ -10,7 +12,7 @@ function Job(props) {
     // this controls the visibility of the modal for the form
 
     const [ visible, setVisibility ] = useState(false);
-    const [ bgcolor, setColor ] = useState("rgb(186, 43, 214)");
+    const [ bgcolor, setColor ] = useState (props.job.color || "rgb(186, 43, 214)");
     const [ picker, setShowPicker ] = useState(false);
     const [ notes, setShowNotes ] = useState(false);
 
@@ -31,8 +33,12 @@ function Job(props) {
     }
 
     /// this handles the color change in the color picker
+    /// it also sends the color to the job on the server
     const handleChangeComplete = (color) => {
       setColor(color.hex);
+      const newColor = color.hex
+      const payload = { color: newColor, id: props.job.id }
+      props.editJob(payload)
     };
 
     const handlesNotes = (event) => {
@@ -73,7 +79,7 @@ function Job(props) {
             {props.job.interview ? "INTERVIEW REQUESTED" : "NO INTERVIEW"}
           </h2>
           <button className="colorButton" onClick={handleClick}>
-          <i class="fas fa-palette"></i>
+          <i className="fas fa-palette"></i>
           </button>
         {picker ? <div style={popover}>
           <div style={cover} onClick={handleClose}/>
@@ -86,13 +92,13 @@ function Job(props) {
             <i className="fas fa-link"></i>
           </a>
           <button className="editLink" onClick={showForm}>
-            <i class="fas fa-pencil-alt"></i>
+            <i className="fas fa-pencil-alt"></i>
           </button>
           
           {/* this button shows and hides the notes for each card */}
           <button className="notes" onClick={handlesNotes}>
-            <i class="fas fa-quote-left">&nbsp;</i>    
-            <i class="fas fa-quote-right"></i>
+            <i className="fas fa-quote-left">&nbsp;</i>    
+            <i className="fas fa-quote-right"></i>
           </button>
           {notes ? <div style={popover}>
           <div style={cover} onClick={handleClose}/>
@@ -110,5 +116,14 @@ function Job(props) {
         )
     }
 
-    export default Job;
+    const mapDispatchToProps = {
+      editJob: editJob    
+    }
+    
+    export default(
+      connect(
+          null,
+          mapDispatchToProps
+      )(Job)
+    );
   
