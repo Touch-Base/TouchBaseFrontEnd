@@ -29,16 +29,20 @@ function Job(props) {
 
     return(
         <div className="jobCard">
-          <h1>{props.job.company}</h1>
-          <h1>{props.job.position}</h1>
-          <h2>Applied on {props.job.appDate}</h2>
-          <h2>{props.job.method}</h2>
+          <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
+          <h1 className="jobTitle">{props.job.position}</h1>
+          <h2 className="appliedText">Applied on: <span>{props.job.appDate}</span> via <span>{props.job.method}</span></h2>
+          <button className="jobLink">
+            LINK
+          </button>
           <h3>Notes: {props.job.notes}</h3>
           <button onClick={showForm}>EDIT</button>
           <Modal visible={visible}>
-            <JobForm initialValues={props.job} editing={true} id={props.job.id} />
-            <button onClick={showForm}>CLOSE</button>
-            <button onClick={deleteButton}>DELETE JOB</button>
+            <div className="jobForm">
+              <JobForm initialValues={props.job} editing={true} id={props.job.id} />
+              <button onClick={showForm}>CLOSE</button>
+              <button onClick={deleteButton}>DELETE JOB</button>
+            </div>
           </Modal>
         </div>
         )

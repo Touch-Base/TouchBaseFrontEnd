@@ -29,7 +29,7 @@ function Jobs(props) {
     }
 
     useEffect(() => {
-        setVisibility(!visibleAdd)
+        setVisibility(false)
       }, [props.jobs]);
     
 
@@ -41,9 +41,11 @@ function Jobs(props) {
                 <JobForm initialValues={initialValues} adding={true}/>
             </Modal>
             <button onClick={showAddForm}>ADD A NEW JOB</button>
-           {props.jobs.map(job => {
-            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-           })}
+            <div className="jobsBlocks">
+                {props.jobs.map(job => {
+                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                })}
+            </div>
         </div>
         )
     }

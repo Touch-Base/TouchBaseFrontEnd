@@ -1,5 +1,59 @@
-.userForm {
-    background: rgba(0, 153, 255, 0.945);
+/// organizes all the job blocks on the page
+.jobsBlocks {
+    display: flex;
+    margin: 0 auto;
+    border: solid red 2px;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+
+    /// styles the job cards
+    .jobCard {
+        background: rgb(186, 43, 214);
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-left: 15px;
+        border: solid rgb(0, 217, 255) 4px;
+
+        .jobCompany {
+            margin-top: 15px;
+            color: white;
+            font-size: 3.8em;
+            letter-spacing: 2.3px;
+        }
+
+        .jobTitle {
+            margin-top: -30px;
+            letter-spacing: 2.3px;
+            color: rgba(255, 255, 255, 0.733);
+            font-size: 2.8em;
+        }
+
+        .appliedText {
+            color: rgba(255, 255, 255, 0.808);
+            letter-spacing: 2px;
+            font-size: 1em;
+            margin-top: -20px;
+            margin-left: 4px;
+
+            span {
+                font-size: 1.2em;
+                color: white;
+            }
+        }
+
+        .jobLink {
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+
+.jobForm {
+    background: rgba(153, 185, 206, 0.945);
     width: 400px;
     height: 600px;
     margin: 0 auto;
@@ -12,11 +66,11 @@
     .validInput {
         color: black;
         background: none;
-        padding: 15px 20px;
+        padding: 5px;
         font-family: 'Oswald', sans-serif;
         letter-spacing: 1px;
         font-size: 1em;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         border: solid white 2px;
         border-radius: 5px;
     }

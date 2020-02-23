@@ -93,7 +93,7 @@ const validationSchema = Yup.object().shape({
           handleSubmit, 
           isSubmitting 
         }) => (
-          <form onSubmit={handleSubmit} className="userForm">
+          <form onSubmit={handleSubmit}>
               
               {/* POSITION INPUT */}
               <div className="jobInput">
