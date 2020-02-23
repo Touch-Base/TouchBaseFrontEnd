@@ -41,21 +41,25 @@ function Job(props) {
       props.editJob(payload)
     };
 
+    // this is the handler to show the notes
     const handlesNotes = (event) => {
       event.preventDefault();
 
       setShowNotes(!notes);
     };
 
+    // this is the handler to show the color picker
     const handleClick = () => {
       setShowPicker(!picker)
     };
   
+    // this closes both the color picker and notes
     const handleClose = () => {
       setShowPicker(false)
       setShowNotes(false)
     };
 
+    // this is the positioning for the color picker
     const popover = {
       position: 'absolute',
       zIndex: '2',
@@ -78,6 +82,8 @@ function Job(props) {
           <h2 className={props.job.interview ? "interview" : "nointerview"}>
             {props.job.interview ? "INTERVIEW REQUESTED" : "NO INTERVIEW"}
           </h2>
+
+          {/* this is the color picker and the button */}
           <button className="colorButton" onClick={handleClick}>
           <i className="fas fa-palette"></i>
           </button>
@@ -88,6 +94,8 @@ function Job(props) {
               onChangeComplete={handleChangeComplete}
             />
         </div> : null }
+
+          {/* this is the edit button */}
           <a target="_blank" rel="noopener noreferrer" className="jobLink" href={props.job.link}>
             <i className="fas fa-link"></i>
           </a>
@@ -105,6 +113,7 @@ function Job(props) {
           <p>{props.job.notes}</p>
         </div> : null }
 
+          {/* this is the modal for the form */}
           <Modal visible={visible}>
             <div className="jobForm">
               <JobForm initialValues={props.job} editing={true} id={props.job.id} />
