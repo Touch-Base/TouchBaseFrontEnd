@@ -12,6 +12,7 @@
     "formik": "^2.1.3",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
+    "react-color": "^2.18.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",

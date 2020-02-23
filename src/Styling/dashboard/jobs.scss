@@ -67,9 +67,9 @@
     .jobCard {
         position: relative;
         border-radius: 5px;
-        background: rgb(186, 43, 214);
         width: 450px;
         min-width: 450px;
+        height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -79,7 +79,7 @@
         padding-right: 15px;
 
         .jobCompany {
-            margin-top: 15px;
+            margin-top: -40px;
             color: white;
             font-size: 2.7em;
             letter-spacing: 2.3px;
@@ -97,7 +97,7 @@
             letter-spacing: 2px;
             font-size: 0.9em;
             margin-top: -15px;
-            margin-left: 4px;
+            margin-left: 2px;
 
             span {
                 font-size: 1.1em;
@@ -107,15 +107,20 @@
 
         .interview {
             font-size: 1em;
-            color: green;
+            color: white;
+            margin: -5px 0;
+            letter-spacing: 2px;
         }
 
         .nointerview {
             font-size: 1em;
-            color: red;
+            color: white;
+            margin: -5px 0;
+            letter-spacing: 2px;
         }
 
         p {
+            display: flex;
             font-size: 1em;
             display: block;
             text-align: left;
@@ -131,45 +136,94 @@
 
         .jobLink {
             position: absolute;
-            right: -26px;
-            top: 50px;
-            background: rgba(43, 142, 255, 0.863);
+            right: 25px;
+            top: 70px;
             padding: 13px;
             border-radius: 100px;
             transition: 0.5s;
+            border: solid white 2px;
+            background: none;
 
             i {
-                font-size: 2.5em;
+                font-size: 2.3em;
                 color: white;
             }
         }
 
 
         .jobLink:hover {
-            background: rgba(113, 179, 255, 0.932);
+            background: rgba(255, 255, 255, 0.219);
             transition: 0.5s;
         }
 
         .editLink {
             position: absolute;
-            right: -20px;
-            top: 330px;
-            background: white;
+            right: 10px;
+            top: 140px;
+            background: none;
             padding: 9px;
             border-radius: 100px;
-            border: solid rgb(186, 43, 214) 2px;
             transition: 0.5s;
+            border: none;
 
             i {
-                font-size: 2.3em;
-                color: rgb(186, 43, 214);
+                font-size: 2.7em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
             }
         }
 
         .editLink:hover {
-            background:rgb(255, 221, 250);
             transition: 0.5s;
             cursor: pointer;
+
+            i {
+                color: rgba(255, 255, 255, 0.808);
+                transition: 0.5s;
+            }
+        }
+
+        .notes {
+            position: absolute;
+            right: 185px;
+            top: 140px;
+            background: none;
+            padding: 9px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: none;
+
+            i {
+                font-size: 2.7em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .colorButton {
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            background: none;
+            padding: 9px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: none;
+
+            i {
+                font-size: 1.2em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .colorButton:hover {
+            cursor: pointer;
+
+            i {
+                color: rgb(255, 204, 108);
+                transition: 0.5s;
+            }
         }
     }
 }
