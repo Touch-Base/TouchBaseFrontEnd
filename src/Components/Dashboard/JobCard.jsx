@@ -32,11 +32,13 @@ function Job(props) {
           <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
           <h1 className="jobTitle">{props.job.position}</h1>
           <h2 className="appliedText">Applied on: <span>{props.job.appDate}</span> via <span>{props.job.method}</span></h2>
-          <button className="jobLink">
-            LINK
+          <a target="_blank" rel="noopener noreferrer" className="jobLink" href={props.job.link}>
+            <i className="fas fa-link"></i>
+          </a>
+          <p>{props.job.notes}</p>
+          <button className="editLink" onClick={showForm}>
+            <i class="fas fa-pencil-alt"></i>
           </button>
-          <h3>Notes: {props.job.notes}</h3>
-          <button onClick={showForm}>EDIT</button>
           <Modal visible={visible}>
             <div className="jobForm">
               <JobForm initialValues={props.job} editing={true} id={props.job.id} />

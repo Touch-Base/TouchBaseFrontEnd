@@ -28,7 +28,7 @@ const validationSchema = Yup.object().shape({
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20"),
     notes: Yup.string()
-    .max(1000, "Must be under 1000 characters.")
+    .max(400, "Must be under 400 characters.")
     })
 
     return (

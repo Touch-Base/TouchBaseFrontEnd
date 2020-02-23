@@ -1,54 +1,139 @@
 /// organizes all the job blocks on the page
+.jobsPage {
+    position: relative;
+
+    /// add job button styling
+    .addJobButton {
+        position: fixed;
+        display: block;
+        top: 80%;
+        right: 20px;
+        z-index: 1;
+        background: rgba(86, 245, 86, 0.911);
+        border: solid white 2px;
+        border-radius: 500px;
+        width: 100px;
+        height: 100px;
+        transition: 0.5s;
+        
+
+        i {
+            color: white;
+            font-size: 5em;
+        }
+    }
+
+    .addJobButton:hover {
+        background: rgba(39, 247, 39, 0.863);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+}
+
 .jobsBlocks {
     display: flex;
     margin: 0 auto;
-    border: solid red 2px;
-    justify-content: center;
+    justify-content: space-evenly;
     font-family: 'Oswald', sans-serif;
+    flex-wrap: wrap;
 
     /// styles the job cards
     .jobCard {
         position: relative;
+        border-radius: 5px;
         background: rgb(186, 43, 214);
-        width: 500px;
+        width: 450px;
+        min-width: 450px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: left;
         padding-left: 15px;
-        border: solid rgb(0, 217, 255) 4px;
+        margin-bottom: 50px;
+        padding-right: 15px;
 
         .jobCompany {
             margin-top: 15px;
             color: white;
-            font-size: 3.8em;
+            font-size: 2.7em;
             letter-spacing: 2.3px;
         }
 
         .jobTitle {
             margin-top: -30px;
-            letter-spacing: 2.3px;
+            letter-spacing: 2.1px;
             color: rgba(255, 255, 255, 0.733);
-            font-size: 2.8em;
+            font-size: 2em;
         }
 
         .appliedText {
             color: rgba(255, 255, 255, 0.808);
             letter-spacing: 2px;
-            font-size: 1em;
-            margin-top: -20px;
+            font-size: 0.9em;
+            margin-top: -15px;
             margin-left: 4px;
 
             span {
-                font-size: 1.2em;
+                font-size: 1.1em;
                 color: white;
             }
         }
 
+        p {
+            font-size: 1em;
+            display: block;
+            text-align: left;
+            color: rgb(105, 0, 241);
+            border: solid rgb(251, 208, 255) 2px;
+            letter-spacing: 1.5px;
+            background: white;
+            padding: 5px;
+            border-radius: 2px;
+            height: 183px;
+            
+        }
+
         .jobLink {
             position: absolute;
-            right: 25px;
-            top: 100px;
+            right: -26px;
+            top: 50px;
+            background: rgba(43, 142, 255, 0.863);
+            padding: 13px;
+            border-radius: 100px;
+            transition: 0.5s;
+
+            i {
+                font-size: 2.5em;
+                color: white;
+            }
+        }
+
+
+        .jobLink:hover {
+            background: rgba(113, 179, 255, 0.932);
+            transition: 0.5s;
+        }
+
+        .editLink {
+            position: absolute;
+            right: -20px;
+            top: 330px;
+            background: white;
+            padding: 9px;
+            border-radius: 100px;
+            border: solid rgb(186, 43, 214) 2px;
+            transition: 0.5s;
+
+            i {
+                font-size: 2.3em;
+                color: rgb(186, 43, 214);
+            }
+        }
+
+        .editLink:hover {
+            background:rgb(255, 221, 250);
+            transition: 0.5s;
+            cursor: pointer;
         }
     }
 }

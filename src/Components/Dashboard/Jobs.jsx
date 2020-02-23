@@ -40,7 +40,9 @@ function Jobs(props) {
             <Modal visible={visibleAdd}>
                 <JobForm initialValues={initialValues} adding={true}/>
             </Modal>
-            <button onClick={showAddForm}>ADD A NEW JOB</button>
+            <button className="addJobButton" onClick={showAddForm}>
+                <i className="fas fa-plus"></i>
+            </button>
             <div className="jobsBlocks">
                 {props.jobs.map(job => {
                     return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
