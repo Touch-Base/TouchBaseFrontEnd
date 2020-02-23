@@ -1,9 +1,55 @@
-.block {
-    display: block;
-    border: solid red 2px;
-}
+.userForm {
+    background: rgba(0, 153, 255, 0.945);
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
 
-.invisible {
-    display: none;
-    border: blue 5px solid;
+    .validInput {
+        color: black;
+        background: none;
+        padding: 15px 20px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        font-size: 1em;
+        margin-bottom: 20px;
+        border: solid white 2px;
+        border-radius: 5px;
+    }
+
+    .validInput::placeholder {
+        font-family: 'Oswald', sans-serif;
+        transition: 0.8s;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    .validInput:hover::-webkit-input-placeholder {
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.5em;
+        transition: 0.8s;
+        letter-spacing: 1px;
+    }
+
+    button {
+        padding: 15px 20px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(186, 43, 214);
+        font-size: 1em;
+        border: none;
+        margin-bottom: 20px;
+        transition: 0.25s;
+    }
+
+    button:hover {
+        background-color: rgba(138, 2, 172, 0.918);
+        transition: 0.25s;
+    }
 }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 import JobForm from './JobForm';
 import JobCard from './JobCard';
 import { deleteJob } from '../../actions/index';
+import Modal from './Modal';
 
 function Jobs(props) {
 
@@ -17,13 +18,25 @@ function Jobs(props) {
         appDate: '',
         notes: '',
         interview: false
-      }
+    }
+
+    const [ visibleAdd, setVisibility ] = useState(false);
+
+    const showAddForm = event => {
+      event.preventDefault();
+
+      setVisibility(!visibleAdd)
+    }
+    
 
     return(
         <div className="jobsPage">
-            {/* this job form is only 
+            {/* this job form pops up with a modal and is only 
             for adding a job, checking with an 'adding' prop */}
-           <JobForm initialValues={initialValues} adding={true}/>
+            <Modal visible={visibleAdd}>
+                <JobForm initialValues={initialValues} adding={true}/>
+            </Modal>
+            <button onClick={showAddForm}>ADD A NEW JOB</button>
            {props.jobs.map(job => {
             return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
            })}

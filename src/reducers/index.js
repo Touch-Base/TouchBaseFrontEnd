@@ -316,7 +316,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    jobs: action.payload.allJobs
+                    jobs: action.payload.allJobs,
+                    jobsTotal: action.payload.allJobs.length
                 }
             }
         }
