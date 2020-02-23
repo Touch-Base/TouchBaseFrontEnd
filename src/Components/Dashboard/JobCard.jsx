@@ -116,7 +116,10 @@ function Job(props) {
           {/* this is the modal for the form */}
           <Modal visible={visible}>
             <div className="jobForm">
-              <JobForm initialValues={props.job} editing={true} id={props.job.id} />
+              <h1 className="editJobTitle">EDIT JOB</h1>
+              <div className="editForm">
+                <JobForm initialValues={props.job} editing={true} id={props.job.id} />
+              </div>
               <button onClick={showForm}>CLOSE</button>
               <button onClick={deleteButton}>DELETE JOB</button>
             </div>
