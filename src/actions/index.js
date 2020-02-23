@@ -159,6 +159,7 @@ export function addJob(payload) {
   return dispatch => {
 
     dispatch({ type: ADDING_JOB });
+    console.log(payload)
 
     return axios.post(`https://touch-base-server.herokuapp.com/api/jobs/add/`, payload, {
       headers: {
@@ -202,7 +203,7 @@ export function editJob(payload) {
       }
 }
 
-/// THIS ACTION DELETS A JOB FOR A USER
+/// THIS ACTION DELETES A JOB FOR A USER
 
 export function deleteJob(id) {
 

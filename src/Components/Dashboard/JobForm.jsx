@@ -40,7 +40,20 @@ const validationSchema = Yup.object().shape({
           setSubmitting(true);
 
           const { position, company, link, method, appDate, notes, interview } = values;
-          const payload = {
+          
+          // payload for adding a job
+          const addPayload = {
+            position: position,
+            company: company,
+            link: link,
+            method: method,
+            appDate: appDate,
+            notes: notes,
+            interview: interview
+            }
+          
+          // payload for updating a job
+          const editPayload = {
             position: position,
             company: company,
             link: link,
@@ -48,14 +61,14 @@ const validationSchema = Yup.object().shape({
             appDate: appDate,
             notes: notes,
             interview: interview,
-            id: props.id || null
+            id: props.id
             }
           
           /// checks if form is either adding or updating a job
           /// before submitting
           if(props.adding) {
 
-            props.addJob(payload)
+            props.addJob(addPayload)
 
             .then(() => {
                 console.log("added job!")
@@ -65,7 +78,7 @@ const validationSchema = Yup.object().shape({
                 console.error("Here", err)
             })}
           else {
-            props.editJob(payload)
+            props.editJob(editPayload)
             
             .then(() => {
                 console.log("updated job!")
