@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 import JobForm from './JobForm';
@@ -27,6 +27,10 @@ function Jobs(props) {
 
       setVisibility(!visibleAdd)
     }
+
+    useEffect(() => {
+        setVisibility(!visibleAdd)
+      }, [props.jobs]);
     
 
     return(
