@@ -32,7 +32,6 @@ function Jobs(props) {
         setVisibility(false)
       }, [props.jobs]);
     
-
     return(
         <div className="jobsPage">
             {/* this job form pops up with a modal and is only 
@@ -40,8 +39,8 @@ function Jobs(props) {
             <Modal visible={visibleAdd}>
                 <JobForm initialValues={initialValues} adding={true}/>
             </Modal>
-            <button className="addJobButton" onClick={showAddForm}>
-                <i className="fas fa-plus"></i>
+            <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
             <div className="jobsBlocks">
                 {props.jobs.map(job => {

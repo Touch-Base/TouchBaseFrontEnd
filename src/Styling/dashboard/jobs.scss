@@ -23,8 +23,34 @@
         }
     }
 
+    .exOutButton {
+        position: fixed;
+        display: block;
+        top: 80%;
+        right: 20px;
+        z-index: 1;
+        background: rgba(255, 34, 34, 0.911);
+        border: solid white 2px;
+        border-radius: 500px;
+        width: 100px;
+        height: 100px;
+        transition: 0.5s;
+        
+
+        i {
+            color: white;
+            font-size: 5em;
+        }
+    }
+
     .addJobButton:hover {
         background: rgba(39, 247, 39, 0.863);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .exOutButton:hover {
+        background: rgba(253, 17, 17, 0.76);
         transition: 0.5s;
         cursor: pointer;
     }
