@@ -22,12 +22,8 @@ function Job(props) {
       const id = props.job.id
 
       props.removeJob(id)
-      .then( res => {
-        setVisibility(false)
-      })
-      .catch( err => {
-        console.log(err)
-      })
+
+      setVisibility(false)
     }
 
 

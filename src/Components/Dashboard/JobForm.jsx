@@ -54,13 +54,7 @@ const validationSchema = Yup.object().shape({
           
           // payload for updating a job
           const editPayload = {
-            position: position,
-            company: company,
-            link: link,
-            method: method,
-            appDate: appDate,
-            notes: notes,
-            interview: interview,
+            ...addPayload,
             id: props.id
             }
           
