@@ -32,6 +32,9 @@ function Job(props) {
           <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
           <h1 className="jobTitle">{props.job.position}</h1>
           <h2 className="appliedText">Applied on: <span>{props.job.appDate}</span> via <span>{props.job.method}</span></h2>
+          <h2 className={props.job.interview ? "interview" : "nointerview"}>
+            {props.job.interview ? "Interview Requested" : "No Interview"}
+          </h2>
           <a target="_blank" rel="noopener noreferrer" className="jobLink" href={props.job.link}>
             <i className="fas fa-link"></i>
           </a>
