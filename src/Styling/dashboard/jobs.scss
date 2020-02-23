@@ -8,6 +8,7 @@
 
     /// styles the job cards
     .jobCard {
+        position: relative;
         background: rgb(186, 43, 214);
         width: 500px;
         display: flex;
@@ -46,7 +47,8 @@
 
         .jobLink {
             position: absolute;
-            right: 0;
+            right: 25px;
+            top: 100px;
         }
     }
 }
