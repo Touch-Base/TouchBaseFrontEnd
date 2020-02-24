@@ -242,13 +242,126 @@
 .jobForm {
     background: rgba(164, 70, 240, 0.911);
     margin: 0 auto;
+    width: 550px;
+    border-radius: 5px;
     display: flex;
-    border-radius: 3px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: 'Oswald', sans-serif;
-    width: 600px;
+    position: relative;
+    
+    .editJobTitle {
+        font-size: 2em;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .positionAndCompany {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .linkAndDate {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .methodAndInterview {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .position {
+            width: 100%;
+            margin-left: 15px;
+        }
+
+        .company {
+            width: 100%;
+        }
+
+        .appDate {
+            width: 100%;
+        }
+
+        .joblink {
+            width: 100%;
+            margin-left: 15px;
+        }
+
+        .inputTitle {
+            font-size: 0.7em;
+            letter-spacing: 1px;
+            margin: 0;
+            margin-bottom: 2px;
+            color: rgba(255, 255, 255, 0.76);
+            padding: 0;
+            display: block;
+        }
+
+        input {
+            color: rgba(0, 0, 0, 0.473);
+            width: 90%;
+            padding: 10px 5px;
+            letter-spacing: 1.5px;
+            font-family: 'Oswald', sans-serif;
+            border-radius: 5px;
+            border: solid rgb(199, 82, 253) 2px;
+            transition: 0.5s;
+        }
+
+        input:hover {
+            color: rgba(0, 0, 0, 0.973);
+            transition: 0.5s;
+        }
+
+        textarea {
+            color: black;
+            resize: none;
+            border-radius: 3px;
+        }
+
+        select {
+            margin-top: 0;
+            color: rgb(0, 162, 255);
+            border-radius: 5px;
+            padding: 5px;
+            letter-spacing: 1.5px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+
+        
+
+    }
+
+    // closeButton
+    .closeButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        background: none;
+        border-radius: 500px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+
+        i {
+            color: rgb(255, 93, 93);
+            font-size: 2em;
+        }
+    }
 
    
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
 import { TwitterPicker } from 'react-color';
@@ -31,6 +31,14 @@ function Job(props) {
 
       setVisibility(false)
     }
+
+    useEffect(() => {
+
+      // checks to see if the job was updated
+      // and closes the edit box
+      setVisibility(false)
+
+    }, [props.job]);
 
     /// this handles the color change in the color picker
     /// it also sends the color to the job on the server
@@ -117,11 +125,11 @@ function Job(props) {
           <Modal visible={visible}>
             <div className="jobForm">
               <h1 className="editJobTitle">EDIT JOB</h1>
-              <div className="editForm">
-                <JobForm initialValues={props.job} editing={true} id={props.job.id} />
-              </div>
-              <button onClick={showForm}>CLOSE</button>
-              <button onClick={deleteButton}>DELETE JOB</button>
+              <JobForm initialValues={props.job} editing={true} id={props.job.id} />
+              <button className="closeButton" onClick={showForm}>
+                <i className="fas fa-times"></i>
+              </button>
+              <button className="deleteButton" onClick={deleteButton}>DELETE JOB</button>
             </div>
           </Modal>
         </div>
