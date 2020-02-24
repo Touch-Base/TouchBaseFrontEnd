@@ -113,7 +113,7 @@ function Job(props) {
           <p>{props.job.notes}</p>
         </div> : null }
 
-          {/* this is the modal for the form */}
+          {/* this is the modal for the edit form */}
           <Modal visible={visible}>
             <div className="jobForm">
               <h1 className="editJobTitle">EDIT JOB</h1>

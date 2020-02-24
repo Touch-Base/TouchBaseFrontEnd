@@ -97,6 +97,7 @@ const validationSchema = Yup.object().shape({
               
               {/* POSITION INPUT */}
               <div className="jobInput">
+                <h4 className="inputTitle">{!props.adding ? "Position" : null}</h4>
                 <input 
                   type="text" 
                   placeholder="Position"
@@ -111,6 +112,7 @@ const validationSchema = Yup.object().shape({
               
               {/* COMPANY INPUT */}
               <div className="jobInput">
+                <h4 className="inputTitle">{!props.adding ? "Company" : null}</h4>
                 <input 
                   type="text" 
                   placeholder="Company"
@@ -125,6 +127,7 @@ const validationSchema = Yup.object().shape({
 
               {/* LINK INPUT */}
               <div className="jobInput">
+                <h4 className="inputTitle">{!props.adding ? "Posting Link" : null}</h4>
                 <input 
                   type="text" 
                   placeholder="Link"
@@ -161,6 +164,7 @@ const validationSchema = Yup.object().shape({
 
               {/* APP DATE INPUT */}
               <div className="jobInput">
+                <h4 className="inputTitle">{!props.adding ? "Application Date" : null}</h4>
                 <input 
                   type="text"  
                   placeholder="Application Date"
@@ -175,7 +179,8 @@ const validationSchema = Yup.object().shape({
 
               {/* NOTES INPUT */}
               <div className="jobInput">
-                <input 
+                <h4 className="inputTitle">{!props.adding ? "Notes" : null}</h4>
+                <textarea 
                   type="text" 
                   placeholder="Notes"
                   name="notes"
