@@ -203,7 +203,7 @@ const validationSchema = Yup.object().shape({
               </div>
 
               {/* this button checks if it is adding a job or updating one */}
-              <button type="submit">{props.adding ? "ADD JOB" : "UPDATE JOB"}</button>
+              <button className={props.adding ? "addButton" : "updateButton"} type="submit">{props.adding ? "ADD JOB" : "UPDATE JOB"}</button>
           </form>
         )}
       </Formik>

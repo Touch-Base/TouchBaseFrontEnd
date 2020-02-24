@@ -363,5 +363,43 @@
         }
     }
 
-   
+    .deleteButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(214, 43, 43);
+        font-size: 0.7em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 15px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .deleteButton:hover {
+        background-color: rgba(255, 5, 5, 0.918);
+        transition: 0.25s;
+    }
+
+    .updateButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(52, 159, 247);
+        font-size: 1.3em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .updateButton:hover {
+        background-color: rgba(119, 167, 238, 0.918);
+        transition: 0.25s;
+    }
 }
