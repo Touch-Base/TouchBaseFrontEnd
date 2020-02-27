@@ -1,41 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
-// import JobCard from './JobCard';
 import JobForm from './JobForm';
 import JobCard from './JobCard';
-import axios from 'axios';
+import { deleteJob } from '../../actions/index';
+import Modal from './Modal';
 
 function Jobs(props) {
-    
-    let jobOrganizer = 'table'
-    let toggleColor = 'blue'
-    let organizeType = 'TABLE'
 
-    const [ tswitch, toggleSwitch ] = useState(false);
-    
-    if (tswitch === false) {
-        return null
-    }
-    else {
-        let jobOrganizer = 'blocks'
-        let toggleColor = 'purple'
-        let organizeType = 'BLOCKS'
-    }
-        
-    const changeCards = event => {
-        event.preventDefault();
-        
-        toggleSwitch(!tswitch);
+    // these empty values are passed to the jobs form 
+    // for adding a new job
+    const initialValues = { 
+        position: '', 
+        company: '', 
+        link: '', 
+        method: '',
+        appDate: '',
+        notes: '',
+        interview: false
     }
 
+    const [ visibleAdd, setVisibility ] = useState(false);
+
+    const showAddForm = event => {
+      event.preventDefault();
+
+      setVisibility(!visibleAdd)
+    }
+
+    useEffect(() => {
+        setVisibility(false)
+      }, [props.jobs]);
+    
     return(
-        <div className={jobOrganizer}>
-            <button onClick={changeCards} className={toggleColor}>{organizeType}</button>
-           <JobForm />
-           {props.jobs.map(job => {
-            return <JobCard job={job} />
-           })}
+        <div className="jobsPage">
+            {/* this job form pops up with a modal and is only 
+            for adding a job, checking with an 'adding' prop */}
+            <Modal visible={visibleAdd}>
+                <JobForm initialValues={initialValues} adding={true}/>
+            </Modal>
+            <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
+            </button>
+            <div className="jobsBlocks">
+                {props.jobs.map(job => {
+                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                })}
+            </div>
         </div>
         )
     }
@@ -49,10 +60,14 @@ const mapStateToProps = (state) => {
         jobs: state.user.jobs
     }
   }
+
+  const mapDispatchToProps = {
+    deleteJob: deleteJob    
+  }
   
   export default(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(Jobs)
   );

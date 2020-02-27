@@ -47,6 +47,11 @@ export const UPDATING_JOB = 'UPDATING_JOB';
 export const UPDATED_JOB = 'UPDATED_JOB';
 export const FAILED_UPDATE_JOB = 'FAILED_UPDATE_JOB';
 
+// DELETING A JOB
+export const DELETING_JOB = 'DELETING_JOB';
+export const DELETED_JOB = 'DELETED_JOB';
+export const FAILED_DELETE_JOB = 'FAILED_DELETE_JOB';
+
     //////////////// CONNECTIONS  \\\\\\\\\\\\\\\\\ 
 
 // ADDING A CONNECTION
@@ -154,6 +159,7 @@ export function addJob(payload) {
   return dispatch => {
 
     dispatch({ type: ADDING_JOB });
+    console.log(payload)
 
     return axios.post(`https://touch-base-server.herokuapp.com/api/jobs/add/`, payload, {
       headers: {
@@ -187,16 +193,37 @@ export function editJob(payload) {
         Authorization: localStorage.getItem('token')
       }})
       .then((response) => {
-        console.log(response.data)
         dispatch({ type: UPDATED_JOB, payload: response.data });
       })
 
       .catch((error) => {
-        console.log(error)
         dispatch({ type: FAILED_UPDATE_JOB, payload: error })
       })
 
       }
+}
+
+/// THIS ACTION DELETES A JOB FOR A USER
+
+export function deleteJob(id) {
+
+  const token = localStorage.getItem('token');
+
+  return dispatch => {
+
+    dispatch({ type: DELETING_JOB });
+
+    return axios.delete(`https://touch-base-server.herokuapp.com/api/jobs/delete/${id}`, {
+      headers: {
+        Authorization: token
+      }})
+      .then( res => {
+        dispatch({ type: DELETED_JOB, payload: res.data  });
+      })
+      .catch( err => {
+        dispatch({ type: FAILED_DELETE_JOB, payload: err });
+      })
+  }
 }
 
 /// THIS ACTION ADDS A CONNECTION FOR A USER

@@ -1,0 +1,407 @@
+/// organizes all the job blocks on the page
+.jobsPage {
+    position: relative;
+
+    /// add job button styling
+    .addJobButton {
+        position: fixed;
+        display: block;
+        top: 80%;
+        right: 20px;
+        z-index: 1;
+        background: rgba(86, 245, 86, 0.911);
+        border: solid white 2px;
+        border-radius: 500px;
+        width: 100px;
+        height: 100px;
+        transition: 0.5s;
+        
+
+        i {
+            color: white;
+            font-size: 5em;
+        }
+    }
+
+    .exOutButton {
+        position: fixed;
+        display: block;
+        top: 80%;
+        right: 20px;
+        z-index: 1;
+        background: rgba(255, 34, 34, 0.911);
+        border: solid white 2px;
+        border-radius: 500px;
+        width: 100px;
+        height: 100px;
+        transition: 0.5s;
+        
+
+        i {
+            color: white;
+            font-size: 5em;
+        }
+    }
+
+    .addJobButton:hover {
+        background: rgba(39, 247, 39, 0.863);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .exOutButton:hover {
+        background: rgba(253, 17, 17, 0.76);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+}
+
+.jobsBlocks {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    font-family: 'Oswald', sans-serif;
+    flex-wrap: wrap;
+
+    /// styles the job cards
+    .jobCard {
+        position: relative;
+        border-radius: 5px;
+        width: 450px;
+        min-width: 450px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-left: 15px;
+        margin-bottom: 50px;
+        padding-right: 15px;
+        box-shadow: 0 8px 6px -6px black;
+
+        .jobCompany {
+            margin-top: -40px;
+            color: white;
+            font-size: 2.7em;
+            letter-spacing: 2.3px;
+        }
+
+        .jobTitle {
+            margin-top: -30px;
+            letter-spacing: 2.1px;
+            color: rgba(255, 255, 255, 0.733);
+            font-size: 2em;
+        }
+
+        .appliedText {
+            color: rgba(255, 255, 255, 0.808);
+            letter-spacing: 2px;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-left: 2px;
+
+            span {
+                font-size: 1.1em;
+                color: white;
+            }
+        }
+
+        .interview {
+            font-size: 1em;
+            color: white;
+            margin: -5px 0;
+            letter-spacing: 2px;
+        }
+
+        .nointerview {
+            font-size: 1em;
+            color: white;
+            margin: -5px 0;
+            letter-spacing: 2px;
+        }
+
+        p {
+            display: flex;
+            font-size: 1em;
+            text-align: left;
+            color: rgb(56, 0, 129);
+            border: solid rgb(158, 158, 158) 1px;
+            letter-spacing: 1.5px;
+            background: white;
+            padding: 8px;
+            border-radius: 5px;
+            margin-right: 12px;
+            margin-top: 5px;
+            
+        }
+
+        .jobLink {
+            position: absolute;
+            right: 45px;
+            top: 70px;
+            padding: 13px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: solid white 2px;
+            background: none;
+
+            i {
+                font-size: 2.3em;
+                color: white;
+            }
+        }
+
+
+        .jobLink:hover {
+            background: rgba(255, 255, 255, 0.219);
+            transition: 0.5s;
+        }
+
+        .editLink {
+            position: absolute;
+            right: 10px;
+            top: 140px;
+            background: none;
+            padding: 9px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: none;
+
+            i {
+                font-size: 2.7em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .editLink:hover {
+            transition: 0.5s;
+            cursor: pointer;
+
+            i {
+                color: rgba(255, 255, 255, 0.808);
+                transition: 0.5s;
+            }
+        }
+
+        .notes {
+            position: absolute;
+            right: 185px;
+            top: 140px;
+            background: none;
+            padding: 9px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: none;
+
+            i {
+                font-size: 2.7em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .notes:hover {
+            cursor: pointer;
+
+            i {
+                color: rgba(255, 255, 255, 0.596);
+                transition: 0.5s;
+            }
+        }
+
+        .colorButton {
+            position: absolute;
+            left: 20px;
+            top: 160px;
+            background: none;
+            padding: 9px;
+            border-radius: 100px;
+            transition: 0.5s;
+            border: none;
+
+            i {
+                font-size: 1.2em;
+                color: rgb(255, 255, 255);
+                transition: 0.5s;
+            }
+        }
+
+        .colorButton:hover {
+            cursor: pointer;
+
+            i {
+                color: rgb(255, 204, 108);
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+
+/// this is the form for adding and updating a job
+.jobForm {
+    background: rgba(164, 70, 240, 0.911);
+    margin: 0 auto;
+    width: 550px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    
+    .editJobTitle {
+        font-size: 2em;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .positionAndCompany {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .linkAndDate {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .methodAndInterview {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .position {
+            width: 100%;
+            margin-left: 15px;
+        }
+
+        .company {
+            width: 100%;
+        }
+
+        .appDate {
+            width: 100%;
+        }
+
+        .joblink {
+            width: 100%;
+            margin-left: 15px;
+        }
+
+        .inputTitle {
+            font-size: 0.7em;
+            letter-spacing: 1px;
+            margin: 0;
+            margin-bottom: 2px;
+            color: rgba(255, 255, 255, 0.76);
+            padding: 0;
+            display: block;
+        }
+
+        input {
+            color: rgba(0, 0, 0, 0.473);
+            width: 90%;
+            padding: 10px 5px;
+            letter-spacing: 1.5px;
+            font-family: 'Oswald', sans-serif;
+            border-radius: 5px;
+            border: solid rgb(199, 82, 253) 2px;
+            transition: 0.5s;
+        }
+
+        input:hover {
+            color: rgba(0, 0, 0, 0.973);
+            transition: 0.5s;
+        }
+
+        textarea {
+            color: black;
+            resize: none;
+            border-radius: 3px;
+        }
+
+        select {
+            margin-top: 0;
+            color: rgb(0, 162, 255);
+            border-radius: 5px;
+            padding: 5px;
+            letter-spacing: 1.5px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+
+        
+
+    }
+
+    // closeButton
+    .closeButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        background: none;
+        border-radius: 500px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+
+        i {
+            color: rgb(255, 93, 93);
+            font-size: 2em;
+        }
+    }
+
+    .deleteButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(214, 43, 43);
+        font-size: 0.7em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 15px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .deleteButton:hover {
+        background-color: rgba(255, 5, 5, 0.918);
+        transition: 0.25s;
+    }
+
+    .updateButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(52, 159, 247);
+        font-size: 1.3em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .updateButton:hover {
+        background-color: rgba(119, 167, 238, 0.918);
+        transition: 0.25s;
+    }
+}

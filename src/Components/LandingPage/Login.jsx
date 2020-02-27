@@ -3,7 +3,7 @@ import Error from '../../helpers/Error';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
 import { Formik } from 'formik';
-import { loginUser } from '../../actions/index';
+import { loginUser, fillStateJobs, fillStateEvents, fillStateConnections } from '../../actions/index';
 import * as Yup from 'yup';
 import '../../Styling/login.scss';
 
@@ -53,6 +53,9 @@ class Login extends Component {
                     // successful login prompts to main page 
 
                     .then(() => {
+                        this.props.fillStateJobs();
+                        this.props.fillStateConnections();
+                        this.props.fillStateEvents();
                         navigate('/dashboard/');
                             
                     })
@@ -103,7 +106,10 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = {
-    loginUser: loginUser
+    loginUser: loginUser,
+    fillStateConnections: fillStateConnections,
+    fillStateJobs: fillStateJobs,
+    fillStateEvents: fillStateEvents
   }
   
   export default(

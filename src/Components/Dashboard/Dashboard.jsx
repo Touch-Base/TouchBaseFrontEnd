@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import DashboardNav from './DashboardNav';
-import { fillStateJobs, fillStateConnections, fillStateEvents } from '../../actions/index';
 import '../../Styling/dashboard/dashboard.scss';
 
 
 function Dashboard(props) {
-
-    useEffect(() => {
-        // code to run on component mount
-        props.fillStateJobs();
-        props.fillStateConnections();
-        props.fillStateEvents();
-        console.log('adding everything')
-      }, [])
 
     return(
         <div className="mainDashboard">
@@ -23,12 +14,6 @@ function Dashboard(props) {
             {props.children}
         </div>
         )
-    }
-
-const mapDispatchToProps = {
-    fillStateJobs: fillStateJobs,
-    fillStateConnections: fillStateConnections,
-    fillStateEvents: fillStateEvents
     }
 
 const mapStateToProps = (state) => {
@@ -42,6 +27,6 @@ const mapStateToProps = (state) => {
   export default(
     connect(
         mapStateToProps,
-        mapDispatchToProps
+        null
     )(Dashboard)
   );

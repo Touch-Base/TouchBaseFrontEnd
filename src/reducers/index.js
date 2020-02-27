@@ -19,6 +19,10 @@ import {
     UPDATING_JOB,
     UPDATED_JOB,
     FAILED_UPDATE_JOB,
+
+    DELETING_JOB,
+    DELETED_JOB,
+    FAILED_DELETE_JOB,
     
     ////////////
     ADDING_CONNECTION,
@@ -55,9 +59,9 @@ let initialState = {
         location: '',
         summary: '',
         position: '',
-        jobs: '',
-        connections: '',
-        events: '',
+        jobs: [],
+        connections: [],
+        events: [],
         jobsTotal: 0,
         connectionsTotal: 0
         },
@@ -257,12 +261,68 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    jobs: action.payload.allJobs
+                    jobs: action.payload.allJobs,
+                    jobsTotal: action.payload.allJobs.length
                 }
             }
         }
 
         case FAILED_ADD_JOB: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// UPDATING JOB CASES
+
+        case UPDATING_JOB: {
+            return {
+                ...state
+            }
+        }
+
+        case UPDATED_JOB: {
+            /// this maps through the jobs array 
+            /// and only changes the job that was updated
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: state.user.jobs.map(job => job.id === action.payload.updatedjob.id ? action.payload.updatedjob : job)
+                }
+            }
+        }
+
+        case FAILED_UPDATE_JOB: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// DELETING JOB CASES
+
+        case DELETING_JOB: {
+            return {
+                ...state
+            }
+        }
+
+        case DELETED_JOB: {
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    jobs: action.payload.allJobs,
+                    jobsTotal: action.payload.allJobs.length
+                }
+            }
+        }
+
+        case FAILED_DELETE_JOB: {
             return {
                 ...state,
                 error: action.payload.error
@@ -282,7 +342,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    connections: action.payload.allConnections
+                    connections: action.payload.allConnections,
+                    connectionsTotal: action.payload.allConnections.length
                 }
             }
         }

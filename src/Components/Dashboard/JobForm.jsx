@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/jobs.scss';
-import { addJob } from '../../actions/index';
+import { addJob, editJob } from '../../actions/index';
 
 function JobForm(props) {
 
@@ -28,45 +28,61 @@ const validationSchema = Yup.object().shape({
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20"),
     notes: Yup.string()
-    .max(1000, "Must be under 1000 characters.")
+    .max(400, "Must be under 400 characters.")
     })
 
     return (
         <Formik 
         enableReinitialize
-        initialValues={{ 
-          position: '', 
-          company: '', 
-          link: '', 
-          method: '',
-          appDate: '',
-          notes: '',
-          interview: false
-        }} 
+        initialValues={props.initialValues} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
           const { position, company, link, method, appDate, notes, interview } = values;
-
-          props.addJob({
-                position: position,
-                company: company,
-                link: link,
-                method: method,
-                appDate: appDate,
-                notes: notes,
-                interview: interview
+          
+          // payload for adding a job
+          const addPayload = {
+            position: position,
+            company: company,
+            link: link,
+            method: method,
+            appDate: appDate,
+            notes: notes,
+            interview: interview
             }
-        )
-        .then(() => {
-            console.log("added job!")
-              
-        })
-        .catch((err) => {
-            console.error("Here", err)
-        })
-        }}
+          
+          // payload for updating a job
+          const editPayload = {
+            ...addPayload,
+            id: props.id
+            }
+          
+          /// checks if form is either adding or updating a job
+          /// before submitting
+          if(props.adding) {
+
+            props.addJob(addPayload)
+
+            .then(() => {
+                console.log("added job!")
+                  
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })}
+          else {
+            props.editJob(editPayload)
+            
+            .then(() => {
+                console.log("updated job!")
+                  
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })}
+          }
+        }
       >
         {({ 
           values, 
@@ -77,95 +93,105 @@ const validationSchema = Yup.object().shape({
           handleSubmit, 
           isSubmitting 
         }) => (
-          <form onSubmit={handleSubmit} className="updateUserForm">
+          <form onSubmit={handleSubmit}>
               
               {/* POSITION INPUT */}
-              <div className="jobInput">
-                <input 
-                  type="text" 
-                  id="position" 
-                  placeholder="Position"
-                  name="position"
-                  onChange={handleChange}
-                  value={values.position}
-                  onBlur={handleBlur} 
-                  className={(touched.position && errors.position) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.position} message={errors.position} />
-              </div>
-              
+              <div className="positionAndCompany">
+                <div className="position">
+                  <h4 className="inputTitle">{!props.adding ? "Position" : null}</h4>
+                  <input 
+                    type="text" 
+                    placeholder="Position"
+                    name="position"
+                    onChange={handleChange}
+                    value={values.position}
+                    onBlur={handleBlur} 
+                    className={(touched.position && errors.position) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.position} message={errors.position} />
+                </div>
               {/* COMPANY INPUT */}
-              <div className="jobInput">
-                <input 
-                  type="text" 
-                  id="company" 
-                  placeholder="Company"
-                  name="company"
-                  onChange={handleChange}
-                  value={values.company}
-                  onBlur={handleBlur} 
-                  className={(touched.company && errors.company) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.company} message={errors.company} />
+                <div className="company">
+                  <h4 className="inputTitle">{!props.adding ? "Company" : null}</h4>
+                  <input 
+                    type="text" 
+                    placeholder="Company"
+                    name="company"
+                    onChange={handleChange}
+                    value={values.company}
+                    onBlur={handleBlur} 
+                    className={(touched.company && errors.company) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.company} message={errors.company} />
+                </div>
               </div>
 
               {/* LINK INPUT */}
-              <div className="jobInput">
-                <input 
-                  type="text" 
-                  id="link" 
-                  placeholder="Link"
-                  name="link"
-                  onChange={handleChange}
-                  value={values.link}
-                  onBlur={handleBlur} 
-                  className={(touched.link && errors.link) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.link} message={errors.link} />
-              </div>
-
-              {/* METHOD INPUT */}
-              <div className="jobInput">
-                <label>
-                    Method
-                </label>
-                <select
-                    name="method"
-                    value={values.method}
+              <div className="linkAndDate">
+                <div className="joblink">
+                  <h4 className="inputTitle">{!props.adding ? "Posting Link" : null}</h4>
+                  <input 
+                    type="text" 
+                    placeholder="Link"
+                    name="link"
                     onChange={handleChange}
-                    onBlur={handleBlur}
-                >
-                    <option value="" label="Select a method" />
-                    <option value="LinkedIn" label="LinkedIn" />
-                    <option value="Connection" label="Connection" />
-                    <option value="Job Website" label="Job Website" />
-                    <option value="Company Site" label="Company Site" />
-                    <option value="Other" label="Other" />
-                </select>
-                {errors.method && touched.method &&
-                <div className="input-feedback">{errors.method}</div>}
-              </div>
+                    value={values.link}
+                    onBlur={handleBlur} 
+                    className={(touched.link && errors.link) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.link} message={errors.link} />
+                </div>
 
               {/* APP DATE INPUT */}
-              <div className="jobInput">
-                <input 
-                  type="text" 
-                  id="appDate" 
-                  placeholder="Application Date"
-                  name="appDate"
-                  onChange={handleChange}
-                  value={values.appDate}
-                  onBlur={handleBlur} 
-                  className={(touched.appDate && errors.appDate) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.appDate} message={errors.appDate} />
+                <div className="appDate">
+                    <h4 className="inputTitle">{!props.adding ? "Application Date" : null}</h4>
+                    <input 
+                      type="text"  
+                      placeholder="Application Date"
+                      name="appDate"
+                      onChange={handleChange}
+                      value={values.appDate}
+                      onBlur={handleBlur} 
+                      className={(touched.appDate && errors.appDate) ? "hasError" : "validInput"}
+                    />
+                    <Error touched={touched.appDate} message={errors.appDate} />
+                  </div>
+                </div>
+
+              {/* METHOD INPUT */}
+              <div className="methodAndInterview">
+                <div className="method">
+                  <h4 className="inputTitle">Method</h4>
+                  <select
+                      name="method"
+                      value={values.method}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                  >
+                      <option value="" label="Select a method" />
+                      <option value="LinkedIn" label="LinkedIn" />
+                      <option value="Connection" label="Connection" />
+                      <option value="Job Website" label="Job Website" />
+                      <option value="Company Site" label="Company Site" />
+                      <option value="Other" label="Other" />
+                  </select>
+                  {errors.method && touched.method &&
+                  <div className="input-feedback">{errors.method}</div>}
+                </div>
+
+              {/* INTERVIEW INPUT */}
+              <div className="interview">
+                  <button type="button" onChange={handleChange} value={!values.interview}>INTERVIEW?</button>
+                </div>
               </div>
 
               {/* NOTES INPUT */}
               <div className="jobInput">
-                <input 
+                <h4 className="inputTitle">{!props.adding ? "Notes" : null}</h4>
+                <textarea 
+                  rows="7"
+                  cols="60"
                   type="text" 
-                  id="notes" 
                   placeholder="Notes"
                   name="notes"
                   onChange={handleChange}
@@ -176,25 +202,8 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.notes} message={errors.notes} />
               </div>
 
-              {/* INTERVIEW INPUT */}
-              <div className="jobInput">
-                <label>
-                    Interview
-                </label>
-                <input
-                    name="interview"
-                    id="interview"
-                    type="checkbox"
-                    value={values.interview}
-                    checked={values.interview}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                />
-                <Error touched={touched.interview} message={errors.interview} />
-              </div>
-
-
-              <button type="submit">ADD JOB</button>
+              {/* this button checks if it is adding a job or updating one */}
+              <button className={props.adding ? "addButton" : "updateButton"} type="submit">{props.adding ? "ADD JOB" : "UPDATE JOB"}</button>
           </form>
         )}
       </Formik>
@@ -202,7 +211,8 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addJob: addJob
+    addJob: addJob,
+    editJob: editJob
 }
 
 

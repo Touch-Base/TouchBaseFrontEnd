@@ -5,6 +5,7 @@ import Overview from '../Dashboard/Overview';
 import Profile from '../Dashboard/Profile';
 import Jobs from '../Dashboard/Jobs';
 import Networking from '../Dashboard/Networking';
+import Events from '../Dashboard/Events';
 
 function ProtectedRoutes() {
     // eslint-disable-next-line consistent-return
@@ -31,6 +32,7 @@ function ProtectedRoutes() {
             <Profile path="/profile" />
             <Jobs path="/jobs" />
             <Networking path="/networking" />
+            <Events path="/events" />
           </Dashboard>
         </Router>
       );
