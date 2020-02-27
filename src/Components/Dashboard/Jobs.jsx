@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 import JobForm from './JobForm';
 import JobCard from './JobCard';
+import JobRow from './JobRow';
 import { deleteJob } from '../../actions/index';
 import Modal from './Modal';
 
@@ -57,11 +58,24 @@ function Jobs(props) {
             </button>
             
             {/*this checks to see how the jobs should be displayed */}
-            <div className={table ? "jobsTable" : "jobsBlocks"}>
-                {props.jobs.map(job => {
-                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                })}
-            </div>
+            {if(table) {
+                return(
+                    <div className="jobsBlocks">
+                        {props.jobs.map(job => {
+                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                        })}
+                    </div>
+                    )
+            } else {
+                return(
+                    <div className="jobsTable">
+                        {props.jobs.map(job => {
+                            return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
+                        })}
+                    </div>
+                    )
+                }
+             }
         </div>
         )
     }
