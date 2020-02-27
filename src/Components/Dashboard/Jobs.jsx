@@ -20,14 +20,19 @@ function Jobs(props) {
         interview: false
     }
 
+    // this sets the visibility for the job form modal
     const [ visibleAdd, setVisibility ] = useState(false);
+    
+    // this sets whether the jobs will be displayed as cards or in a table
+    const [ table, setOrganizer ] = useState(false);
 
     const showAddForm = event => {
       event.preventDefault();
 
       setVisibility(!visibleAdd)
     }
-
+    
+    // this closes the modal once there is a redux state change
     useEffect(() => {
         setVisibility(false)
       }, [props.jobs]);
@@ -42,11 +47,27 @@ function Jobs(props) {
             <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                 <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
-            <div className="jobsBlocks">
-                {props.jobs.map(job => {
-                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                })}
-            </div>
+            
+            {/*this checks to see how the jobs should be displayed */}
+            {if(table) {
+                return (
+                    <div className="jobsTable">
+                        {props.jobs.map(job => {
+                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                        })}
+                    </div>
+                   )
+            } else {
+                return (
+                    <div className="jobsBlocks">
+                        {props.jobs.map(job => {
+                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                        })}
+                    </div>
+                    )
+               }
+           }
+             
         </div>
         )
     }
