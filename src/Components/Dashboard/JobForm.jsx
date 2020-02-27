@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -7,6 +7,15 @@ import '../../Styling/dashboard/jobs.scss';
 import { addJob, editJob } from '../../actions/index';
 
 function JobForm(props) {
+    
+/// this sets up the interview switch button since it is not handled within Formik
+const [ interview, setInterview ] = useState(props.initialValues.interview)
+
+const interviewSwitch = event => {
+    event.preventDefault();
+    
+    setInterview(!interview)
+}
 
 //  This validation schema comes from the Yup library, it checks
 //  the Formik values to make sure everything entered suits the database
@@ -39,7 +48,7 @@ const validationSchema = Yup.object().shape({
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
-          const { position, company, link, method, appDate, notes, interview } = values;
+          const { position, company, link, method, appDate, notes } = values;
           
           // payload for adding a job
           const addPayload = {
@@ -179,9 +188,9 @@ const validationSchema = Yup.object().shape({
                   <div className="input-feedback">{errors.method}</div>}
                 </div>
 
-              {/* INTERVIEW INPUT */}
+              {/* INTERVIEW INPUT/ HANDLED USING HOOKS NOT FORMIK*/}
               <div className="interview">
-                  <button type="button" onChange={handleChange} value={!values.interview}>INTERVIEW?</button>
+                  <button type="button" onClick={interviewSwitch}>{interview ? "YES INTERVIEW" : "NO INTERVIEW"</button>
                 </div>
               </div>
 
