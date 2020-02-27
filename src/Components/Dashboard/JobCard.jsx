@@ -9,13 +9,15 @@ import { editJob } from '../../actions/index';
 
 function JobCard(props) {
 
-    // this controls the visibility of the modal for the form
 
     const [ visible, setVisibility ] = useState(false);
     const [ bgcolor, setColor ] = useState (props.job.color || "rgb(186, 43, 214)");
     const [ picker, setShowPicker ] = useState(false);
     const [ notes, setShowNotes ] = useState(false);
 
+    
+    // this controls the visibility of the modal for the form
+    
     const showForm = event => {
       event.preventDefault();
 
