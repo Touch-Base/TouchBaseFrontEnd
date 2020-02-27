@@ -25,16 +25,22 @@ function Profile(props) {
       }
 
     return (
-        <div>
+        <div className="profilePage">
             <div className="profileBlock">
-                <h2>Name: {props.firstname} {props.lastname}</h2>
-                <h2>email: {props.email}</h2>
-                <h2>Age: {props.age}</h2>
-                <h2>Location: {props.location}</h2>
-                <h2>Position: {props.position}</h2>
-                <h2>Summary: {props.summary}</h2>
+                <div className="namePosition">
+                    <img src="https://image.shutterstock.com/image-photo/portrait-young-beautiful-cute-cheerful-260nw-666258808.jpg" width="200px" alt="portrait" />
+                    <h2 className="fullName">{props.firstname} {props.lastname}</h2>
+                    <h2 className="positionTitle">{props.position || "Position"}</h2>
+                    <h2 className="age">{props.age || "Age"}</h2>
+                </div>
+                <div className="locationEmail">
+                    <h2>email: {props.email}</h2>
+                    <h2>Location: {props.location || "Location"}</h2>
+                </div>
+                <div className="summary">
+                    <h2>Summary: {props.summary || "Summary"}</h2>
+                </div>
             </div>
-            <h1>hey</h1>
             <button onClick={showProfileForm}>show form</button>
             <Modal visible={visibleProfile}>
                 <ProfileForm initialValues={initialValues} />

@@ -33,7 +33,7 @@ function ProfileForm(props) {
         })
 
     return(
-        <div className="profilePage">
+        <div className="profileForm">
   
             
     {/* These initial values make up the values necessary to complete the form,

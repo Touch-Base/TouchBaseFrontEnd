@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+
 .profilePage {
     display: flex;
-    height: 500px;
     border: solid red 2px;
     margin: 0 auto;
+    flex-direction: column;
 
     .profileBlock {
         margin: 0 auto;
@@ -10,6 +12,38 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        font-family: 'Alata', sans-serif;
 
+        .namePosition {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 300px;
+            background: lightblue;
+
+            .fullName {
+                font-size: 2em;
+                margin: 0;
+            }
+
+            .positionTitle {
+                font-size: 1em;
+                margin: 0;
+            }
+
+            .age {
+                font-size: 0.5em;
+                margin: 0;
+            }
+        }
+
+        .locationEmail {
+            border: solid blue 2px;
+        }
+
+        .summary {
+            border: solid green 2px;
+        }
     }
 }
