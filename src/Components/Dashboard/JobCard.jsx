@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { editJob } from '../../actions/index';
 
 
-function Job(props) {
+function JobCard(props) {
 
     // this controls the visibility of the modal for the form
 
@@ -144,6 +144,6 @@ function Job(props) {
       connect(
           null,
           mapDispatchToProps
-      )(Job)
+      )(JobCard)
     );
   
