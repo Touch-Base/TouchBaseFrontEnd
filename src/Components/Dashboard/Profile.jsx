@@ -34,8 +34,8 @@ function Profile(props) {
                     <h2 className="age">{props.age || "Age"}</h2>
                 </div>
                 <div className="locationEmail">
-                    <h2>email: {props.email}</h2>
-                    <h2>Location: {props.location || "Location"}</h2>
+                    <h2 className="userEmail">email: {props.email}</h2>
+                    <h2 className="userLocation">Location: {props.location || "Location"}</h2>
                 </div>
                 <div className="summary">
                     <h2>Summary: {props.summary || "Summary"}</h2>
