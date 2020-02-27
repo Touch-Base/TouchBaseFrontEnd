@@ -32,6 +32,13 @@ function Jobs(props) {
       setVisibility(!visibleAdd)
     }
     
+    // this function is the switch for how the jobs are displayed
+    const switchOrganizer = event -> {
+        event.preventDefault();
+        
+        setOrganizer(!table);
+    }
+    
     // this closes the modal once there is a redux state change
     useEffect(() => {
         setVisibility(false)
@@ -44,30 +51,17 @@ function Jobs(props) {
             <Modal visible={visibleAdd}>
                 <JobForm initialValues={initialValues} adding={true}/>
             </Modal>
+            <button onClick={switchOrganizer}>Change Style</button>
             <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                 <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
             
             {/*this checks to see how the jobs should be displayed */}
-            {if(table) {
-                return (
-                    <div className="jobsTable">
-                        {props.jobs.map(job => {
-                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                        })}
-                    </div>
-                   )
-            } else {
-                return (
-                    <div className="jobsBlocks">
-                        {props.jobs.map(job => {
-                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                        })}
-                    </div>
-                    )
-               }
-           }
-             
+            <div className={table ? "jobsTable" : "jobsBlocks"}>
+                {props.jobs.map(job => {
+                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                })}
+            </div>
         </div>
         )
     }
