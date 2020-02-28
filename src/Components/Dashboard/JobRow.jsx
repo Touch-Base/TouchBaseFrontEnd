@@ -89,7 +89,6 @@ function JobRow(props) {
       <h1 className="jobcolumn" id="appDate">{props.job.appDate}</h1>
       <h1 className="jobcolumn" id="interview">{props.job.interview ? "Yes" : "No interview"}</h1>
       <h1 className="jobcolumn" id="notes">{props.job.notes}</h1>
-      <button onClick={>color</button>
       {/* this is the color picker and the button */}
       <button className="colorColumn" onClick={handleClick}>
         Change Color
@@ -118,6 +117,7 @@ function JobRow(props) {
         </div>
       </Modal>
     </div>
+  )
   
 }
 
@@ -129,5 +129,5 @@ export default(
   connect(
       null,
       mapDispatchToProps
-  )(Job)
+  )(JobRow)
 );

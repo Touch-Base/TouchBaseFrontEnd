@@ -34,7 +34,7 @@ function Jobs(props) {
     }
     
     // this function is the switch for how the jobs are displayed
-    const switchOrganizer = event -> {
+    const switchOrganizer = event => {
         event.preventDefault();
         
         setOrganizer(!table);
@@ -45,39 +45,46 @@ function Jobs(props) {
         setVisibility(false)
       }, [props.jobs]);
     
-    return(
-        <div className="jobsPage">
-            {/* this job form pops up with a modal and is only 
-            for adding a job, checking with an 'adding' prop */}
-            <Modal visible={visibleAdd}>
-                <JobForm initialValues={initialValues} adding={true}/>
-            </Modal>
-            <button onClick={switchOrganizer}>Change Style</button>
-            <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
-                <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
-            </button>
-            
-            {/*this checks to see how the jobs should be displayed */}
-            {if(table) {
-                return(
-                    <div className="jobsBlocks">
+    {/*this checks to see how the jobs should be displayed */}
+    if(table) {
+        return(
+            <div className="jobsPage">
+                {/* this job form pops up with a modal and is only 
+                for adding a job, checking with an 'adding' prop */}
+                <Modal visible={visibleAdd}>
+                    <JobForm initialValues={initialValues} adding={true}/>
+                </Modal>
+                <button onClick={switchOrganizer}>Change Style</button>
+                <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                    <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
+                </button>
+                <div className="jobsTable">
+                    {props.jobs.map(job => {
+                        return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                    })}
+                </div>
+            </div>
+        )} else {
+            return(
+                <div className="jobsPage">
+                {/* this job form pops up with a modal and is only 
+                for adding a job, checking with an 'adding' prop */}
+                <Modal visible={visibleAdd}>
+                    <JobForm initialValues={initialValues} adding={true}/>
+                </Modal>
+                <button onClick={switchOrganizer}>Change Style</button>
+                <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                    <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
+                </button>
+                <div className="jobsBlocks">
                         {props.jobs.map(job => {
                             return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
                         })}
-                    </div>
-                    )
-            } else {
-                return(
-                    <div className="jobsTable">
-                        {props.jobs.map(job => {
-                            return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
-                        })}
-                    </div>
-                    )
-                }
-             }
-        </div>
-        )
+                </div>
+            </div>
+            )
+        }
+            
     }
 
 

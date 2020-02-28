@@ -190,7 +190,7 @@ const validationSchema = Yup.object().shape({
 
               {/* INTERVIEW INPUT/ HANDLED USING HOOKS NOT FORMIK*/}
               <div className="interview">
-                  <button type="button" onClick={interviewSwitch}>{interview ? "YES INTERVIEW" : "NO INTERVIEW"</button>
+                  <button type="button" onClick={interviewSwitch}>{interview ? "YES INTERVIEW" : "NO INTERVIEW"}</button>
                 </div>
               </div>
 
