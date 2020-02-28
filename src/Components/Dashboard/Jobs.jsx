@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../Styling/dashboard/jobs.scss'
 import JobForm from './JobForm';
 import JobCard from './JobCard';
+import JobRow from './JobRow';
 import { deleteJob } from '../../actions/index';
 import Modal from './Modal';
 
@@ -20,35 +21,70 @@ function Jobs(props) {
         interview: false
     }
 
+    // this sets the visibility for the job form modal
     const [ visibleAdd, setVisibility ] = useState(false);
+    
+    // this sets whether the jobs will be displayed as cards or in a table
+    const [ table, setOrganizer ] = useState(false);
 
     const showAddForm = event => {
       event.preventDefault();
 
       setVisibility(!visibleAdd)
     }
-
+    
+    // this function is the switch for how the jobs are displayed
+    const switchOrganizer = event => {
+        event.preventDefault();
+        
+        setOrganizer(!table);
+    }
+    
+    // this closes the modal once there is a redux state change
     useEffect(() => {
         setVisibility(false)
       }, [props.jobs]);
     
-    return(
-        <div className="jobsPage">
-            {/* this job form pops up with a modal and is only 
-            for adding a job, checking with an 'adding' prop */}
-            <Modal visible={visibleAdd}>
-                <JobForm initialValues={initialValues} adding={true}/>
-            </Modal>
-            <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
-                <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
-            </button>
-            <div className="jobsBlocks">
-                {props.jobs.map(job => {
-                    return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                })}
+    {/*this checks to see how the jobs should be displayed */}
+    if(table) {
+        return(
+            <div className="jobsPage">
+                {/* this job form pops up with a modal and is only 
+                for adding a job, checking with an 'adding' prop */}
+                <Modal visible={visibleAdd}>
+                    <JobForm initialValues={initialValues} adding={true}/>
+                </Modal>
+                <button onClick={switchOrganizer}>Change Style</button>
+                <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                    <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
+                </button>
+                <div className="jobsTable">
+                    {props.jobs.map(job => {
+                        return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                    })}
+                </div>
             </div>
-        </div>
-        )
+        )} else {
+            return(
+                <div className="jobsPage">
+                {/* this job form pops up with a modal and is only 
+                for adding a job, checking with an 'adding' prop */}
+                <Modal visible={visibleAdd}>
+                    <JobForm initialValues={initialValues} adding={true}/>
+                </Modal>
+                <button onClick={switchOrganizer}>Change Style</button>
+                <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
+                    <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
+                </button>
+                <div className="jobsBlocks">
+                        {props.jobs.map(job => {
+                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                        })}
+                </div>
+            </div>
+            )
+        }
+            
     }
 
 

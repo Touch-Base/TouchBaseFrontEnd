@@ -39,7 +39,25 @@
         }
 
         .locationEmail {
-            border: solid blue 2px;
+            font-family: 'Alata', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(to bottom right, rgb(162, 0, 255), rgb(0, 174, 255));
+            align-items:  center;
+            justify-content: center;
+            border-radius: 5px;
+            
+            .userEmail {
+              font-size: 1em;
+              color: white;
+            }
+
+            .userLocation {
+              font-size: 1em;
+              color: white;
+            }
         }
 
         .summary {
