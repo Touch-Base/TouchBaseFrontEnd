@@ -34,8 +34,20 @@ function Profile(props) {
                     <h2 className="age">{props.age || "Age"}</h2>
                 </div>
                 <div className="locationEmail">
-                    <h2 className="userEmail">email: {props.email}</h2>
-                    <h2 className="userLocation">Location: {props.location || "Location"}</h2>
+                    <div className="infoBox">
+                        <i className="fas fa-at"></i>
+                        <div className="infoText">
+                            <h5 className="typeTitle">EMAIL</h5>
+                            <h5 className="userEmail"> {props.email}</h5>
+                        </div>
+                    </div>
+                    <div className="infoBox">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div className="infoText loc">
+                            <h5 className="typeTitle">LOCATION</h5>
+                            <h5 className="userLocation"> {props.location || "Location"}</h5>
+                        </div>
+                    </div>
                 </div>
                 <div className="summary">
                     <h2>Summary: {props.summary || "Summary"}</h2>
