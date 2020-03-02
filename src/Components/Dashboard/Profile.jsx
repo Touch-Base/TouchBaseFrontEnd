@@ -27,12 +27,16 @@ function Profile(props) {
     return (
         <div className="profilePage">
             <div className="profileBlock">
-                <div className="namePosition">
+                <div className="imageAndName">
                     <img src="https://image.shutterstock.com/image-photo/portrait-young-beautiful-cute-cheerful-260nw-666258808.jpg" width="200px" alt="portrait" />
-                    <h2 className="fullName">{props.firstname} {props.lastname}</h2>
-                    <h2 className="positionTitle">{props.position || "Position"}</h2>
-                    <h2 className="age">{props.age || "Age"}</h2>
+                    <div className="namePosition">
+                        <h2 className="fullName">{props.firstname} {props.lastname}</h2>
+                        <h2 className="positionTitle">{props.position || "Position"}</h2>
+                        <h2 className="age">{props.age || "Age"} Years Old</h2>
+                    </div>
                 </div>
+            </div>
+            <div className="infoSummary">
                 <div className="locationEmail">
                     <div className="infoBox">
                         <i className="fas fa-at"></i>
