@@ -26,11 +26,21 @@ function Jobs(props) {
     
     // this sets whether the jobs will be displayed as cards or in a table
     const [ table, setOrganizer ] = useState(false);
+    
+    // this sets the value for the search feature
+    const [ searchValue, setSearch ] = useState('');
 
     const showAddForm = event => {
       event.preventDefault();
 
       setVisibility(!visibleAdd)
+    }
+    
+    // change handler for search value
+    const searchChange = event => {
+       event.preventDefault();
+        
+       setSearch(event.target.value);
     }
     
     // this function is the switch for how the jobs are displayed
@@ -55,6 +65,8 @@ function Jobs(props) {
                     <JobForm initialValues={initialValues} adding={true}/>
                 </Modal>
                 <button onClick={switchOrganizer}>Change Style</button>
+                Search by company
+                <input type="text" placeholder="Company" onChange={searchChange} value={searchValue} />
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
