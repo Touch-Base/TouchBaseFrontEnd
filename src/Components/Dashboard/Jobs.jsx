@@ -55,6 +55,9 @@ function Jobs(props) {
         setVisibility(false)
       }, [props.jobs]);
     
+    // search array
+    const searchedJobs = props.jobs.filter(job => job.company.includes(searchValue))
+    
     {/*this checks to see how the jobs should be displayed */}
     if(table) {
         return(
@@ -71,8 +74,12 @@ function Jobs(props) {
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
                 <div className="jobsTable">
-                    {props.jobs.map(job => {
-                        return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                    {searchValue === '' ? 
+                        props.jobs.map(job => {
+                            return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
+                    }) :
+                         searchedJobs.map(job => {
+                            return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                     })}
                 </div>
             </div>
@@ -89,9 +96,13 @@ function Jobs(props) {
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
                 <div className="jobsBlocks">
-                        {props.jobs.map(job => {
+                    {searchValue === '' ? 
+                        props.jobs.map(job => {
                             return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
-                        })}
+                    }) :
+                         searchedJobs.map(job => {
+                            return <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                    })}
                 </div>
             </div>
             )
