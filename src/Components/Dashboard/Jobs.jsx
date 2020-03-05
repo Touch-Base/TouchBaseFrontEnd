@@ -58,7 +58,7 @@ function Jobs(props) {
       }, [props.jobs]);
     
     // search array
-    const searchedJobs = props.jobs.filter(job => job.company.includes(searchValue))
+    const searchedJobs = props.jobs.filter(job => job.company.toUpperCase().includes(searchValue.toUpperCase()))
 
 
     
@@ -72,8 +72,7 @@ function Jobs(props) {
                     <JobForm initialValues={initialValues} adding={true}/>
                 </Modal>
                 <Switch onClick={switchOrganizer} checked={false} />
-                Search by company
-                <input type="text" placeholder="Company" onChange={searchChange} value={searchValue} />
+                <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
@@ -107,8 +106,7 @@ function Jobs(props) {
                     <JobForm initialValues={initialValues} adding={true}/>
                 </Modal>
                 <Switch onClick={switchOrganizer} checked={true}/>
-                Search by company
-                <input type="text" placeholder="Company" onChange={searchChange} value={searchValue} />
+                <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
