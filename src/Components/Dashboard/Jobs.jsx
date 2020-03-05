@@ -69,15 +69,26 @@ function Jobs(props) {
                 {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
                 <Modal visible={visibleAdd}>
-                    <JobForm initialValues={initialValues} adding={true}/>
+                    <div className="jobForm">
+                    <h1 className="editJobTitle">ADD JOB</h1>
+                        <JobForm initialValues={initialValues} adding={true} />
+                        <button className="closeButton" onClick={showAddForm}>
+                        <i className="fas fa-times"></i>
+                    </button>
+                    </div>
                 </Modal>
-                <Switch onClick={switchOrganizer} checked={false} />
-                <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
+                <div className="switchAndSearch">
+                    <div className="switch">
+                        <h4 className="switchName">Layout</h4>
+                        <Switch onClick={switchOrganizer} checked={false} />
+                    </div>
+                    <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
+                </div>
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
                 <div className="jobsTable">
-                    <div className="columnNames">
+                    <div className={searchedJobs.length < 1 ? "columnnull" : "columnNames"}>
                         <h4 id="cocolumn">Company</h4>
                         <h4 id="pocolumn">Position</h4>
                         <h4 id="appcolumn">App Date</h4>
@@ -103,10 +114,21 @@ function Jobs(props) {
                 {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
                 <Modal visible={visibleAdd}>
-                    <JobForm initialValues={initialValues} adding={true}/>
+                    <div className="jobForm">
+                    <h1 className="editJobTitle">ADD JOB</h1>
+                        <JobForm initialValues={initialValues} adding={true} />
+                        <button className="closeButton" onClick={showAddForm}>
+                        <i className="fas fa-times"></i>
+                    </button>
+                    </div>
                 </Modal>
-                <Switch onClick={switchOrganizer} checked={true}/>
-                <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
+                <div className="switchAndSearch">
+                    <div className="switch">
+                        <h4 className="switchName">Layout</h4>
+                        <Switch onClick={switchOrganizer} checked={true} />
+                    </div>
+                    <input type="text" placeholder="Search by company" onChange={searchChange} value={searchValue} />
+                </div>
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>

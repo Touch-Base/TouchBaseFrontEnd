@@ -78,6 +78,7 @@
         margin-bottom: 50px;
         padding-right: 15px;
         box-shadow: 0 8px 6px -6px black;
+        margin: 10px;
 
         .jobCompany {
             margin-top: -40px;
@@ -299,16 +300,6 @@
             margin-left: 15px;
         }
 
-        .inputTitle {
-            font-size: 0.7em;
-            letter-spacing: 1px;
-            margin: 0;
-            margin-bottom: 2px;
-            color: rgba(255, 255, 255, 0.76);
-            padding: 0;
-            display: block;
-        }
-
         input {
             color: rgba(0, 0, 0, 0.473);
             width: 90%;
@@ -326,6 +317,7 @@
         }
 
         textarea {
+            margin-top: 15px;
             color: black;
             resize: none;
             border-radius: 3px;
@@ -403,6 +395,27 @@
         background-color: rgba(119, 167, 238, 0.918);
         transition: 0.25s;
     }
+
+    .addButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(52, 159, 247);
+        font-size: 1.3em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .addButton:hover {
+        background-color: rgba(119, 167, 238, 0.918);
+        transition: 0.25s;
+    }
+
 }
 
 // styling for interview button on job form
@@ -434,3 +447,48 @@
     letter-spacing: 1.5px;
     font-family: 'Oswald', sans-serif;
   }
+
+
+  // this is the switch organizer and search block
+  .switchAndSearch {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+
+      .switch {
+          display: flex;
+          align-items: center;
+          border-radius: 5px;
+          padding: 5px;
+
+          .switchName {
+              font-size: 1.1em;
+              font-family: 'Oswald', sans-serif;
+              margin: 0;
+              color: rgba(0, 0, 0, 0.568);
+          }
+      }
+
+      input {
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: solid rgba(82, 82, 82, 0.39) 1px;
+          font-size: 1em;
+      }
+  }
+
+  .inputTitle {
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin: 0;
+    margin-bottom: 2px;
+    color: rgba(255, 255, 255, 0.76);
+    padding: 0;
+    display: block;
+}
+
+#notesTitle {
+    margin-bottom: -10px;
+}

@@ -196,7 +196,7 @@ const validationSchema = Yup.object().shape({
 
               {/* NOTES INPUT */}
               <div className="jobInput">
-                <h4 className="inputTitle">{!props.adding ? "Notes" : null}</h4>
+                <h4 className="inputTitle" id="notesTitle">{!props.adding ? "Notes" : null}</h4>
                 <textarea 
                   rows="7"
                   cols="60"

@@ -221,6 +221,10 @@
 }
 
 // these are the titles for the rows
+.columnnull {
+  display: none;
+}
+
 .columnNames {
   display: flex;
   margin: 0;
