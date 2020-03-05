@@ -6,6 +6,7 @@ import JobCard from './JobCard';
 import JobRow from './JobRow';
 import { deleteJob } from '../../actions/index';
 import Modal from './Modal';
+import { Switch } from '@material-ui/core';
 
 function Jobs(props) {
 
@@ -20,6 +21,7 @@ function Jobs(props) {
         notes: '',
         interview: false
     }
+    
 
     // this sets the visibility for the job form modal
     const [ visibleAdd, setVisibility ] = useState(false);
@@ -57,6 +59,8 @@ function Jobs(props) {
     
     // search array
     const searchedJobs = props.jobs.filter(job => job.company.includes(searchValue))
+
+
     
     {/*this checks to see how the jobs should be displayed */}
     if(table) {
@@ -67,7 +71,7 @@ function Jobs(props) {
                 <Modal visible={visibleAdd}>
                     <JobForm initialValues={initialValues} adding={true}/>
                 </Modal>
-                <button onClick={switchOrganizer}>Change Style</button>
+                <Switch onClick={switchOrganizer} checked={false} />
                 Search by company
                 <input type="text" placeholder="Company" onChange={searchChange} value={searchValue} />
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
@@ -91,7 +95,9 @@ function Jobs(props) {
                 <Modal visible={visibleAdd}>
                     <JobForm initialValues={initialValues} adding={true}/>
                 </Modal>
-                <button onClick={switchOrganizer}>Change Style</button>
+                <Switch onClick={switchOrganizer} checked={true}/>
+                Search by company
+                <input type="text" placeholder="Company" onChange={searchChange} value={searchValue} />
                 <button className={visibleAdd ? "exOutButton" : "addJobButton"} onClick={showAddForm}>
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>

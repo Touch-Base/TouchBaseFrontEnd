@@ -22,7 +22,7 @@ function App() {
           <Learn path="learn" />
           <Blog path="blog" />
           <Support path="support" />
-          <Pricing path="pricing />
+          <Pricing path="pricing" />
         </LandingPage>
         <ProtectedRoutes path="dashboard/*" />
       </Router>

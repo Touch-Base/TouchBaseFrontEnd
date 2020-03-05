@@ -13,6 +13,7 @@ function Learn() {
                 TouchBase knows about that spreadsheet you use to throw in all your jumbled job application
                 information and wants you to eliminate that. Get what you really want out of keeping the job 
                 hunt in order by tracking and managing notes, dates, companies, and career guiding prospects.
+            </p>
       </div>
     );
   }

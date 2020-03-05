@@ -1,13 +1,221 @@
-.jobTable {
+.jobsTable {
   display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   
   .jobRow {
     display: flex;
+    position: relative;
+    align-items: center;
+    width: 1100px;
+    height: 50px;
+    color: red;
+    margin-top: 5px;
+    box-shadow: 0 4px 3px -3px black;
+
+    .jobcolumn {
+      font-family: 'Oswald', sans-serif;
+    }
     
-    .jobColumn {
+    #company {
+      display: flex;
+      color: white;
+      letter-spacing: 1.2px;
+      width: 330px;
+      font-size: 1.8em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #position {
+      display: flex;
+      color: white;
+      letter-spacing: 1.2px;
+      width: 160px;
+      font-size: 0.9em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #appDate {
+      display: flex;
+      color: white;
+      letter-spacing: 1.2px;
+      width: 90px;
+      font-size: 0.9em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #interview {
+      display: flex;
+      color: white;
+      background: rgb(80, 218, 80);
+      letter-spacing: 1.2px;
+      width: 60px;
+      font-size: 0.9em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 1.5em;
+      }
+    }
+
+    #nointerview {
+      display: flex;
+      color: white;
+      background: rgb(218, 62, 62);
+      letter-spacing: 1.2px;
+      width: 60px;
+      font-size: 0.9em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 1.5em;
+      }
+    }
+
+    // notes pop up for row
+    .rowNotes {
+      position: fixed;
+      z-index: 2;
+      display: flex;
       font-size: 1em;
+      color: rgb(32, 1, 73);
+      border: solid rgba(32, 1, 73, 0.507) 1px;
+      letter-spacing: 1.5px;
+      background: white;
+      padding: 8px;
+      border-radius: 5px;
+      left: 30%;
+      right: 30%;
+      margin-top: 50px;
+    };
+
+    // notes button for row
+    .notesRow {
+      padding: 9px;
+      transition: 0.5s;
+      background: none;
+      border: none;
+      border-right: solid white 5px;
+      height: 100%;
+
+      i {
+          font-size: 1.2em;
+          color: rgb(255, 255, 255);
+          transition: 0.5s;
+      }
+    }
+
+    .notesRow:hover {
+      cursor: pointer;
+
+      i {
+        color: rgba(255, 255, 255, 0.698);
+        transition: 0.5s;
+    }
+    
+    }
+
+    #method {
+      display: flex;
+      color: white;
+      letter-spacing: 1.2px;
+      width: 90px;
+      font-size: 0.8em;
+      border-right: solid white 5px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
     }
     
   }
-  
+
+  .colorColumn {
+    width: 60px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+    border-right: solid white 5px;
+    height: 100%;
+
+    i {
+        font-size: 1.8em;
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+    }
+  }
+
+  .colorColumn:hover {
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.698);
+      transition: 0.5s;
+  }
+}
+
+  .editButton {
+    width: 160px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+    height: 100%;
+
+    i {
+        font-size: 1.8em;
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+    }
+  }
+
+  .editButton:hover {
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.698);
+      transition: 0.5s;
+    }
+  }
+
+  .linkButton {
+    width: 60px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+    border-right: solid white 5px;
+    height: 100%;
+    margin: 0;
+    padding-top: 25px;
+
+    i {
+        font-size: 1.5em;
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+    }
+  }
+
+  .linkButton:hover {
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.698);
+      transition: 0.5s;
+    }
+  }
 }
