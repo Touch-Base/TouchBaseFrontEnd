@@ -1,0 +1,98 @@
+
+// the entire card for any given connection on
+// the networking page
+.connectionCard {
+    display: flex;
+    flex-direction: column;
+    border: solid red 2px;
+    width: 335px;
+    height: 200px;
+    background: darkblue;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+
+    h1 {
+        margin-top: 40px;
+        font-size: 1.5em;
+        color: lightblue;
+        letter-spacing: 1.3px;
+        border-top: solid 2px lightblue;
+        border-bottom: solid 2px lightblue;
+        padding: 10px 0;
+        width: 70%;
+        transition: 0.5s;
+        margin-bottom: 0;
+    }
+
+    h5 {
+        margin: 0;
+        color: lightblue;
+        letter-spacing: 1.7px;
+        font-size: 1em;
+        
+    }
+
+    h4 {
+        margin: 0;
+    }
+    
+    // this is for the contact portion of the connection card
+    .cnxContact {
+        display: flex;
+        flex-direction: column;
+        border: solid red 2px;
+        font-family: 'Oswald', sans-serif;
+
+        h3 {
+            color: white;
+            text-align: left;
+        }
+
+        .cnxPhone {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            h1 {
+              color: white;
+              font-size: 1em;
+              letter-spacing: 1.2px;
+            }
+
+            i {
+              color: white;
+              font-size: 1.5em;
+            }
+        }
+
+        .cnxEmail {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            h1 {
+              color: white;
+              font-size: 1em;
+              letter-spacing: 1.2px;
+            }
+
+            i {
+              color: white;
+              font-size: 1.5em;
+            }
+        }
+    }
+}
+
+.connectionCard:hover {
+    
+    h1 {
+        width: 80%;
+        transition: 0.5s;
+    }
+}
