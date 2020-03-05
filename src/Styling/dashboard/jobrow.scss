@@ -219,3 +219,64 @@
     }
   }
 }
+
+// these are the titles for the rows
+.columnNames {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 1300px;
+
+  h4 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 5px 0;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(0, 0, 0, 0.678);
+  }
+
+  #cocolumn {
+    margin-left: 235px;
+  }
+
+  #pocolumn {
+    margin-left: 205px;
+
+  }
+
+  #appcolumn {
+    margin-left: 80px;
+
+  }
+
+  #interviewcolumn {
+    margin-left: 30px;
+    font-size: 0.8em;
+  }
+
+  #notescolumn {
+    margin-left: 27px;
+    font-size: 0.8em;
+  }
+
+  #methodcolumn {
+    margin-left: 48px;
+    font-size: 0.8em;
+  }
+
+  #colorcolumn {
+    margin-left: 48px;
+    font-size: 0.8em;
+  }
+
+  #linkcolumn {
+    margin-left: 40px;
+    font-size: 0.8em;
+  }
+
+  #editcolumn {
+    margin-left: 95px;
+  }
+}

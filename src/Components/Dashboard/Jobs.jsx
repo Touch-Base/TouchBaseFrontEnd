@@ -78,11 +78,22 @@ function Jobs(props) {
                     <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>
                 <div className="jobsTable">
+                    <div className="columnNames">
+                        <h4 id="cocolumn">Company</h4>
+                        <h4 id="pocolumn">Position</h4>
+                        <h4 id="appcolumn">App Date</h4>
+                        <h4 id="interviewcolumn">Interview</h4>
+                        <h4 id="notescolumn">Notes</h4>
+                        <h4 id="methodcolumn">Method</h4>
+                        <h4 id="colorcolumn">Color</h4>
+                        <h4 id="linkcolumn">Link</h4>
+                        <h4 id="editcolumn">Edit</h4>
+                    </div>
                     {searchValue === '' ? 
                         props.jobs.map(job => {
                             return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                     }) :
-                         searchedJobs.map(job => {
+                        searchedJobs.map(job => {
                             return <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                     })}
                 </div>
