@@ -115,7 +115,7 @@ const validationSchema = Yup.object().shape({
                     onChange={handleChange}
                     value={values.position}
                     onBlur={handleBlur} 
-                    className={(touched.position && errors.position) ? "hasError" : "validInput"}
+                    className={(touched.position && errors.position) ? "jobError" : "validInput"}
                   />
                   <Error touched={touched.position} message={errors.position} />
                 </div>
@@ -129,7 +129,7 @@ const validationSchema = Yup.object().shape({
                     onChange={handleChange}
                     value={values.company}
                     onBlur={handleBlur} 
-                    className={(touched.company && errors.company) ? "hasError" : "validInput"}
+                    className={(touched.company && errors.company) ? "jobError" : "validInput"}
                   />
                   <Error touched={touched.company} message={errors.company} />
                 </div>
@@ -146,7 +146,7 @@ const validationSchema = Yup.object().shape({
                     onChange={handleChange}
                     value={values.link}
                     onBlur={handleBlur} 
-                    className={(touched.link && errors.link) ? "hasError" : "validInput"}
+                    className={(touched.link && errors.link) ? "jobError" : "validInput"}
                   />
                   <Error touched={touched.link} message={errors.link} />
                 </div>
@@ -161,7 +161,7 @@ const validationSchema = Yup.object().shape({
                       onChange={handleChange}
                       value={values.appDate}
                       onBlur={handleBlur} 
-                      className={(touched.appDate && errors.appDate) ? "hasError" : "validInput"}
+                      className={(touched.appDate && errors.appDate) ? "jobError" : "validInput"}
                     />
                     <Error touched={touched.appDate} message={errors.appDate} />
                   </div>
@@ -206,7 +206,7 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.notes}
                   onBlur={handleBlur} 
-                  className={(touched.notes && errors.notes) ? "hasError" : "validInput"}
+                  className={(touched.notes && errors.notes) ? "jobError" : "validInput"}
                 />
                 <Error touched={touched.notes} message={errors.notes} />
               </div>

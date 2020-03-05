@@ -59,7 +59,8 @@
 .jobsBlocks {
     display: flex;
     margin: 0 auto;
-    justify-content: space-evenly;
+    padding: 0 25px;
+    justify-content: left;
     font-family: 'Oswald', sans-serif;
     flex-wrap: wrap;
 
@@ -491,4 +492,18 @@
 
 #notesTitle {
     margin-bottom: -10px;
+}
+
+// errors for form
+// input error in validation
+.jobError {
+    color: pink;
+    background: white;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    border: solid red 2px;
+    border-radius: 5px;
 }
