@@ -4,6 +4,8 @@
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
   
   .jobRow {
     display: flex;
@@ -207,6 +209,7 @@
         font-size: 1.5em;
         color: rgb(255, 255, 255);
         transition: 0.5s;
+        margin-left: 17px;
     }
   }
 
