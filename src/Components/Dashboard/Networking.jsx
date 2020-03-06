@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
+import '../../Styling/dashboard/networkingform.scss'
 import NetworkingForm from './NetworkingForm';
 import NetworkingCard from './NetworkingCard';
 import Modal from './Modal';
@@ -39,7 +40,9 @@ function Networking(props) {
                 <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
             <Modal visible={cnxform}>
-                <NetworkingForm initialValues={initialValues} adding={true} />
+                <div className="addConnectionForm">
+                    <NetworkingForm initialValues={initialValues} adding={true} />
+                </div>
             </Modal>
         </div>
         )

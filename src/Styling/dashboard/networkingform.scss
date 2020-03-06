@@ -1,0 +1,35 @@
+.addConnectionForm {
+    width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    background: rgba(60, 0, 139, 0.747);
+    z-index: 1;
+}
+
+.editConnectionForm {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    background: rgba(60, 0, 139, 0.747);
+    z-index: 2;
+
+    // closeButton
+    .closeButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        background: none;
+        border-radius: 500px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+
+        i {
+            color: rgb(255, 93, 93);
+            font-size: 2em;
+        }
+    }
+}

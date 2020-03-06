@@ -156,7 +156,7 @@
     display: block;
     top: 80%;
     right: 20px;
-    z-index: 2;
+    z-index: 1;
     background: rgba(86, 245, 86, 0.911);
     border: solid white 2px;
     border-radius: 500px;
@@ -192,5 +192,29 @@
     i {
         color: white;
         font-size: 5em;
+    }
+}
+
+// this is the edit a connection button
+.editCnx {
+    position: absolute;
+    cursor: pointer;
+    top: 100px;
+    right: 25px;
+    border: none;
+    outline: none;
+    background: none;
+
+    i {
+        color: #c1faf7;
+        font-size: 3em;
+        transition: 0.5s;
+    }
+}
+
+.editCnx:hover {
+    i {
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
     }
 }

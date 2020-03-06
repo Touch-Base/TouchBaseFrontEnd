@@ -22,8 +22,9 @@ function Connection(props) {
     // this sets the visibility for the form modal
     const showForm = event => {
       event.preventDefault();
-
+      
       setVisible(!form)
+      
     }
 
     return(
@@ -51,10 +52,18 @@ function Connection(props) {
           {notes ? 
             <p className="cnxNotes">{props.connection.notes}</p>
           : null }
-        <button onClick={showForm}>EDIT CONNECTION</button>
-        {/* // connection form modal */}
+        <button className="editCnx" onClick={showForm}>
+            <i className="fas fa-pencil-alt"></i>
+        </button>
+        {/* // edit connection form modal */}
         <Modal visible={form}>
-          <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
+          <div className="editConnectionForm">
+            <h3 className="editCnxTitle">EDIT CONNECTION</h3>
+            <button className="closeButton" onClick={showForm}>
+              <i className="fas fa-times"></i>
+            </button>
+            <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
+          </div>
         </Modal>
         </div>
         )
