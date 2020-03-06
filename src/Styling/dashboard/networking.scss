@@ -1,0 +1,220 @@
+
+.networkingPage {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+// the entire card for any given connection on
+// the networking page
+.connectionCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 335px;
+    height: 200px;
+    background: linear-gradient(217deg, rgba(2, 45, 80, 0.952), rgb(2, 32, 87) 70.71%);
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 0 8px 6px -6px black;
+    margin: 15px;
+
+    h1 {
+        margin-top: 20px;
+        font-size: 1.5em;
+        color: lightblue;
+        letter-spacing: 1.3px;
+        border-top: solid 2px lightblue;
+        border-bottom: solid 2px lightblue;
+        padding: 10px 0;
+        width: 65%;
+        transition: 0.5s;
+        margin-bottom: 5px;
+    }
+
+    h5 {
+        margin: 0;
+        color: lightblue;
+        letter-spacing: 1.7px;
+        font-size: 1.2em;
+        font-weight: normal;
+        
+    }
+
+    h4 {
+        margin: 0;
+        color: lightblue;
+        letter-spacing: 1.7px;
+        font-size: 1em;
+        font-weight: normal;
+
+    }
+    
+    // this is for the contact portion of the connection card
+    .cnxContact {
+        display: flex;
+        font-family: 'Oswald', sans-serif;
+        margin-top: 15px;
+        margin-left: -120px;
+
+        h3 {
+            color: rgba(255, 255, 255, 0.815);
+            text-align: left;
+        }
+
+        .cnxIcons {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: center;
+
+            i {
+              color: rgba(255, 255, 255, 0.767);
+              font-size: 1em;
+              margin-bottom: 7px; 
+            }
+        }
+        
+        .divider {
+            border: solid rgba(255, 255, 255, 0.561) 1px;
+            height: 30px;
+            margin-left: 16px;
+        }
+
+        .cnxAddresses {
+            display: flex;
+            justify-content: left;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            margin-left: 15px;
+
+            a {
+                color: rgba(173, 216, 230, 0.836);
+                font-size: 0.8em;
+                letter-spacing: 1.2px;
+                text-decoration: none;
+            }
+
+            h4 {
+              color: rgba(173, 216, 230, 0.794);
+              font-size: 0.8em;
+              letter-spacing: 1.2px;
+            }
+        }
+    }
+}
+
+.connectionCard:hover {
+    
+    h1 {
+        width: 70%;
+        transition: 0.5s;
+    }
+}
+
+// to show the notes for each connection
+.cnxNotesButton {
+    padding: 9px;
+    transition: 0.5s;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 155px;
+    right: 10px;
+    outline: none;
+
+    i {
+        font-size: 1.2em;
+        color: rgb(149, 219, 252);
+        transition: 0.5s;
+    }
+
+}
+
+.cnxNotesButton:hover {
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.698);
+      transition: 0.5s;
+  }
+}
+
+.cnxNotes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: solid purple 3px;
+}
+
+// add connection button
+.addCnxButton {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 1;
+    background: rgba(86, 245, 86, 0.911);
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+    
+
+    i {
+        color: white;
+        font-size: 5em;
+    }
+}
+
+.exOutCnx {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 2;
+    background: rgba(255, 34, 34, 0.911);
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+    
+
+    i {
+        color: white;
+        font-size: 5em;
+    }
+}
+
+// this is the edit a connection button
+.editCnx {
+    position: absolute;
+    cursor: pointer;
+    top: 100px;
+    right: 25px;
+    border: none;
+    outline: none;
+    background: none;
+
+    i {
+        color: #c1faf7;
+        font-size: 3em;
+        transition: 0.5s;
+    }
+}
+
+.editCnx:hover {
+    i {
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+    }
+}

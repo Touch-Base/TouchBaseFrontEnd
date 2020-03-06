@@ -2,66 +2,204 @@
 
 .profilePage {
     display: flex;
-    border: solid red 2px;
-    margin: 0 auto;
-    flex-direction: column;
+    justify-content: left;
+    margin: 30px auto;
 
     .profileBlock {
-        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: left;
+        align-items: left;
         font-family: 'Alata', sans-serif;
+        margin-left: 75px;
 
-        .namePosition {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 300px;
-            background: lightblue;
-
-            .fullName {
-                font-size: 2em;
-                margin: 0;
-            }
-
-            .positionTitle {
-                font-size: 1em;
-                margin: 0;
-            }
-
-            .age {
-                font-size: 0.5em;
-                margin: 0;
-            }
+        img {
+            width: 400px;
+            margin-bottom: 25px;
         }
-
+        
         .locationEmail {
             font-family: 'Alata', sans-serif;
             display: flex;
             flex-direction: column;
-            width: 300px;
-            height: 150px;
+            width: 400px;
+            height: 180px;
             background: linear-gradient(to bottom right, rgb(162, 0, 255), rgb(0, 174, 255));
-            align-items:  center;
+            align-items:  left;
             justify-content: center;
             border-radius: 5px;
-            
-            .userEmail {
-              font-size: 1em;
-              color: white;
+            text-align: center;
+            box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
+    
+            .infoBox {
+                display: flex;
+                margin-left: 35px;
+                align-items: center;
+                margin-bottom: 10px;
+                margin-top: 15px;
+    
+                .fa-map-marker-alt {
+                    margin-left: 4px;
+                }
+    
+                i {
+                    font-size: 1.7em;
+                    margin-bottom: 8px;
+                    margin-right: 6px;
+                    color: white;
+                }
+    
+                .infoText {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    justify-content: left;
+                    margin-left: 25px;
+                    margin-bottom: 10px;
+    
+                    .typeTitle {
+                        color: rgba(255, 255, 255, 0.63);
+                        letter-spacing: 1px;
+                        margin-bottom: 1px;
+                    }
+    
+    
+                    h5 {
+                        margin: 0;
+                        text-align: left;
+                        margin-bottom: -5px;
+                    }
+    
+                    .userEmail {
+                        font-size: 1.1em;
+                        letter-spacing: 1px;
+                        color: rgba(255, 255, 255, 0.904);
+                    }
+        
+                    .userLocation {
+                        font-size: 1.1em;
+                        letter-spacing: 1px;
+                        color: rgba(255, 255, 255, 0.904);
+                    }
+    
+                }
+    
+                .loc {
+                    margin-left: 28px;
+                }
             }
-
-            .userLocation {
-              font-size: 1em;
-              color: white;
-            }
+    
         }
 
-        .summary {
-            border: solid green 2px;
-        }
     }
+}
+
+.infoSummary {
+    display: flex;
+    flex-direction: column;
+
+        .namePosition {
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            width: 700px;
+            margin-bottom: 15px;
+            margin-left: 50px;
+
+            .fullName {
+                font-size: 3.1em;
+                color: rgb(97, 16, 189);
+                margin: 0;
+                margin-bottom: 5px;
+            }
+
+            .positionTitle {
+                font-size: 2.1em;
+                margin: 0;
+                color: rgba(0, 0, 0, 0.445);
+            }
+
+            .age {
+                font-size: 1.5em;
+                margin: 0;
+                margin-top: 10px;
+                color: rgba(0, 0, 0, 0.37);
+            }
+        
+    }
+
+    .summary {
+        font-family: 'Alata', sans-serif;
+        display: flex;
+        height: 800px;
+        flex-direction: column;
+        width: 600px;
+        height: 100%;
+        background: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(162, 0, 255));
+        align-items:  left;
+        justify-content: center;
+        border-radius: 5px;
+        margin-left: 50px;
+        margin-top: 25px;
+        text-align: center;
+        box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
+    }
+
+}
+
+/// update profile button styling
+.updateProfile {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 1;
+    background: rgba(86, 245, 86, 0.911);
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+    
+
+    i {
+        color: white;
+        font-size: 5em;
+    }
+}
+
+.exOut {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 2;
+    background: rgba(255, 34, 34, 0.911);
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+    
+
+    i {
+        color: white;
+        font-size: 5em;
+    }
+}
+
+.updateProfile:hover {
+    background: rgba(39, 247, 39, 0.863);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.exOut:hover {
+    background: rgba(253, 17, 17, 0.76);
+    transition: 0.5s;
+    cursor: pointer;
 }

@@ -95,7 +95,7 @@ function JobCard(props) {
 
           {/* this is the color picker and the button */}
           <button className="colorButton" onClick={handleClick}>
-          <i className="fas fa-palette"></i>
+            <i className="fas fa-palette"></i>
           </button>
         {picker ? <div style={popover}>
           <div style={cover} onClick={handleClose}/>

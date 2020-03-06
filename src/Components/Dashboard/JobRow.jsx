@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styling/dashboard/jobrow.scss';
+import '../../Styling/dashboard/jobs.scss';
 import JobForm from './JobForm';
 import { TwitterPicker } from 'react-color';
 import Modal from './Modal';
@@ -20,6 +21,7 @@ function JobRow(props) {
       event.preventDefault();
 
       setVisibility(!visible)
+      setShowNotes(false)
     }
 
     const deleteButton = event => {
@@ -59,19 +61,22 @@ function JobRow(props) {
     // this is the handler to show the color picker
     const handleClick = () => {
       setShowPicker(!picker)
+      setShowNotes(false)
     };
   
     // this closes both the color picker and notes
     const handleClose = () => {
       setShowPicker(false)
       setShowNotes(false)
+
     };
 
     // this is the positioning for the color picker
     const popover = {
       position: 'absolute',
       zIndex: '2',
-      top: '200px'
+      top: '50px',
+      right: '105px'
     }
     const cover = {
       position: 'fixed',
@@ -83,15 +88,23 @@ function JobRow(props) {
 
   
   return(
-    <div className="jobRow">
-      <h1 className="jobcolumn" id="company">{props.job.company}</h1>
-      <h1 className="jobcolumn" id="position">{props.job.position}</h1>
-      <h1 className="jobcolumn" id="appDate">{props.job.appDate}</h1>
-      <h1 className="jobcolumn" id="interview">{props.job.interview ? "Yes" : "No interview"}</h1>
-      <h1 className="jobcolumn" id="notes">{props.job.notes}</h1>
+    <div className="jobRow" style={{background: bgcolor}}>
+      <h5 className="jobcolumn" id="company">{props.job.company}</h5>
+      <h5 className="jobcolumn" id="position">{props.job.position}</h5>
+      <h5 className="jobcolumn" id="appDate">{props.job.appDate}</h5>
+      <h5 className="jobcolumn" id={props.job.interview ? "interview" : "nointerview"}>{props.job.interview ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</h5>
+      {/* this button shows and hides the notes for each card */}
+      <button className="notesRow" onClick={handlesNotes}>
+        <i className="fas fa-quote-left">&nbsp;</i>    
+        <i className="fas fa-quote-right"></i>
+      </button>
+      {notes ? 
+        <p className="rowNotes">{props.job.notes}</p>
+      : null }
+      <h5 className="jobcolumn" id="method">{props.job.method}</h5>
       {/* this is the color picker and the button */}
       <button className="colorColumn" onClick={handleClick}>
-        Change Color
+        <i className="fas fa-palette"></i>
       </button>
         {picker ? <div style={popover}>
         <div style={cover} onClick={handleClose}/>
@@ -100,9 +113,15 @@ function JobRow(props) {
             onChangeComplete={handleChangeComplete}
           />
         </div> : null }
-       <button className="editColumn" onClick={showForm}>
-            Edit
-       </button>
+       {/* this is the link button */}
+       <a target="_blank" rel="noopener noreferrer" className="linkButton" href={props.job.link}>
+            <i className="fas fa-link"></i>
+        </a>
+
+        {/* this is the edit button */}
+        <button className="editButton" onClick={showForm}>
+          <i className="fas fa-pencil-alt"></i>
+        </button>
                        
                        
       {/* this is the modal for the edit form */}
