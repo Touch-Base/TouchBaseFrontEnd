@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/networking.scss';
-import { addConnection } from '../../actions/index';
+import { addConnection, editConnection, deleteConnection } from '../../actions/index';
 
 function ConnectionForm(props) {
 
@@ -34,7 +34,7 @@ const validationSchema = Yup.object().shape({
     email: Yup.string()
     .max(20, "Must be shorter than 20"),
     notes: Yup.string()
-    .max(1000, "Must be under 1000 characters.")
+    .max(300, "Must be under 300 characters.")
     })
 
     return (
@@ -45,25 +45,50 @@ const validationSchema = Yup.object().shape({
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
+          /// this checks to see if the form is updating or adding a connection
           const { firstname, lastname, title, company, phone, email, notes } = values;
-
-          props.addConnection({
-                firstname: firstname,
-                lastname: lastname,
-                title: title,
-                company: company,
-                phone: phone,
-                email: email,
-                notes: notes
+          
+          // payload for adding a connection
+          const addPayload = {
+            firstname: firstname,
+            lastname: lastname,
+            title: title,
+            company: company,
+            phone: phone,
+            email: email,
+            notes: notes
             }
-        )
-        .then(() => {
-            console.log("added connection!")
-              
-        })
-        .catch((err) => {
-            console.error("Here", err)
-        })
+          
+          // payload for updating a connection
+          const editPayload = {
+            ...addPayload,
+            id: props.id
+            }
+          
+          if(props.adding) {
+            props.addConnection(addPayload)
+            .then(() => {
+                console.log("added connection!")
+                  
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })
+
+
+            } if(props.editing) {
+            props.editConnection(editPayload)
+            .then(() => {
+                console.log("updated connection!")
+                  
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })
+        
+          } else {
+            console.log('hey im here')
+          }
         }}
       >
         {({ 
@@ -77,8 +102,11 @@ const validationSchema = Yup.object().shape({
         }) => (
           <form onSubmit={handleSubmit}>
               
+          <div className="inputCnxBlocks">
+            <div className="cnxNameAndTitle">
               {/* FIRSTNAME INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>First Name</h3> : null}
                 <input 
                   type="text" 
                   id="firstname" 
@@ -94,6 +122,7 @@ const validationSchema = Yup.object().shape({
               
               {/* LASTNAME INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Last Name</h3> : null}
                 <input 
                   type="text" 
                   id="lastname" 
@@ -109,6 +138,7 @@ const validationSchema = Yup.object().shape({
 
               {/* TITLE INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Title</h3> : null}
                 <input 
                   type="text" 
                   id="title" 
@@ -121,9 +151,12 @@ const validationSchema = Yup.object().shape({
                 />
                 <Error touched={touched.title} message={errors.title} />
               </div>
+            </div>
 
+            <div className="cnxCompanyAndContact">
               {/* COMPANY INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Company</h3> : null}
                 <input 
                   type="text" 
                   id="company" 
@@ -139,6 +172,7 @@ const validationSchema = Yup.object().shape({
 
               {/* PHONE INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Phone</h3> : null}
                 <input 
                   type="text" 
                   id="phone" 
@@ -154,6 +188,7 @@ const validationSchema = Yup.object().shape({
 
               {/* EMAIL INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Email</h3> : null}
                 <input 
                   type="text" 
                   id="email" 
@@ -166,10 +201,13 @@ const validationSchema = Yup.object().shape({
                 />
                 <Error touched={touched.email} message={errors.email} />
               </div>
+            </div>
+            </div>
 
               {/* NOTES INPUT */}
-              <div className="connectionInput">
-                <input 
+              <div className="notesArea">
+                {props.editing ? <h3>Notes</h3> : null}
+                <textarea 
                   type="text" 
                   id="notes" 
                   placeholder="Notes"
@@ -181,9 +219,14 @@ const validationSchema = Yup.object().shape({
                 />
                 <Error touched={touched.notes} message={errors.notes} />
               </div>
-
-
-              <button type="submit">ADD CONNECTION</button>
+              {/* button switch for either adding or editing */}
+              {props.adding ? 
+                <button className="addCnxButton" type="submit">ADD CONNECTION</button> : 
+                <>
+                  <button className="updateCnxButton" type="submit">UPDATE CONNECTION</button>
+                  <button className="deleteCnxButton" type="submit">DELETE</button>
+                </>
+              }
           </form>
         )}
       </Formik>
@@ -191,7 +234,9 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addConnection: addConnection
+    addConnection: addConnection,
+    editConnection: editConnection,
+    deleteConnection, deleteConnection
 }
 
 

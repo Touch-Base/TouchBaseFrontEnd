@@ -28,6 +28,14 @@ import {
     ADDING_CONNECTION,
     ADDED_CONNECTION,
     FAILED_ADD_CONNECTION,
+
+    UPDATING_CONNECTION,
+    UPDATED_CONNECTION,
+    FAILED_UPDATE_CONNECTION,
+
+    DELETING_CONNECTION,
+    DELETED_CONNECTION,
+    FAILED_DELETE_CONNECTION,
     
     ////////////
     ADDING_EVENT,
@@ -349,6 +357,61 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_CONNECTION: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// UPDATING CONNECTION CASES
+
+        case UPDATING_CONNECTION: {
+            return {
+                ...state
+            }
+        }
+
+        case UPDATED_CONNECTION: {
+            /// this maps through the connections array 
+            /// and only changes the connections that was updated
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connections: state.user.connections.map(connection => connection.id === action.payload.updatedconnection.id ? action.payload.updatedconnection : connection)
+                }
+            }
+        }
+
+        case FAILED_UPDATE_CONNECTION: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// DELETING CONNECTION CASES
+
+        case DELETING_CONNECTION: {
+            return {
+                ...state
+            }
+        }
+
+        case DELETED_CONNECTION: {
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    connectionss: action.payload.allConnections,
+                    connectionsTotal: action.payload.allConnections.length
+                }
+            }
+        }
+
+        case FAILED_DELETE_CONNECTION: {
             return {
                 ...state,
                 error: action.payload.error
