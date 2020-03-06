@@ -68,8 +68,21 @@
             font-family: 'Oswald', sans-serif;
             color: rgba(0, 0, 0, 0.842);
             margin: 0;
+            margin-bottom: 3px;
             border-radius: 3px;
             border: none;
+            transition: 0.5s;
+            border: solid white 3px;
+        }
+
+        input:hover {
+            transition: 0.5s;
+            border: solid rgb(19, 230, 19) 3px;
+        }
+
+        input:focus {
+            transition: 0.5s;
+            border: solid rgb(44, 206, 255) 3px;
         }
 
     }
@@ -78,7 +91,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 5px;
-        width: 510px;
+        width: 505px;
         margin: 0 10px;
         border-radius: 2px;
         border: none;
@@ -91,6 +104,13 @@
             resize: none;
             height: 70px;
             padding: 5px;
+            transition: 0.5s;
+            border: solid white 3px;
+        }
+
+        textarea:focus {
+            transition: 0.5s;
+            border: solid rgb(44, 206, 255) 3px;
         }
 
         h3 {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import NetworkingForm from './NetworkingForm';
 import '../../Styling/dashboard/networking.scss'
@@ -26,6 +26,16 @@ function Connection(props) {
       setVisible(!form)
       
     }
+
+    useEffect(() => {
+
+      // checks to see if the connection was updated
+      // and closes the edit box
+      setVisible(false);
+      setVisibility(false);
+      console.log("here here")
+
+    }, [props]);
 
     return(
         <div className="connectionCard">

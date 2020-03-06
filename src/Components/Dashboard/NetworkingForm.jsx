@@ -12,30 +12,44 @@ function ConnectionForm(props) {
 //  the Formik values to make sure everything entered suits the database
 //  and that the passwords match
 
-const validationSchema = Yup.object().shape({
-    firstname: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a first name"),
-    lastname: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a last name"),
-    title: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a title"),
-    company: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a company"),
-    phone: Yup.string()
-    .max(20, "Must be shorter than 20"),
-    email: Yup.string()
-    .max(20, "Must be shorter than 20"),
-    notes: Yup.string()
-    .max(300, "Must be under 300 characters.")
-    })
+  const validationSchema = Yup.object().shape({
+      firstname: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a first name"),
+      lastname: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a last name"),
+      title: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a title"),
+      company: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a company"),
+      phone: Yup.string()
+      .max(20, "Must be shorter than 20"),
+      email: Yup.string()
+      .max(20, "Must be shorter than 20"),
+      notes: Yup.string()
+      .max(300, "Must be under 300 characters.")
+      })
+
+    // delete connection
+    const removeCnx = event => {
+      event.preventDefault();
+
+      props.deleteConnection(props.id)
+        .then(() => {
+            console.log("deleted connection!")
+              
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+    }
 
     return (
         <Formik 
@@ -65,6 +79,7 @@ const validationSchema = Yup.object().shape({
             id: props.id
             }
           
+          // add connection function
           if(props.adding) {
             props.addConnection(addPayload)
             .then(() => {
@@ -72,24 +87,21 @@ const validationSchema = Yup.object().shape({
                   
             })
             .catch((err) => {
-                console.error("Here", err)
+                console.error(err)
             })
 
-
-            } if(props.editing) {
+          // update connection
+          } else {
             props.editConnection(editPayload)
             .then(() => {
                 console.log("updated connection!")
                   
             })
             .catch((err) => {
-                console.error("Here", err)
+                console.error(err)
             })
-        
-          } else {
-            console.log('hey im here')
-          }
         }}
+      }
       >
         {({ 
           values, 
@@ -224,7 +236,7 @@ const validationSchema = Yup.object().shape({
                 <button className="addCnxButton" type="submit">ADD CONNECTION</button> : 
                 <>
                   <button className="updateCnxButton" type="submit">UPDATE CONNECTION</button>
-                  <button className="deleteCnxButton" type="submit">DELETE</button>
+                  <button onClick={removeCnx} className="deleteCnxButton">DELETE</button>
                 </>
               }
           </form>

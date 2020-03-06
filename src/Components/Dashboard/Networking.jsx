@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
 import '../../Styling/dashboard/networkingform.scss'
@@ -30,6 +30,14 @@ function Networking(props) {
 
         setCnx(!cnxform)
     }
+
+    useEffect(() => {
+
+        // checks to see if the connection was added
+        // and closes the add box
+        setCnx(false)
+  
+      }, [props.connection]);
 
     return(
         <div className="networkingPage">
