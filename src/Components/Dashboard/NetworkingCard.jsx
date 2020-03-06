@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
+import Modal from './Modal';
+import NetworkingForm from './NetworkingForm';
 import '../../Styling/dashboard/networking.scss'
 
 function Connection(props) {
 
+    // this is the visibility for the notes
     const [ notes, setVisibility ] = useState(false);
 
+    // this is the visibility for the modal
+    const [ form, setVisible ] = useState(false);
+
+
+    // this sets the visibility for notes
     const showNotes = event => {
       event.preventDefault();
 
       setVisibility(!notes);
+    }
+
+    // this sets the visibility for the form modal
+    const showForm = event => {
+      event.preventDefault();
+
+      setVisible(!form)
     }
 
     return(
@@ -36,6 +51,11 @@ function Connection(props) {
           {notes ? 
             <p className="cnxNotes">{props.connection.notes}</p>
           : null }
+        <button onClick={showForm}>EDIT CONNECTION</button>
+        {/* // connection form modal */}
+        <Modal visible={form}>
+          <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
+        </Modal>
         </div>
         )
     }
