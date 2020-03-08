@@ -247,8 +247,7 @@ function ConnectionForm(props) {
 
 const mapDispatchToProps = {
     addConnection: addConnection,
-    editConnection: editConnection,
-    deleteConnection, deleteConnection
+    editConnection: editConnection
 }
 
 

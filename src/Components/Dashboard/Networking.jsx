@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { deleteConnection } from '../../actions/index'
 import '../../Styling/dashboard/networking.scss'
 import '../../Styling/dashboard/networkingform.scss'
 import NetworkingForm from './NetworkingForm';
@@ -42,7 +43,7 @@ function Networking(props) {
     return(
         <div className="networkingPage">
             {props.connections.map( connection => {
-                return <NetworkingCard connection={connection} />
+                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
             })}
             <button className={cnxform ? "exOutCnx" : "addCnxButton"} onClick={showAddCnx}>
                 <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
@@ -65,10 +66,15 @@ const mapStateToProps = (state) => {
         connections: state.user.connections
     }
   }
+
+  const mapDispatchToProps = {
+    deleteConnection: deleteConnection    
+  }
   
   export default(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(Networking)
   );
+

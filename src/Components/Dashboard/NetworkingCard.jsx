@@ -19,6 +19,17 @@ function Connection(props) {
       setVisibility(!notes);
     }
 
+    // this is the delete button 
+    const deleteButton = event => {
+      event.preventDefault();
+
+      const id = props.connection.id
+
+      props.removeCnx(id)
+
+      setVisibility(false)
+    }
+
     // this sets the visibility for the form modal
     const showForm = event => {
       event.preventDefault();
@@ -73,6 +84,7 @@ function Connection(props) {
               <i className="fas fa-times"></i>
             </button>
             <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
+            <button className="deleteCnxButton" onClick={deleteButton}>DELETE CNX</button>
           </div>
         </Modal>
         </div>
