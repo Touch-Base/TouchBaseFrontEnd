@@ -11,7 +11,7 @@
 .editConnectionForm {
     position: relative;
     width: 600px;
-    height: 450px;
+    height: 490px;
     margin: 0 auto;
     background: rgba(60, 0, 139, 0.904);
     z-index: 2;
@@ -20,9 +20,45 @@
     border-radius: 5px;
     align-items: center;
 
-    .CnxAdd {
-        border: solid red 2px;
-        width: 100px;
+    // the update and delete buttons
+    .updateCnxButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(52, 159, 247);
+        font-size: 1.3em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .updateCnxButton:hover {
+        background-color: rgba(119, 167, 238, 0.918);
+        transition: 0.25s;
+    }
+
+    .deleteCnxButton {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(214, 43, 43);
+        font-size: 0.7em;
+        border: none;
+        margin-top: 0;
+        margin-bottom: 15px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .deleteCnxButton:hover {
+        background-color: rgba(255, 5, 5, 0.918);
+        transition: 0.25s;
     }
 
     h3 {

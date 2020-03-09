@@ -15,11 +15,11 @@ function ConnectionForm(props) {
   const validationSchema = Yup.object().shape({
       firstname: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20")
+      .max(12, "Must be shorter than 12")
       .required("Must enter a first name"),
       lastname: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20")
+      .max(12, "Must be shorter than 12")
       .required("Must enter a last name"),
       title: Yup.string()
       .min(1, "Must have a character")
@@ -32,7 +32,7 @@ function ConnectionForm(props) {
       phone: Yup.string()
       .max(20, "Must be shorter than 20"),
       email: Yup.string()
-      .max(20, "Must be shorter than 20"),
+      .max(30, "Must be shorter than 30"),
       notes: Yup.string()
       .max(300, "Must be under 300 characters.")
       })
@@ -221,7 +221,7 @@ function ConnectionForm(props) {
               {props.addingCnx ? 
                 <button className="CnxAdd" type="submit">ADD CONNECTION</button> : 
                 <>
-                  <button className="updateCnxButton" type="submit">UPDATE CONNECTION 2</button>
+                  <button className="updateCnxButton" type="submit">UPDATE</button>
                 </>
               }
           </form>
