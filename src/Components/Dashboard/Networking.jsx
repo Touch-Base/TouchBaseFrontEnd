@@ -13,6 +13,9 @@ function Networking(props) {
     // this sets the visibility for adding a new connection form
     const [ cnxform, setCnx ] = useState(false);
 
+    // this sets the value for the search feature
+    const [ searchValue, setSearch ] = useState('');
+
     // these empty values are passed to the connection form 
     // for adding a new connection
     const initialValues = { 
@@ -32,6 +35,13 @@ function Networking(props) {
         setCnx(!cnxform)
     }
 
+     // change handler for search value
+     const searchChange = event => {
+        event.preventDefault();
+         
+        setSearch(event.target.value);
+     }
+
     useEffect(() => {
 
         // checks to see if the connection was added
@@ -40,9 +50,20 @@ function Networking(props) {
   
       }, [props]);
 
+    // search array
+    const searchedCnx = props.connections.filter(cnx => cnx.lastname.toUpperCase().includes(searchValue.toUpperCase()))
+
     return(
         <div className="networkingPage">
+            <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
             {props.connections.map( connection => {
+                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
+            })}
+            {searchValue === '' ? 
+               props.connections.map( connection => {
+                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
+            }) :
+                searchedCnx.map(connection => {
                 return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
             })}
             <button className={cnxform ? "exOutCnx" : "addCnxButton"} onClick={showAddCnx}>
