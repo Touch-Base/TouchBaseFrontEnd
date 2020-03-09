@@ -7,6 +7,7 @@
     border-radius: 5px;
 }
 
+
 .editConnectionForm {
     position: relative;
     width: 600px;
@@ -18,6 +19,11 @@
     flex-direction: column;
     border-radius: 5px;
     align-items: center;
+
+    .CnxAdd {
+        border: solid red 2px;
+        width: 100px;
+    }
 
     h3 {
         color: white;

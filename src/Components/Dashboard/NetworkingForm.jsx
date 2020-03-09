@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/networking.scss';
-import { addConnection, editConnection, deleteConnection } from '../../actions/index';
+import { addConnection, editConnection } from '../../actions/index';
 
 function ConnectionForm(props) {
 
@@ -37,20 +37,6 @@ function ConnectionForm(props) {
       .max(300, "Must be under 300 characters.")
       })
 
-    // delete connection
-    const removeCnx = event => {
-      event.preventDefault();
-
-      props.deleteConnection(props.id)
-        .then(() => {
-            console.log("deleted connection!")
-              
-        })
-        .catch((err) => {
-            console.error(err)
-        })
-    }
-
     return (
         <Formik 
         enableReinitialize
@@ -80,7 +66,7 @@ function ConnectionForm(props) {
             }
           
           // add connection function
-          if(props.adding) {
+          if(props.addingCnx) {
             props.addConnection(addPayload)
             .then(() => {
                 console.log("added connection!")
@@ -232,10 +218,10 @@ function ConnectionForm(props) {
                 <Error touched={touched.notes} message={errors.notes} />
               </div>
               {/* button switch for either adding or editing */}
-              {props.adding ? 
-                <button className="addCnxButton" type="submit">ADD CONNECTION</button> : 
+              {props.addingCnx ? 
+                <button className="CnxAdd" type="submit">ADD CONNECTION</button> : 
                 <>
-                  <button className="updateCnxButton" type="submit">UPDATE CONNECTION</button>
+                  <button className="updateCnxButton" type="submit">UPDATE CONNECTION 2</button>
                 </>
               }
           </form>

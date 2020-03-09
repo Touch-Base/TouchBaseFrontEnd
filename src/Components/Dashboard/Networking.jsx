@@ -38,7 +38,7 @@ function Networking(props) {
         // and closes the add box
         setCnx(false)
   
-      }, [props.connection]);
+      }, [props]);
 
     return(
         <div className="networkingPage">
@@ -49,8 +49,8 @@ function Networking(props) {
                 <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
             <Modal visible={cnxform}>
-                <div className="addConnectionForm">
-                    <NetworkingForm initialValues={initialValues} adding={true} />
+                <div className="editConnectionForm" id="addConnection">
+                    <NetworkingForm initialValues={initialValues} addingCnx={true} />
                 </div>
             </Modal>
         </div>
