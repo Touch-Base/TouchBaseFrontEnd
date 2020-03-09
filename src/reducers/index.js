@@ -405,7 +405,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    connectionss: action.payload.allConnections,
+                    connections: action.payload.allConnections,
                     connectionsTotal: action.payload.allConnections.length
                 }
             }

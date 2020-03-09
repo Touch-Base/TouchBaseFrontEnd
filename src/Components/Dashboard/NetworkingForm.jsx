@@ -236,7 +236,6 @@ function ConnectionForm(props) {
                 <button className="addCnxButton" type="submit">ADD CONNECTION</button> : 
                 <>
                   <button className="updateCnxButton" type="submit">UPDATE CONNECTION</button>
-                  <button onClick={removeCnx} className="deleteCnxButton">DELETE</button>
                 </>
               }
           </form>
