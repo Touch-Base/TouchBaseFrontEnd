@@ -1,17 +1,36 @@
-.addConnectionForm {
-    width: 600px;
-    height: 450px;
-    margin: 0 auto;
-    background: rgba(2, 179, 84, 0.89);
-    z-index: 1;
-    border-radius: 5px;
+#addConnection {
+    height: 470px;
+
+    h3 {
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .cnxAdd {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgba(44, 236, 76, 0.836);
+        font-size: 1.5em;
+        border: none;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .cnxAdd:hover {
+        background-color: rgba(119, 238, 145, 0.918);
+        transition: 0.25s;
+    }
 }
 
 
 .editConnectionForm {
     position: relative;
     width: 600px;
-    height: 490px;
+    height: 100%;
     margin: 0 auto;
     background: rgba(60, 0, 139, 0.904);
     z-index: 2;
@@ -184,4 +203,27 @@
             font-size: 2em;
         }
     }
+}
+
+// errors for form
+// input error in validation
+.cnxError {
+    color: pink;
+    background: white;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    border: solid red 2px;
+    border-radius: 5px;
+}
+
+// input form message styling
+.cnxInvalid {
+    color: rgb(245, 153, 166);
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 1px;
 }

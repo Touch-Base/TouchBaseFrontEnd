@@ -113,9 +113,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.firstname}
                   onBlur={handleBlur} 
-                  className={(touched.firstname && errors.firstname) ? "hasError" : "validInput"}
+                  className={(touched.firstname && errors.firstname) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.firstname} message={errors.firstname} />
+                <Error network={true} touched={touched.firstname} message={errors.firstname} />
               </div>
               
               {/* LASTNAME INPUT */}
@@ -129,9 +129,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.lastname}
                   onBlur={handleBlur} 
-                  className={(touched.lastname && errors.lastname) ? "hasError" : "validInput"}
+                  className={(touched.lastname && errors.lastname) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.lastname} message={errors.lastname} />
+                <Error network={true} touched={touched.lastname} message={errors.lastname} />
               </div>
 
               {/* TITLE INPUT */}
@@ -145,9 +145,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.title}
                   onBlur={handleBlur} 
-                  className={(touched.title && errors.title) ? "hasError" : "validInput"}
+                  className={(touched.title && errors.title) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.title} message={errors.title} />
+                <Error network={true} touched={touched.title} message={errors.title} />
               </div>
             </div>
 
@@ -163,9 +163,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.company}
                   onBlur={handleBlur} 
-                  className={(touched.company && errors.company) ? "hasError" : "validInput"}
+                  className={(touched.company && errors.company) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.company} message={errors.company} />
+                <Error network={true} touched={touched.company} message={errors.company} />
               </div>
 
               {/* PHONE INPUT */}
@@ -179,9 +179,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.phone}
                   onBlur={handleBlur} 
-                  className={(touched.phone && errors.phone) ? "hasError" : "validInput"}
+                  className={(touched.phone && errors.phone) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.phone} message={errors.phone} />
+                <Error network={true} touched={touched.phone} message={errors.phone} />
               </div>
 
               {/* EMAIL INPUT */}
@@ -195,9 +195,9 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.email}
                   onBlur={handleBlur} 
-                  className={(touched.email && errors.email) ? "hasError" : "validInput"}
+                  className={(touched.email && errors.email) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.email} message={errors.email} />
+                <Error network={true} touched={touched.email} message={errors.email} />
               </div>
             </div>
             </div>
@@ -213,13 +213,13 @@ function ConnectionForm(props) {
                   onChange={handleChange}
                   value={values.notes}
                   onBlur={handleBlur} 
-                  className={(touched.notes && errors.notes) ? "hasError" : "validInput"}
+                  className={(touched.notes && errors.notes) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.notes} message={errors.notes} />
+                <Error network={true} touched={touched.notes} message={errors.notes} />
               </div>
               {/* button switch for either adding or editing */}
               {props.addingCnx ? 
-                <button className="CnxAdd" type="submit">ADD CONNECTION</button> : 
+                <button className="cnxAdd" type="submit">ADD CONNECTION</button> : 
                 <>
                   <button className="updateCnxButton" type="submit">UPDATE</button>
                 </>

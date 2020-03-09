@@ -50,6 +50,7 @@ function Networking(props) {
             </button>
             <Modal visible={cnxform}>
                 <div className="editConnectionForm" id="addConnection">
+                    <h3>ADD CONNECTION</h3>
                     <NetworkingForm initialValues={initialValues} addingCnx={true} />
                 </div>
             </Modal>
