@@ -84,7 +84,7 @@ function Connection(props) {
               <i className="fas fa-times"></i>
             </button>
             <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
-            <button className="deleteCnxButton" onClick={deleteButton}>DELETE CNX</button>
+            <button className="deleteCnxButton" onClick={deleteButton}>DELETE CONNECTION</button>
           </div>
         </Modal>
         </div>
