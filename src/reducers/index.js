@@ -41,6 +41,14 @@ import {
     ADDING_EVENT,
     ADDED_EVENT,
     FAILED_ADD_EVENT,
+    
+    UPDATING_EVENT,
+    UPDATED_EVENT,
+    FAILED_UPDATE_EVENT,
+
+    DELETING_EVENT,
+    DELETED_EVENT,
+    FAILED_DELETE_EVENT,
 
     ////////////
     FILLING_STATE_JOBS,
@@ -437,6 +445,60 @@ const reducer = (state = initialState, action) => {
         }
 
         case FAILED_ADD_EVENT: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+            
+       /// UPDATING EVENT CASES
+
+        case UPDATING_EVENT: {
+            return {
+                ...state
+            }
+        }
+
+        case UPDATED_EVENT: {
+            /// this maps through the events array 
+            /// and only changes the event that was updated
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: state.user.events.map(evt => evt.id === action.payload.updatedevent.id ? action.payload.updatedevent : evt)
+                }
+            }
+        }
+
+        case FAILED_UPDATE_EVENT: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
+
+        /// DELETING EVENT CASES
+
+        case DELETING_EVENT: {
+            return {
+                ...state
+            }
+        }
+
+        case DELETED_EVENT: {
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    events: action.payload.allEvents
+                }
+            }
+        }
+
+        case FAILED_DELETE_EVENT: {
             return {
                 ...state,
                 error: action.payload.error
