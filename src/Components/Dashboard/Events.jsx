@@ -7,17 +7,74 @@ import EventCard from './EventCard';
 
 function Events(props) {
     
+    // this sets the visibility for adding a new event form
+    const [ evtform, setEvt ] = useState(false);
+
+    // this sets the value for the search feature
+    const [ searchValue, setSearch ] = useState('');
+
+    // these empty values are passed to the event form 
+    // for adding a new event
+    const initialValues = { 
+        name: '', 
+        location: '', 
+        date: '', 
+        description: '',
+        attended: false
+    }
+
+    // this function sets the visibility for the add form
+    const showAddEvt = event => {
+        event.preventDefault();
+
+        setEvt(!evtform)
+    }
+
+     // change handler for search value
+     const searchChange = event => {
+        event.preventDefault();
+         
+        setSearch(event.target.value);
+     }
+
+    useEffect(() => {
+
+        // checks to see if the evt was added
+        // and closes the add box
+        setEvt(false)
+  
+      }, [props]);
+
+    // search array
+    const searchedEvt = props.events.filter(evt => evt.name.toUpperCase().includes(searchValue.toUpperCase()))
+    
     // using 'evt' as the variable to avoid javascript confusion
 
     return(
-        <div className="events">
-            <EventForm />
-            {props.events.map( evt => {
-                return <EventCard evt={evt} />
+        <div className="eventsPage">
+            <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
+            {searchValue === '' ? 
+               props.events.map( evt => {
+                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
+            }) :
+                searchedEvt.map(evt => {
+                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
             })}
+            
+            <button className={evtform ? "exOutEvt" : "addEvtButton"} onClick={showAddEvt}>
+                <i className={evtform ? "fas fa-times" : "fas fa-plus"}></i>
+            </button>
+            
+            <Modal visible={evtform}>
+                <div className="editEventForm" id="addEvent">
+                    <h3>ADD EVENT</h3>
+                    <EventForm initialValues={initialValues} addingEvt={true} />
+                </div>
+            </Modal>
         </div>
         )
     }
+
 
 
 const mapStateToProps = (state) => {
