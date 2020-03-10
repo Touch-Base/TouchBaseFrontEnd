@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
 import EventForm from './EventForm';
 import EventCard from './EventCard';
+import { deleteEvent } from '../../actions/index'
 
 
 function Events(props) {
@@ -85,10 +86,14 @@ const mapStateToProps = (state) => {
         events: state.user.events
     }
   }
+
+const mapDispatchToProps = {
+    deleteEvent: deleteEvent
+}
   
   export default(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(Events)
   );
