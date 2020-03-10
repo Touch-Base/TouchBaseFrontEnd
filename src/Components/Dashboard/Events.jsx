@@ -6,12 +6,14 @@ import EventCard from './EventCard';
 
 
 function Events(props) {
+    
+    // using 'evt' as the variable to avoid javascript confusion
 
     return(
         <div className="events">
             <EventForm />
-            {props.events.map( event => {
-                return <EventCard event={event} />
+            {props.events.map( evt => {
+                return <EventCard evt={evt} />
             })}
         </div>
         )
