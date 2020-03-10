@@ -33,13 +33,7 @@ const validationSchema = Yup.object().shape({
     return (
         <Formik 
         enableReinitialize
-        initialValues={{ 
-          name: '', 
-          location: '', 
-          date: '', 
-          description: '',
-          attended: false
-        }} 
+        initialValues={props.intitialValues} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
