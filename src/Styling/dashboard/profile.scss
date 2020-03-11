@@ -4,6 +4,8 @@
     display: flex;
     justify-content: left;
     margin: 30px auto;
+    
+    // main profile block styling
 
     .profileBlock {
         display: flex;
@@ -12,18 +14,57 @@
         align-items: left;
         font-family: 'Alata', sans-serif;
         margin-left: 75px;
-
-        img {
-            width: 400px;
-            margin-bottom: 25px;
-        }
         
-        .locationEmail {
+        // the top part of the profile block
+        
+        .imageAndInfo {
+
+            img {
+                width: 400px;
+                margin-bottom: 25px;
+            }
+            
+            .mainSummary {
+                
+                .positionTitle {
+                    font-size: 2.1em;
+                    margin: 0;
+                    color: rgba(0, 0, 0, 0.445);
+                }
+                
+                .fullName {
+                    font-size: 3.1em;
+                    color: rgb(97, 16, 189);
+                    margin: 0;
+                    margin-bottom: 5px;
+                }
+                
+                .summary {
+                    font-family: 'Alata', sans-serif;
+                    display: flex;
+                    height: 800px;
+                    flex-direction: column;
+                    width: 600px;
+                    height: 100%;
+                    background: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(162, 0, 255));
+                    align-items:  left;
+                    justify-content: center;
+                    border-radius: 5px;
+                    margin-left: 50px;
+                    margin-top: 25px;
+                    text-align: center;
+                    box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
+                }
+             }
+         }
+        
+        // the bottom part of the profile block
+        
+        .profileContact {
             font-family: 'Alata', sans-serif;
             display: flex;
-            flex-direction: column;
             width: 400px;
-            height: 180px;
+            height: 50px;
             background: linear-gradient(to bottom right, rgb(162, 0, 255), rgb(0, 174, 255));
             align-items:  left;
             justify-content: center;
@@ -31,7 +72,7 @@
             text-align: center;
             box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
     
-            .infoBox {
+            .profileContactSec {
                 display: flex;
                 margin-left: 35px;
                 align-items: center;
@@ -49,101 +90,27 @@
                     color: white;
                 }
     
-                .infoText {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: left;
-                    justify-content: left;
-                    margin-left: 25px;
-                    margin-bottom: 10px;
-    
-                    .typeTitle {
-                        color: rgba(255, 255, 255, 0.63);
-                        letter-spacing: 1px;
-                        margin-bottom: 1px;
-                    }
-    
-    
-                    h5 {
-                        margin: 0;
-                        text-align: left;
-                        margin-bottom: -5px;
-                    }
-    
-                    .userEmail {
-                        font-size: 1.1em;
-                        letter-spacing: 1px;
-                        color: rgba(255, 255, 255, 0.904);
-                    }
-        
-                    .userLocation {
-                        font-size: 1.1em;
-                        letter-spacing: 1px;
-                        color: rgba(255, 255, 255, 0.904);
-                    }
-    
+
+                h5 {
+                    margin: 0;
+                    text-align: left;
+                    margin-bottom: -5px;
                 }
-    
-                .loc {
-                    margin-left: 28px;
+
+                .userEmail {
+                    font-size: 1.1em;
+                    letter-spacing: 1px;
+                    color: rgba(255, 255, 255, 0.904);
                 }
-            }
-    
-        }
 
-    }
-}
+                .userLocation {
+                    font-size: 1.1em;
+                    letter-spacing: 1px;
+                    color: rgba(255, 255, 255, 0.904);
+                }
+  
 
-.infoSummary {
-    display: flex;
-    flex-direction: column;
-
-        .namePosition {
-            display: flex;
-            text-align: left;
-            flex-direction: column;
-            width: 700px;
-            margin-bottom: 15px;
-            margin-left: 50px;
-
-            .fullName {
-                font-size: 3.1em;
-                color: rgb(97, 16, 189);
-                margin: 0;
-                margin-bottom: 5px;
-            }
-
-            .positionTitle {
-                font-size: 2.1em;
-                margin: 0;
-                color: rgba(0, 0, 0, 0.445);
-            }
-
-            .age {
-                font-size: 1.5em;
-                margin: 0;
-                margin-top: 10px;
-                color: rgba(0, 0, 0, 0.37);
-            }
-        
-    }
-
-    .summary {
-        font-family: 'Alata', sans-serif;
-        display: flex;
-        height: 800px;
-        flex-direction: column;
-        width: 600px;
-        height: 100%;
-        background: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(162, 0, 255));
-        align-items:  left;
-        justify-content: center;
-        border-radius: 5px;
-        margin-left: 50px;
-        margin-top: 25px;
-        text-align: center;
-        box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
-    }
+         }
 
 }
 
