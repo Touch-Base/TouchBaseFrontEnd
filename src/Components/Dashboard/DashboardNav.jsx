@@ -9,10 +9,10 @@ function DashboardNav() {
     const [ warning, setWarning ] = useState(false);
     
     // adds a 2 second delay to signing out
-    setTimeout(const signOut = () => {
+    const signOut = () => {
         window.localStorage.clear();
-        navigate('/');
-        }, 2000);
+        setTimeout(navigate('/'), 2000);
+        };
 
     return (
         <nav className="dashboardNav">

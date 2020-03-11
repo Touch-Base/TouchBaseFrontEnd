@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
 import EventForm from './EventForm';
 import EventCard from './EventCard';
-import { deleteEvent } from '../../actions/index'
+import Modal from './Modal';
+import { deleteEvent } from '../../actions/index';
+
 
 
 function Events(props) {
