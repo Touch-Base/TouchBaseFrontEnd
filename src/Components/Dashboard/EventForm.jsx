@@ -147,7 +147,7 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.description} message={errors.description} />
               </div>
                     
-              <button type="submit">ADD EVENT</button>
+              <button className={props.addingEvt ? "evtAdd" : "updateEvtButton"} "type="submit">{props.addingEvt ? "ADD EVENT" : "UPDATE EVENT"}</button>
           </form>
         )}
       </Formik>
