@@ -28,6 +28,7 @@ function Profile(props) {
 
     return (
         <div className="profilePage">
+            
             <div className="profileBlock">
                 <div className="imageAndInfo">
                     <img src="https://image.shutterstock.com/image-photo/portrait-young-beautiful-cute-cheerful-260nw-666258808.jpg" width="200px" alt="portrait" />
