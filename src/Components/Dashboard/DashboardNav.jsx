@@ -19,7 +19,7 @@ function DashboardNav() {
             <a href="jobs">Jobs</a>
             <a href="networking">Networking</a>
             <a href="events">Events</a>
-            <button onMouseEnter={setWarning(true)} onMouseExit={setWarning(false)} onClick={signOut}>
+            <button id="signOutButton" onMouseEnter={setWarning(true)} onMouseExit={setWarning(false)} onClick={signOut}>
                 <i className="fas fa-sign-out-alt"></i>
             </button>
             {warning ? <h3 className="signOut">Sign Out?</h3> : null}
