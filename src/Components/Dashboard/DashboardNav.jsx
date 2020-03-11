@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../Styling/dashboard/dashboardnav.scss';
 import { navigate } from '@reach/router';
+import navLogo from '../../img/touchbaseblack.png';
 
 function DashboardNav() {
     
@@ -15,6 +16,9 @@ function DashboardNav() {
 
     return (
         <nav className="dashboardNav">
+            <a href="/">
+              <img src={navLogo} alt="navLogo" />
+            </a>
             <a href="profile">Profile</a>
             <a href="jobs">Jobs</a>
             <a href="networking">Networking</a>
