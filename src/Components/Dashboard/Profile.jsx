@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import '../../Styling/dashboard/profile.scss'
 
 function Profile(props) {
-
+    
+    
+    // this sets the visibility for the updating profile form
     const [ visibleProfile, setVisibility ] = useState(false);
 
     const showProfileForm = event => {
