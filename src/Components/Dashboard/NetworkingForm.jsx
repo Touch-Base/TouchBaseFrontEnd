@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/networking.scss';
-import { addConnection } from '../../actions/index';
+import { addConnection, editConnection } from '../../actions/index';
 
 function ConnectionForm(props) {
 
@@ -12,30 +12,30 @@ function ConnectionForm(props) {
 //  the Formik values to make sure everything entered suits the database
 //  and that the passwords match
 
-const validationSchema = Yup.object().shape({
-    firstname: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a first name"),
-    lastname: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a last name"),
-    title: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a title"),
-    company: Yup.string()
-    .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
-    .required("Must enter a company"),
-    phone: Yup.string()
-    .max(20, "Must be shorter than 20"),
-    email: Yup.string()
-    .max(20, "Must be shorter than 20"),
-    notes: Yup.string()
-    .max(1000, "Must be under 1000 characters.")
-    })
+  const validationSchema = Yup.object().shape({
+      firstname: Yup.string()
+      .min(1, "Must have a character")
+      .max(12, "Must be shorter than 12")
+      .required("Must enter a first name"),
+      lastname: Yup.string()
+      .min(1, "Must have a character")
+      .max(12, "Must be shorter than 12")
+      .required("Must enter a last name"),
+      title: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a title"),
+      company: Yup.string()
+      .min(1, "Must have a character")
+      .max(20, "Must be shorter than 20")
+      .required("Must enter a company"),
+      phone: Yup.string()
+      .max(20, "Must be shorter than 20"),
+      email: Yup.string()
+      .max(30, "Must be shorter than 30"),
+      notes: Yup.string()
+      .max(300, "Must be under 300 characters.")
+      })
 
     return (
         <Formik 
@@ -45,26 +45,49 @@ const validationSchema = Yup.object().shape({
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
+          /// this checks to see if the form is updating or adding a connection
           const { firstname, lastname, title, company, phone, email, notes } = values;
-
-          props.addConnection({
-                firstname: firstname,
-                lastname: lastname,
-                title: title,
-                company: company,
-                phone: phone,
-                email: email,
-                notes: notes
+          
+          // payload for adding a connection
+          const addPayload = {
+            firstname: firstname,
+            lastname: lastname,
+            title: title,
+            company: company,
+            phone: phone,
+            email: email,
+            notes: notes
             }
-        )
-        .then(() => {
-            console.log("added connection!")
-              
-        })
-        .catch((err) => {
-            console.error("Here", err)
-        })
+          
+          // payload for updating a connection
+          const editPayload = {
+            ...addPayload,
+            id: props.id
+            }
+          
+          // add connection function
+          if(props.addingCnx) {
+            props.addConnection(addPayload)
+            .then(() => {
+                console.log("added connection!")
+                  
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+
+          // update connection
+          } else {
+            props.editConnection(editPayload)
+            .then(() => {
+                console.log("updated connection!")
+                  
+            })
+            .catch((err) => {
+                console.error(err)
+            })
         }}
+      }
       >
         {({ 
           values, 
@@ -77,8 +100,11 @@ const validationSchema = Yup.object().shape({
         }) => (
           <form onSubmit={handleSubmit}>
               
+          <div className="inputCnxBlocks">
+            <div className="cnxNameAndTitle">
               {/* FIRSTNAME INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>First Name</h3> : null}
                 <input 
                   type="text" 
                   id="firstname" 
@@ -87,13 +113,14 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.firstname}
                   onBlur={handleBlur} 
-                  className={(touched.firstname && errors.firstname) ? "hasError" : "validInput"}
+                  className={(touched.firstname && errors.firstname) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.firstname} message={errors.firstname} />
+                <Error network={true} touched={touched.firstname} message={errors.firstname} />
               </div>
               
               {/* LASTNAME INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Last Name</h3> : null}
                 <input 
                   type="text" 
                   id="lastname" 
@@ -102,13 +129,14 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.lastname}
                   onBlur={handleBlur} 
-                  className={(touched.lastname && errors.lastname) ? "hasError" : "validInput"}
+                  className={(touched.lastname && errors.lastname) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.lastname} message={errors.lastname} />
+                <Error network={true} touched={touched.lastname} message={errors.lastname} />
               </div>
 
               {/* TITLE INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Title</h3> : null}
                 <input 
                   type="text" 
                   id="title" 
@@ -117,13 +145,16 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.title}
                   onBlur={handleBlur} 
-                  className={(touched.title && errors.title) ? "hasError" : "validInput"}
+                  className={(touched.title && errors.title) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.title} message={errors.title} />
+                <Error network={true} touched={touched.title} message={errors.title} />
               </div>
+            </div>
 
+            <div className="cnxCompanyAndContact">
               {/* COMPANY INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Company</h3> : null}
                 <input 
                   type="text" 
                   id="company" 
@@ -132,13 +163,14 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.company}
                   onBlur={handleBlur} 
-                  className={(touched.company && errors.company) ? "hasError" : "validInput"}
+                  className={(touched.company && errors.company) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.company} message={errors.company} />
+                <Error network={true} touched={touched.company} message={errors.company} />
               </div>
 
               {/* PHONE INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Phone</h3> : null}
                 <input 
                   type="text" 
                   id="phone" 
@@ -147,13 +179,14 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.phone}
                   onBlur={handleBlur} 
-                  className={(touched.phone && errors.phone) ? "hasError" : "validInput"}
+                  className={(touched.phone && errors.phone) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.phone} message={errors.phone} />
+                <Error network={true} touched={touched.phone} message={errors.phone} />
               </div>
 
               {/* EMAIL INPUT */}
               <div className="connectionInput">
+                {props.editing ? <h3>Email</h3> : null}
                 <input 
                   type="text" 
                   id="email" 
@@ -162,14 +195,17 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.email}
                   onBlur={handleBlur} 
-                  className={(touched.email && errors.email) ? "hasError" : "validInput"}
+                  className={(touched.email && errors.email) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.email} message={errors.email} />
+                <Error network={true} touched={touched.email} message={errors.email} />
               </div>
+            </div>
+            </div>
 
               {/* NOTES INPUT */}
-              <div className="connectionInput">
-                <input 
+              <div className="notesArea">
+                {props.editing ? <h3>Notes</h3> : null}
+                <textarea 
                   type="text" 
                   id="notes" 
                   placeholder="Notes"
@@ -177,13 +213,17 @@ const validationSchema = Yup.object().shape({
                   onChange={handleChange}
                   value={values.notes}
                   onBlur={handleBlur} 
-                  className={(touched.notes && errors.notes) ? "hasError" : "validInput"}
+                  className={(touched.notes && errors.notes) ? "cnxError" : "validInput"}
                 />
-                <Error touched={touched.notes} message={errors.notes} />
+                <Error network={true} touched={touched.notes} message={errors.notes} />
               </div>
-
-
-              <button type="submit">ADD CONNECTION</button>
+              {/* button switch for either adding or editing */}
+              {props.addingCnx ? 
+                <button className="cnxAdd" type="submit">ADD CONNECTION</button> : 
+                <>
+                  <button className="updateCnxButton" type="submit">UPDATE</button>
+                </>
+              }
           </form>
         )}
       </Formik>
@@ -191,7 +231,8 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addConnection: addConnection
+    addConnection: addConnection,
+    editConnection: editConnection
 }
 
 

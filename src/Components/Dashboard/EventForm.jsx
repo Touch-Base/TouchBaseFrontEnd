@@ -5,7 +5,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/events.scss';
-import { addEvent } from '../../actions/index';
+import '../../Styling/dashboard/eventform.scss';
+import { addEvent, editEvent } from '../../actions/index';
 
 function EventForm(props) {
 
@@ -20,47 +21,59 @@ const validationSchema = Yup.object().shape({
     .required("Must enter a name"),
     location: Yup.string()
     .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
+    .max(15, "Must be shorter than 15")
     .required("Must enter a location"),
     date: Yup.string()
     .min(1, "Must have a character")
-    .max(20, "Must be shorter than 20")
+    .max(15, "Must be shorter than 15")
     .required("Must enter a date"),
     description: Yup.string()
-    .max(1000, "Must be under 1000 characters.")
+    .max(400, "Must be under 400 characters.")
     })
 
     return (
         <Formik 
         enableReinitialize
-        initialValues={{ 
-          name: '', 
-          location: '', 
-          date: '', 
-          description: '',
-          attended: false
-        }} 
+        initialValues={props.intitialValues} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
 
           const { name, location, date, description, attended } = values;
-
-          props.addEvent({
+                
+          /// this is the payload for adding an event
+          const addPayload = {
                 name: name,
                 location: location,
                 date: date,
                 description: description,
                 attended: attended
             }
-        )
-        .then(() => {
-            console.log("added event!")
-              
-        })
-        .catch((err) => {
-            console.error("Here", err)
-        })
+          
+          /// this is the payload for editing an event
+          const editPayload = {
+              ...addPayload,
+              id: props.id
+          }
+         if(props.adding) {
+          props.addEvent(addPayload)
+            .then(() => {
+                console.log("added event!")
+
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })
+          } else {
+          props.editEvent(editPayload)
+            .then(() => {
+                console.log("edited event!")
+
+            })
+            .catch((err) => {
+                console.error("Here", err)
+            })
+          }
         }}
       >
         {({ 
@@ -134,7 +147,7 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.description} message={errors.description} />
               </div>
                     
-              <button type="submit">ADD EVENT</button>
+              <button className={props.addingEvt ? "evtAdd" : "updateEvtButton"} "type="submit">{props.addingEvt ? "ADD EVENT" : "UPDATE EVENT"}</button>
           </form>
         )}
       </Formik>
@@ -142,7 +155,8 @@ const validationSchema = Yup.object().shape({
 }
 
 const mapDispatchToProps = {
-    addEvent: addEvent
+    addEvent: addEvent,
+    editEvent: editEvent
 }
 
 

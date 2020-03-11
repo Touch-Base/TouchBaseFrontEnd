@@ -59,12 +59,32 @@ export const ADDING_CONNECTION = 'ADDING_CONNECTION';
 export const ADDED_CONNECTION = 'ADDED_CONNECTION';
 export const FAILED_ADD_CONNECTION = 'FAILED_ADD_CONNECTION';
 
+// UPDATING A CONNECTION
+export const UPDATING_CONNECTION = 'UPDATING_CONNECTION';
+export const UPDATED_CONNECTION = 'UPDATED_CONNECTION';
+export const FAILED_UPDATE_CONNECTION = 'FAILED_UPDATE_CONNECTION';
+
+// DELETING A CONNECTION
+export const DELETING_CONNECTION = 'DELETING_CONNECTION';
+export const DELETED_CONNECTION = 'DELETED_CONNECTION';
+export const FAILED_DELETE_CONNECTION = 'FAILED_DELETE_CONNECTION';
+
     //////////////// EVENTS  \\\\\\\\\\\\\\\\\ 
 
 // ADDING AN EVENT
 export const ADDING_EVENT = 'ADDING_EVENT';
 export const ADDED_EVENT = 'ADDED_EVENT';
 export const FAILED_ADD_EVENT = 'FAILED_ADD_EVENT';
+
+// UPDATING AN EVENT
+export const UPDATING_EVENT = 'UPDATING_EVENT';
+export const UPDATED_EVENT = 'UPDATED_EVENT';
+export const FAILED_UPDATE_EVENT = 'FAILED_UPDATE_EVENT';
+
+// DELETING AN EVENT
+export const DELETING_EVENT = 'DELETING_EVENT';
+export const DELETED_EVENT = 'DELETED_EVENT';
+export const FAILED_DELETE_EVENT = 'FAILED_DELETE_EVENT';
 
 
 
@@ -253,6 +273,54 @@ export function addConnection(payload) {
       }
 }
 
+/// THIS ACTION UPDATES A CONNECTION FOR A USER
+
+export function editConnection(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: UPDATING_CONNECTION });
+
+    return axios.put(`https://touch-base-server.herokuapp.com/api/connections/update/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        dispatch({ type: UPDATED_CONNECTION, payload: response.data });
+      })
+
+      .catch((error) => {
+        dispatch({ type: FAILED_UPDATE_CONNECTION, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION DELETES A CONNECTION FOR A USER
+
+export function deleteConnection(id) {
+
+  const token = localStorage.getItem('token');
+
+  return dispatch => {
+
+    dispatch({ type: DELETING_CONNECTION });
+
+    return axios.delete(`https://touch-base-server.herokuapp.com/api/connections/delete/${id}`, {
+      headers: {
+        Authorization: token
+      }})
+      .then( res => {
+        dispatch({ type: DELETED_CONNECTION, payload: res.data  });
+      })
+      .catch( err => {
+        dispatch({ type: FAILED_DELETE_CONNECTION, payload: err });
+      })
+  }
+}
+
 /// THIS ACTION ADDS AN EVENT FOR A USER
 
 export function addEvent(payload) {
@@ -278,6 +346,54 @@ export function addEvent(payload) {
       })
 
       }
+}
+
+/// THIS ACTION UPDATES AN EVENT FOR A USER
+
+export function editEvent(payload) {
+
+  /* update data here */
+
+  return dispatch => {
+
+    dispatch({ type: UPDATING_EVENT });
+
+    return axios.put(`https://touch-base-server.herokuapp.com/api/events/update/`, payload, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }})
+      .then((response) => {
+        dispatch({ type: UPDATED_EVENT, payload: response.data });
+      })
+
+      .catch((error) => {
+        dispatch({ type: FAILED_UPDATE_EVENT, payload: error })
+      })
+
+      }
+}
+
+/// THIS ACTION DELETES AN EVENT FOR A USER
+
+export function deleteEvent(id) {
+
+  const token = localStorage.getItem('token');
+
+  return dispatch => {
+
+    dispatch({ type: DELETING_EVENT });
+
+    return axios.delete(`https://touch-base-server.herokuapp.com/api/events/delete/${id}`, {
+      headers: {
+        Authorization: token
+      }})
+      .then( res => {
+        dispatch({ type: DELETED_EVENT, payload: res.data  });
+      })
+      .catch( err => {
+        dispatch({ type: FAILED_DELETE_EVENT, payload: err });
+      })
+  }
 }
 
 /// FILL STATE WITH JOBS

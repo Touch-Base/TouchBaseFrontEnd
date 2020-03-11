@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import NetworkingForm from './NetworkingForm';
 import '../../Styling/dashboard/networking.scss'
@@ -19,6 +19,17 @@ function Connection(props) {
       setVisibility(!notes);
     }
 
+    // this is the delete button 
+    const deleteButton = event => {
+      event.preventDefault();
+
+      const id = props.connection.id
+
+      props.removeCnx(id)
+
+      setVisibility(false)
+    }
+
     // this sets the visibility for the form modal
     const showForm = event => {
       event.preventDefault();
@@ -26,6 +37,16 @@ function Connection(props) {
       setVisible(!form)
       
     }
+
+    useEffect(() => {
+
+      // checks to see if the connection was updated
+      // and closes the edit box
+      setVisible(false);
+      setVisibility(false);
+      console.log("here here")
+
+    }, [props]);
 
     return(
         <div className="connectionCard">
@@ -63,6 +84,7 @@ function Connection(props) {
               <i className="fas fa-times"></i>
             </button>
             <NetworkingForm initialValues={props.connection} editing={true} id={props.connection.id}  />
+            <button className="deleteCnxButton" onClick={deleteButton}>DELETE CONNECTION</button>
           </div>
         </Modal>
         </div>

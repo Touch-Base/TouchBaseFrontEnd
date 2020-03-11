@@ -1,4 +1,4 @@
-#addConnection {
+#addEvent {
     height: 470px;
     background: rgba(0, 72, 139, 0.904);
 
@@ -6,7 +6,7 @@
         font-family: 'Oswald', sans-serif;
     }
 
-    .cnxAdd {
+    .evtAdd {
         padding: 10px 20px;
         border-radius: 5px;
         font-family: 'Oswald', sans-serif;
@@ -21,14 +21,14 @@
         cursor: pointer;
     }
 
-    .cnxAdd:hover {
+    .evtAdd:hover {
         background-color: rgba(119, 238, 145, 0.918);
         transition: 0.25s;
     }
 }
 
 
-.editConnectionForm {
+.editEventForm {
     position: relative;
     width: 600px;
     height: 550px;
@@ -41,7 +41,7 @@
     align-items: center;
 
     // the update and delete buttons
-    .updateCnxButton {
+    .updateEvtButton {
         padding: 5px 15px;
         border-radius: 5px;
         font-family: 'Oswald', sans-serif;
@@ -56,12 +56,12 @@
         cursor: pointer;
     }
 
-    .updateCnxButton:hover {
+    .updateEvtButton:hover {
         background-color: rgba(119, 167, 238, 0.918);
         transition: 0.25s;
     }
 
-    .deleteCnxButton {
+    .deleteEvtButton {
         padding: 5px 15px;
         border-radius: 5px;
         font-family: 'Oswald', sans-serif;
@@ -76,7 +76,7 @@
         cursor: pointer;
     }
 
-    .deleteCnxButton:hover {
+    .deleteEvtButton:hover {
         background-color: rgba(255, 5, 5, 0.918);
         transition: 0.25s;
     }
@@ -91,21 +91,7 @@
         letter-spacing: 1.5px;
     }
 
-    .inputCnxBlocks {
-        display: flex;
-    }
-
-    .cnxNameAndTitle {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cnxCompanyAndContact {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .connectionInput {
+    .eventInput {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -147,43 +133,6 @@
             border: solid rgb(44, 206, 255) 3px;
         }
 
-    }
-
-    .notesArea {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 5px;
-        width: 505px;
-        margin: 0 10px;
-        border-radius: 2px;
-        border: none;
-        border-radius: 3px;
-
-        textarea {
-            width: 100%;
-            border: none;
-            border-radius: 3px;
-            resize: none;
-            height: 70px;
-            padding: 5px;
-            transition: 0.5s;
-            border: solid white 3px;
-        }
-
-        textarea:focus {
-            transition: 0.5s;
-            border: solid rgb(44, 206, 255) 3px;
-        }
-
-        h3 {
-            margin: 0;
-            padding: 0;
-            font-size: 0.7em;
-            margin-bottom: 2px;
-            margin-right: 5px;
-            color: rgba(255, 255, 255, 0.781);
-            text-align: left;
-        }
     }
 
     // closeButton
