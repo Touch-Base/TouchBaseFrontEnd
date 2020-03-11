@@ -6,6 +6,19 @@
     border-bottom: solid 1px rgba(128, 128, 128, 0.404);
     width: 100%;
     
+    // logo
+    img {
+        width: 100px;
+        transition: 0.5;
+        opacity: 0.8;
+    }
+
+    img:hover {
+        opacity: 1;
+        transition: 0.5;
+    }
+    
+    // sign out button
     #signOutButton {
         border: none;
         cursor: pointer;
