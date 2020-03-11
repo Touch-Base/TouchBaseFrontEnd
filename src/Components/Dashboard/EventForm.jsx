@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../helpers/Error';
 import '../../Styling/dashboard/events.scss';
+import '../../Styling/dashboard/eventform.scss';
 import { addEvent, editEvent } from '../../actions/index';
 
 function EventForm(props) {
