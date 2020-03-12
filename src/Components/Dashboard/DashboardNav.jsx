@@ -11,7 +11,7 @@ function DashboardNav() {
     // adds a 2 second delay to signing out
     const signOut = () => {
         window.localStorage.clear();
-        setTimeout(navigate('/'), 2000);
+        setTimeout(() => navigate('/'), 2000);
         };
 
     // change warning value
