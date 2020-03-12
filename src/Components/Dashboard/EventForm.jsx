@@ -120,7 +120,9 @@ const validationSchema = Yup.object().shape({
               {/* DATE INPUT */}
               <div className="eventInput">
                 <input 
-                  type="text" 
+                  type="date" 
+                  data-date="" 
+                  data-date-format="DD MMMM YYYY" 
                   id="date" 
                   placeholder="Date"
                   name="date"
