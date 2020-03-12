@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../Styling/dashboard/dashboardnav.scss';
-import { navigate } from '@reach/router';
+import { navigate, redirectTo } from '@reach/router';
 import navLogo from '../../img/touchbaseblack.png';
 
 function DashboardNav() {
@@ -33,7 +33,7 @@ function DashboardNav() {
             <button id="signOutButton" onMouseEnter={warningHandler} onMouseLeave={warningHandler} onClick={signOut}>
                 <i className="fas fa-sign-out-alt"></i>
             </button>
-            <h3 className={warning ? "signOut" : "signOutTwo"}>Sign Out?</h3>
+            <h3 className="signOut" style={warning ? {opacity: 1} : {opacity: 0}}>Sign Out?</h3>
         </nav>
     )
 }
