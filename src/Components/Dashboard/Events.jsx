@@ -58,10 +58,10 @@ function Events(props) {
             <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
             {searchValue === '' ? 
                props.events.map( evt => {
-                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
+                return <EventCard removeEvent={props.deleteEvent} evt={evt} />
             }) :
                 searchedEvt.map(evt => {
-                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
+                return <EventCard removeEvent={props.deleteEvent} evt={evt} />
             })}
             
             <button className={evtform ? "exOutEvt" : "addEvtButton"} onClick={showAddEvt}>

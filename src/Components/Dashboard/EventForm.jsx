@@ -34,7 +34,7 @@ const validationSchema = Yup.object().shape({
     return (
         <Formik 
         enableReinitialize
-        initialValues={props.intitialValues} 
+        initialValues={props.initialValues} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
@@ -55,11 +55,11 @@ const validationSchema = Yup.object().shape({
               ...addPayload,
               id: props.id
           }
-         if(props.adding) {
+         if(props.addingEvt) {
           props.addEvent(addPayload)
             .then(() => {
+                console.log(addPayload)
                 console.log("added event!")
-
             })
             .catch((err) => {
                 console.error("Here", err)
