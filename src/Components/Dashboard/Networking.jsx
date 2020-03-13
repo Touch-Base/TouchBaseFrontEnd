@@ -78,15 +78,13 @@ function Networking(props) {
             </div>
             <div className="connectionsTable">
                 <div className={searchedCnx.length < 1 ? "columnnull" : "columnNames"}>
-                    <h4 id="cocolumn">Company</h4>
-                    <h4 id="pocolumn">Position</h4>
-                    <h4 id="appcolumn">App Date</h4>
-                    <h4 id="interviewcolumn">Interview</h4>
-                    <h4 id="notescolumn">Notes</h4>
-                    <h4 id="methodcolumn">Method</h4>
-                    <h4 id="colorcolumn">Color</h4>
-                    <h4 id="linkcolumn">Link</h4>
-                    <h4 id="editcolumn">Edit</h4>
+                    <h4 id="namecolumn">Name</h4>
+                    <h4 id="cnxcocolumn">Company</h4>
+                    <h4 id="titlecolumn">Title</h4>
+                    <h4 id="cnxphonecolumn">Phone</h4>
+                    <h4 id="cnxemailcolumn">Email</h4>
+                    <h4 id="cnxnotescolumn">Notes</h4>
+                    <h4 id="cnxeditcolumn">Edit</h4>
                 </div>
                 {searchValue === '' ? 
                    props.connections.map( connection => {
