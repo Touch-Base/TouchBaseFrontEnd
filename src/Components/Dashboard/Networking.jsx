@@ -64,20 +64,38 @@ function Networking(props) {
 
     // search array
     const searchedCnx = props.connections.filter(cnx => cnx.lastname.toUpperCase().includes(searchValue.toUpperCase()))
-
-    return(
-        <div className="networkingPage">
-            <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
-            {props.connections.map( connection => {
-                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
-            })}
-            {searchValue === '' ? 
-               props.connections.map( connection => {
-                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
-            }) :
-                searchedCnx.map(connection => {
-                return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
-            })}
+    
+    {/*this checks to see how the jobs should be displayed */}
+    if(table) {
+        return(
+          <div className="networkingPage">
+            <div className="switchAndSearch">
+                <div className="switch">
+                    <h4 className="switchName">Layout</h4>
+                    <Switch onClick={switchOrganizer} checked={false} />
+                </div>
+                <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
+            </div>
+            <div className="connectionsTable">
+                <div className={searchedCnx.length < 1 ? "columnnull" : "columnNames"}>
+                    <h4 id="cocolumn">Company</h4>
+                    <h4 id="pocolumn">Position</h4>
+                    <h4 id="appcolumn">App Date</h4>
+                    <h4 id="interviewcolumn">Interview</h4>
+                    <h4 id="notescolumn">Notes</h4>
+                    <h4 id="methodcolumn">Method</h4>
+                    <h4 id="colorcolumn">Color</h4>
+                    <h4 id="linkcolumn">Link</h4>
+                    <h4 id="editcolumn">Edit</h4>
+                </div>
+                {searchValue === '' ? 
+                   props.connections.map( connection => {
+                   return <NetworkingRow removeCnx={props.deleteConnection} connection={connection} />
+                }) :
+                    searchedCnx.map(connection => {
+                    return <NetworkingRow removeCnx={props.deleteConnection} connection={connection} />
+                })}
+            </div>
             <button className={cnxform ? "exOutCnx" : "addCnxButton"} onClick={showAddCnx}>
                 <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
             </button>
@@ -88,7 +106,38 @@ function Networking(props) {
                 </div>
             </Modal>
         </div>
-        )
+    )} else {
+        return(
+            <div className="networkingPage">
+                <div className="switchAndSearch">
+                    <div className="switch">
+                        <h4 className="switchName">Layout</h4>
+                        <Switch onClick={switchOrganizer} checked={false} />
+                    </div>
+                    <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
+                </div>
+                {props.connections.map( connection => {
+                    return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
+                })}
+                {searchValue === '' ? 
+                   props.connections.map( connection => {
+                    return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
+                }) :
+                    searchedCnx.map(connection => {
+                    return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
+                })}
+                <button className={cnxform ? "exOutCnx" : "addCnxButton"} onClick={showAddCnx}>
+                    <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
+                </button>
+                <Modal visible={cnxform}>
+                    <div className="editConnectionForm" id="addConnection">
+                        <h3>ADD CONNECTION</h3>
+                        <NetworkingForm initialValues={initialValues} addingCnx={true} />
+                    </div>
+                </Modal>
+            </div>
+            )
+        }
     }
 
 
