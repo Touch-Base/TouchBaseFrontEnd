@@ -2,6 +2,18 @@
 
 TouchBase is a web application that streamlines job application data for a user.
 
+## What has been done?
+
+TouchBase displays your data for a short profile, jobs you applied to, connections you've made through networking, and events you're interested in attending. It secures this data to an account using its very own API and through hashing passwords and creating an encrypted token. You can access, add, edit, and delete all of this data as the user sees fit. You can also organize how this data is displayed. Additional features for how this data is displayed can be continuously added.
+
+## What needs to be done?
+
+TouchBase was built with a plan, but with as the codebase progressed an on-needed basis formed. The three main components (Jobs, Connections, and Events) are almost entirely identically to each other with the exception of styling and small functionality changes. These components are well-commented, so it's easy to understand what is happening in the code, but there's a lot of repeated information between the components. 
+
+TouchBase may need DRY refactoring in how these components relate to one another. The components operate in a very straight-forward and clear way, but there are areas where it can definitely be consolidated.
+
+Refactoring would also be very useful in terms of styling. There are a lot of repeated styles in the SCSS files and it would be useful to turn some into variables and mix-ins.
+
 ## App Information
 
 ## Available Scripts
