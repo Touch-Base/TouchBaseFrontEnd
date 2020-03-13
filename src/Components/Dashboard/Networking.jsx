@@ -5,13 +5,18 @@ import '../../Styling/dashboard/networking.scss'
 import '../../Styling/dashboard/networkingform.scss'
 import NetworkingForm from './NetworkingForm';
 import NetworkingCard from './NetworkingCard';
+import NetworkingRow from './NetworkingRow';
 import Modal from './Modal';
+import { Switch } from '@material-ui/core';
 
 
 function Networking(props) {
 
     // this sets the visibility for adding a new connection form
     const [ cnxform, setCnx ] = useState(false);
+    
+    // this sets whether the connections will be displayed as cards or in a table
+    const [ table, setOrganizer ] = useState(false);
 
     // this sets the value for the search feature
     const [ searchValue, setSearch ] = useState('');
@@ -41,6 +46,13 @@ function Networking(props) {
          
         setSearch(event.target.value);
      }
+     
+    // this function is the switch for how the jobs are displayed
+    const switchOrganizer = event => {
+        event.preventDefault();
+        
+        setOrganizer(!table);
+    }
 
     useEffect(() => {
 
