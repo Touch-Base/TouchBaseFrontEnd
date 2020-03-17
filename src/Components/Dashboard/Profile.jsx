@@ -49,7 +49,7 @@ function Profile(props) {
                     </div>
                     <div className="profileContactSec">
                         <i className="fab fa-pagelines"></i>
-                        <h5 className="age">{props.age || "Age"} Years Old</h2>
+                        <h5 className="age">{props.age || "Age"} Years Old</h5>
                     </div>
                 </div>
             </div>

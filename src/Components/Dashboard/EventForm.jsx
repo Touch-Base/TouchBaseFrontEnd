@@ -34,7 +34,7 @@ const validationSchema = Yup.object().shape({
     return (
         <Formik 
         enableReinitialize
-        initialValues={props.intitialValues} 
+        initialValues={props.initialValues} 
         validationSchema={validationSchema}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setSubmitting(true);
@@ -55,11 +55,11 @@ const validationSchema = Yup.object().shape({
               ...addPayload,
               id: props.id
           }
-         if(props.adding) {
+         if(props.addingEvt) {
           props.addEvent(addPayload)
             .then(() => {
+                console.log(addPayload)
                 console.log("added event!")
-
             })
             .catch((err) => {
                 console.error("Here", err)
@@ -120,7 +120,9 @@ const validationSchema = Yup.object().shape({
               {/* DATE INPUT */}
               <div className="eventInput">
                 <input 
-                  type="text" 
+                  type="date" 
+                  data-date="" 
+                  data-date-format="DD MMMM YYYY" 
                   id="date" 
                   placeholder="Date"
                   name="date"
@@ -147,7 +149,7 @@ const validationSchema = Yup.object().shape({
                 <Error touched={touched.description} message={errors.description} />
               </div>
                     
-              <button className={props.addingEvt ? "evtAdd" : "updateEvtButton"} "type="submit">{props.addingEvt ? "ADD EVENT" : "UPDATE EVENT"}</button>
+              <button className={props.addingEvt ? "evtAdd" : "updateEvtButton"} type="submit">{props.addingEvt ? "ADD EVENT" : "UPDATE EVENT"}</button>
           </form>
         )}
       </Formik>

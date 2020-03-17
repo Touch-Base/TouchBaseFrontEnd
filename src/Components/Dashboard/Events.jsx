@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/networking.scss'
 import EventForm from './EventForm';
 import EventCard from './EventCard';
-import { deleteEvent } from '../../actions/index'
+import Modal from './Modal';
+import { deleteEvent } from '../../actions/index';
+
 
 
 function Events(props) {
@@ -56,10 +58,10 @@ function Events(props) {
             <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
             {searchValue === '' ? 
                props.events.map( evt => {
-                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
+                return <EventCard removeEvent={props.deleteEvent} evt={evt} />
             }) :
                 searchedEvt.map(evt => {
-                return <EventCard removeEvt={props.deleteEvent} evt={evt} />
+                return <EventCard removeEvent={props.deleteEvent} evt={evt} />
             })}
             
             <button className={evtform ? "exOutEvt" : "addEvtButton"} onClick={showAddEvt}>

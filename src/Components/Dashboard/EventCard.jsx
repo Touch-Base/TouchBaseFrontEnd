@@ -20,7 +20,7 @@ function Event(props) {
     const showDescription = event => {
       event.preventDefault();
 
-      setVisibility(!notes);
+      setVisibility(!description);
     }
 
     // this is the delete button 
