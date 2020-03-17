@@ -114,9 +114,6 @@ function Networking(props) {
                     </div>
                     <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
                 </div>
-                {props.connections.map( connection => {
-                    return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
-                })}
                 {searchValue === '' ? 
                    props.connections.map( connection => {
                     return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />

@@ -74,7 +74,7 @@ function NetworkingRow(props) {
                        
                        
       {/* this is the modal for the edit form */}
-      <Modal visible={form}>
+      <Modal visible={visible}>
           <div className="editConnectionForm">
             <h3 className="editCnxTitle">EDIT CONNECTION</h3>
             <button className="closeButton" onClick={showForm}>
@@ -90,4 +90,4 @@ function NetworkingRow(props) {
 }
 
 
-export default JobRow;
+export default NetworkingRow;
