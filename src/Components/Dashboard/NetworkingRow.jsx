@@ -58,7 +58,9 @@ function NetworkingRow(props) {
       <h5 className="cnxcolumn" id="company">{props.connection.company}</h5>
       <h5 className="cnxcolumn" id="title">{props.connection.title}</h5>
       <h5 className="cnxcolumn" id="phone">{props.connection.phone}</h5>
-      <h5 className="cnxcolumn" id="email">{props.connection.email}</h5>
+      <h5 className="cnxcolumn" id="email">
+        <a href={props.connection.email}><i className="fas fa-at"></i></a>
+      </h5>
       <button className="notesRow" onClick={handlesNotes}>
         <i className="fas fa-quote-left">&nbsp;</i>    
         <i className="fas fa-quote-right"></i>
