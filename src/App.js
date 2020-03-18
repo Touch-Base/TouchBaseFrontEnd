@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
-import { Router } from '@reach/router';
-import LandingPage from './Components/LandingPage/LandingPage';
-import Home from './Components/LandingPage/Home';
-import Register from './Components/LandingPage/Register';
-import Login from './Components/LandingPage/Login';
-import Learn from './Components/LandingPage/Learn';
-import Blog from './Components/LandingPage/Blog';
-import Support from './Components/LandingPage/Support';
-import Pricing from './Components/LandingPage/Pricing';
-import ProtectedRoutes from './Components/Auth/ProtectedRoutes';
+import React from "react";
+import "./App.css";
+import { Router } from "@reach/router";
+import LandingPage from "./Components/LandingPage/LandingPage";
+import Home from "./Components/LandingPage/Home";
+import Register from "./Components/LandingPage/Register";
+import Login from "./Components/LandingPage/Login";
+import Learn from "./Components/LandingPage/Learn";
+import Blog from "./Components/LandingPage/Blog";
+import Support from "./Components/LandingPage/Support";
+import Pricing from "./Components/LandingPage/Pricing";
+import ProtectedRoutes from "./Components/Auth/ProtectedRoutes";
 
 function App() {
   return (

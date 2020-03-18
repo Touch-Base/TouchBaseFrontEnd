@@ -23,7 +23,7 @@ function DashboardNav() {
 
     return (
         <nav className="dashboardNav">
-            <a href="/">
+            <a href="#">
               <img src={navLogo} alt="navLogo" />
             </a>
             <a href="profile">Profile</a>
