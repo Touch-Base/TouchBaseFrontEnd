@@ -3,6 +3,7 @@ import ProfileForm from './ProfileForm';
 import Modal from './Modal';
 import { connect } from 'react-redux';
 import '../../Styling/dashboard/profile.scss'
+import '../../Styling/dashboard/profileform.scss'
 
 function Profile(props) {
     
@@ -15,6 +16,14 @@ function Profile(props) {
 
       setVisibility(!visibleProfile)
     }
+
+    useEffect(() => {
+
+        // checks to see if the user was updated
+        // and closes the edit box
+        setVisibility(false)
+  
+      }, [props]);
 
     const initialValues = { 
         firstname: props.firstname, 
@@ -35,7 +44,7 @@ function Profile(props) {
                     <div className="mainSummary">
                         <h2 className="positionTitle">{props.position || "Position"}</h2>
                         <h2 className="fullName">{props.firstname} {props.lastname}</h2>
-                        <h2>Summary: {props.summary || "Summary"}</h2>
+                        <p>{props.summary || "Add a summary about yourself!"}</p>
                     </div>
                 </div>
                 <div className="profileContact">
@@ -45,18 +54,18 @@ function Profile(props) {
                     </div>
                     <div className="profileContactSec">
                         <i className="fas fa-map-marker-alt"></i>
-                        <h5 className="userLocation"> {props.location || "Location"}</h5>
+                        <h5 className="userLocation"> {props.location || "Add location"}</h5>
                     </div>
                     <div className="profileContactSec">
                         <i className="fab fa-pagelines"></i>
-                        <h5 className="age">{props.age || "Age"} Years Old</h5>
+                        <h5 className="age">{props.age || "Add age"} Years Old</h5>
                     </div>
                 </div>
             </div>
 
         
             <button className={visibleProfile ? "exOut" : "updateProfile"} onClick={showProfileForm}>
-                <i className={visibleProfile ? "fas fa-times" : "fas fa-plus"}></i>
+                <i className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}></i>
             </button>
             <Modal visible={visibleProfile}>
                 <ProfileForm initialValues={initialValues} />

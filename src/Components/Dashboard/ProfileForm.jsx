@@ -15,11 +15,11 @@ function ProfileForm(props) {
     const validationSchema = Yup.object().shape({
         firstname: Yup.string()
         .min(1, "Must have a character")
-        .max(20, "Must be shorter than 20")
+        .max(12, "Must be shorter than 12")
         .required("Must enter a first name"),
         lastname: Yup.string()
         .min(1, "Must have a character")
-        .max(20, "Must be shorter than 20")
+        .max(12, "Must be shorter than 12")
         .required("Must enter a last name"),
         email: Yup.string()
         .email("Must be a valid email address")
@@ -27,13 +27,16 @@ function ProfileForm(props) {
         location: Yup.string()
         .max(20, "Must be shorter than 20"),
         position: Yup.string()
-        .max(30, "Must be shorter than 30"),
+        .max(180, "Must be shorter than 18"),
+        age: Yup.string()
+        .max(2, "Must be 2 digits"),
         summary: Yup.string()
-        .max(1000, "Must be under 1000 characters.")
+        .max(500, "Must be under 500 characters.")
         })
 
     return(
         <div className="profileForm">
+          <h1 className="editProfileTitle">UPDATE PROFILE</h1>
   
             
     {/* These initial values make up the values necessary to complete the form,
@@ -85,114 +88,122 @@ function ProfileForm(props) {
           isSubmitting 
         }) => (
           <form onSubmit={handleSubmit} className="updateUserForm">
-              
-              {/* FIRST NAME INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="firstname" 
-                  placeholder={props.firstname}
-                  name="firstname"
-                  onChange={handleChange}
-                  value={values.firstname}
-                  onBlur={handleBlur} 
-                  className={(touched.firstname && errors.firstname) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.firstname} message={errors.firstname} />
-              </div>
-              
-              {/* LAST NAME INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="lastname" 
-                  placeholder={props.lastname}
-                  name="lastname"
-                  onChange={handleChange}
-                  value={values.lastname}
-                  onBlur={handleBlur} 
-                  className={(touched.lastname && errors.lastname) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.lastname} message={errors.lastname} />
-              </div>
 
-              {/* EMAIL INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="email" 
-                  placeholder={props.email}
-                  name="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  onBlur={handleBlur} 
-                  className={(touched.email && errors.email) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.email} message={errors.email} />
+              <div className="inputSec">
+                {/* FIRST NAME INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="text" 
+                    id="firstname" 
+                    placeholder={props.firstname || "First Name"}
+                    name="firstname"
+                    onChange={handleChange}
+                    value={values.firstname}
+                    onBlur={handleBlur} 
+                    className={(touched.firstname && errors.firstname) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.firstname} message={errors.firstname} />
+                </div>
+                
+                {/* LAST NAME INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="text" 
+                    id="lastname" 
+                    placeholder={props.lastname || "Last Name"}
+                    name="lastname"
+                    onChange={handleChange}
+                    value={values.lastname}
+                    onBlur={handleBlur} 
+                    className={(touched.lastname && errors.lastname) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.lastname} message={errors.lastname} />
+                </div>
               </div>
 
-              {/* AGE INPUT */}
-              <div className="userInput">
-                <input 
-                  type="integer" 
-                  id="age" 
-                  placeholder={props.age}
-                  name="age"
-                  onChange={handleChange}
-                  value={values.age}
-                  onBlur={handleBlur} 
-                  className={(touched.age && errors.age) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.age} message={errors.age} />
+              <div className="inputSec">
+                {/* EMAIL INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="text" 
+                    id="email" 
+                    placeholder={props.email}
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email || "Email"}
+                    onBlur={handleBlur} 
+                    className={(touched.email && errors.email) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.email} message={errors.email} />
+                </div>
+
+                {/* AGE INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="integer" 
+                    id="age" 
+                    placeholder={props.age}
+                    name="age"
+                    onChange={handleChange}
+                    value={values.age || "Age"}
+                    onBlur={handleBlur} 
+                    className={(touched.age && errors.age) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.age} message={errors.age} />
+                </div>
               </div>
 
-              {/* LOCATION INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="location" 
-                  placeholder={props.location}
-                  name="location"
-                  onChange={handleChange}
-                  value={values.location}
-                  onBlur={handleBlur} 
-                  className={(touched.location && errors.location) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.location} message={errors.location} />
+              <div className="inputSec">
+                {/* LOCATION INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="text" 
+                    id="location" 
+                    placeholder={props.location}
+                    name="location"
+                    onChange={handleChange}
+                    value={values.location || "Location"}
+                    onBlur={handleBlur} 
+                    className={(touched.location && errors.location) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.location} message={errors.location} />
+                </div>
+
+                {/* POSITION INPUT */}
+                <div className="userInput">
+                  <input 
+                    type="text" 
+                    id="position" 
+                    placeholder={props.position}
+                    name="position"
+                    onChange={handleChange}
+                    value={values.position || "Position"}
+                    onBlur={handleBlur} 
+                    className={(touched.position && errors.position) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.position} message={errors.position} />
+                </div>
               </div>
 
-              {/* POSITION INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="position" 
-                  placeholder={props.position}
-                  name="position"
-                  onChange={handleChange}
-                  value={values.position}
-                  onBlur={handleBlur} 
-                  className={(touched.position && errors.position) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.position} message={errors.position} />
-              </div>
-
-              {/* SUMMARY INPUT */}
-              <div className="userInput">
-                <input 
-                  type="text" 
-                  id="summary" 
-                  placeholder={props.summary}
-                  name="summary"
-                  onChange={handleChange}
-                  value={values.summary}
-                  onBlur={handleBlur} 
-                  className={(touched.summary && errors.summary) ? "hasError" : "validInput"}
-                />
-                <Error touched={touched.summary} message={errors.summary} />
+              <div className="inputSec">
+                {/* SUMMARY INPUT */}
+                <div className="userInput">
+                  <textarea 
+                    type="text" 
+                    id="summary" 
+                    placeholder={props.summary}
+                    name="summary"
+                    onChange={handleChange}
+                    value={values.summary || "Add a summary!"}
+                    onBlur={handleBlur} 
+                    className={(touched.summary && errors.summary) ? "hasError" : "validInput"}
+                  />
+                  <Error touched={touched.summary} message={errors.summary} />
+                </div>
               </div>
 
 
-              <button type="submit">UPDATE USER</button>
+              <button type="submit">UPDATE</button>
           </form>
         )}
       </Formik>

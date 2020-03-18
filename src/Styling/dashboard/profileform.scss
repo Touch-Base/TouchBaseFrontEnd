@@ -1,0 +1,109 @@
+.profileForm {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background: red;
+    color: white;
+    margin: 50px auto;
+    background: rgba(108, 42, 146, 0.911);
+    width: 550px;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+    
+    .editProfileTitle {
+        font-size: 2em;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .inputSec {
+            display: flex;
+            width: 500px;
+            justify-content: center;
+            align-items: center;
+
+            .userInput {
+                width: 100%;
+
+                input {
+                    color: rgba(0, 0, 0, 0.473);
+                    width: 90%;
+                    padding: 10px 5px;
+                    letter-spacing: 1.5px;
+                    font-family: 'Oswald', sans-serif;
+                    border-radius: 5px;
+                    border: solid rgb(199, 82, 253) 2px;
+                    transition: 0.5s;
+                }
+
+                input:focus {
+                    transition: 0.5s;
+                    border: solid rgb(44, 206, 255) 3px;
+                }
+
+                input:hover {
+                    color: rgba(0, 0, 0, 0.973);
+                    transition: 0.5s;
+                }
+
+                textarea {
+                    width: 475px;
+                    border: none;
+                    border-radius: 5px;
+                    resize: none;
+                    height: 70px;
+                    padding: 5px;
+                    transition: 0.5s;
+                    border: solid white 3px;
+                    border: solid rgb(199, 82, 253) 2px;
+                    margin-top: 5px;
+                    
+                }
+        
+                textarea:focus {
+                    transition: 0.5s;
+                    border: solid rgb(44, 206, 255) 3px;
+                }
+
+                select {
+                    margin-top: 0;
+                    color: rgb(0, 162, 255);
+                    border-radius: 5px;
+                    padding: 5px;
+                    letter-spacing: 1.5px;
+                    font-family: 'Oswald', sans-serif;
+                    outline: none;
+                }
+
+            }
+        }
+
+        button {
+            border: none;
+            background: rgb(0, 174, 255);
+            letter-spacing: 1.5px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: 0.5s;
+            color: white;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transition: 0.5s;
+            background: rgb(133, 209, 235);
+            cursor: pointer;
+        }
+    }
+
+}
