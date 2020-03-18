@@ -110,10 +110,11 @@ function Networking(props) {
                 <div className="switchAndSearch">
                     <div className="switch">
                         <h4 className="switchName">Layout</h4>
-                        <Switch onClick={switchOrganizer} checked={false} />
+                        <Switch onClick={switchOrganizer} checked={true} />
                     </div>
                     <input type="text" placeholder="Search by last name" onChange={searchChange} value={searchValue} />
                 </div>
+                <div className="networkingBlocks">
                 {searchValue === '' ? 
                    props.connections.map( connection => {
                     return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
@@ -121,6 +122,7 @@ function Networking(props) {
                     searchedCnx.map(connection => {
                     return <NetworkingCard removeCnx={props.deleteConnection} connection={connection} />
                 })}
+                </div>
                 <button className={cnxform ? "exOutCnx" : "addCnxButton"} onClick={showAddCnx}>
                     <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
                 </button>

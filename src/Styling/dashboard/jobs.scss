@@ -82,6 +82,7 @@
         padding-right: 15px;
         box-shadow: 0 8px 6px -6px black;
         margin: 10px;
+        transition: 0.5s;
 
         .jobCompany {
             margin-top: -40px;
@@ -239,6 +240,12 @@
                 transition: 0.5s;
             }
         }
+    }
+
+    .jobCard:hover {
+        transition: 0.5s;
+        transform: translate(0, -5px);
+        box-shadow: 0 12px 10px -10px black;
     }
 }
 

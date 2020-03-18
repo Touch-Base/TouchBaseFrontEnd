@@ -1,9 +1,16 @@
 
 .networkingPage {
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
+
+    // this is for when the page is showing the cnx cards
+    .networkingBlocks {
+        display: flex;
+        margin: 0 auto;
+    }
 }
 
 // the entire card for any given connection on
@@ -220,3 +227,4 @@
         transition: 0.5s;
     }
 }
+
