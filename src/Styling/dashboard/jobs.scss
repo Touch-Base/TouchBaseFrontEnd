@@ -244,8 +244,9 @@
 
     .jobCard:hover {
         transition: 0.5s;
-        transform: translate(0, -5px);
         box-shadow: 0 12px 10px -10px black;
+        cursor: pointer;
+        opacity: 0.8;
     }
 }
 

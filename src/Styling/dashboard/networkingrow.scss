@@ -29,36 +29,36 @@
     }
   
     #namecolumn {
-      margin-left: 235px;
+      margin-left: 300px;
     }
   
     #cnxcocolumn {
-      margin-left: 205px;
+      margin-left: 222px;
   
     }
   
     #titlecolumn {
-      margin-left: 80px;
+      margin-left: 137px;
   
     }
   
     #cnxphonecolumn {
-      margin-left: 30px;
+      margin-left: 100px;
       font-size: 0.8em;
     }
   
     #cnxemailcolumn {
-      margin-left: 27px;
+      margin-left: 63px;
       font-size: 0.8em;
     }
   
     #cnxnotescolumn {
-      margin-left: 48px;
+      margin-left: 43px;
       font-size: 0.8em;
     }
   
     #cnxeditcolumn {
-      margin-left: 48px;
+      margin-left: 39px;
       font-size: 0.8em;
     }
   
@@ -84,7 +84,7 @@
             font-family: 'Oswald', sans-serif;
           }
           
-          #name {
+          #cnxname {
             display: flex;
             color: lightblue;
             letter-spacing: 1.2px;
@@ -97,7 +97,7 @@
             font-weight: normal;
           }
       
-          #company {
+          #cnxcompany {
             display: flex;
             color: lightblue;
             letter-spacing: 1.2px;
@@ -110,7 +110,7 @@
             font-weight: normal;
           }
       
-          #title {
+          #cnxtitle {
             display: flex;
             color: lightblue;
             letter-spacing: 1.2px;
@@ -123,7 +123,7 @@
             font-weight: normal;
           }
       
-          #phone {
+          #cnxphone {
             display: flex;
             color: lightblue;
             letter-spacing: 1.2px;

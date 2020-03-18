@@ -16,6 +16,7 @@
     color: red;
     margin-top: 5px;
     box-shadow: 0 4px 3px -3px black;
+    transition: 0.5;
 
     .jobcolumn {
       font-family: 'Oswald', sans-serif;
@@ -147,6 +148,13 @@
     }
     
   }
+
+  .jobRow:hover {
+    transition: 0.5s;
+    box-shadow: 0 12px 10px -10px black;
+    cursor: pointer;
+    opacity: 0.8;
+}
 
   .colorColumn {
     width: 60px;

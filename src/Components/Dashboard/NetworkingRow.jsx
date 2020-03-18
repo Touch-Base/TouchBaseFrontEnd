@@ -54,13 +54,11 @@ function NetworkingRow(props) {
   
   return(
     <div className="connectionRow">
-      <h5 className="cnxcolumn" id="name">{props.connection.firstname} {props.connection.lastname}</h5>
-      <h5 className="cnxcolumn" id="company">{props.connection.company}</h5>
-      <h5 className="cnxcolumn" id="title">{props.connection.title}</h5>
-      <h5 className="cnxcolumn" id="phone">{props.connection.phone}</h5>
-      <h5 className="cnxcolumn" id="email">
-        <a href={props.connection.email}><i className="fas fa-at"></i></a>
-      </h5>
+      <h5 className="cnxcolumn" id="cnxname">{props.connection.firstname} {props.connection.lastname}</h5>
+      <h5 className="cnxcolumn" id="cnxcompany">{props.connection.company}</h5>
+      <h5 className="cnxcolumn" id="cnxtitle">{props.connection.title}</h5>
+      <h5 className="cnxcolumn" id="cnxphone">{props.connection.phone}</h5>
+      <a href={props.connection.email}><i className="fas fa-at"></i></a>
       <button className="notesRow" onClick={handlesNotes}>
         <i className="fas fa-quote-left">&nbsp;</i>    
         <i className="fas fa-quote-right"></i>
