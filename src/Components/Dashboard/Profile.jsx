@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import "../../Styling/dashboard/profile.scss";
 import "../../Styling/dashboard/profileform.scss";
 import axios from "axios";
+import { updateUser } from "../../actions/index";
 
 function Profile(props) {
   // this sets the visibility for the updating profile form
   const [visibleProfile, setVisibility] = useState(false);
 
   // current image hook
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(props.profilepic || "");
 
   // loading image
   const [loading, setLoading] = useState(false);
@@ -58,6 +59,17 @@ function Profile(props) {
         console.log(res);
         setLoading(false);
         setImage(res.data.secure_url);
+        const payload = { profilepic: res.data.secure_url };
+
+        // sends the image to the server
+        props
+          .updateUser(payload)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          });
       })
       .catch(err => {
         console.log(err);
@@ -75,11 +87,6 @@ function Profile(props) {
             onChange={imgUploadHandler}
           />
           {loading ? <h3>Loading...</h3> : <img src={image} />}
-          <img
-            src="https://image.shutterstock.com/image-photo/portrait-young-beautiful-cute-cheerful-260nw-666258808.jpg"
-            width="200px"
-            alt="portrait"
-          />
           <div className="mainSummary">
             <h2 className="positionTitle">{props.position || "Position"}</h2>
             <h2 className="fullName">
@@ -122,6 +129,10 @@ function Profile(props) {
   );
 }
 
+const mapDispatchToProps = {
+  updateUser: updateUser
+};
+
 // passes the user state from redux into component state
 
 const mapStateToProps = state => {
@@ -132,8 +143,10 @@ const mapStateToProps = state => {
     age: state.user.age,
     location: state.user.location,
     position: state.user.position,
-    summary: state.user.summary
+    summary: state.user.summary,
+    profilepic: state.user.profilepic,
+    user: state.user
   };
 };
 
-export default connect(mapStateToProps, null)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
