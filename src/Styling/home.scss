@@ -1,89 +1,107 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
 .logo {
-    width: 400px;
-    margin-bottom: -50px;
+  width: 400px;
+  margin-bottom: -50px;
 }
 
 .homeBlock {
-    display: flex;
-    flex-direction: column;
-    width: 1000px;
-    margin: 20px auto;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 20px auto;
+  align-items: center;
 }
 
 h1 {
-    display: inline-block;
-    font-size: 5.6em;
-    text-decoration: none;
-    color: black;
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -2px;
-    transition: 1s;
-    font-family: 'Oswald', sans-serif;
+  display: inline-block;
+  font-size: 5.6em;
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  transition: 1s;
+  font-family: "Oswald", sans-serif;
 
-    .secondLine {
-        font-size: 1.4em;
-    }
+  .secondLine {
+    font-size: 1.4em;
+  }
 
-    .jobWord {
-        color: rgb(0, 81, 255);
-    }
+  .jobWord {
+    color: rgb(0, 81, 255);
+  }
 }
 
 .homeLinks {
+  display: flex;
+  margin: -30px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .homeLink {
     display: flex;
-    margin: -30px;
     align-items: center;
-    margin-bottom: 20px;
-    
-    .homeLink {
-        display: flex;
-        align-items: center;
-        margin: 0 20px;
+    margin: 0 20px;
 
-        i {
-            margin: 0 13px 8px 0;
-            font-size: 2.7em;
-        }
-    
-        .fa-arrow-circle-down {
-            color: rgb(43, 142, 255);
-        }
-
-        .fa-clipboard-list {
-            color: rgb(186, 43, 214);
-        }
-
-        a {
-            text-decoration: none;
-            transition: 0.5s;
-            font-size: 2.1em;
-            line-height: 1.4;
-            font-family: 'Oswald', sans-serif;
-        }
-
-        #log {
-            color: rgb(43, 142, 255);
-        }
-
-        #reg {
-            color: rgb(186, 43, 214);
-        }
+    i {
+      margin: 0 13px 8px 0;
+      font-size: 2.7em;
     }
 
-    .homeLink:hover {
-
-        #log {
-            color: rgb(106, 175, 255);
-            transition: 0.5s;
-        }
-
-        #reg {
-            color: rgb(218, 100, 241);
-            transition: 0.5s;
-        }
+    .fa-arrow-circle-down {
+      color: rgb(43, 142, 255);
     }
+
+    .fa-clipboard-list {
+      color: rgb(186, 43, 214);
+    }
+
+    a {
+      text-decoration: none;
+      transition: 0.5s;
+      font-size: 2.1em;
+      line-height: 1.4;
+      font-family: "Oswald", sans-serif;
+    }
+
+    #log {
+      color: rgb(43, 142, 255);
+    }
+
+    #reg {
+      color: rgb(186, 43, 214);
+    }
+  }
+
+  .homeLink:hover {
+    #log {
+      color: rgb(106, 175, 255);
+      transition: 0.5s;
+    }
+
+    #reg {
+      color: rgb(218, 100, 241);
+      transition: 0.5s;
+    }
+  }
+}
+
+.preloader {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.5s;
+  opacity: 1;
+  width: 100%;
+  z-index: 200;
+}
+
+.preloader.hide {
+  opacity: 0;
+  pointer-events: none;
 }

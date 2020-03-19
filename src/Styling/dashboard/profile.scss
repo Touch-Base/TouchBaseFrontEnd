@@ -1,181 +1,194 @@
-@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 
 .profilePage {
-    display: flex;
-    justify-content: left;
-    margin: 30px auto;
-    
-    // main profile block styling
+  display: flex;
+  justify-content: left;
+  margin: 30px auto;
 
-    .profileBlock {
+  // main profile block styling
+
+  .profileBlock {
+    display: flex;
+    flex-direction: column;
+    font-family: "Alata", sans-serif;
+    width: 950px;
+    margin: 25px auto;
+    background: white;
+    border: solid 2px rgba(173, 216, 230, 0.521);
+    border-radius: 7px;
+    box-shadow: -1px 6px 5px -3px rgb(108, 61, 112);
+
+    // the top part of the profile block
+
+    .imageAndInfo {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      .fadeOut {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+      }
+      .fadeIn {
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+        transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+      }
+
+      .image-upload > input {
+        display: none;
+      }
+
+      img {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 25px;
+        border-radius: 500px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .mainSummary {
         display: flex;
         flex-direction: column;
-        font-family: 'Alata', sans-serif;
-        width: 950px;
-        margin: 25px auto;
-        background: white;
-        border: solid 2px rgba(173, 216, 230, 0.521);
-        border-radius: 7px;
-        box-shadow: -1px 6px 5px -3px rgb(108, 61, 112);
-        
-        // the top part of the profile block
-        
-        .imageAndInfo {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
+        width: 600px;
+        text-align: left;
+        margin-left: 25px;
 
-            img {
-                width: 280px;
-                height: 280px;
-                margin-bottom: 25px;
-                border-radius: 500px;
-            }
-
-            .mainSummary {
-                display: flex;
-                flex-direction: column;
-                width: 600px;
-                text-align: left;
-                margin-left: 25px;
-
-                .positionTitle {
-                    font-size: 2.3em;
-                    color: rgba(0, 174, 255, 0.815);
-                    margin: 0;
-                }
-
-                .fullName {
-                    font-size: 2.6em;
-                    color: rgb(162, 0, 255);
-                    margin: 0;
-                }
-
-                p {
-                    margin-top: 10px;
-                    font-size: 1.3em;
-                    color: rgba(0, 0, 0, 0.76);
-                }
-            }
-          
-         }
-        
-        // the bottom part of the profile block
-        
-        .profileContact {
-            font-family: 'Alata', sans-serif;
-            display: flex;
-            width: 100%;
-            height: 50px;
-            background: rgb(0, 174, 255);
-            align-items:  left;
-            justify-content: center;
-            text-align: center;
-    
-            .profileContactSec {
-                display: flex;
-                margin-left: 35px;
-                align-items: center;
-                margin-bottom: 10px;
-                margin-top: 15px;
-                justify-content: center;
-    
-                .fa-map-marker-alt {
-                    margin-left: 4px;
-                }
-    
-                i {
-                    font-size: 1.7em;
-                    margin-bottom: 8px;
-                    margin-right: 6px;
-                    color: white;
-                }
-    
-
-                h5 {
-                    margin: 0;
-                    text-align: left;
-                    margin-bottom: 8px;
-                    margin-left: 5px;
-                }
-
-                .userEmail {
-                    font-size: 1.1em;
-                    letter-spacing: 1px;
-                    color: rgba(255, 255, 255, 0.904);
-                }
-
-                .userLocation {
-                    font-size: 1.1em;
-                    letter-spacing: 1px;
-                    color: rgba(255, 255, 255, 0.904);
-                }
-
-                .age {
-                    font-size: 0.9em;
-                    letter-spacing: 1px;
-                    color: rgba(255, 255, 255, 0.904);
-                }
-
-         }
+        .positionTitle {
+          font-size: 2.3em;
+          color: rgba(0, 174, 255, 0.815);
+          margin: 0;
         }
+
+        .fullName {
+          font-size: 2.6em;
+          color: rgb(162, 0, 255);
+          margin: 0;
+        }
+
+        p {
+          margin-top: 10px;
+          font-size: 1.3em;
+          color: rgba(0, 0, 0, 0.76);
+        }
+      }
     }
 
+    // the bottom part of the profile block
+
+    .profileContact {
+      font-family: "Alata", sans-serif;
+      display: flex;
+      width: 100%;
+      height: 50px;
+      background: rgb(0, 174, 255);
+      align-items: left;
+      justify-content: center;
+      text-align: center;
+
+      .profileContactSec {
+        display: flex;
+        margin-left: 35px;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-top: 15px;
+        justify-content: center;
+
+        .fa-map-marker-alt {
+          margin-left: 4px;
+        }
+
+        i {
+          font-size: 1.7em;
+          margin-bottom: 8px;
+          margin-right: 6px;
+          color: white;
+        }
+
+        h5 {
+          margin: 0;
+          text-align: left;
+          margin-bottom: 8px;
+          margin-left: 5px;
+        }
+
+        .userEmail {
+          font-size: 1.1em;
+          letter-spacing: 1px;
+          color: rgba(255, 255, 255, 0.904);
+        }
+
+        .userLocation {
+          font-size: 1.1em;
+          letter-spacing: 1px;
+          color: rgba(255, 255, 255, 0.904);
+        }
+
+        .age {
+          font-size: 0.9em;
+          letter-spacing: 1px;
+          color: rgba(255, 255, 255, 0.904);
+        }
+      }
+    }
+  }
 }
 
 /// update profile button styling
 .updateProfile {
-    position: fixed;
-    display: block;
-    top: 80%;
-    right: 20px;
-    z-index: 1;
-    background: rgba(86, 245, 86, 0.911);
-    border: solid white 2px;
-    border-radius: 500px;
-    width: 100px;
-    height: 100px;
-    transition: 0.5s;
-    outline: none;
-    cursor: pointer;
-    
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  z-index: 1;
+  background: rgba(86, 245, 86, 0.911);
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
 
-    i {
-        color: white;
-        font-size: 4em;
-    }
+  i {
+    color: white;
+    font-size: 4em;
+  }
 }
 
 .exOut {
-    position: fixed;
-    display: block;
-    top: 80%;
-    right: 20px;
-    z-index: 2;
-    background: rgba(255, 34, 34, 0.911);
-    border: solid white 2px;
-    border-radius: 500px;
-    width: 100px;
-    height: 100px;
-    transition: 0.5s;
-    outline: none;
-    cursor: pointer;
-    
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255, 34, 34, 0.911);
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
 
-    i {
-        color: white;
-        font-size: 5em;
-    }
+  i {
+    color: white;
+    font-size: 5em;
+  }
 }
 
 .updateProfile:hover {
-    background: rgba(39, 247, 39, 0.863);
-    transition: 0.5s;
-    cursor: pointer;
+  background: rgba(39, 247, 39, 0.863);
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .exOut:hover {
-    background: rgba(253, 17, 17, 0.76);
-    transition: 0.5s;
-    cursor: pointer;
+  background: rgba(253, 17, 17, 0.76);
+  transition: 0.5s;
+  cursor: pointer;
 }

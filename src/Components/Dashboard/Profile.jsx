@@ -6,13 +6,15 @@ import "../../Styling/dashboard/profile.scss";
 import "../../Styling/dashboard/profileform.scss";
 import axios from "axios";
 import { updateUser } from "../../actions/index";
+import defaultPic from "../../img/profileplaceholder.png";
+import Loader from "../Dashboard/Loader";
 
 function Profile(props) {
   // this sets the visibility for the updating profile form
   const [visibleProfile, setVisibility] = useState(false);
 
   // current image hook
-  const [image, setImage] = useState(props.profilepic || "");
+  const [image, setImage] = useState(props.profilepic || defaultPic);
 
   // loading image
   const [loading, setLoading] = useState(false);
@@ -78,15 +80,20 @@ function Profile(props) {
 
   return (
     <div className="profilePage">
+      <Loader loading={loading} />
       <div className="profileBlock">
         <div className="imageAndInfo">
-          <input
-            type="file"
-            name="file"
-            placeholder="Upload an image"
-            onChange={imgUploadHandler}
-          />
-          {loading ? <h3>Loading...</h3> : <img src={image} />}
+          <div className="image-upload">
+            <label for="file-input">
+              <img src={image} />
+            </label>
+            <input
+              id="file-input"
+              onChange={imgUploadHandler}
+              className="uploadImage"
+              type="file"
+            />
+          </div>
           <div className="mainSummary">
             <h2 className="positionTitle">{props.position || "Position"}</h2>
             <h2 className="fullName">
