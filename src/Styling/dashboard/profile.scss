@@ -49,6 +49,8 @@
         border-radius: 500px;
         cursor: pointer;
         overflow: hidden;
+        object-fit: cover;
+        border: solid 6px rgba(0, 174, 255, 0.815);
       }
 
       .mainSummary {
