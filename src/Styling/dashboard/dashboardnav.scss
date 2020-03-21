@@ -1,52 +1,65 @@
 // main dashboard navigation and sign out button
 
 .dashboardNav {
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: solid 1px rgba(128, 128, 128, 0.404);
-    width: 100%;
-    
-    // logo
-    img {
-        width: 100px;
-        transition: 0.5;
-        opacity: 0.8;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.404);
+  width: 100%;
+  background: rgb(22, 22, 22);
+  height: 30px;
+
+  a {
+    letter-spacing: 0.8px;
+    font-size: 1.4em;
+    color: white;
+  }
+
+  a:hover {
+    color: lightblue;
+  }
+
+  // logo
+  img {
+    width: 100px;
+    opacity: 1;
+  }
+
+  // sign out button
+  #signOutButton {
+    border: none;
+    cursor: pointer;
+    background: none;
+
+    i {
+      font-size: 2.1em;
+      color: white;
+      padding: 0;
+      margin: 0;
+      margin-top: 5px;
+      margin-right: -35px;
+      transition: 0.5s;
     }
 
-    img:hover {
-        opacity: 1;
-        transition: 0.5;
+    i:hover {
+      color: red;
+      transition: 0.5s;
     }
-    
-    // sign out button
-    #signOutButton {
-        border: none;
-        cursor: pointer;
-        
-        i {
-            font-size: 1.5em;
-            color: white;
-            padding: 0;
-            margin: 0;
-            transition: 0.5s;
-        }
-        
-        i:hover {
-            color: red;
-            transition: 0.5s;
-        }
-    }
-    
-    .signOut {
-        transition: 0.5s;
-        color: green;
-        font-size: 0.8em;
-    }
+  }
 
-    .signOutTwo {
-        visibility: hidden;
-        transition: 0.5s;
-        color: green;
-        font-size: 0.8em;
-    }
+  .signOut {
+    transition: 0.5s;
+    color: rgb(240, 240, 240);
+    font-size: 1em;
+    margin: 0;
+    margin-left: -25px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1.3px;
+  }
+}
+
+// active link class for dashboard
+
+#activeLink {
+  color: rgb(51, 189, 253);
+  font-size: 2em;
 }
