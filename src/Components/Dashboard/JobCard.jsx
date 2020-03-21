@@ -67,8 +67,21 @@ function JobCard(props) {
   const popover = {
     position: "absolute",
     zIndex: "2",
-    top: "200px"
+    top: "200px",
+    opacity: 1,
+    transition: "opacity 0.5s",
+    border: "none"
   };
+
+  const popoverhide = {
+    position: "absolute",
+    zIndex: "2",
+    top: "200px",
+    opacity: 0,
+    transition: "opacity 0.5s",
+    pointerEvents: "none"
+  };
+
   const cover = {
     position: "fixed",
     top: "0px",
@@ -145,12 +158,10 @@ function JobCard(props) {
         <i className="fas fa-quote-left">&nbsp;</i>
         <i className="fas fa-quote-right"></i>
       </button>
-      {notes ? (
-        <div style={popover}>
-          <div style={cover} onClick={handleClose} />
-          <p>{props.job.notes}</p>
-        </div>
-      ) : null}
+      <div style={notes ? popover : popoverhide}>
+        <div style={cover} onClick={handleClose} />
+        <p>{props.job.notes}</p>
+      </div>
 
       {/* this is the modal for the edit form */}
       <Modal visible={visible}>
