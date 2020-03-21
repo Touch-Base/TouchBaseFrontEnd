@@ -23,6 +23,7 @@ function Jobs(props) {
   };
 
   // material ui theme
+  // material ui theme
   const useStyles = makeStyles(theme => ({
     track: {
       opacity: 1,
@@ -32,9 +33,18 @@ function Jobs(props) {
       color: "black"
     },
     root: {
-      width: "58px"
+      width: "58px",
+      ".Mui-checked": {
+        color: "orange"
+      }
     },
     colorSecondary: {
+      "&.Mui-checked": {
+        color: "rgb(0, 162, 255)"
+      },
+      "&.MuiSwitch-track": {
+        backgroundColor: "red"
+      },
       color: "rgb(199, 82, 253)"
     }
   }));
@@ -171,7 +181,17 @@ function Jobs(props) {
         <div className="switchAndSearch">
           <div className="switch">
             <h4 className="switchName">Layout</h4>
-            <Switch onClick={switchOrganizer} checked={true} />
+            <Switch
+              classes={{
+                root: classes.root, // class name, e.g. `root-x`
+                checked: classes.checked,
+                colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
+                track: classes.track,
+                switchBase: classes.switchBase
+              }}
+              onClick={switchOrganizer}
+              checked={true}
+            />
           </div>
           <input
             type="text"
