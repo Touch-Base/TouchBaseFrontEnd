@@ -6,9 +6,10 @@
   align-items: center;
   margin: 50px auto;
   height: 450px;
-  background: rgb(145, 167, 255);
-  width: 800px;
+  background: rgba(82, 187, 235, 0.411);
+  width: 700px;
   border-radius: 5px;
+  box-shadow: 0 8px 6px -6px rgb(82, 82, 82);
 
   // main profile block styling
 
@@ -20,7 +21,7 @@
     justify-content: center;
     margin: 0;
     height: 100%;
-    background: rgb(66, 99, 235);
+    background: rgb(51, 189, 253);
 
     // the top part of the profile block
 
@@ -29,7 +30,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 20px;
 
       .fadeOut {
         opacity: 0;
@@ -49,9 +49,9 @@
       }
 
       img {
-        margin-top: -25px;
+        margin-top: 0;
         width: 300px;
-        height: 230px;
+        height: 100%;
         cursor: pointer;
         overflow: hidden;
         object-fit: cover;
@@ -109,7 +109,7 @@
           font-size: 1.7em;
           margin-bottom: 8px;
           margin-right: 6px;
-          color: rgb(66, 99, 235);
+          color: rgb(51, 189, 253);
         }
 
         h5 {
@@ -203,7 +203,7 @@
   width: 300px;
   background: none;
   height: 100%;
-  background: rgb(66, 99, 235);
+  background: rgb(51, 189, 253);
 
   p {
     font-size: 1.3em;

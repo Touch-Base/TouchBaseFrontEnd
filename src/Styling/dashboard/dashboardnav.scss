@@ -1,4 +1,5 @@
 // main dashboard navigation and sign out button
+@import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 
 .dashboardNav {
   display: flex;
@@ -52,7 +53,7 @@
     font-size: 1em;
     margin: 0;
     margin-left: -25px;
-    font-family: "Oswald", sans-serif;
+    font-family: "Alata", sans-serif;
     letter-spacing: 1.3px;
   }
 }

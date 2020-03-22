@@ -31,16 +31,16 @@ function DashboardNav() {
         <img src={navLogo} alt="navLogo" />
       </a>
       <Link getProps={isActive} to="profile">
-        Profile
+        profile
       </Link>
       <Link getProps={isActive} to="jobs">
-        Jobs
+        jobs
       </Link>
       <Link getProps={isActive} to="networking">
-        Networking
+        networking
       </Link>
       <Link getProps={isActive} to="events">
-        Events
+        events
       </Link>
       <button
         id="signOutButton"
