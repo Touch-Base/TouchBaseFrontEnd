@@ -23,9 +23,11 @@ function Jobs(props) {
   };
 
   // material ui theme
-  // material ui theme
   const useStyles = makeStyles(theme => ({
     track: {
+      "&.Mui-checked": {
+        backgroundColor: "rgb(0, 162, 255)"
+      },
       opacity: 1,
       backgroundColor: "rgb(217, 136, 255)"
     },
@@ -33,17 +35,14 @@ function Jobs(props) {
       color: "black"
     },
     root: {
-      width: "58px",
-      ".Mui-checked": {
-        color: "orange"
-      }
+      width: "58px"
     },
     colorSecondary: {
       "&.Mui-checked": {
-        color: "rgb(0, 162, 255)"
-      },
-      "&.MuiSwitch-track": {
-        backgroundColor: "red"
+        color: "rgb(0, 162, 255)",
+        "& + MuiSwitch-track": {
+          backgroundColor: "red"
+        }
       },
       color: "rgb(199, 82, 253)"
     }

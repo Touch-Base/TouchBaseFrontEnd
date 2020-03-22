@@ -574,3 +574,7 @@
     transition: all ease-in-out 0.5s;
   }
 }
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: rgb(0, 162, 255) !important;
+}
