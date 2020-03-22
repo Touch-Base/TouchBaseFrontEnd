@@ -2,8 +2,13 @@
 
 .profilePage {
   display: flex;
-  justify-content: left;
-  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  height: 450px;
+  background: rgb(145, 167, 255);
+  width: 800px;
+  border-radius: 5px;
 
   // main profile block styling
 
@@ -11,18 +16,19 @@
     display: flex;
     flex-direction: column;
     font-family: "Alata", sans-serif;
-    width: 950px;
-    margin: 25px auto;
-    background: white;
-    border: solid 2px rgba(173, 216, 230, 0.521);
-    border-radius: 7px;
-    box-shadow: -1px 6px 5px -3px rgb(108, 61, 112);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+    background: rgb(66, 99, 235);
 
     // the top part of the profile block
 
     .imageAndInfo {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       margin-top: 20px;
 
       .fadeOut {
@@ -43,39 +49,34 @@
       }
 
       img {
-        width: 280px;
-        height: 280px;
-        margin-bottom: 25px;
-        border-radius: 500px;
+        margin-top: -25px;
+        width: 300px;
+        height: 230px;
         cursor: pointer;
         overflow: hidden;
         object-fit: cover;
-        border: solid 6px rgba(0, 174, 255, 0.815);
       }
 
       .mainSummary {
         display: flex;
         flex-direction: column;
-        width: 600px;
-        text-align: left;
-        margin-left: 25px;
+        background: white;
+        width: 100%;
+        margin-top: -4px;
 
         .positionTitle {
-          font-size: 2.3em;
-          color: rgba(0, 174, 255, 0.815);
+          font-size: 1.5em;
+          letter-spacing: 1.2px;
+          color: rgba(37, 37, 37, 0.76);
           margin: 0;
         }
 
         .fullName {
-          font-size: 2.6em;
-          color: rgb(162, 0, 255);
+          font-size: 1.8em;
+          letter-spacing: 1.2px;
+          color: rgba(37, 37, 37, 0.897);
           margin: 0;
-        }
-
-        p {
-          margin-top: 10px;
-          font-size: 1.3em;
-          color: rgba(0, 0, 0, 0.76);
+          margin-top: 20px;
         }
       }
     }
@@ -85,20 +86,20 @@
     .profileContact {
       font-family: "Alata", sans-serif;
       display: flex;
+      flex-direction: column;
       width: 100%;
-      height: 50px;
-      background: rgb(0, 174, 255);
+      height: 100%;
       align-items: left;
       justify-content: center;
       text-align: center;
+      color: black;
+      background: white;
 
       .profileContactSec {
         display: flex;
-        margin-left: 35px;
         align-items: center;
-        margin-bottom: 10px;
-        margin-top: 15px;
         justify-content: center;
+        color: black;
 
         .fa-map-marker-alt {
           margin-left: 4px;
@@ -108,7 +109,7 @@
           font-size: 1.7em;
           margin-bottom: 8px;
           margin-right: 6px;
-          color: white;
+          color: rgb(66, 99, 235);
         }
 
         h5 {
@@ -121,19 +122,19 @@
         .userEmail {
           font-size: 1.1em;
           letter-spacing: 1px;
-          color: rgba(255, 255, 255, 0.904);
+          color: rgba(0, 0, 0, 0.527);
         }
 
         .userLocation {
           font-size: 1.1em;
           letter-spacing: 1px;
-          color: rgba(255, 255, 255, 0.904);
+          color: rgba(0, 0, 0, 0.5);
         }
 
         .age {
           font-size: 0.9em;
           letter-spacing: 1px;
-          color: rgba(255, 255, 255, 0.904);
+          color: rgba(0, 0, 0, 0.486);
         }
       }
     }
@@ -193,4 +194,22 @@
   background: rgba(253, 17, 17, 0.76);
   transition: 0.5s;
   cursor: pointer;
+}
+
+// summary block
+.summaryBlock {
+  display: flex;
+  margin: 0;
+  width: 300px;
+  background: none;
+  height: 100%;
+  background: rgb(66, 99, 235);
+
+  p {
+    font-size: 1.3em;
+    color: white;
+    padding: 25px;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+  }
 }

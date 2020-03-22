@@ -91,15 +91,17 @@ function Profile(props) {
               id="file-input"
               onChange={imgUploadHandler}
               className="uploadImage"
+              hell
               type="file"
             />
           </div>
           <div className="mainSummary">
-            <h2 className="positionTitle">{props.position || "Position"}</h2>
             <h2 className="fullName">
-              {props.firstname} {props.lastname}
+              {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
             </h2>
-            <p>{props.summary || "Add a summary about yourself!"}</p>
+            <h2 className="positionTitle">
+              {props.position ? props.position.toUpperCase() : "(Add position)"}
+            </h2>
           </div>
         </div>
         <div className="profileContact">
@@ -111,12 +113,14 @@ function Profile(props) {
             <i className="fas fa-map-marker-alt"></i>
             <h5 className="userLocation">
               {" "}
-              {props.location || "Add location"}
+              {props.location || "(Add location)"}
             </h5>
           </div>
           <div className="profileContactSec">
             <i className="fab fa-pagelines"></i>
-            <h5 className="age">{props.age || "Add age"} Years Old</h5>
+            <h5 className="age">
+              {props.age ? `${props.age} Years Old` : "(Add age)"}
+            </h5>
           </div>
         </div>
       </div>
@@ -129,6 +133,13 @@ function Profile(props) {
           className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
         ></i>
       </button>
+      <div className="summaryBlock">
+        <p>
+          {props.summary
+            ? `"${props.summary}"`
+            : '"Add a summary about yourself!"'}
+        </p>
+      </div>
       <Modal visible={visibleProfile}>
         <ProfileForm initialValues={initialValues} />
       </Modal>

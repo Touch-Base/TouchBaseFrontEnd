@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   text-align: left;
-  font-family: 'Oswald', sans-serif;
-  
+  font-family: "Oswald", sans-serif;
+
   .jobRow {
     display: flex;
     position: relative;
@@ -16,12 +16,12 @@
     color: red;
     margin-top: 5px;
     box-shadow: 0 4px 3px -3px black;
-    transition: 0.5;
+    transition: 0.5s;
 
     .jobcolumn {
-      font-family: 'Oswald', sans-serif;
+      font-family: "Oswald", sans-serif;
     }
-    
+
     #company {
       display: flex;
       color: white;
@@ -107,7 +107,7 @@
       left: 30%;
       right: 30%;
       margin-top: 50px;
-    };
+    }
 
     // notes button for row
     .notesRow {
@@ -119,9 +119,9 @@
       height: 100%;
 
       i {
-          font-size: 1.2em;
-          color: rgb(255, 255, 255);
-          transition: 0.5s;
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
       }
     }
 
@@ -131,8 +131,7 @@
       i {
         color: rgba(255, 255, 255, 0.698);
         transition: 0.5s;
-    }
-    
+      }
     }
 
     #method {
@@ -146,15 +145,13 @@
       align-items: center;
       justify-content: center;
     }
-    
   }
 
   .jobRow:hover {
     transition: 0.5s;
     box-shadow: 0 12px 10px -10px black;
     cursor: pointer;
-    opacity: 0.8;
-}
+  }
 
   .colorColumn {
     width: 60px;
@@ -165,9 +162,9 @@
     height: 100%;
 
     i {
-        font-size: 1.8em;
-        color: rgb(255, 255, 255);
-        transition: 0.5s;
+      font-size: 1.8em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
     }
   }
 
@@ -177,8 +174,8 @@
     i {
       color: rgba(255, 255, 255, 0.698);
       transition: 0.5s;
+    }
   }
-}
 
   .editButton {
     width: 160px;
@@ -188,9 +185,9 @@
     height: 100%;
 
     i {
-        font-size: 1.8em;
-        color: rgb(255, 255, 255);
-        transition: 0.5s;
+      font-size: 1.8em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
     }
   }
 
@@ -214,10 +211,10 @@
     padding-top: 25px;
 
     i {
-        font-size: 1.5em;
-        color: rgb(255, 255, 255);
-        transition: 0.5s;
-        margin-left: 17px;
+      font-size: 1.5em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+      margin-left: 17px;
     }
   }
 
@@ -248,7 +245,7 @@
     text-align: center;
     margin: 0;
     padding: 5px 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     color: rgba(0, 0, 0, 0.678);
   }
 
@@ -258,12 +255,10 @@
 
   #pocolumn {
     margin-left: 205px;
-
   }
 
   #appcolumn {
     margin-left: 80px;
-
   }
 
   #interviewcolumn {

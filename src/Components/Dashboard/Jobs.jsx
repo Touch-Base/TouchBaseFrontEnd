@@ -39,10 +39,7 @@ function Jobs(props) {
     },
     colorSecondary: {
       "&.Mui-checked": {
-        color: "rgb(0, 162, 255)",
-        "& + MuiSwitch-track": {
-          backgroundColor: "red"
-        }
+        color: "rgb(0, 162, 255)"
       },
       color: "rgb(199, 82, 253)"
     }

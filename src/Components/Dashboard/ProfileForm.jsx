@@ -33,7 +33,7 @@ function ProfileForm(props) {
       .max(2, "Must be 2 digits")
       .nullable(),
     summary: Yup.string()
-      .max(500, "Must be under 500 characters.")
+      .max(225, "Must be under 225 characters.")
       .nullable()
   });
 
