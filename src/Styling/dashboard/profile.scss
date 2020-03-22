@@ -48,13 +48,18 @@
         display: none;
       }
 
-      img {
-        margin-top: 0;
-        width: 300px;
-        height: 100%;
-        cursor: pointer;
-        overflow: hidden;
-        object-fit: cover;
+      .image-upload {
+        color: red;
+        opacity: 0.8;
+
+        img {
+          margin-top: 0;
+          width: 300px;
+          height: 100%;
+          cursor: pointer;
+          overflow: hidden;
+          object-fit: cover;
+        }
       }
 
       .mainSummary {
