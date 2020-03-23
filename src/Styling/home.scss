@@ -38,11 +38,13 @@ h1 {
   margin: -30px;
   align-items: center;
   margin-bottom: 20px;
+  transition: 1s;
 
   .homeLink {
     display: flex;
     align-items: center;
     margin: 0 20px;
+    transition: 1s;
 
     i {
       margin: 0 13px 8px 0;

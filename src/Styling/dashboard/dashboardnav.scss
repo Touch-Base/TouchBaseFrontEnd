@@ -13,10 +13,12 @@
     letter-spacing: 0.8px;
     font-size: 1.4em;
     color: white;
+    transition: 1s;
   }
 
   a:hover {
     color: lightblue;
+    transition: 1s;
   }
 
   // logo
@@ -63,4 +65,5 @@
 #activeLink {
   color: rgb(51, 189, 253);
   font-size: 2em;
+  transition: 1s;
 }
