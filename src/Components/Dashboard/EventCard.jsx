@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../Styling/dashboard/events.scss";
 import Modal from "./Modal";
 import EventForm from "./EventForm";
+import { motion } from "framer-motion";
 
 function Event(props) {
   /// we have to use 'evt' for the props event variable because it will confuse with
@@ -39,8 +40,18 @@ function Event(props) {
     console.log("here here");
   }, [props]);
 
+  // variants for card animation
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   return (
-    <div className="eventCard">
+    <motion.div
+      variants={item}
+      transition={{ ease: "easeIn" }}
+      className="eventCard"
+    >
       <h1>{props.evt.name.toUpperCase()}</h1>
       <div className="evtRows">
         <div className="evtRow">
@@ -76,7 +87,7 @@ function Event(props) {
           </button>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }
 

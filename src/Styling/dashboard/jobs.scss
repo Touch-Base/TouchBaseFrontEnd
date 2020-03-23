@@ -245,28 +245,30 @@
     box-shadow: 0 12px 10px -10px black;
     cursor: pointer;
 
-    #topRight {
-      margin: -24px -22px 0 0;
-      transition: 1s;
-      transition: all ease-in-out 0.5s;
-    }
+    .cardCorners {
+      #topRight {
+        margin: -24px -22px 0 0;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
 
-    #topLeft {
-      margin: -24px 0 0 -22px;
-      transition: 1s;
-      transition: all ease-in-out 0.5s;
-    }
+      #topLeft {
+        margin: -24px 0 0 -22px;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
 
-    #bottomLeft {
-      margin: 0 0 -24px -22px;
-      transition: 1s;
-      transition: all ease-in-out 0.5s;
-    }
+      #bottomLeft {
+        margin: 0 0 -24px -22px;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
 
-    #bottomRight {
-      margin: 0 -22px -24px 0;
-      transition: 1s;
-      transition: all ease-in-out 0.5s;
+      #bottomRight {
+        margin: 0 -22px -24px 0;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
     }
   }
 }
@@ -537,7 +539,7 @@
 
 // card corners for hover effect
 .cardCorners {
-  z-index: -1;
+  z-index: 0;
   margin: 0;
   color: black;
   font-size: 2.6em;

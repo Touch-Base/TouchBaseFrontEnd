@@ -8,6 +8,7 @@ import { deleteJob } from "../../actions/index";
 import Modal from "./Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { motion } from "framer-motion";
 
 function Jobs(props) {
   // these empty values are passed to the jobs form
@@ -90,9 +91,37 @@ function Jobs(props) {
   {
     /*this checks to see how the jobs should be displayed */
   }
+
+  // variants fot animation
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  };
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   if (table) {
     return (
-      <div className="jobsPage">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={list}
+        className="jobsPage"
+      >
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
@@ -133,7 +162,9 @@ function Jobs(props) {
           <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
         </button>
         <div className="jobsTable">
-          <div
+          <motion.div
+            variants={item}
+            transition={{ ease: "easeIn", duration: 1 }}
             className={searchedJobs.length < 1 ? "columnnull" : "columnNames"}
           >
             <h4 id="cocolumn">Company</h4>
@@ -145,7 +176,7 @@ function Jobs(props) {
             <h4 id="colorcolumn">Color</h4>
             <h4 id="linkcolumn">Link</h4>
             <h4 id="editcolumn">Edit</h4>
-          </div>
+          </motion.div>
           {searchValue === ""
             ? props.jobs.map(job => {
                 return (
@@ -158,11 +189,16 @@ function Jobs(props) {
                 );
               })}
         </div>
-      </div>
+      </motion.div>
     );
   } else {
     return (
-      <div className="jobsPage">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={list}
+        className="jobsPage"
+      >
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
@@ -216,7 +252,7 @@ function Jobs(props) {
                 );
               })}
         </div>
-      </div>
+      </motion.div>
     );
   }
 }

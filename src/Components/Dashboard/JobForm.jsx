@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import "../../Styling/dashboard/jobs.scss";
 import { addJob, editJob } from "../../actions/index";
-import DateTimePicker from "react-datetime-picker";
 
 function JobForm(props) {
   /// this sets up the interview switch button since it is not handled within Formik
@@ -165,7 +164,18 @@ function JobForm(props) {
               <h4 className="inputTitle">
                 {!props.adding ? "Application Date" : null}
               </h4>
-              <DateTimePicker onChange={handleChange} value={values.appDate} />
+              <input
+                type="text"
+                id="appDate"
+                placeholder="Application Date"
+                name="appDate"
+                onChange={handleChange}
+                value={values.appDate}
+                onBlur={handleBlur}
+                className={
+                  touched.appDate && errors.appDate ? "hasError" : "validInput"
+                }
+              />
               <Error touched={touched.appDate} message={errors.appDate} />
             </div>
           </div>

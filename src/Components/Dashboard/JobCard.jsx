@@ -5,6 +5,7 @@ import { TwitterPicker } from "react-color";
 import Modal from "./Modal";
 import { connect } from "react-redux";
 import { editJob } from "../../actions/index";
+import { motion } from "framer-motion";
 
 function JobCard(props) {
   const [visible, setVisibility] = useState(false);
@@ -90,8 +91,19 @@ function JobCard(props) {
     left: "0px"
   };
 
+  // variants for card animation
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   return (
-    <div className="jobCard" style={{ background: bgcolor }}>
+    <motion.div
+      variants={item}
+      className="jobCard"
+      style={{ background: bgcolor }}
+      transition={{ ease: "easeIn" }}
+    >
       <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
       <h1 className="jobTitle">{props.job.position}</h1>
       <h2 className="appliedText">
@@ -176,7 +188,7 @@ function JobCard(props) {
           </button>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }
 
