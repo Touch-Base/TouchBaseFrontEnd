@@ -67,6 +67,7 @@
     align-items: center;
     width: 1000px;
     height: 50px;
+    margin-top: 10px;
     background-color: rgba(2, 45, 80, 0.952);
     box-shadow: 0 4px 3px -3px black;
     transition: 0.5s;
@@ -74,6 +75,24 @@
     border-bottom: solid lightblue 5px;
     border-left: solid lightblue 3px;
     border-right: solid lightblue 3px;
+
+    // notes pop up for row
+    p {
+      position: fixed;
+      z-index: 2;
+      display: flex;
+      font-size: 1em;
+      text-align: left;
+      color: rgb(0, 23, 65);
+      letter-spacing: 1.5px;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 7px 5px -5px black;
+      max-width: 700px;
+      word-wrap: break-word;
+      white-space: initial;
+      border-radius: 5px;
+    }
 
     .cnxcolumn {
       font-family: "Oswald", sans-serif;

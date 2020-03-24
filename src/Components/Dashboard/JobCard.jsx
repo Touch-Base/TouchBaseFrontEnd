@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Styling/dashboard/jobs.scss";
+import "../../Styling/dashboard/jobcard.scss";
 import JobForm from "./JobForm";
 import { TwitterPicker } from "react-color";
 import Modal from "./Modal";
@@ -12,6 +13,7 @@ function JobCard(props) {
   const [bgcolor, setColor] = useState(props.job.color || "rgb(186, 43, 214)");
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
+  const [clickedJob, setClickedJob] = useState(false);
 
   // this controls the visibility of the modal for the form
 
@@ -64,6 +66,11 @@ function JobCard(props) {
     setShowNotes(false);
   };
 
+  // this opens the job tile
+  const clickJob = () => {
+    setClickedJob(!clickedJob);
+  };
+
   // this is the positioning for the color picker
   const popover = {
     position: "absolute",
@@ -103,6 +110,7 @@ function JobCard(props) {
       className="jobCard"
       style={{ background: bgcolor }}
       transition={{ ease: "easeIn" }}
+      onClick={clickJob}
     >
       <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
       <h1 className="jobTitle">{props.job.position}</h1>
@@ -113,30 +121,6 @@ function JobCard(props) {
       <h2 className={props.job.interview ? "interview" : "nointerview"}>
         {props.job.interview ? "INTERVIEW REQUESTED" : "NO INTERVIEW"}
       </h2>
-
-      {/* these are the card corners for hover effect  */}
-      <div className="cardCorners">
-        <i
-          id="topRight"
-          style={{ color: bgcolor }}
-          className="fas fa-chevron-up"
-        ></i>
-        <i
-          id="topLeft"
-          style={{ color: bgcolor }}
-          className="fas fa-chevron-up"
-        ></i>
-        <i
-          id="bottomRight"
-          style={{ color: bgcolor }}
-          className="fas fa-chevron-up"
-        ></i>
-        <i
-          id="bottomLeft"
-          style={{ color: bgcolor }}
-          className="fas fa-chevron-up"
-        ></i>
-      </div>
 
       {/* this is the color picker and the button */}
       <button className="colorButton" onClick={handleClick}>

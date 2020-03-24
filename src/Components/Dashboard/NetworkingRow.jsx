@@ -52,6 +52,33 @@ function NetworkingRow(props) {
     hidden: { opacity: 0, x: -25 }
   };
 
+  // this is the positioning for the notes
+  const popupNotes = {
+    position: "absolute",
+    zIndex: "2",
+    top: "40px",
+    opacity: 1,
+    transition: "opacity 0.5s",
+    border: "none"
+  };
+
+  const popupNotesHide = {
+    position: "absolute",
+    zIndex: "2",
+    top: "40px",
+    opacity: 0,
+    transition: "opacity 0.5s",
+    pointerEvents: "none"
+  };
+
+  const cover = {
+    position: "fixed",
+    top: "0px",
+    right: "0px",
+    bottom: "0px",
+    left: "0px"
+  };
+
   return (
     <motion.div
       variants={item}
@@ -77,11 +104,10 @@ function NetworkingRow(props) {
         <i className="fas fa-quote-left">&nbsp;</i>
         <i className="fas fa-quote-right"></i>
       </button>
-      {notes ? (
-        <p onClick={handleClose} className="rowNotes">
-          {props.connection.notes}
-        </p>
-      ) : null}
+      <div style={notes ? popupNotes : popupNotesHide}>
+        <div style={cover} onClick={handleClose} />
+        <p>{props.connection.notes}</p>
+      </div>
 
       {/* this is the edit button */}
       <button className="editButton" onClick={showForm}>

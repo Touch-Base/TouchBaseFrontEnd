@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../../Styling/dashboard/jobs.scss";
 import JobForm from "./JobForm";
-import JobCard from "./JobCard";
+import JobTile from "./JobTile";
 import JobRow from "./JobRow";
 import { deleteJob } from "../../actions/index";
 import Modal from "./Modal";
@@ -243,12 +243,12 @@ function Jobs(props) {
           {searchValue === ""
             ? props.jobs.map(job => {
                 return (
-                  <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                  <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
             : searchedJobs.map(job => {
                 return (
-                  <JobCard job={job} removeJob={props.deleteJob} key={job.id} />
+                  <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })}
         </div>

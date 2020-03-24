@@ -166,7 +166,7 @@ function JobForm(props) {
               </h4>
               <input
                 type="text"
-                id="appDate"
+                id="applicationDate"
                 placeholder="Application Date"
                 name="appDate"
                 onChange={handleChange}

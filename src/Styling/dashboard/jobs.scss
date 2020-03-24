@@ -1,7 +1,5 @@
 /// organizes all the job blocks on the page
 .jobsPage {
-  position: relative;
-
   /// add job button styling
   .addJobButton {
     position: fixed;
@@ -28,7 +26,7 @@
     display: block;
     top: 80%;
     right: 20px;
-    z-index: 1;
+    z-index: 4;
     background: rgba(255, 34, 34, 0.911);
     border: solid white 2px;
     border-radius: 500px;
@@ -63,10 +61,71 @@
   justify-content: space-evenly;
   font-family: "Oswald", sans-serif;
   flex-wrap: wrap;
+  transition: 0.5s;
+
+  .jobTile {
+    width: 150px;
+    height: 100px;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+
+    .tileCompany {
+      font-size: 0.9em;
+      color: white;
+      letter-spacing: 2.3px;
+      margin: 0;
+      margin-bottom: 3px;
+    }
+
+    .tileJob {
+      font-size: 0.7em;
+      color: white;
+      letter-spacing: 2.3px;
+      margin: 0;
+    }
+  }
+
+  .jobTile:hover {
+    cursor: pointer;
+
+    .cardCorners {
+      #topRight {
+        margin: -24px -22px 0 0;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
+
+      #topLeft {
+        margin: -24px 0 0 -22px;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
+
+      #bottomLeft {
+        margin: 0 0 -24px -22px;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
+
+      #bottomRight {
+        margin: 0 -22px -24px 0;
+        transition: 1s;
+        transition: all ease-in-out 0.5s;
+      }
+    }
+  }
 
   /// styles the job cards
   .jobCard {
-    position: relative;
+    position: fixed;
+    top: 25%;
+    left: 32%;
+    z-index: 3;
     border-radius: 5px;
     width: 450px;
     min-width: 450px;
@@ -85,15 +144,15 @@
     .jobCompany {
       margin-top: -40px;
       color: white;
-      font-size: 2.7em;
+      font-size: 2.5em;
       letter-spacing: 2.3px;
     }
 
     .jobTitle {
-      margin-top: -30px;
+      margin-top: -25px;
       letter-spacing: 2.1px;
       color: rgba(255, 255, 255, 0.733);
-      font-size: 2em;
+      font-size: 1.9em;
     }
 
     .appliedText {
@@ -248,38 +307,12 @@
     transition: 0.5s;
     box-shadow: 0 12px 10px -10px black;
     cursor: pointer;
-
-    .cardCorners {
-      #topRight {
-        margin: -24px -22px 0 0;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
-      }
-
-      #topLeft {
-        margin: -24px 0 0 -22px;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
-      }
-
-      #bottomLeft {
-        margin: 0 0 -24px -22px;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
-      }
-
-      #bottomRight {
-        margin: 0 -22px -24px 0;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
-      }
-    }
   }
 }
 
 /// this is the form for adding and updating a job
 .jobForm {
-  background: rgba(108, 42, 146, 0.911);
+  background: rgba(42, 99, 146, 0.911);
   margin: 0 auto;
   width: 550px;
   border-radius: 5px;
@@ -344,7 +377,7 @@
       letter-spacing: 1.5px;
       font-family: "Oswald", sans-serif;
       border-radius: 5px;
-      border: solid rgb(199, 82, 253) 2px;
+      border: solid rgb(82, 176, 253) 2px;
       transition: 0.5s;
     }
 
@@ -543,10 +576,9 @@
 
 // card corners for hover effect
 .cardCorners {
-  z-index: 0;
   margin: 0;
   color: black;
-  font-size: 2.6em;
+  font-size: 2.4em;
 
   #topRight {
     position: absolute;
@@ -583,4 +615,21 @@
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
   background-color: rgb(0, 162, 255) !important;
+}
+
+// backdrop the for the full job card
+.grayedBackdrop {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
 }
