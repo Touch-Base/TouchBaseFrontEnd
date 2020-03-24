@@ -1,174 +1,220 @@
-@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 
 .profilePage {
-    display: flex;
-    justify-content: left;
-    margin: 30px auto;
-    
-    // main profile block styling
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  height: 450px;
+  background: rgba(82, 187, 235, 0.411);
+  width: 700px;
+  border-radius: 5px;
+  box-shadow: 0 8px 6px -6px rgb(82, 82, 82);
 
-    .profileBlock {
+  // main profile block styling
+
+  .profileBlock {
+    display: flex;
+    flex-direction: column;
+    font-family: "Alata", sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+    background: rgb(51, 189, 253);
+
+    // the top part of the profile block
+
+    .imageAndInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .fadeOut {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+      }
+      .fadeIn {
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+        transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+      }
+
+      .image-upload > input {
+        display: none;
+      }
+
+      .image-upload {
+        color: red;
+        opacity: 0.8;
+
+        img {
+          margin-top: 0;
+          width: 300px;
+          height: 100%;
+          cursor: pointer;
+          overflow: hidden;
+          object-fit: cover;
+        }
+      }
+
+      .mainSummary {
         display: flex;
         flex-direction: column;
-        justify-content: left;
-        align-items: left;
-        font-family: 'Alata', sans-serif;
-        margin-left: 75px;
-        
-        // the top part of the profile block
-        
-        .imageAndInfo {
+        background: white;
+        width: 100%;
+        margin-top: -4px;
 
-            img {
-                width: 400px;
-                margin-bottom: 25px;
-            }
-            
-            .mainSummary {
-                
-                .positionTitle {
-                    font-size: 2.1em;
-                    margin: 0;
-                    color: rgba(0, 0, 0, 0.445);
-                }
-                
-                .fullName {
-                    font-size: 3.1em;
-                    color: rgb(97, 16, 189);
-                    margin: 0;
-                    margin-bottom: 5px;
-                }
-                
-                .summary {
-                    font-family: 'Alata', sans-serif;
-                    display: flex;
-                    height: 800px;
-                    flex-direction: column;
-                    width: 600px;
-                    height: 100%;
-                    background: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(162, 0, 255));
-                    align-items:  left;
-                    justify-content: center;
-                    border-radius: 5px;
-                    margin-left: 50px;
-                    margin-top: 25px;
-                    text-align: center;
-                    box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
-                }
-             }
-         }
-        
-        // the bottom part of the profile block
-        
-        .profileContact {
-            font-family: 'Alata', sans-serif;
-            display: flex;
-            width: 400px;
-            height: 50px;
-            background: linear-gradient(to bottom right, rgb(162, 0, 255), rgb(0, 174, 255));
-            align-items:  left;
-            justify-content: center;
-            border-radius: 5px;
-            text-align: center;
-            box-shadow: -1px 6px 5px -3px rgb(100, 4, 109);
-    
-            .profileContactSec {
-                display: flex;
-                margin-left: 35px;
-                align-items: center;
-                margin-bottom: 10px;
-                margin-top: 15px;
-    
-                .fa-map-marker-alt {
-                    margin-left: 4px;
-                }
-    
-                i {
-                    font-size: 1.7em;
-                    margin-bottom: 8px;
-                    margin-right: 6px;
-                    color: white;
-                }
-    
-
-                h5 {
-                    margin: 0;
-                    text-align: left;
-                    margin-bottom: -5px;
-                }
-
-                .userEmail {
-                    font-size: 1.1em;
-                    letter-spacing: 1px;
-                    color: rgba(255, 255, 255, 0.904);
-                }
-
-                .userLocation {
-                    font-size: 1.1em;
-                    letter-spacing: 1px;
-                    color: rgba(255, 255, 255, 0.904);
-                }
-  
-
-         }
+        .positionTitle {
+          font-size: 1.5em;
+          letter-spacing: 1.2px;
+          color: rgba(37, 37, 37, 0.76);
+          margin: 0;
         }
+
+        .fullName {
+          font-size: 1.8em;
+          letter-spacing: 1.2px;
+          color: rgba(37, 37, 37, 0.897);
+          margin: 0;
+          margin-top: 20px;
+        }
+      }
     }
 
+    // the bottom part of the profile block
+
+    .profileContact {
+      font-family: "Alata", sans-serif;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      align-items: left;
+      justify-content: center;
+      text-align: center;
+      color: black;
+      background: white;
+
+      .profileContactSec {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+
+        .fa-map-marker-alt {
+          margin-left: 4px;
+        }
+
+        i {
+          font-size: 1.7em;
+          margin-bottom: 8px;
+          margin-right: 6px;
+          color: rgb(51, 189, 253);
+        }
+
+        h5 {
+          margin: 0;
+          text-align: left;
+          margin-bottom: 8px;
+          margin-left: 5px;
+        }
+
+        .userEmail {
+          font-size: 1.1em;
+          letter-spacing: 1px;
+          color: rgba(0, 0, 0, 0.527);
+        }
+
+        .userLocation {
+          font-size: 1.1em;
+          letter-spacing: 1px;
+          color: rgba(0, 0, 0, 0.5);
+        }
+
+        .age {
+          font-size: 0.9em;
+          letter-spacing: 1px;
+          color: rgba(0, 0, 0, 0.486);
+        }
+      }
+    }
+  }
 }
 
 /// update profile button styling
 .updateProfile {
-    position: fixed;
-    display: block;
-    top: 80%;
-    right: 20px;
-    z-index: 1;
-    background: rgba(86, 245, 86, 0.911);
-    border: solid white 2px;
-    border-radius: 500px;
-    width: 100px;
-    height: 100px;
-    transition: 0.5s;
-    outline: none;
-    cursor: pointer;
-    
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  z-index: 1;
+  background: rgba(86, 245, 86, 0.911);
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
 
-    i {
-        color: white;
-        font-size: 5em;
-    }
+  i {
+    color: white;
+    font-size: 4em;
+  }
 }
 
 .exOut {
-    position: fixed;
-    display: block;
-    top: 80%;
-    right: 20px;
-    z-index: 2;
-    background: rgba(255, 34, 34, 0.911);
-    border: solid white 2px;
-    border-radius: 500px;
-    width: 100px;
-    height: 100px;
-    transition: 0.5s;
-    outline: none;
-    cursor: pointer;
-    
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255, 34, 34, 0.911);
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
 
-    i {
-        color: white;
-        font-size: 5em;
-    }
+  i {
+    color: white;
+    font-size: 5em;
+  }
 }
 
 .updateProfile:hover {
-    background: rgba(39, 247, 39, 0.863);
-    transition: 0.5s;
-    cursor: pointer;
+  background: rgba(39, 247, 39, 0.863);
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .exOut:hover {
-    background: rgba(253, 17, 17, 0.76);
-    transition: 0.5s;
-    cursor: pointer;
+  background: rgba(253, 17, 17, 0.76);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+// summary block
+.summaryBlock {
+  display: flex;
+  margin: 0;
+  width: 300px;
+  background: none;
+  height: 100%;
+  background: rgb(51, 189, 253);
+
+  p {
+    font-size: 1.3em;
+    color: white;
+    padding: 25px;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+  }
 }

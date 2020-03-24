@@ -1,0 +1,211 @@
+/// styles the job cards
+.jobCard {
+  position: fixed;
+  top: 25%;
+  left: 32%;
+  z-index: 3;
+  border-radius: 5px;
+  width: 450px;
+  min-width: 450px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding-left: 15px;
+  margin-bottom: 50px;
+  padding-right: 15px;
+  box-shadow: 0 8px 6px -6px black;
+  margin: 10px;
+  transition: 0.5s;
+  cursor: default;
+
+  // the exit job card modal button
+  .exitJobCard {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border: none;
+    border-radius: 500px;
+    width: 35px;
+    height: 35px;
+    transition: all ease-in-out 0.5s;
+    outline: none;
+    background: none;
+
+    i {
+      color: white;
+      font-size: 2.5em;
+    }
+  }
+
+  .jobCompany {
+    margin-top: -40px;
+    color: white;
+    font-size: 2.3em;
+    letter-spacing: 2.3px;
+  }
+
+  .jobTitle {
+    margin-top: -25px;
+    letter-spacing: 2.1px;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 1.7em;
+  }
+
+  .appliedText {
+    color: rgba(255, 255, 255, 0.808);
+    letter-spacing: 2px;
+    font-size: 0.7em;
+    margin-top: -15px;
+    margin-left: 2px;
+
+    span {
+      font-size: 1.1em;
+      color: white;
+    }
+  }
+
+  .interview {
+    font-size: 0.9em;
+    color: white;
+    margin: -5px 0;
+    letter-spacing: 2px;
+  }
+
+  .nointerview {
+    font-size: 0.9em;
+    color: white;
+    margin: -5px 0;
+    letter-spacing: 2px;
+  }
+
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1em;
+    text-align: left;
+    color: rgb(0, 23, 65);
+    letter-spacing: 1.5px;
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 12px;
+    margin-top: 5px;
+    box-shadow: 0 7px 5px -5px black;
+    max-width: 700px;
+    word-wrap: break-word;
+    white-space: initial;
+  }
+
+  .jobLink {
+    position: absolute;
+    right: 45px;
+    top: 70px;
+    padding: 13px;
+    border-radius: 100px;
+    transition: 0.5s;
+    border: solid white 2px;
+    background: none;
+
+    i {
+      font-size: 2.3em;
+      color: white;
+    }
+  }
+
+  .jobLink:hover {
+    background: rgba(255, 255, 255, 0.219);
+    transition: 0.5s;
+  }
+
+  .editLink {
+    position: absolute;
+    right: 10px;
+    top: 140px;
+    background: none;
+    padding: 9px;
+    border-radius: 100px;
+    transition: 0.5s;
+    border: none;
+    outline: none;
+
+    i {
+      font-size: 2.7em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+    }
+  }
+
+  .editLink:hover {
+    transition: 0.5s;
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.808);
+      transition: 0.5s;
+    }
+  }
+
+  .notes {
+    position: absolute;
+    right: 185px;
+    top: 140px;
+    background: none;
+    padding: 9px;
+    border-radius: 100px;
+    transition: 0.5s;
+    border: none;
+    outline: none;
+
+    i {
+      font-size: 2.7em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+    }
+  }
+
+  .notes:hover {
+    cursor: pointer;
+
+    i {
+      color: rgba(255, 255, 255, 0.596);
+      transition: 0.5s;
+    }
+  }
+
+  .colorButton {
+    position: absolute;
+    left: 20px;
+    top: 160px;
+    background: none;
+    padding: 9px;
+    border-radius: 100px;
+    transition: 0.5s;
+    border: none;
+
+    i {
+      font-size: 1.2em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+    }
+  }
+
+  .colorButton:hover {
+    cursor: pointer;
+
+    i {
+      color: rgb(255, 204, 108);
+      transition: 0.5s;
+    }
+  }
+}
+
+.jobCard:hover {
+  transition: 0.5s;
+  box-shadow: 0 12px 10px -10px black;
+
+  .exitJobCard {
+    cursor: pointer;
+  }
+}
