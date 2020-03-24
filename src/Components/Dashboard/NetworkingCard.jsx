@@ -121,19 +121,21 @@ function Connection(props) {
       </button>
       {/* // edit connection form modal */}
       <Modal visible={form}>
-        <div className="editConnectionForm">
-          <h3 className="editCnxTitle">EDIT CONNECTION</h3>
-          <button className="closeButton" onClick={showForm}>
-            <i className="fas fa-times"></i>
-          </button>
-          <NetworkingForm
-            initialValues={props.connection}
-            editing={true}
-            id={props.connection.id}
-          />
-          <button className="deleteCnxButton" onClick={deleteButton}>
-            DELETE CONNECTION
-          </button>
+        <div className="modalBackdrop">
+          <div className="editConnectionForm">
+            <h3 className="editCnxTitle">EDIT CONNECTION</h3>
+            <button className="closeButton" onClick={showForm}>
+              <i className="fas fa-times"></i>
+            </button>
+            <NetworkingForm
+              initialValues={props.connection}
+              editing={true}
+              id={props.connection.id}
+            />
+            <button className="deleteCnxButton" onClick={deleteButton}>
+              DELETE CONNECTION
+            </button>
+          </div>
         </div>
       </Modal>
     </motion.div>

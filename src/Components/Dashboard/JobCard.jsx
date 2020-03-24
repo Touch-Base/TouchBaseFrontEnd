@@ -136,6 +136,11 @@ function JobCard(props) {
         </div>
       ) : null}
 
+      {/* popout button to exit the modal */}
+      <button onClick={props.closeCard} className="exitJobCard">
+        <i className="fas fa-times" />
+      </button>
+
       {/* this is the edit button */}
       <a
         target="_blank"

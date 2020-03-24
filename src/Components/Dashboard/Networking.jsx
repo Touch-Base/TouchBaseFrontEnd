@@ -186,9 +186,11 @@ function Networking(props) {
           <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
         </button>
         <Modal visible={cnxform}>
-          <div className="editConnectionForm" id="addConnection">
-            <h3>ADD CONNECTION</h3>
-            <NetworkingForm initialValues={initialValues} addingCnx={true} />
+          <div className="grayedBackdrop">
+            <div className="editConnectionForm" id="addConnection">
+              <h3>ADD CONNECTION</h3>
+              <NetworkingForm initialValues={initialValues} addingCnx={true} />
+            </div>
           </div>
         </Modal>
       </motion.div>
@@ -249,9 +251,11 @@ function Networking(props) {
           <i className={cnxform ? "fas fa-times" : "fas fa-plus"}></i>
         </button>
         <Modal visible={cnxform}>
-          <div className="editConnectionForm" id="addConnection">
-            <h3>ADD CONNECTION</h3>
-            <NetworkingForm initialValues={initialValues} addingCnx={true} />
+          <div className="modalBackdrop">
+            <div className="editConnectionForm" id="addConnection">
+              <h3>ADD CONNECTION</h3>
+              <NetworkingForm initialValues={initialValues} addingCnx={true} />
+            </div>
           </div>
         </Modal>
       </motion.div>

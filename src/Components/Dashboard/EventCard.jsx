@@ -72,19 +72,21 @@ function Event(props) {
 
       {/* // edit connection form modal */}
       <Modal visible={form}>
-        <div className="editEvtForm">
-          <h3 className="editEvtTitle">EDIT EVENT</h3>
-          <button className="closeButton" onClick={showForm}>
-            <i className="fas fa-times"></i>
-          </button>
-          <EventForm
-            initialValues={props.evt}
-            editing={true}
-            id={props.evt.id}
-          />
-          <button className="deleteEvtButton" onClick={deleteButton}>
-            DELETE EVENT
-          </button>
+        <div className="grayedBackdrop">
+          <div className="editEventForm">
+            <h3 className="editEvtTitle">EDIT EVENT</h3>
+            <button className="closeButton" onClick={showForm}>
+              <i className="fas fa-times"></i>
+            </button>
+            <EventForm
+              initialValues={props.evt}
+              editing={true}
+              id={props.evt.id}
+            />
+            <button className="deleteEvtButton" onClick={deleteButton}>
+              DELETE EVENT
+            </button>
+          </div>
         </div>
       </Modal>
     </motion.div>

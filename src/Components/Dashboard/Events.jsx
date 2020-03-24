@@ -104,9 +104,11 @@ function Events(props) {
       </button>
 
       <Modal visible={evtform}>
-        <div className="editEventForm" id="addEvent">
-          <h3>ADD EVENT</h3>
-          <EventForm initialValues={initialValues} addingEvt={true} />
+        <div className="grayedBackdrop">
+          <div className="editEventForm" id="addEvent">
+            <h3>ADD EVENT</h3>
+            <EventForm initialValues={initialValues} addingEvt={true} />
+          </div>
         </div>
       </Modal>
     </motion.div>

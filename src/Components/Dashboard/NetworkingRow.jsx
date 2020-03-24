@@ -116,19 +116,21 @@ function NetworkingRow(props) {
 
       {/* this is the modal for the edit form */}
       <Modal visible={visible}>
-        <div className="editConnectionForm">
-          <h3 className="editCnxTitle">EDIT CONNECTION</h3>
-          <button className="closeButton" onClick={showForm}>
-            <i className="fas fa-times"></i>
-          </button>
-          <NetworkingForm
-            initialValues={props.connection}
-            editing={true}
-            id={props.connection.id}
-          />
-          <button className="deleteCnxButton" onClick={deleteButton}>
-            DELETE CONNECTION
-          </button>
+        <div className="modalBackdrop">
+          <div className="editConnectionForm">
+            <h3 className="editCnxTitle">EDIT CONNECTION</h3>
+            <button className="closeButton" onClick={showForm}>
+              <i className="fas fa-times"></i>
+            </button>
+            <NetworkingForm
+              initialValues={props.connection}
+              editing={true}
+              id={props.connection.id}
+            />
+            <button className="deleteCnxButton" onClick={deleteButton}>
+              DELETE CONNECTION
+            </button>
+          </div>
         </div>
       </Modal>
     </motion.div>

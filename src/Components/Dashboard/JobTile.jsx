@@ -17,7 +17,14 @@ function JobTile(props) {
 
   useEffect(() => {
     // checks to see if the job was updated
-  }, [props.job]);
+  }, clickedJob);
+
+  // closes child card component only if it's already open
+  const closeCard = () => {
+    setClickedJob(false);
+    console.log(clickedJob);
+    console.log("here");
+  };
 
   // this opens the job tile
   const clickJob = () => {
@@ -36,7 +43,7 @@ function JobTile(props) {
       className="jobTile"
       style={{ background: bgcolor }}
       transition={{ ease: "easeIn" }}
-      onClick={clickJob}
+      onClick={!clickedJob ? clickJob : null}
     >
       <h1 className="tileCompany">{props.job.company.toUpperCase()}</h1>
       <h1 className="tileJob">{props.job.position}</h1>
@@ -71,6 +78,7 @@ function JobTile(props) {
             job={props.job}
             removeJob={props.removeJob}
             key={props.job.id}
+            closeCard={closeCard}
           />
         </div>
       ) : null}
