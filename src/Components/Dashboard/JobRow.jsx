@@ -72,7 +72,7 @@ function JobRow(props) {
     position: "absolute",
     zIndex: "2",
     top: "50px",
-    right: "105px"
+    right: "3px"
   };
   const cover = {
     position: "fixed",
@@ -80,6 +80,25 @@ function JobRow(props) {
     right: "0px",
     bottom: "0px",
     left: "0px"
+  };
+
+  // this is the positioning for the notes
+  const popupNotes = {
+    position: "absolute",
+    zIndex: "2",
+    top: "40px",
+    opacity: 1,
+    transition: "opacity 0.5s",
+    border: "none"
+  };
+
+  const popupNotesHide = {
+    position: "absolute",
+    zIndex: "2",
+    top: "40px",
+    opacity: 0,
+    transition: "opacity 0.5s",
+    pointerEvents: "none"
   };
 
   // variants for card animation
@@ -114,15 +133,23 @@ function JobRow(props) {
           <i className="fas fa-times"></i>
         )}
       </h5>
+
+      {/* NOTES */}
       {/* this button shows and hides the notes for each card */}
       <button className="notesRow" onClick={handlesNotes}>
         <i className="fas fa-quote-left">&nbsp;</i>
         <i className="fas fa-quote-right"></i>
       </button>
-      {notes ? <p className="rowNotes">{props.job.notes}</p> : null}
+      <div style={notes ? popupNotes : popupNotesHide}>
+        <div style={cover} onClick={handleClose} />
+        <p>{props.job.notes}</p>
+      </div>
+
+      {/* job method */}
       <h5 className="jobcolumn" id="method">
         {props.job.method}
       </h5>
+
       {/* this is the color picker and the button */}
       <button className="colorColumn" onClick={handleClick}>
         <i className="fas fa-palette"></i>

@@ -18,6 +18,11 @@ function Connection(props) {
     setVisibility(!notes);
   };
 
+  // this closes notes
+  const handleClose = () => {
+    setVisibility(false);
+  };
+
   // this is the delete button
   const deleteButton = event => {
     event.preventDefault();
@@ -43,6 +48,32 @@ function Connection(props) {
     setVisibility(false);
     console.log("here here");
   }, [props]);
+
+  // this is the positioning for the notes
+  const popover = {
+    position: "absolute",
+    zIndex: "2",
+    top: "200px",
+    opacity: 1,
+    transition: "opacity 0.5s"
+  };
+
+  const popoverhide = {
+    position: "absolute",
+    zIndex: "2",
+    top: "200px",
+    opacity: 0,
+    transition: "opacity 0.5s",
+    pointerEvents: "none"
+  };
+
+  const cover = {
+    position: "fixed",
+    top: "0px",
+    right: "0px",
+    bottom: "0px",
+    left: "0px"
+  };
 
   // variants for card animation
   const item = {
@@ -79,7 +110,12 @@ function Connection(props) {
         <i className="fas fa-quote-left">&nbsp;</i>
         <i className="fas fa-quote-right"></i>
       </button>
-      {notes ? <p className="cnxNotes">{props.connection.notes}</p> : null}
+      <div style={notes ? popover : popoverhide}>
+        <div style={cover} onClick={handleClose} />
+        <p>{props.connection.notes}</p>
+      </div>
+
+      {/* edit button */}
       <button className="editCnx" onClick={showForm}>
         <i className="fas fa-pencil-alt"></i>
       </button>

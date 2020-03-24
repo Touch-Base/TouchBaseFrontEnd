@@ -77,7 +77,11 @@ function NetworkingRow(props) {
         <i className="fas fa-quote-left">&nbsp;</i>
         <i className="fas fa-quote-right"></i>
       </button>
-      {notes ? <p className="rowNotes">{props.connection.notes}</p> : null}
+      {notes ? (
+        <p onClick={handleClose} className="rowNotes">
+          {props.connection.notes}
+        </p>
+      ) : null}
 
       {/* this is the edit button */}
       <button className="editButton" onClick={showForm}>
