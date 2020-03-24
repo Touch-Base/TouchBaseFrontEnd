@@ -9,6 +9,7 @@ import NetworkingRow from "./NetworkingRow";
 import Modal from "./Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { motion } from "framer-motion";
 
 function Networking(props) {
   // this sets the visibility for adding a new connection form
@@ -91,12 +92,39 @@ function Networking(props) {
     cnx.lastname.toUpperCase().includes(searchValue.toUpperCase())
   );
 
+  // variants fot animation
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  };
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   {
     /*this checks to see how the jobs should be displayed */
   }
   if (table) {
     return (
-      <div className="networkingPage">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={list}
+        className="networkingPage"
+      >
         <div className="switchAndSearch">
           <div className="switch">
             <h4 className="switchName">Layout</h4>
@@ -120,7 +148,9 @@ function Networking(props) {
           />
         </div>
         <div className="connectionsTable">
-          <div
+          <motion.div
+            variants={item}
+            transition={{ ease: "easeIn", duration: 1 }}
             className={searchedCnx.length < 1 ? "columnnull" : "columnNames"}
           >
             <h4 id="namecolumn">Name</h4>
@@ -130,7 +160,7 @@ function Networking(props) {
             <h4 id="cnxemailcolumn">Email</h4>
             <h4 id="cnxnotescolumn">Notes</h4>
             <h4 id="cnxeditcolumn">Edit</h4>
-          </div>
+          </motion.div>
           {searchValue === ""
             ? props.connections.map(connection => {
                 return (
@@ -161,11 +191,16 @@ function Networking(props) {
             <NetworkingForm initialValues={initialValues} addingCnx={true} />
           </div>
         </Modal>
-      </div>
+      </motion.div>
     );
   } else {
     return (
-      <div className="networkingPage">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={list}
+        className="networkingPage"
+      >
         <div className="switchAndSearch">
           <div className="switch">
             <h4 className="switchName">Layout</h4>
@@ -219,7 +254,7 @@ function Networking(props) {
             <NetworkingForm initialValues={initialValues} addingCnx={true} />
           </div>
         </Modal>
-      </div>
+      </motion.div>
     );
   }
 }

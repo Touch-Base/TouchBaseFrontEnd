@@ -91,8 +91,6 @@ function JobRow(props) {
   return (
     <motion.div
       variants={item}
-      className="jobCard"
-      style={{ background: bgcolor }}
       transition={{ ease: "easeIn" }}
       className="jobRow"
       style={{ background: bgcolor }}

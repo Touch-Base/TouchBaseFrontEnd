@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  width: 100%;
 
   // this is for when the page is showing the cnx cards
   .networkingBlocks {
