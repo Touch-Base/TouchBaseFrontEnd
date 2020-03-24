@@ -8,11 +8,11 @@ function Event(props) {
   /// we have to use 'evt' for the props event variable because it will confuse with
   /// actual jquery events
 
-  // this is the visibility for the descritpion
-  const [description, setVisibility] = useState(false);
-
   // this is the visibility for the modal
   const [form, setVisible] = useState(false);
+
+  // state for the event description
+  const [eventDescrip, setEventDescrip] = useState(false);
 
   // this is the delete button
   const deleteButton = event => {
@@ -21,8 +21,13 @@ function Event(props) {
     const id = props.evt.id;
 
     props.removeEvent(id);
+  };
 
-    setVisibility(false);
+  // this handles the event description modal
+  const showEventDescription = event => {
+    event.preventDefault();
+
+    setEventDescrip(!eventDescrip);
   };
 
   // this sets the visibility for the form modal
@@ -36,7 +41,6 @@ function Event(props) {
     // checks to see if the connection was updated
     // and closes the edit box
     setVisible(false);
-    setVisibility(false);
     console.log("here here");
   }, [props]);
 
@@ -44,6 +48,33 @@ function Event(props) {
   const item = {
     visible: { opacity: 1, x: 0 },
     hidden: { opacity: 0, x: -25 }
+  };
+
+  // these are the variable stylings for the event descrip
+  // this is the positioning for the notes
+  const popover = {
+    position: "absolute",
+    zIndex: "2",
+    top: "200px",
+    opacity: 1,
+    transition: "opacity 0.5s"
+  };
+
+  const popoverhide = {
+    position: "absolute",
+    zIndex: "2",
+    top: "200px",
+    opacity: 0,
+    transition: "opacity 0.5s",
+    pointerEvents: "none"
+  };
+
+  const cover = {
+    position: "fixed",
+    top: "0px",
+    right: "0px",
+    bottom: "0px",
+    left: "0px"
   };
 
   return (
@@ -66,7 +97,20 @@ function Event(props) {
           <button className="editEvt" onClick={showForm}>
             <i className="fas fa-pencil-alt"></i>
           </button>
-          {description ? <p>{props.evt.description}</p> : <p>"hello"</p>}
+
+          {props.evt.description ? (
+            <p onClick={showEventDescription}>
+              "{props.evt.description.substring(0, 30)}..."
+            </p>
+          ) : (
+            <p>Add a description!</p>
+          )}
+
+          {/* this shows the entire event description */}
+          <div style={eventDescrip ? popover : popoverhide}>
+            <div style={cover} onClick={showEventDescription} />
+            <p className="eventDescripBlock">{props.evt.description}</p>
+          </div>
         </div>
       </div>
 
