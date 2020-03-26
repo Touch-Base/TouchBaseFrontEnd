@@ -1,45 +1,52 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import '../../Styling/dashboard/overview.scss'
+import React from "react";
+import { connect } from "react-redux";
+import "../../Styling/dashboard/overview.scss";
+import Profile from "./Profile.jsx";
 
 function Overview(props) {
-
-    return(
-        <div className="overviewPage">
-            <h1>Welcome {props.firstname}!</h1>
-            <p>
-                Take a load off of your job search with TouchBase, 
-                the best tool for organizing your career development. 
-                Add and search through jobs you've applied to, and
-                make optimal use of the connections you've made along the way.
-                TouchBase brings you closer to that final offer letter.
-            </p>
-            <div className="jobsAndConnections">
-                <div className="jobsCount">
-                    <h2>Jobs Applied:</h2><h2 className="numberOne">{props.jobsTotal}</h2>
-                </div>
-                <div className="connectionsCount">
-                    <h2>Connections:</h2><h2 className="numberTwo">{props.connectionsTotal}</h2>
-                </div>
+  return (
+    <div className="overviewPage">
+      <h1>Welcome {props.firstname}!</h1>
+      <div className="overviewBlocks">
+        <Profile />
+        <div className="countAndInfo">
+          <div className="jobsAndConnections">
+            {/* jobs applied block */}
+            <div className="count">
+              <i className="fas fa-hammer"></i>
+              <div className="nameAndNumber">
+                <h2>JOBS APPLIED</h2>
+                <h2 className="number">{props.jobsTotal}</h2>
+              </div>
             </div>
-            <button>Get Started!</button>
-        </div>
-        )
-    }
 
-const mapStateToProps = (state) => {
-    return {
-        firstname: state.user.firstname,
-        lastname: state.user.lastname,
-        email: state.user.email,
-        jobsTotal: state.user.jobsTotal,
-        connectionsTotal: state.user.connectionsTotal
-    }
-  }
-  
-  export default(
-    connect(
-        mapStateToProps,
-        null
-    )(Overview)
+            {/* connections made block */}
+            <div className="count">
+              <i className="fas fa-people-arrows"></i>
+              <div className="nameAndNumber">
+                <h2>CONNECTIONS</h2>
+                <h2 className="number">{props.connectionsTotal}</h2>
+              </div>
+            </div>
+          </div>
+          <button className="homeAddJob">
+            <h2>ADD A JOB</h2>
+            <i className="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   );
+}
+
+const mapStateToProps = state => {
+  return {
+    firstname: state.user.firstname,
+    lastname: state.user.lastname,
+    email: state.user.email,
+    jobsTotal: state.user.jobsTotal,
+    connectionsTotal: state.user.connectionsTotal
+  };
+};
+
+export default connect(mapStateToProps, null)(Overview);

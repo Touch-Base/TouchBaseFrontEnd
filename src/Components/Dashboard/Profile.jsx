@@ -134,6 +134,7 @@ function Profile(props) {
         ></i>
       </button>
       <div className="summaryBlock">
+        <h1 className="summaryTitle">SUMMARY</h1>
         <p>
           {props.summary
             ? `"${props.summary}"`

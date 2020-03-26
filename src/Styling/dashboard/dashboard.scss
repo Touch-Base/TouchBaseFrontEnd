@@ -1,4 +1,10 @@
 .mainDashboard {
-  background-color: rgb(248, 250, 251);
+  background: repeating-linear-gradient(
+    135deg,
+    #21252907,
+    #21252905 5px,
+    rgba(0, 0, 0, 0.007) 5px,
+    rgba(0, 0, 0, 0) 10px
+  );
   height: 100vh;
 }
