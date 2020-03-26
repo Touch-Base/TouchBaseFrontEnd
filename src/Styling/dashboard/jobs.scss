@@ -58,7 +58,7 @@
   display: flex;
   margin: 0 auto;
   padding: 0 25px;
-  justify-content: space-evenly;
+  justify-content: center;
   font-family: "Oswald", sans-serif;
   flex-wrap: wrap;
   transition: 0.5s;
@@ -73,6 +73,8 @@
     align-items: center;
     justify-content: center;
     transition: 0.5s;
+    margin: 25px;
+    box-shadow: 0 4px 3px -3px rgb(58, 58, 58);
 
     .tileCompany {
       font-size: 0.9em;
@@ -96,26 +98,26 @@
     .cardCorners {
       #topRight {
         margin: -24px -22px 0 0;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
       }
 
       #topLeft {
         margin: -24px 0 0 -22px;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
       }
 
       #bottomLeft {
         margin: 0 0 -24px -22px;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
       }
 
       #bottomRight {
         margin: 0 -22px -24px 0;
-        transition: 1s;
-        transition: all ease-in-out 0.5s;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
       }
     }
   }

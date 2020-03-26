@@ -11,7 +11,7 @@ function Event(props) {
   // this is the visibility for the modal
   const [form, setVisible] = useState(false);
 
-  // state for the event description
+  // state for the event descr iption
   const [eventDescrip, setEventDescrip] = useState(false);
 
   // this is the delete button

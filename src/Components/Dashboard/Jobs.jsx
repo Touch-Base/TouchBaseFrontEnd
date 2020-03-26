@@ -125,12 +125,14 @@ function Jobs(props) {
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
-          <div className="jobForm">
-            <h1 className="editJobTitle">ADD JOB</h1>
-            <JobForm initialValues={initialValues} adding={true} />
-            <button className="closeButton" onClick={showAddForm}>
-              <i className="fas fa-times"></i>
-            </button>
+          <div className="grayedBackdrop">
+            <div className="jobForm">
+              <h1 className="editJobTitle">ADD JOB</h1>
+              <JobForm initialValues={initialValues} adding={true} />
+              <button className="closeButton" onClick={showAddForm}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
           </div>
         </Modal>
         <div className="switchAndSearch">
@@ -202,12 +204,14 @@ function Jobs(props) {
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
-          <div className="jobForm">
-            <h1 className="editJobTitle">ADD JOB</h1>
-            <JobForm initialValues={initialValues} adding={true} />
-            <button className="closeButton" onClick={showAddForm}>
-              <i className="fas fa-times"></i>
-            </button>
+          <div className="grayedBackdrop">
+            <div className="jobForm">
+              <h1 className="editJobTitle">ADD JOB</h1>
+              <JobForm initialValues={initialValues} adding={true} />
+              <button className="closeButton" onClick={showAddForm}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
           </div>
         </Modal>
         <div className="switchAndSearch">
