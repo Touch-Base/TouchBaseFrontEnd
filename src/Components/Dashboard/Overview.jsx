@@ -2,8 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import "../../Styling/dashboard/overview.scss";
 import Profile from "./Profile.jsx";
+import { navigate } from "@reach/router";
 
 function Overview(props) {
+  const goToJobs = event => {
+    event.preventDefault();
+
+    navigate("dashboard/jobs");
+  };
+
   return (
     <div className="overviewPage">
       <h1>Welcome {props.firstname}!</h1>
@@ -29,7 +36,7 @@ function Overview(props) {
               </div>
             </div>
           </div>
-          <button className="homeAddJob">
+          <button onClick={goToJobs} className="homeAddJob">
             <h2>ADD A JOB</h2>
             <i className="fas fa-arrow-right"></i>
           </button>

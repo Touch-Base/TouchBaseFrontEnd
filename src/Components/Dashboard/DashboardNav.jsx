@@ -30,7 +30,7 @@ function DashboardNav() {
       <a href="#">
         <img src={navLogo} alt="navLogo" />
       </a>
-      <Link getProps={isActive} to="profile">
+      <Link getProps={isActive} to="">
         profile
       </Link>
       <Link getProps={isActive} to="jobs">
