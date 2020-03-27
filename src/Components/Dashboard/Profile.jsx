@@ -14,7 +14,9 @@ function Profile(props) {
   const [visibleProfile, setVisibility] = useState(false);
 
   // current image hook
-  const [image, setImage] = useState(props.profilepic || defaultPic);
+  const [image, setImage] = useState(
+    props.profilepic == "" || false ? defaultPic : props.profilepic
+  );
 
   // loading image
   const [loading, setLoading] = useState(false);
@@ -95,6 +97,7 @@ function Profile(props) {
               type="file"
             />
           </div>
+
           <div className="mainSummary">
             <h2 className="fullName">
               {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
@@ -103,24 +106,25 @@ function Profile(props) {
               {props.position ? props.position.toUpperCase() : "(Add position)"}
             </h2>
           </div>
-        </div>
-        <div className="profileContact">
-          <div className="profileContactSec">
-            <i className="fas fa-at"></i>
-            <h5 className="userEmail"> {props.email}</h5>
-          </div>
-          <div className="profileContactSec">
-            <i className="fas fa-map-marker-alt"></i>
-            <h5 className="userLocation">
-              {" "}
-              {props.location || "(Add location)"}
-            </h5>
-          </div>
-          <div className="profileContactSec">
-            <i className="fab fa-pagelines"></i>
-            <h5 className="age">
-              {props.age ? `${props.age} Years Old` : "(Add age)"}
-            </h5>
+
+          <div className="profileContact">
+            <div className="profileContactSec">
+              <i className="fas fa-at"></i>
+              <h5 className="userEmail"> {props.email}</h5>
+            </div>
+            <div className="profileContactSec">
+              <i className="fas fa-map-marker-alt"></i>
+              <h5 className="userLocation">
+                {" "}
+                {props.location || "(Add location)"}
+              </h5>
+            </div>
+            <div className="profileContactSec">
+              <i className="fab fa-pagelines"></i>
+              <h5 className="age">
+                {props.age ? `${props.age} Years Old` : "(Add age)"}
+              </h5>
+            </div>
           </div>
         </div>
       </div>

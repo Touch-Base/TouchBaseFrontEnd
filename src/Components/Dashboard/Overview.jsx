@@ -8,7 +8,7 @@ function Overview(props) {
   const goToJobs = event => {
     event.preventDefault();
 
-    navigate("dashboard/jobs");
+    navigate("*/jobs");
   };
 
   return (
