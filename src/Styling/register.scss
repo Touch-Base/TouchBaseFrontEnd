@@ -1,114 +1,116 @@
 .register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    width: 500px;
-    padding: 20px;
-    color: black;
-    background: none;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 500px;
+  padding: 20px;
+  color: black;
+  background: none;
+  border-radius: 5px;
+  z-index: 4;
 
-    h1 {
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 0px;
-    }
+  h1 {
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0px;
+  }
 }
 
 .registerForm {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Oswald', sans-serif;
-    width: 425px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Oswald", sans-serif;
+  width: 425px;
+  z-index: 4;
 
-    .validInput {
-        color: black;
-        background: none;
-        padding: 15px 20px;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 1px;
-        font-size: 1em;
-        margin-bottom: 20px;
-        border: solid black 2px;
-        border-radius: 5px;
-    }
+  .validInput {
+    color: black;
+    background: none;
+    padding: 15px 20px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    border: solid black 2px;
+    border-radius: 5px;
+  }
 
-    .validInput::placeholder {
-        font-family: 'Oswald', sans-serif;
-        transition: 0.8s;
-        letter-spacing: 1px;
-        color: black;
-    }
+  .validInput::placeholder {
+    font-family: "Oswald", sans-serif;
+    transition: 0.8s;
+    letter-spacing: 1px;
+    color: black;
+  }
 
-    .validInput:hover::-webkit-input-placeholder {
-        font-family: 'Oswald', sans-serif;
-        font-size: 0.5em;
-        transition: 0.8s;
-        letter-spacing: 1px;
-    }
+  .validInput:hover::-webkit-input-placeholder {
+    font-family: "Oswald", sans-serif;
+    font-size: 0.5em;
+    transition: 0.8s;
+    letter-spacing: 1px;
+  }
 
-    button {
-        padding: 15px 20px;
-        border-radius: 5px;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 1px;
-        color: white;
-        background-color: rgb(186, 43, 214);
-        font-size: 1em;
-        border: none;
-        margin-bottom: 20px;
-        transition: 0.25s;
-    }
+  button {
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: rgb(186, 43, 214);
+    font-size: 1em;
+    border: none;
+    margin-bottom: 20px;
+    transition: 0.25s;
+  }
 
-    button:hover {
-        background-color: rgba(138, 2, 172, 0.918);
-        transition: 0.25s;
-    }
+  button:hover {
+    background-color: rgba(138, 2, 172, 0.918);
+    transition: 0.25s;
+  }
 }
 
 .firstLast {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    input {
-        width: 150px;
-    }
-
+  input {
+    width: 150px;
+  }
 }
 
 // input error in validation
 .hasError {
-    color: black;
-    background: none;
-    padding: 15px 20px;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-    font-size: 1em;
-    margin-bottom: 20px;
-    border: solid red 2px;
-    border-radius: 5px;
+  color: black;
+  background: none;
+  padding: 15px 20px;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  border: solid red 2px;
+  border-radius: 5px;
 }
 
 // input form message styling
 .invalid {
-    color: rgb(240, 96, 96);
-    margin: -15px 0 5px 0;
-    font-family: sans-serif;
-    font-size: 0.9em;
-    letter-spacing: 1px;
+  color: rgb(240, 96, 96);
+  margin: -15px 0 5px 0;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
 }
 
 .valid {
-    color: rgb(96, 240, 132);
-    font-family: sans-serif;
-    font-size: 0.7em;
-    letter-spacing: 1px;
+  color: rgb(96, 240, 132);
+  font-family: sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 1px;
 }
 
 .loginLink {
-    color: rgb(43, 142, 255);
-    text-decoration: none;
-    font-size: 1em;
-    margin-top: -50px;
-    margin-bottom: 20px;
+  color: rgb(43, 142, 255);
+  text-decoration: none;
+  font-size: 1em;
+  margin-top: -50px;
+  margin-bottom: 20px;
+  z-index: 4;
 }

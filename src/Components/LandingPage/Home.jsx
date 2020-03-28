@@ -1,10 +1,37 @@
 import React from "react";
 import "../../Styling/home.scss";
 import logo from "../../img/touchbasewhite.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Home() {
+  // variants for animations
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+        delay: 0.5
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+        delay: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="homeBlock">
+    <motion.div
+      key="test"
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      variants={list}
+      className="homeBlock"
+    >
       <img className="logo" src={logo} alt="logo" />
       <h1>
         Your entire <span className="jobWord">job</span> search,
@@ -25,7 +52,7 @@ function Home() {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Styling/topnav.scss";
 import navLogo from "../../img/touchbase3.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 function TopNav(props) {
-  console.log(props);
-
   if (props.uri === "/dashboard") {
     return <div>WOAH WOAH OWAH</div>;
   } else {
