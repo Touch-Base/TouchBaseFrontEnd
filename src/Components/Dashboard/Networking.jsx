@@ -225,6 +225,9 @@ function Networking(props) {
             value={searchValue}
           />
         </div>
+        {props.connections.length < 1 ? (
+          <h1>Add a connection you made!</h1>
+        ) : null}
         <div className="networkingBlocks">
           {searchValue === ""
             ? props.connections.map(connection => {

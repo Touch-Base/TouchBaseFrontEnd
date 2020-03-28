@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 .overviewPage {
   h1 {
-    font-size: 2em;
+    font-size: 3em;
+    margin: 0;
+    margin-top: 25px;
+    margin-bottom: 10px;
   }
 }
 
 .overviewBlocks {
   display: flex;
   margin: 30px auto;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
 
   h1 {

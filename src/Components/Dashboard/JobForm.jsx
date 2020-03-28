@@ -5,10 +5,14 @@ import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import "../../Styling/dashboard/jobs.scss";
 import { addJob, editJob } from "../../actions/index";
+import Loader from "./Loader";
 
 function JobForm(props) {
   /// this sets up the interview switch button since it is not handled within Formik
   const [interview, setInterview] = useState(props.initialValues.interview);
+
+  // this is the loader
+  const [loading, isLoading] = useState(false);
 
   const interviewSwitch = event => {
     event.preventDefault();
@@ -68,20 +72,24 @@ function JobForm(props) {
         /// checks if form is either adding or updating a job
         /// before submitting
         if (props.adding) {
+          isLoading(true);
           props
             .addJob(addPayload)
 
             .then(() => {
+              isLoading(false);
               console.log("added job!");
             })
             .catch(err => {
               console.error("Here", err);
             });
         } else {
+          isLoading(true);
           props
             .editJob(editPayload)
 
             .then(() => {
+              isLoading(false);
               console.log("updated job!");
             })
             .catch(err => {
@@ -100,6 +108,7 @@ function JobForm(props) {
         isSubmitting
       }) => (
         <form onSubmit={handleSubmit}>
+          <Loader loading={loading} />
           {/* POSITION INPUT */}
           <div className="positionAndCompany">
             <div className="position">

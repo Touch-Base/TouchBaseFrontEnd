@@ -31,10 +31,9 @@ function ProtectedRoutes() {
       <Router>
         <Dashboard path="/">
           <Overview path="/" />
-          <Profile path="/profile" />
-          <Jobs path="/jobs" />
-          <Networking path="/networking" />
-          <Events path="/events" />
+          <Jobs path="jobs" />
+          <Networking path="networking" />
+          <Events path="events" />
         </Dashboard>
       </Router>
     );

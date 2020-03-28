@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../../Styling/dashboard/profile.scss";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import { updateUser } from "../../actions/index";
+import Loader from "./Loader";
 
 function ProfileForm(props) {
   //  This validation schema comes from the Yup library, it checks
   //  the Formik values to make sure everything entered suits the database
   //  and that the passwords match
+
+  // this is the loader
+  const [loading, isLoading] = useState(false);
 
   const validationSchema = Yup.object().shape({
     firstname: Yup.string()
@@ -50,6 +54,7 @@ function ProfileForm(props) {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
+          isLoading(true);
 
           const {
             firstname,
@@ -63,8 +68,6 @@ function ProfileForm(props) {
           const headers = {
             Authorization: localStorage.getItem("token")
           };
-
-          console.log(values);
 
           props
             .updateUser(
@@ -82,10 +85,11 @@ function ProfileForm(props) {
 
             // successful user update
             .then(() => {
-              console.log("updated!");
+              console.log("Updated user!");
+              isLoading(false);
             })
             .catch(err => {
-              console.error("Here", err);
+              console.error("Error:", err);
             });
         }}
       >
@@ -235,7 +239,7 @@ function ProfileForm(props) {
                 <Error touched={touched.summary} message={errors.summary} />
               </div>
             </div>
-
+            <Loader loading={loading} />
             <button type="submit">UPDATE</button>
           </form>
         )}

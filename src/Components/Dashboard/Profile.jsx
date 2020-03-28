@@ -8,6 +8,7 @@ import axios from "axios";
 import { updateUser } from "../../actions/index";
 import defaultPic from "../../img/profileplaceholder.png";
 import Loader from "../Dashboard/Loader";
+import { motion } from "framer-motion";
 
 function Profile(props) {
   // this sets the visibility for the updating profile form
@@ -80,55 +81,80 @@ function Profile(props) {
       });
   };
 
+  // variants for card animation
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   return (
-    <div className="profilePage">
-      <Loader loading={loading} />
-      <div className="profileBlock">
-        <div className="imageAndInfo">
-          <div className="image-upload">
-            <label for="file-input">
-              <img src={image} />
-            </label>
-            <input
-              id="file-input"
-              onChange={imgUploadHandler}
-              className="uploadImage"
-              hell
-              type="file"
-            />
-          </div>
-
-          <div className="mainSummary">
-            <h2 className="fullName">
-              {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
-            </h2>
-            <h2 className="positionTitle">
-              {props.position ? props.position.toUpperCase() : "(Add position)"}
-            </h2>
-          </div>
-
-          <div className="profileContact">
-            <div className="profileContactSec">
-              <i className="fas fa-at"></i>
-              <h5 className="userEmail"> {props.email}</h5>
+    <>
+      <motion.div
+        variants={item}
+        transition={{ ease: "easeIn" }}
+        className="profilePage"
+      >
+        <Loader loading={loading} />
+        <div className="profileBlock">
+          <div className="imageAndInfo">
+            <div className="image-upload">
+              <label for="file-input">
+                <img src={image} />
+              </label>
+              <input
+                id="file-input"
+                onChange={imgUploadHandler}
+                className="uploadImage"
+                hell
+                type="file"
+              />
             </div>
-            <div className="profileContactSec">
-              <i className="fas fa-map-marker-alt"></i>
-              <h5 className="userLocation">
-                {" "}
-                {props.location || "(Add location)"}
-              </h5>
+
+            <div className="mainSummary">
+              <h2 className="fullName">
+                {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
+              </h2>
+              <h2 className="positionTitle">
+                {props.position
+                  ? props.position.toUpperCase()
+                  : "(Add position)"}
+              </h2>
             </div>
-            <div className="profileContactSec">
-              <i className="fab fa-pagelines"></i>
-              <h5 className="age">
-                {props.age ? `${props.age} Years Old` : "(Add age)"}
-              </h5>
+
+            <div className="profileContact">
+              <div className="profileContactSec">
+                <i className="fas fa-at"></i>
+                <h5 className="userEmail"> {props.email}</h5>
+              </div>
+              <div className="profileContactSec">
+                <i className="fas fa-map-marker-alt"></i>
+                <h5 className="userLocation">
+                  {" "}
+                  {props.location || "(Add location)"}
+                </h5>
+              </div>
+              <div className="profileContactSec">
+                <i className="fab fa-pagelines"></i>
+                <h5 className="age">
+                  {props.age ? `${props.age} Years Old` : "(Add age)"}
+                </h5>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+        <div className="summaryBlock">
+          <h1 className="summaryTitle">SUMMARY</h1>
+          <p>
+            {props.summary
+              ? `"${props.summary}"`
+              : '"Add a summary about yourself!"'}
+          </p>
+        </div>
+        <Modal visible={visibleProfile}>
+          <ProfileForm initialValues={initialValues} />
+        </Modal>
+      </motion.div>
       <button
         className={visibleProfile ? "exOut" : "updateProfile"}
         onClick={showProfileForm}
@@ -137,18 +163,7 @@ function Profile(props) {
           className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
         ></i>
       </button>
-      <div className="summaryBlock">
-        <h1 className="summaryTitle">SUMMARY</h1>
-        <p>
-          {props.summary
-            ? `"${props.summary}"`
-            : '"Add a summary about yourself!"'}
-        </p>
-      </div>
-      <Modal visible={visibleProfile}>
-        <ProfileForm initialValues={initialValues} />
-      </Modal>
-    </div>
+    </>
   );
 }
 
