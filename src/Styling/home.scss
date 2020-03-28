@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
+.landing {
+  background: #141c39;
+  height: 100vh;
+}
+
 .logo {
   width: 400px;
   margin-bottom: -50px;
@@ -17,7 +22,7 @@ h1 {
   display: inline-block;
   font-size: 5.6em;
   text-decoration: none;
-  color: black;
+  color: #35d3db;
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -2px;
@@ -29,7 +34,7 @@ h1 {
   }
 
   .jobWord {
-    color: rgb(0, 81, 255);
+    color: white;
   }
 }
 
@@ -52,11 +57,11 @@ h1 {
     }
 
     .fa-arrow-circle-down {
-      color: rgb(43, 142, 255);
+      color: white;
     }
 
     .fa-clipboard-list {
-      color: rgb(186, 43, 214);
+      color: white;
     }
 
     a {
@@ -68,22 +73,22 @@ h1 {
     }
 
     #log {
-      color: rgb(43, 142, 255);
+      color: white;
     }
 
     #reg {
-      color: rgb(186, 43, 214);
+      color: white;
     }
   }
 
   .homeLink:hover {
     #log {
-      color: rgb(106, 175, 255);
+      color: rgba(106, 176, 255, 0.712);
       transition: 0.5s;
     }
 
     #reg {
-      color: rgb(218, 100, 241);
+      color: rgba(255, 255, 255, 0.568);
       transition: 0.5s;
     }
   }

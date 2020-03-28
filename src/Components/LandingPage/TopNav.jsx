@@ -1,6 +1,6 @@
 import React from "react";
 import "../../Styling/topnav.scss";
-import navLogo from "../../img/touchbaseblack.png";
+import navLogo from "../../img/touchbase3.png";
 
 function TopNav(props) {
   console.log(props);
