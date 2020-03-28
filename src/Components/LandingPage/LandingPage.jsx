@@ -2,7 +2,6 @@ import React from "react";
 import TopNav from "../LandingPage/TopNav";
 import "../../Styling/home.scss";
 import Particles from "./Particles";
-import { AnimatePresence } from "framer-motion";
 
 const styles = {
   root: {
@@ -22,15 +21,13 @@ const styles = {
 
 function LandingPage(props) {
   return (
-    <AnimatePresence exitBeforeEnter>
-      <div className="landing">
-        <TopNav props={props} />
-        {props.children}
-        <div style={styles.root}>
-          <Particles />
-        </div>
+    <div className="landing">
+      <TopNav props={props} />
+      {props.children}
+      <div style={styles.root}>
+        <Particles />
       </div>
-    </AnimatePresence>
+    </div>
   );
 }
 

@@ -6,7 +6,6 @@ import { registerUser } from "../../actions/index";
 import { connect } from "react-redux";
 import { navigate } from "@reach/router";
 import "../../Styling/register.scss";
-import { motion, AnimatePresence } from "framer-motion";
 
 function Register(props) {
   //  This validation schema comes from the Yup library, it checks
@@ -34,35 +33,9 @@ function Register(props) {
     )
   });
 
-  // variants for animations
-  const list = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.3,
-        delay: 0.5
-      }
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-        delay: 0.5
-      }
-    }
-  };
-
   // This is the Sign Up form, using Formik
   return (
-    <motion.div
-      key="test"
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      variants={list}
-      className="register"
-    >
+    <div className="register">
       <h1>SIGN UP</h1>
       <a className="loginLink" href="/login">
         Already have an account?
@@ -197,7 +170,7 @@ function Register(props) {
           </form>
         )}
       </Formik>
-    </motion.div>
+    </div>
   );
 }
 
