@@ -2,10 +2,17 @@ import React from "react";
 import "../../Styling/home.scss";
 import logo from "../../img/touchbasewhite.png";
 import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Home() {
   return (
-    <div className="homeBlock">
+    <motion.div
+      exit={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="homeBlock"
+    >
       <img className="logo" src={logo} alt="logo" />
       <h1>
         Your entire <span className="jobWord">job</span> search,
@@ -26,7 +33,7 @@ function Home() {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

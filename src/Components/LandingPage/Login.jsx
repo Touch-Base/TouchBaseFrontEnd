@@ -11,6 +11,7 @@ import {
 } from "../../actions/index";
 import * as Yup from "yup";
 import "../../Styling/login.scss";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Login(props) {
   console.log(props.history);
@@ -29,7 +30,13 @@ function Login(props) {
   });
 
   return (
-    <div className="login">
+    <motion.div
+      exit={{ opacity: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: "-50%" }}
+      className="register"
+      className="login"
+    >
       <h1>LOGIN</h1>
       <a className="loginLink" href="/register">
         Don't have an account?
@@ -108,7 +115,7 @@ function Login(props) {
           </form>
         )}
       </Formik>
-    </div>
+    </motion.div>
   );
 }
 

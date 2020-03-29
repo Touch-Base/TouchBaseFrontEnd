@@ -9,7 +9,8 @@ import Learn from "./Learn";
 import Blog from "./Blog";
 import Support from "./Support";
 import Pricing from "./Pricing";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const styles = {
   root: {
@@ -28,18 +29,22 @@ const styles = {
 };
 
 function LandingPage(props) {
+  const location = useLocation();
+
   return (
     <div className="landing">
       <TopNav props={props} />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/learn" component={Learn} />
-        <Route exact path="/blog" component={Blog} />
-        <Route exact path="/support" component={Support} />
-        <Route exact path="/pricing" component={Pricing} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/learn" component={Learn} />
+          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/support" component={Support} />
+          <Route exact path="/pricing" component={Pricing} />
+        </Switch>
+      </AnimatePresence>
       <div style={styles.root}>
         <Particles />
       </div>
