@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import { registerUser } from "../../actions/index";
 import { connect } from "react-redux";
-import { navigate } from "@reach/router";
 import "../../Styling/register.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Loader from "../Dashboard/Loader";
 
 function Register(props) {
+  /// loader state
+  const [loading, setLoading] = useState(false);
+
   //  This validation schema comes from the Yup library, it checks
   //  the Formik values to make sure everything entered suits the database
   //  and that the passwords match
@@ -60,6 +63,7 @@ function Register(props) {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
+          setLoading(true);
 
           const { firstName, lastName, email, password } = values;
 
@@ -73,7 +77,8 @@ function Register(props) {
             // successful register prompts to main page
 
             .then(() => {
-              navigate("/dashboard/");
+              setLoading(false);
+              props.history.push("/dashboard");
             })
             .catch(err => {
               console.error(err);
@@ -173,6 +178,7 @@ function Register(props) {
             <button type="submit" disabled={isSubmitting}>
               REGISTER
             </button>
+            <Loader loading={loading} />
           </form>
         )}
       </Formik>

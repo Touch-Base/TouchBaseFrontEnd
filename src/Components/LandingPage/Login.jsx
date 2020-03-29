@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Error from "../../helpers/Error";
 import { connect } from "react-redux";
-import { navigate } from "@reach/router";
 import { Formik } from "formik";
 import {
   loginUser,
@@ -11,10 +10,12 @@ import {
 } from "../../actions/index";
 import * as Yup from "yup";
 import "../../Styling/login.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Loader from "../Dashboard/Loader";
 
 function Login(props) {
-  console.log(props.history);
+  /// loader state
+  const [loading, setLoading] = useState(false);
 
   //  This validation schema comes from the Yup library, it checks
   //  the Formik values to make sure everything entered suits the database
@@ -52,6 +53,7 @@ function Login(props) {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
+          setLoading(true);
 
           const { email, password } = values;
 
@@ -66,6 +68,7 @@ function Login(props) {
               props.fillStateJobs();
               props.fillStateConnections();
               props.fillStateEvents();
+              setLoading(false);
               props.history.push("/dashboard");
             })
             .catch(err => {
@@ -112,6 +115,7 @@ function Login(props) {
             <button type="submit" disabled={isSubmitting}>
               LOGIN
             </button>
+            <Loader loading={loading} />
           </form>
         )}
       </Formik>
