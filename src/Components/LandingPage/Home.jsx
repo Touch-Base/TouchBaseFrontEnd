@@ -1,6 +1,7 @@
 import React from "react";
 import "../../Styling/home.scss";
 import logo from "../../img/touchbasewhite.png";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
@@ -14,9 +15,9 @@ function Home() {
       <div className="homeLinks">
         <div className="homeLink">
           <i className="fas fa-clipboard-list"></i>
-          <a id="reg" href="/register">
+          <NavLink id="reg" exact to="/register">
             Register
-          </a>
+          </NavLink>
         </div>
         <div className="homeLink">
           <i className="fas fa-arrow-circle-down"></i>

@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducers/index";
 import "./index.css";
 import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const store = createStore(
   reducer,
@@ -23,8 +24,10 @@ store.subscribe(() => {
 });
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
   document.getElementById("root")
 );
