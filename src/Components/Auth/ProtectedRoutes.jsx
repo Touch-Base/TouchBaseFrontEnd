@@ -3,7 +3,7 @@ import "../../Styling/home.scss";
 import { Route, Redirect } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard";
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ path }) {
   // eslint-disable-next-line consistent-return
   function getToken() {
     try {
@@ -22,7 +22,7 @@ function ProtectedRoutes() {
     console.log("no token");
     return <Redirect to="/" noThrow />;
   } else {
-    return <Dashboard />;
+    return <Route path={path} component={Dashboard} />;
   }
 }
 

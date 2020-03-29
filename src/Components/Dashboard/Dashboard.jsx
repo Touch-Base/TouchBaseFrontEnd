@@ -13,12 +13,12 @@ function Dashboard(props) {
 
   return (
     <div className="mainDashboard">
-      <DashboardNav />
+      <DashboardNav props={props} />
       <Switch>
-        <Route exact path="/" component={Overview} />
-        <Route exact path="/jobs" component={Jobs} />
-        <Route exact path="/networking" component={Networking} />
-        <Route exact path="/events" component={Events} />
+        <Route exact path="/dashboard" component={Overview} />
+        <Route exact path="/dashboard/jobs" component={Jobs} />
+        <Route exact path="/dashboard/networking" component={Networking} />
+        <Route exact path="/dashboard/events" component={Events} />
       </Switch>
     </div>
   );

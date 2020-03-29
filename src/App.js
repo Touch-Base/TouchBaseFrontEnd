@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <ProtectedRoutes path="/dashboard" />
         <Route path="/" component={LandingPage} />
-        <ProtectedRoutes exact path="/dashboard" />
       </Switch>
     </div>
   );

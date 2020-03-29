@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "../../Styling/dashboard/dashboardnav.scss";
-import { navigate, redirectTo, Link } from "@reach/router";
+import { Route, Link } from "react-router-dom";
+
 import navLogo from "../../img/touchbasewhite.png";
 
-function DashboardNav() {
+function DashboardNav(props) {
   // this changes the value for the sign out warning
   const [warning, setWarning] = useState(false);
 
   // adds a 2 second delay to signing out
   const signOut = () => {
     window.localStorage.clear();
-    setTimeout(() => navigate("/"), 1000);
+    setTimeout(() => props.history.push("/"), 1000);
   };
 
   // checks for active link
@@ -30,16 +31,16 @@ function DashboardNav() {
       <a href="#">
         <img src={navLogo} alt="navLogo" />
       </a>
-      <Link getProps={isActive} to="">
+      <Link getProps={isActive} to="/dashboard">
         profile
       </Link>
-      <Link getProps={isActive} to="jobs">
+      <Link getProps={isActive} to="/dashboard/jobs">
         jobs
       </Link>
-      <Link getProps={isActive} to="networking">
+      <Link getProps={isActive} to="/dashboard/networking">
         networking
       </Link>
-      <Link getProps={isActive} to="events">
+      <Link getProps={isActive} to="/dashboard/events">
         events
       </Link>
       <button
