@@ -98,7 +98,7 @@ function EventForm(props) {
                 touched.name && errors.name ? "hasError" : "validInput"
               }
             />
-            <Error touched={touched.name} message={errors.name} />
+            <Error event={true} touched={touched.name} message={errors.name} />
           </div>
 
           {/* LOCATION INPUT */}
@@ -115,7 +115,11 @@ function EventForm(props) {
                 touched.location && errors.location ? "hasError" : "validInput"
               }
             />
-            <Error touched={touched.location} message={errors.location} />
+            <Error
+              event={true}
+              touched={touched.location}
+              message={errors.location}
+            />
           </div>
 
           {/* DATE INPUT */}
@@ -134,7 +138,7 @@ function EventForm(props) {
                 touched.date && errors.date ? "hasError" : "validInput"
               }
             />
-            <Error touched={touched.date} message={errors.date} />
+            <Error event={true} touched={touched.date} message={errors.date} />
           </div>
 
           {/* DESCRIPTION INPUT */}
@@ -153,7 +157,11 @@ function EventForm(props) {
                   : "validInput"
               }
             />
-            <Error touched={touched.description} message={errors.description} />
+            <Error
+              event={true}
+              touched={touched.description}
+              message={errors.description}
+            />
           </div>
 
           <button
