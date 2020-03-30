@@ -106,10 +106,11 @@ function JobCard(props) {
 
   return (
     <motion.div
-      variants={item}
+      exit={{ opacity: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: "-25%" }}
       className="jobCard"
       style={{ background: bgcolor }}
-      transition={{ ease: "easeIn" }}
       onClick={clickJob}
     >
       <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>

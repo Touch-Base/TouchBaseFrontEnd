@@ -4,9 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 450px;
+  height: 350px;
   background: #35d3dbbb;
-  width: 700px;
+  width: 570px;
   border-radius: 5px;
   box-shadow: 0 8px 6px -6px rgb(82, 82, 82);
 
@@ -16,9 +16,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: "Alata", sans-serif;
     margin: 0;
     height: 100%;
+    width: 250px;
     background: #35d3db;
     box-shadow: inset 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.1);
 
@@ -27,6 +29,8 @@
     .imageAndInfo {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       margin: 0;
       padding: 0;
       height: 100%;
@@ -63,7 +67,7 @@
 
           img {
             margin-top: 0;
-            width: 300px;
+            width: 250px;
             cursor: pointer;
             overflow: hidden;
             object-fit: cover;
@@ -74,84 +78,33 @@
         }
       }
 
-      .mainSummary {
+      .namePosition {
         display: flex;
+        align-items: center;
         flex-direction: column;
         background: white;
-        width: 100%;
-        height: 30%;
+        height: 50%;
+        padding: 0;
+        margin: 0;
         box-shadow: inset 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.1);
 
         .positionTitle {
-          font-size: 1.5em;
+          font-size: 1.4em;
           letter-spacing: 1.2px;
           color: rgba(37, 37, 37, 0.76);
           margin: 0;
+          padding: 0;
         }
 
         .fullName {
-          font-size: 1.8em;
+          display: block;
+          font-size: 1.7em;
           letter-spacing: 1.2px;
           color: rgba(37, 37, 37, 0.897);
           margin: 0;
-          margin-top: 20px;
-        }
-      }
-    }
-
-    // the bottom part of the profile block
-
-    .profileContact {
-      font-family: "Alata", sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 30%;
-      align-items: left;
-      justify-content: center;
-      text-align: center;
-      color: black;
-      background: white;
-
-      .profileContactSec {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
-
-        .fa-map-marker-alt {
-          margin-left: 4px;
-        }
-
-        i {
-          font-size: 1.7em;
-          margin-bottom: 8px;
-          margin-right: 6px;
-          color: #35d3db;
-        }
-
-        h5 {
-          margin: 0;
-          text-align: left;
-          margin-bottom: 8px;
-          margin-left: 5px;
-        }
-
-        .userEmail {
-          font-size: 1.1em;
-          letter-spacing: 1px;
-          color: rgba(0, 0, 0, 0.527);
-        }
-
-        .userLocation {
-          font-size: 1.1em;
-          letter-spacing: 1px;
-          color: rgba(0, 0, 0, 0.5);
-        }
-
-        .age {
-          font-size: 0.9em;
-          letter-spacing: 1px;
-          color: rgba(0, 0, 0, 0.486);
+          padding: 0;
+          margin-top: 35px;
+          line-height: 28px;
         }
       }
     }

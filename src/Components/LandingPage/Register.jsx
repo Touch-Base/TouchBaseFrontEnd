@@ -27,6 +27,7 @@ function Register(props) {
       .required("Must enter a last name"),
     email: Yup.string()
       .email("Must be a valid email address")
+      .max(30, "Must be shorter than 30")
       .required("Must enter an email"),
     password: Yup.string()
       .min(8, "Password must be 8 characters or longer")

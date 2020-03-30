@@ -17,12 +17,14 @@ function Dashboard(props) {
   return (
     <div className="mainDashboard">
       <DashboardNav props={props} />
-      <Switch location={location} key={location.pathname}>
-        <Route exact path="/dashboard" component={Overview} />
-        <Route exact path="/dashboard/jobs" component={Jobs} />
-        <Route exact path="/dashboard/networking" component={Networking} />
-        <Route exact path="/dashboard/events" component={Events} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/dashboard" component={Overview} />
+          <Route exact path="/dashboard/jobs" component={Jobs} />
+          <Route exact path="/dashboard/networking" component={Networking} />
+          <Route exact path="/dashboard/events" component={Events} />
+        </Switch>
+      </AnimatePresence>
     </div>
   );
 }

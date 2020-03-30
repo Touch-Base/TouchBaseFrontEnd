@@ -92,9 +92,32 @@ function Jobs(props) {
     /*this checks to see how the jobs should be displayed */
   }
 
+  // variants for animation
+  const parentList = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  };
+
   if (table) {
     return (
-      <div className="jobsPage">
+      <motion.div
+        variants={parentList}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="jobsPage"
+      >
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
@@ -162,11 +185,17 @@ function Jobs(props) {
                 );
               })}
         </div>
-      </div>
+      </motion.div>
     );
   } else {
     return (
-      <div className="jobsPage">
+      <motion.div
+        variants={parentList}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="jobsPage"
+      >
         {/* this job form pops up with a modal and is only 
                 for adding a job, checking with an 'adding' prop */}
         <Modal visible={visibleAdd}>
@@ -222,7 +251,7 @@ function Jobs(props) {
                 );
               })}
         </div>
-      </div>
+      </motion.div>
     );
   }
 }

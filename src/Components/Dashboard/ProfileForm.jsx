@@ -26,6 +26,7 @@ function ProfileForm(props) {
       .required("Must enter a last name"),
     email: Yup.string()
       .email("Must be a valid email address")
+      .max(30, "Must be shorter than 30")
       .required("Must enter an email"),
     location: Yup.string()
       .max(20, "Must be shorter than 20")

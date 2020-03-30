@@ -82,80 +82,56 @@ function Profile(props) {
   };
 
   return (
-    <>
-      <div className="profilePage">
-        <Loader loading={loading} />
-        <div className="profileBlock">
-          <div className="imageAndInfo">
-            <div className="image-upload">
-              <label for="file-input">
-                <img src={image} />
-              </label>
-              <input
-                id="file-input"
-                onChange={imgUploadHandler}
-                className="uploadImage"
-                hell
-                type="file"
-              />
-            </div>
+    <div className="profilePage">
+      <Loader loading={loading} />
+      <div className="profileBlock">
+        <div className="imageAndInfo">
+          <div className="image-upload">
+            <label for="file-input">
+              <img src={image} />
+            </label>
+            <input
+              id="file-input"
+              onChange={imgUploadHandler}
+              className="uploadImage"
+              hell
+              type="file"
+            />
+          </div>
 
-            <div className="mainSummary">
-              <h2 className="fullName">
-                {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
-              </h2>
-              <h2 className="positionTitle">
-                {props.position
-                  ? props.position.toUpperCase()
-                  : "(Add position)"}
-              </h2>
-            </div>
-
-            <div className="profileContact">
-              <div className="profileContactSec">
-                <i className="fas fa-at"></i>
-                <h5 className="userEmail"> {props.email}</h5>
-              </div>
-              <div className="profileContactSec">
-                <i className="fas fa-map-marker-alt"></i>
-                <h5 className="userLocation">
-                  {" "}
-                  {props.location || "(Add location)"}
-                </h5>
-              </div>
-              <div className="profileContactSec">
-                <i className="fab fa-pagelines"></i>
-                <h5 className="age">
-                  {props.age ? `${props.age} Years Old` : "(Add age)"}
-                </h5>
-              </div>
-            </div>
+          <div className="namePosition">
+            <h2 className="fullName">
+              {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
+            </h2>
+            <h2 className="positionTitle">
+              {props.position ? props.position.toUpperCase() : "(Add position)"}
+            </h2>
           </div>
         </div>
-
-        <div className="summaryBlock">
-          <h1 className="summaryTitle">SUMMARY</h1>
-          <p>
-            {props.summary
-              ? `"${props.summary}"`
-              : '"Add a summary about yourself!"'}
-          </p>
-        </div>
-        <Modal visible={visibleProfile}>
-          <div className="grayedBackdrop">
-            <ProfileForm initialValues={initialValues} />
-          </div>
-        </Modal>
-        <button
-          className={visibleProfile ? "exOut" : "updateProfile"}
-          onClick={showProfileForm}
-        >
-          <i
-            className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
-          ></i>
-        </button>
       </div>
-    </>
+
+      <div className="summaryBlock">
+        <h1 className="summaryTitle">SUMMARY</h1>
+        <p>
+          {props.summary
+            ? `"${props.summary}"`
+            : '"Add a summary about yourself!"'}
+        </p>
+      </div>
+      <Modal visible={visibleProfile}>
+        <div className="grayedBackdrop">
+          <ProfileForm initialValues={initialValues} />
+        </div>
+      </Modal>
+      <button
+        className={visibleProfile ? "exOut" : "updateProfile"}
+        onClick={showProfileForm}
+      >
+        <i
+          className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
+        ></i>
+      </button>
+    </div>
   );
 }
 

@@ -8,3 +8,10 @@
   );
   height: 100vh;
 }
+
+.errorPopUp {
+  position: fixed;
+  width: 200px;
+  background: rgba(255, 0, 0, 0.767);
+  color: white;
+}
