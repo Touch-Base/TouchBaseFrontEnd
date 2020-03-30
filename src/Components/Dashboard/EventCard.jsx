@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../../Styling/dashboard/events.scss";
+import "../../Styling/dashboard/eventform.scss";
 import Modal from "./Modal";
 import EventForm from "./EventForm";
-import { motion } from "framer-motion";
 
 function Event(props) {
   /// we have to use 'evt' for the props event variable because it will confuse with
@@ -44,12 +44,6 @@ function Event(props) {
     console.log("here here");
   }, [props]);
 
-  // variants for card animation
-  const item = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
-  };
-
   // these are the variable stylings for the event descrip
   // this is the positioning for the notes
   const popover = {
@@ -78,11 +72,7 @@ function Event(props) {
   };
 
   return (
-    <motion.div
-      variants={item}
-      transition={{ ease: "easeIn" }}
-      className="eventCard"
-    >
+    <div className="eventCard">
       <h1>{props.evt.name.toUpperCase()}</h1>
       <div className="evtRows">
         <div className="evtRow">
@@ -114,7 +104,7 @@ function Event(props) {
         </div>
       </div>
 
-      {/* // edit connection form modal */}
+      {/* // edit event form modal */}
       <Modal visible={form}>
         <div className="grayedBackdrop">
           <div className="editEventForm">
@@ -133,7 +123,7 @@ function Event(props) {
           </div>
         </div>
       </Modal>
-    </motion.div>
+    </div>
   );
 }
 
