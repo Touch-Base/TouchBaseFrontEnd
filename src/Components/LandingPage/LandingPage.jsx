@@ -10,7 +10,7 @@ import Blog from "./Blog";
 import Support from "./Support";
 import Pricing from "./Pricing";
 import { Route, Switch, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const styles = {
   root: {

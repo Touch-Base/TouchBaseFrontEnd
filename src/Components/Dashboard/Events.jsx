@@ -49,38 +49,10 @@ function Events(props) {
     evt.name.toUpperCase().includes(searchValue.toUpperCase())
   );
 
-  // variants for animation
-  // variants fot animation
-  const list = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.3
-      }
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren"
-      }
-    }
-  };
-
-  const item = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
-  };
-
   // using 'evt' as the variable to avoid javascript confusion
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={list}
-      className="eventsPage"
-    >
+    <div className="eventsPage">
       <input
         type="text"
         placeholder="Search by event name"
@@ -112,7 +84,7 @@ function Events(props) {
           </div>
         </div>
       </Modal>
-    </motion.div>
+    </div>
   );
 }
 

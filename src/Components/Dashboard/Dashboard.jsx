@@ -6,15 +6,18 @@ import Overview from "../Dashboard/Overview";
 import Jobs from "../Dashboard/Jobs";
 import Networking from "../Dashboard/Networking";
 import Events from "../Dashboard/Events";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function Dashboard(props) {
   console.log("on the dashboard");
 
+  const location = useLocation();
+
   return (
     <div className="mainDashboard">
       <DashboardNav props={props} />
-      <Switch>
+      <Switch location={location} key={location.pathname}>
         <Route exact path="/dashboard" component={Overview} />
         <Route exact path="/dashboard/jobs" component={Jobs} />
         <Route exact path="/dashboard/networking" component={Networking} />

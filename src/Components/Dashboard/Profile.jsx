@@ -81,19 +81,9 @@ function Profile(props) {
       });
   };
 
-  // variants for card animation
-  const item = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
-  };
-
   return (
     <>
-      <motion.div
-        variants={item}
-        transition={{ ease: "easeIn" }}
-        className="profilePage"
-      >
+      <div className="profilePage">
         <Loader loading={loading} />
         <div className="profileBlock">
           <div className="imageAndInfo">
@@ -154,15 +144,15 @@ function Profile(props) {
         <Modal visible={visibleProfile}>
           <ProfileForm initialValues={initialValues} />
         </Modal>
-      </motion.div>
-      <button
-        className={visibleProfile ? "exOut" : "updateProfile"}
-        onClick={showProfileForm}
-      >
-        <i
-          className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
-        ></i>
-      </button>
+        <button
+          className={visibleProfile ? "exOut" : "updateProfile"}
+          onClick={showProfileForm}
+        >
+          <i
+            className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
+          ></i>
+        </button>
+      </div>
     </>
   );
 }
