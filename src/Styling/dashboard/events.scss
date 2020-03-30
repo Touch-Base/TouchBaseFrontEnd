@@ -37,8 +37,9 @@
   box-shadow: 0 8px 6px -6px black;
   margin: 15px;
   transition: 1s;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: solid 3px #35d3db;
 
   .evtRows {
     display: flex;
@@ -167,6 +168,8 @@
 .eventCard:hover {
   box-shadow: 1px 12px 7px -7px black;
   transition: 1s;
+  cursor: pointer;
+  border: solid 3px rgba(47, 69, 148, 0.424);
 
   h1 {
     transition: 0.5s;
