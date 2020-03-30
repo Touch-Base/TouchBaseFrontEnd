@@ -15,16 +15,6 @@ function ProfileForm(props) {
   // this is the loader
   const [loading, isLoading] = useState(false);
 
-  // this is error state
-  const [error, setError] = useState(false);
-
-  // this closes the error
-  const exOut = event => {
-    event.preventDefault();
-
-    setError(false);
-  };
-
   const validationSchema = Yup.object().shape({
     firstname: Yup.string()
       .min(1, "Must have a character")
@@ -70,9 +60,9 @@ function ProfileForm(props) {
           const {
             firstname,
             lastname,
-            email,
             age,
             location,
+            phone,
             position,
             summary
           } = values;
@@ -85,11 +75,11 @@ function ProfileForm(props) {
               {
                 firstname: firstname,
                 lastname: lastname,
-                email: email,
                 age: age,
                 location: location,
                 summary: summary,
-                position: position
+                position: position,
+                phone: phone
               },
               headers
             )
@@ -155,13 +145,13 @@ function ProfileForm(props) {
             </div>
 
             <div className="inputSec">
-              {/* EMAIL INPUT */}
+              {/* PHONE NUMBER INPUT */}
               <div className="userInput">
                 <input
                   type="text"
-                  id="email"
-                  placeholder={props.email || "Email"}
-                  name="email"
+                  id="phonenumber"
+                  placeholder={props.phone || "Phone"}
+                  name="phone"
                   onChange={handleChange}
                   value={values.email}
                   onBlur={handleBlur}
@@ -169,7 +159,7 @@ function ProfileForm(props) {
                     touched.email && errors.email ? "hasError" : "validInput"
                   }
                 />
-                <Error touched={touched.email} message={errors.email} />
+                <Error touched={touched.phone} message={errors.phone} />
               </div>
 
               {/* AGE INPUT */}
@@ -251,7 +241,6 @@ function ProfileForm(props) {
               </div>
             </div>
             <Loader loading={loading} />
-            <Error visible={error} exOut={exOut} />
             <button type="submit">UPDATE</button>
           </form>
         )}

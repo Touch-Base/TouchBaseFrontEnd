@@ -40,6 +40,7 @@ function Profile(props) {
     firstname: props.firstname,
     lastname: props.lastname,
     email: props.email,
+    phone: props.phone,
     age: props.age,
     location: props.location,
     position: props.position,

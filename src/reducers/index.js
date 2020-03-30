@@ -68,6 +68,7 @@ let initialState = {
     summary: "",
     position: "",
     profilepic: "",
+    phone: "",
     jobs: [],
     connections: [],
     events: [],
