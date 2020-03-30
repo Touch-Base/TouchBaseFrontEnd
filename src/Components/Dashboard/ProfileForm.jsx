@@ -15,6 +15,16 @@ function ProfileForm(props) {
   // this is the loader
   const [loading, isLoading] = useState(false);
 
+  // this is error state
+  const [error, setError] = useState(false);
+
+  // this closes the error
+  const exOut = event => {
+    event.preventDefault();
+
+    setError(false);
+  };
+
   const validationSchema = Yup.object().shape({
     firstname: Yup.string()
       .min(1, "Must have a character")
@@ -86,7 +96,7 @@ function ProfileForm(props) {
 
             // successful user update
             .then(() => {
-              console.log("Updated user!");
+              console.log("Updated user!", props);
               isLoading(false);
             })
             .catch(err => {
@@ -241,6 +251,7 @@ function ProfileForm(props) {
               </div>
             </div>
             <Loader loading={loading} />
+            <Error visible={error} exOut={exOut} />
             <button type="submit">UPDATE</button>
           </form>
         )}

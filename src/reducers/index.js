@@ -51,7 +51,10 @@ import {
   FAILED_FILLED_CONNECTIONS,
   FILLING_STATE_EVENTS,
   FILLED_EVENTS,
-  FAILED_FILLED_EVENTS
+  FAILED_FILLED_EVENTS,
+
+  ///////////
+  REMOVE_ERROR
 } from "../actions/index";
 
 let initialState = {
@@ -71,10 +74,11 @@ let initialState = {
     jobsTotal: 0,
     connectionsTotal: 0
   },
-  token: ""
+  token: "",
+  error: null
 };
 
-// /* persistent storage */
+// // /* persistent storage */
 
 const persistedState = localStorage.getItem("reduxState");
 
@@ -111,7 +115,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_REGISTER: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -145,7 +149,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_LOGIN: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -178,7 +182,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_USER_UPDATE: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -204,7 +208,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_FILLED_JOBS: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -228,7 +232,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_FILLED_CONNECTIONS: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -251,7 +255,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_FILLED_EVENTS: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -277,7 +281,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_ADD_JOB: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -309,7 +313,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_UPDATE_JOB: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -335,7 +339,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_DELETE_JOB: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -361,7 +365,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_ADD_CONNECTION: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -393,7 +397,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_UPDATE_CONNECTION: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -419,7 +423,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_DELETE_CONNECTION: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -444,7 +448,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_ADD_EVENT: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -476,7 +480,7 @@ const reducer = (state = initialState, action) => {
     case FAILED_UPDATE_EVENT: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
     }
 
@@ -501,7 +505,14 @@ const reducer = (state = initialState, action) => {
     case FAILED_DELETE_EVENT: {
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
+      };
+    }
+
+    case REMOVE_ERROR: {
+      return {
+        ...state,
+        error: null
       };
     }
 

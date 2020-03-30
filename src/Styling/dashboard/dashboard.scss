@@ -9,9 +9,36 @@
   height: 100vh;
 }
 
-.errorPopUp {
+.errorPopup {
   position: fixed;
-  width: 200px;
-  background: rgba(255, 0, 0, 0.767);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  border-radius: 5px;
+  width: 400px;
+  background: rgba(255, 0, 0, 0.856);
   color: white;
+  left: 50%;
+  margin-left: -200px;
+
+  button {
+    border: none;
+    background: none;
+    width: 50px;
+    cursor: pointer;
+    margin: 10px 0;
+    outline: none;
+
+    i {
+      color: white;
+      font-size: 2.5em;
+      transition: 0.5s;
+    }
+
+    i:hover {
+      font-size: 2em;
+      transition: 0.5s;
+    }
+  }
 }

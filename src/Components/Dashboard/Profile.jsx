@@ -9,6 +9,7 @@ import { updateUser } from "../../actions/index";
 import defaultPic from "../../img/profileplaceholder.png";
 import Loader from "../Dashboard/Loader";
 import { motion } from "framer-motion";
+import ErrorPopUp from "../../helpers/ErrorPopup";
 
 function Profile(props) {
   // this sets the visibility for the updating profile form
@@ -123,6 +124,7 @@ function Profile(props) {
           <ProfileForm initialValues={initialValues} />
         </div>
       </Modal>
+      <ErrorPopUp error={props.error ? true : false} />
       <button
         className={visibleProfile ? "exOut" : "updateProfile"}
         onClick={showProfileForm}
@@ -151,7 +153,8 @@ const mapStateToProps = state => {
     position: state.user.position,
     summary: state.user.summary,
     profilepic: state.user.profilepic,
-    user: state.user
+    user: state.user,
+    error: state.error
   };
 };
 
