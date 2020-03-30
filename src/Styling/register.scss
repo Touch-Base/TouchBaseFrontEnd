@@ -81,12 +81,11 @@
 
 // input error in validation
 .hasError {
-  color: black;
-  background: none;
+  color: rgba(214, 55, 55, 0.829);
+  background: white;
   padding: 15px 20px;
-  font-family: "Oswald", sans-serif;
   letter-spacing: 1px;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-bottom: 20px;
   border: solid red 2px;
   border-radius: 5px;

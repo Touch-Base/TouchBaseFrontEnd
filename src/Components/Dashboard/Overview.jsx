@@ -44,17 +44,6 @@ function Overview(props) {
         <div className="countAndInfo">
           <div className="profileContact">
             <div className="profileContactSec">
-              <i className="fas fa-at"></i>
-              <h5
-                className={
-                  props.email.length < 22 ? "userEmail" : "userEmailLong"
-                }
-              >
-                {" "}
-                {props.email}
-              </h5>
-            </div>
-            <div className="profileContactSec">
               <i className="fas fa-map-marker-alt"></i>
               <h5 className="userLocation">
                 {" "}
@@ -65,6 +54,12 @@ function Overview(props) {
               <i className="fab fa-pagelines"></i>
               <h5 className="age">
                 {props.age ? `${props.age} Years Old` : "(Add age)"}
+              </h5>
+            </div>
+            <div className="profileContactSec">
+              <i className="fas fa-phone"></i>
+              <h5 className="phone">
+                {props.phone ? props.phone : "(Add phone)"}
               </h5>
             </div>
           </div>
@@ -103,6 +98,7 @@ const mapStateToProps = state => {
     lastname: state.user.lastname,
     email: state.user.email,
     jobsTotal: state.user.jobsTotal,
+    phone: state.user.phone,
     age: state.user.age,
     location: state.user.location,
     connectionsTotal: state.user.connectionsTotal

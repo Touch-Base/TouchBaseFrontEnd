@@ -9,6 +9,8 @@
   width: 570px;
   border-radius: 5px;
   box-shadow: 0 8px 6px -6px rgb(82, 82, 82);
+  margin: 0;
+  padding: 0;
 
   // main profile block styling
 
@@ -104,8 +106,22 @@
           color: rgba(37, 37, 37, 0.897);
           margin: 0;
           padding: 0;
-          margin-top: 35px;
+          margin-top: 25px;
           line-height: 28px;
+          margin-right: 3px;
+        }
+
+        .userEmail {
+          font-size: 0.85em;
+          letter-spacing: 1px;
+          color: rgba(37, 37, 37, 0.897);
+          margin: 0;
+          padding: 0;
+        }
+
+        .userEmailLong {
+          font-size: 0.5em;
+          letter-spacing: 1px;
         }
 
         .creationDate {
@@ -113,7 +129,7 @@
           color: rgba(0, 0, 0, 0.664);
           margin: 0;
           padding: 0;
-          margin-top: 30px;
+          margin-top: 5px;
         }
       }
     }
@@ -193,13 +209,22 @@
     letter-spacing: 1.3px;
     font-size: 1.8em;
     margin-top: 30px;
+    margin-bottom: 0;
   }
 
-  p {
-    font-size: 1.1em;
+  .summaryWords {
+    font-size: 0.9em;
     color: rgba(255, 255, 255, 0.884);
-    padding: 0 25px 25px 25px;
+    padding: 0 20px 20px 20px;
     letter-spacing: 1.2px;
-    line-height: 30px;
+    line-height: 35px;
+  }
+
+  .summaryWordsLong {
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.884);
+    padding: 0 20px 20px 20px;
+    letter-spacing: 1.2px;
+    line-height: 25px;
   }
 }

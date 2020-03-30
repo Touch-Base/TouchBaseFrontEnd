@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 30%;
+    margin-left: 25px;
 
     // the top contact info
     .profileContact {
@@ -41,7 +41,7 @@
         margin-left: 15px;
         padding: 0;
 
-        .fa-at {
+        .fa-phone {
           margin-left: -2px;
         }
 
@@ -56,19 +56,9 @@
           margin: 0;
           text-align: left;
           margin-bottom: 8px;
+          letter-spacing: 1.2px;
           margin-left: 5px;
-          color: white;
-        }
-
-        .userEmail {
-          font-size: 0.8em;
-          letter-spacing: 1px;
           color: rgba(255, 255, 255, 0.904);
-        }
-
-        .userEmailLong {
-          font-size: 0.5em;
-          letter-spacing: 1px;
         }
 
         .userLocation {

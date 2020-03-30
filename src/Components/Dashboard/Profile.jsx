@@ -111,6 +111,7 @@ function Profile(props) {
             <h2 className="positionTitle">
               {props.position ? props.position.toUpperCase() : "(Add position)"}
             </h2>
+            <h3 className="userEmail">{props.email}</h3>
             <h3 className="creationDate">
               Creation Date: {date.toLocaleDateString()}
             </h3>
@@ -120,7 +121,11 @@ function Profile(props) {
 
       <div className="summaryBlock">
         <h1 className="summaryTitle">SUMMARY</h1>
-        <p>
+        <p
+          className={
+            props.summary.length < 170 ? "summaryWords" : "summaryWordsLong"
+          }
+        >
           {props.summary
             ? `"${props.summary}"`
             : '"Add a summary about yourself!"'}
