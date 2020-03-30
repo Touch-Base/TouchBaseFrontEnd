@@ -10,7 +10,7 @@ function JobTile(props) {
   /// THE MAIN JOB MODAL
 
   // this is the color of the tile
-  const [bgcolor, setColor] = useState(props.job.color || "rgb(186, 43, 214)");
+  const [bgcolor, setColor] = useState(props.job.color || "#35d3db");
 
   // this is to activate the job card modal
   const [clickedJob, setClickedJob] = useState(false);

@@ -28,19 +28,19 @@
     }
 
     #namecolumn {
-      margin-left: 300px;
+      margin-left: 310px;
     }
 
     #cnxcocolumn {
-      margin-left: 222px;
+      margin-left: 228px;
     }
 
     #titlecolumn {
-      margin-left: 137px;
+      margin-left: 133px;
     }
 
     #cnxphonecolumn {
-      margin-left: 100px;
+      margin-left: 97px;
       font-size: 0.8em;
     }
 
@@ -68,13 +68,13 @@
     width: 1000px;
     height: 50px;
     margin-top: 10px;
-    background-color: rgba(2, 45, 80, 0.952);
+    background-color: #141c39;
     box-shadow: 0 4px 3px -3px black;
     transition: 0.5s;
-    border-top: solid lightblue 5px;
-    border-bottom: solid lightblue 5px;
-    border-left: solid lightblue 3px;
-    border-right: solid lightblue 3px;
+    border-top: solid #35d3db 3px;
+    border-bottom: solid #35d3db 3px;
+    border-left: solid #35d3db 3px;
+    border-right: solid #35d3db 3px;
 
     // notes pop up for row
     p {
@@ -100,11 +100,12 @@
 
     #cnxname {
       display: flex;
-      color: lightblue;
+      color: #35d3db;
       letter-spacing: 1.2px;
+      padding-bottom: 5px;
       width: 330px;
       font-size: 1.6em;
-      border-right: solid lightblue 3px;
+      border-right: solid #35d3db 3px;
       height: 100%;
       align-items: center;
       justify-content: center;
@@ -113,11 +114,11 @@
 
     #cnxcompany {
       display: flex;
-      color: lightblue;
+      color: #35d3db;
       letter-spacing: 1.2px;
       width: 200px;
       font-size: 1em;
-      border-right: solid lightblue 3px;
+      border-right: solid #35d3db 3px;
       height: 100%;
       align-items: center;
       justify-content: center;
@@ -126,11 +127,11 @@
 
     #cnxtitle {
       display: flex;
-      color: lightblue;
+      color: #35d3db;
       letter-spacing: 1.2px;
       width: 150px;
       font-size: 0.8em;
-      border-right: solid lightblue 3px;
+      border-right: solid #35d3db 3px;
       height: 100%;
       align-items: center;
       justify-content: center;
@@ -139,11 +140,11 @@
 
     #cnxphone {
       display: flex;
-      color: lightblue;
+      color: #35d3db;
       letter-spacing: 1.2px;
       width: 95px;
       font-size: 0.7em;
-      border-right: solid lightblue 3px;
+      border-right: solid #35d3db 3px;
       height: 100%;
       align-items: center;
       justify-content: center;
@@ -165,7 +166,7 @@
 
       i {
         font-size: 1.8em;
-        color: lightblue;
+        color: #35d3db;
         transition: 0.5s;
       }
     }
@@ -184,7 +185,7 @@
 
       i {
         font-size: 1.5em;
-        color: lightblue;
+        color: #35d3db;
         transition: 0.5s;
       }
     }
@@ -204,7 +205,7 @@
 
       i {
         font-size: 1.7em;
-        color: lightblue;
+        color: #35d3db;
         transition: 0.5s;
       }
     }
@@ -220,7 +221,7 @@
 
   .connectionRow:hover {
     transition: 0.5s;
-    background-color: rgb(12, 84, 143);
+    background-color: #0d2477;
     cursor: pointer;
   }
 }

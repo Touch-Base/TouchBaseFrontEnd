@@ -30,7 +30,7 @@ function Jobs(props) {
         backgroundColor: "rgb(0, 162, 255)"
       },
       opacity: 1,
-      backgroundColor: "rgb(217, 136, 255)"
+      backgroundColor: "#35d3dbc2"
     },
     switchBase: {
       color: "black"
@@ -42,7 +42,7 @@ function Jobs(props) {
       "&.Mui-checked": {
         color: "rgb(0, 162, 255)"
       },
-      color: "rgb(199, 82, 253)"
+      color: "#35d3db"
     }
   }));
 

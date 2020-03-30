@@ -24,7 +24,7 @@
   border-radius: 5px;
   width: 335px;
   height: 200px;
-  background-color: rgb(0, 95, 139);
+  background-color: #141c39;
   align-items: center;
   font-family: "Oswald", sans-serif;
   box-shadow: 0 8px 6px -6px black;
@@ -36,7 +36,7 @@
     flex-wrap: wrap;
     font-size: 1em;
     text-align: left;
-    color: rgb(0, 23, 65);
+    color: #35d3db;
     letter-spacing: 1.5px;
     background: white;
     padding: 8px;
@@ -52,10 +52,10 @@
   h1 {
     margin-top: 20px;
     font-size: 1.2em;
-    color: lightblue;
+    color: #35d3db;
     letter-spacing: 1.3px;
-    border-top: solid 2px lightblue;
-    border-bottom: solid 2px lightblue;
+    border-top: solid 2px #35d3db;
+    border-bottom: solid 2px #35d3db;
     padding: 10px 0;
     width: 85%;
     transition: 0.5s;
@@ -64,7 +64,7 @@
 
   h5 {
     margin: 0;
-    color: lightblue;
+    color: #35d3db;
     letter-spacing: 1.7px;
     font-size: 0.9em;
     font-weight: normal;
@@ -72,7 +72,7 @@
 
   h4 {
     margin: 0;
-    color: lightblue;
+    color: #35d3db;
     letter-spacing: 1.7px;
     font-size: 0.7em;
     font-weight: normal;
@@ -87,7 +87,7 @@
     left: 20px;
 
     h3 {
-      color: rgba(255, 255, 255, 0.815);
+      color: #35d3db;
       text-align: left;
     }
 
@@ -98,14 +98,14 @@
       align-items: center;
 
       i {
-        color: rgba(255, 255, 255, 0.767);
+        color: #35d3dbc9;
         font-size: 1em;
         margin-bottom: 7px;
       }
     }
 
     .divider {
-      border: solid rgba(255, 255, 255, 0.561) 1px;
+      border: solid #7be1e671 1px;
       height: 30px;
       margin-left: 16px;
     }
@@ -135,8 +135,10 @@
 }
 
 .connectionCard:hover {
-  background-color: rgb(12, 84, 143);
+  background-color: rgb(18, 30, 73);
   transition: 1s;
+  box-shadow: 0 14px 10px -10px black;
+  transform: translateY(-2%);
   cursor: pointer;
 
   h1 {
@@ -167,7 +169,7 @@
 
   i {
     font-size: 1.2em;
-    color: rgb(149, 219, 252);
+    color: #76dee4;
     transition: 0.5s;
   }
 }
@@ -176,7 +178,7 @@
   cursor: pointer;
 
   i {
-    color: rgba(255, 255, 255, 0.698);
+    color: #9dcacc;
     transition: 0.5s;
   }
 }
@@ -194,7 +196,7 @@
   display: block;
   top: 80%;
   right: 20px;
-  background: rgba(86, 245, 86, 0.911);
+  background: #35d3db;
   border: solid white 2px;
   border-radius: 500px;
   width: 100px;
@@ -207,6 +209,11 @@
     color: white;
     font-size: 5em;
   }
+}
+
+.addCnxButton:hover {
+  background: #35d3dbbd;
+  transition: 0.5s;
 }
 
 .exOutCnx {
@@ -241,7 +248,7 @@
   background: none;
 
   i {
-    color: #c1faf7;
+    color: #8decf1;
     font-size: 3em;
     transition: 0.5s;
   }
@@ -255,7 +262,7 @@
 }
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: rgb(0, 162, 255) !important;
+  background-color: #35d3db !important;
 }
 
 // backdrop the for the full networking form

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 function JobCard(props) {
   const [visible, setVisibility] = useState(false);
-  const [bgcolor, setColor] = useState(props.job.color || "rgb(186, 43, 214)");
+  const [bgcolor, setColor] = useState(props.job.color || "#35d3db");
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
   const [clickedJob, setClickedJob] = useState(false);

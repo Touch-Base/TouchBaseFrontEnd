@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
 .landing {
   background: #141c39;
   height: 100vh;

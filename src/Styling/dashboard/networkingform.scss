@@ -1,6 +1,6 @@
 #addConnection {
   height: 470px;
-  background: rgba(0, 72, 139, 0.904);
+  background: #141c39d8;
 
   h3 {
     font-family: "Oswald", sans-serif;
@@ -12,7 +12,7 @@
     font-family: "Oswald", sans-serif;
     letter-spacing: 1px;
     color: white;
-    background-color: rgba(44, 236, 76, 0.836);
+    background-color: #35d3db;
     font-size: 1.5em;
     border: none;
     margin-top: 20px;
@@ -32,7 +32,7 @@
   width: 600px;
   height: 550px;
   margin: 0 auto;
-  background: rgba(42, 99, 146, 0.911);
+  background: #141c39d8;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
     font-family: "Oswald", sans-serif;
     letter-spacing: 1px;
     color: white;
-    background-color: rgb(52, 159, 247);
+    background-color: #35d3db;
     font-size: 1.3em;
     border: none;
     margin: 10px;
@@ -162,6 +162,7 @@
       width: 100%;
       border: none;
       border-radius: 3px;
+      margin-left: 8px;
       resize: none;
       height: 70px;
       padding: 5px;

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 function JobRow(props) {
   const [visible, setVisibility] = useState(false);
-  const [bgcolor, setColor] = useState(props.job.color || "rgb(186, 43, 214)");
+  const [bgcolor, setColor] = useState(props.job.color || "#35d3db");
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
 
@@ -72,7 +72,7 @@ function JobRow(props) {
     position: "absolute",
     zIndex: "2",
     top: "50px",
-    right: "3px"
+    right: "25px"
   };
   const cover = {
     position: "fixed",

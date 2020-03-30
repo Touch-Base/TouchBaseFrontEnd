@@ -142,7 +142,9 @@ function Profile(props) {
           </p>
         </div>
         <Modal visible={visibleProfile}>
-          <ProfileForm initialValues={initialValues} />
+          <div className="grayedBackdrop">
+            <ProfileForm initialValues={initialValues} />
+          </div>
         </Modal>
         <button
           className={visibleProfile ? "exOut" : "updateProfile"}

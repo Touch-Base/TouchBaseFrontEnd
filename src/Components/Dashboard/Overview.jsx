@@ -14,10 +14,6 @@ function Overview(props) {
 
   return (
     <div className="overviewPage">
-      <h1>
-        <div className="hideH1">Welcome {props.firstname}!</div>
-      </h1>
-
       <div className="overviewBlocks">
         <Profile />
         <div className="countAndInfo">

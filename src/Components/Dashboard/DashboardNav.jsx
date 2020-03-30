@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../Styling/dashboard/dashboardnav.scss";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import navLogo from "../../img/touchbasewhite.png";
 
@@ -11,7 +11,7 @@ function DashboardNav(props) {
   // adds a 2 second delay to signing out
   const signOut = () => {
     window.localStorage.clear();
-    setTimeout(() => props.history.push("/"), 1000);
+    setTimeout(() => props.props.history.push("/"), 1000);
   };
 
   // checks for active link

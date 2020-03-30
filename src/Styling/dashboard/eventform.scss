@@ -1,6 +1,6 @@
 #addEvent {
   height: 450px;
-  background: rgba(0, 72, 139, 0.904);
+  background: #141c39d8;
   width: 400px;
 
   h3 {
@@ -13,7 +13,7 @@
     font-family: "Oswald", sans-serif;
     letter-spacing: 1px;
     color: white;
-    background-color: rgba(44, 236, 76, 0.836);
+    background-color: #35d3db;
     font-size: 1.5em;
     border: none;
     margin-top: 20px;
@@ -23,7 +23,7 @@
   }
 
   .evtAdd:hover {
-    background-color: rgba(119, 238, 145, 0.918);
+    background-color: #35d3dba2;
     transition: 0.25s;
   }
 }
@@ -33,7 +33,7 @@
   width: 400px;
   height: 450px;
   margin: 0 auto;
-  background: rgba(0, 72, 139, 0.904);
+  background: #141c39d8;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
     font-family: "Oswald", sans-serif;
     letter-spacing: 1px;
     color: white;
-    background-color: rgb(52, 159, 247);
+    background-color: #35d3db;
     font-size: 1.3em;
     border: none;
     margin-top: 0;
@@ -57,7 +57,7 @@
   }
 
   .updateEvtButton:hover {
-    background-color: rgba(119, 167, 238, 0.918);
+    background-color: #35d3dba2;
     transition: 0.25s;
   }
 
@@ -110,7 +110,7 @@
       border-radius: 3px;
       border: none;
       transition: 0.5s;
-      border: solid white 3px;
+      border: #35d3dba2 solid 2px;
       resize: none;
     }
 
@@ -143,7 +143,7 @@
       border-radius: 3px;
       border: none;
       transition: 0.5s;
-      border: solid white 3px;
+      border: #35d3dba2 solid 2px;
     }
 
     input:hover {

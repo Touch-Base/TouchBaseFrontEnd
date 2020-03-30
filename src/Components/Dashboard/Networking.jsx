@@ -33,7 +33,6 @@ function Networking(props) {
     notes: ""
   };
 
-  // styling for the switch
   // material ui theme
   const useStyles = makeStyles(theme => ({
     track: {
@@ -41,7 +40,7 @@ function Networking(props) {
         backgroundColor: "rgb(0, 162, 255)"
       },
       opacity: 1,
-      backgroundColor: "rgb(217, 136, 255)"
+      backgroundColor: "#35d3dbc2"
     },
     switchBase: {
       color: "black"
@@ -53,7 +52,7 @@ function Networking(props) {
       "&.Mui-checked": {
         color: "rgb(0, 162, 255)"
       },
-      color: "rgb(199, 82, 253)"
+      color: "#35d3db"
     }
   }));
 
