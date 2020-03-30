@@ -20,7 +20,7 @@ function ProtectedRoutes({ path }) {
 
   if (!token) {
     console.log("no token");
-    return <Redirect to="/" noThrow />;
+    return <Redirect to={{ pathname: "/login", error: true }} />;
   } else {
     return <Route path={path} component={Dashboard} />;
   }

@@ -136,7 +136,8 @@ function Profile(props) {
           <ProfileForm initialValues={initialValues} />
         </div>
       </Modal>
-      <ErrorPopUp error={props.error ? true : false} />
+      {/* this is an error pop up for updating a user, can be refactored */}
+      {/* <ErrorPopUp error={props.error ? true : false} /> */}
       <button
         className={visibleProfile ? "exOut" : "updateProfile"}
         onClick={showProfileForm}

@@ -12,6 +12,7 @@ import * as Yup from "yup";
 import "../../Styling/login.scss";
 import { motion } from "framer-motion";
 import Loader from "../Dashboard/Loader";
+import IncorrectLogin from "../../helpers/IncorrectLogin";
 
 function Login(props) {
   /// loader state
@@ -27,7 +28,7 @@ function Login(props) {
       .max(30, "Must be shorter than 30")
       .required("Must enter an email"),
     password: Yup.string()
-      .min(8, "Password must be 8 characters or longer")
+      .min(1, "Must enter a password")
       .required("Password is required")
   });
 
@@ -120,6 +121,7 @@ function Login(props) {
           </form>
         )}
       </Formik>
+      <IncorrectLogin error={props.location.error} />
     </motion.div>
   );
 }

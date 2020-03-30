@@ -88,6 +88,9 @@ export const FAILED_DELETE_EVENT = "FAILED_DELETE_EVENT";
 // REMOVE ERROR
 export const REMOVE_ERROR = "REMOVE_ERROR";
 
+// RESET STATE ON LOGOUT
+export const RESET_STATE = "RESET_STATE";
+
 /// THIS ACTION REGISTERS A USER
 
 export function registerUser(payload) {
@@ -500,5 +503,12 @@ export function fillStateEvents() {
 export function removeError() {
   return dispatch => {
     dispatch({ type: REMOVE_ERROR });
+  };
+}
+
+// resets the state on logout
+export function logOutState() {
+  return dispatch => {
+    dispatch({ type: RESET_STATE });
   };
 }

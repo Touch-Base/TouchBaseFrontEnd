@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../../Styling/dashboard/dashboardnav.scss";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { logOutState } from "../../actions/index";
 import navLogo from "../../img/touchbasewhite.png";
 
 function DashboardNav(props) {
@@ -12,6 +13,7 @@ function DashboardNav(props) {
   const signOut = () => {
     window.localStorage.clear();
     setTimeout(() => props.props.history.push("/"), 1000);
+    setTimeout(() => props.logOutState(), 1001);
   };
 
   // checks for active link
@@ -58,4 +60,8 @@ function DashboardNav(props) {
   );
 }
 
-export default DashboardNav;
+const mapDispatchToProps = {
+  logOutState: logOutState
+};
+
+export default connect(null, mapDispatchToProps)(DashboardNav);

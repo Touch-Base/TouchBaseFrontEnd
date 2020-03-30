@@ -54,7 +54,10 @@ import {
   FAILED_FILLED_EVENTS,
 
   ///////////
-  REMOVE_ERROR
+  REMOVE_ERROR,
+
+  ///////////
+  RESET_STATE
 } from "../actions/index";
 
 let initialState = {
@@ -518,6 +521,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: null
       };
+    }
+
+    case RESET_STATE: {
+      return { state: initialState };
     }
 
     default: {
