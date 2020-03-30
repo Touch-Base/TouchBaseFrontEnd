@@ -24,10 +24,7 @@ function ProfileForm(props) {
       .min(1, "Must have a character")
       .max(12, "Must be shorter than 12")
       .required("Must enter a last name"),
-    email: Yup.string()
-      .email("Must be a valid email address")
-      .max(30, "Must be shorter than 30")
-      .required("Must enter an email"),
+    phone: Yup.string().max(11, "Must be shorter than 11"),
     location: Yup.string()
       .max(20, "Must be shorter than 20")
       .nullable(),
@@ -73,13 +70,13 @@ function ProfileForm(props) {
           props
             .updateUser(
               {
-                firstname: firstname,
-                lastname: lastname,
-                age: age,
-                location: location,
-                summary: summary,
-                position: position,
-                phone: phone
+                firstname: firstname || null,
+                lastname: lastname || null,
+                age: age || null,
+                location: location || null,
+                summary: summary || null,
+                position: position || null,
+                phone: phone || null
               },
               headers
             )
@@ -153,10 +150,10 @@ function ProfileForm(props) {
                   placeholder={props.phone || "Phone"}
                   name="phone"
                   onChange={handleChange}
-                  value={values.email}
+                  value={values.phone}
                   onBlur={handleBlur}
                   className={
-                    touched.email && errors.email ? "hasError" : "validInput"
+                    touched.phone && errors.phone ? "hasError" : "validInput"
                   }
                 />
                 <Error touched={touched.phone} message={errors.phone} />

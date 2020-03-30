@@ -69,6 +69,7 @@ let initialState = {
     position: "",
     profilepic: "",
     phone: "",
+    creationDate: "",
     jobs: [],
     connections: [],
     events: [],
@@ -79,7 +80,7 @@ let initialState = {
   error: null
 };
 
-// // /* persistent storage */
+// // // /* persistent storage */
 
 const persistedState = localStorage.getItem("reduxState");
 
@@ -107,6 +108,7 @@ const reducer = (state = initialState, action) => {
           firstname: action.payload.user.firstname,
           lastname: action.payload.user.lastname,
           email: action.payload.user.email,
+          creationDate: action.payload.user.creationDate,
           password: action.payload.user.password
         },
         token: action.payload.token
@@ -141,6 +143,8 @@ const reducer = (state = initialState, action) => {
           location: action.payload.user.location,
           position: action.payload.user.position,
           summary: action.payload.user.summary,
+          phone: action.payload.user.phone,
+          creationDate: action.payload.user.creationDate,
           profilepic: action.payload.user.profilepic
         },
         token: action.payload.token
@@ -169,10 +173,9 @@ const reducer = (state = initialState, action) => {
           ...state.user,
           firstname: action.payload.user.firstname,
           lastname: action.payload.user.lastname,
-          email: action.payload.user.email,
-          password: action.payload.user.password,
           age: action.payload.user.age,
           location: action.payload.user.location,
+          phone: action.payload.user.phone,
           position: action.payload.user.position,
           summary: action.payload.user.summary,
           profilepic: action.payload.user.profilepic

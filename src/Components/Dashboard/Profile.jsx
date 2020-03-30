@@ -23,6 +23,9 @@ function Profile(props) {
   // loading image
   const [loading, setLoading] = useState(false);
 
+  // new date
+  let date = new Date(props.creationDate);
+
   // this is the function for form visibility
   const showProfileForm = event => {
     event.preventDefault();
@@ -108,6 +111,9 @@ function Profile(props) {
             <h2 className="positionTitle">
               {props.position ? props.position.toUpperCase() : "(Add position)"}
             </h2>
+            <h3 className="creationDate">
+              Creation Date: {date.toLocaleDateString()}
+            </h3>
           </div>
         </div>
       </div>
@@ -155,6 +161,7 @@ const mapStateToProps = state => {
     summary: state.user.summary,
     profilepic: state.user.profilepic,
     user: state.user,
+    creationDate: state.user.creationDate,
     error: state.error
   };
 };
