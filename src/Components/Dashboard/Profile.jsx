@@ -136,7 +136,9 @@ function Profile(props) {
           <h1 className="summaryTitle">SUMMARY</h1>
           <p
             className={
-              props.summary.length < 170 ? "summaryWords" : "summaryWordsLong"
+              props.summary && props.summary.length < 170
+                ? "summaryWords"
+                : "summaryWordsLong"
             }
           >
             {props.summary

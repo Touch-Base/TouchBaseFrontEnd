@@ -134,7 +134,7 @@ function EventForm(props) {
               placeholder="Date"
               name="date"
               onChange={handleChange}
-              value={values.date}
+              value={values.date.slice(0, 16)}
               onBlur={handleBlur}
               className={
                 touched.date && errors.date ? "hasError" : "validInput"
