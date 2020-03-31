@@ -237,7 +237,9 @@ function Jobs(props) {
         >
           <i className={visibleAdd ? "fas fa-times" : "fas fa-plus"}></i>
         </button>
-        {props.jobs.length < 1 ? <h1>Add a job you applied to!</h1> : null}
+        {props.jobs.length < 1 ? (
+          <h1 className="emptyPageHeader">Add a job you applied to!</h1>
+        ) : null}
         <div className="jobsBlocks">
           {searchValue === ""
             ? props.jobs.map(job => {

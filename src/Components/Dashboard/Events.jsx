@@ -59,7 +59,9 @@ function Events(props) {
         onChange={searchChange}
         value={searchValue}
       />
-      {props.events.length < 1 ? <h1>Add an event!</h1> : null}
+      {props.events.length < 1 ? (
+        <h1 className="emptyPageHeader">Add an event!</h1>
+      ) : null}
       <div className="eventsBlocks">
         {searchValue === ""
           ? props.events.map(evt => {

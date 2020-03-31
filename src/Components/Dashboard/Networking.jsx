@@ -191,7 +191,7 @@ function Networking(props) {
           />
         </div>
         {props.connections.length < 1 ? (
-          <h1>Add a connection you made!</h1>
+          <h1 className="emptyPageHeader">Add a connection you made!</h1>
         ) : null}
         <div className="networkingBlocks">
           {searchValue === ""

@@ -18,7 +18,7 @@ function Overview(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.3
+        staggerChildren: 0.5
       }
     },
     hidden: {
@@ -27,6 +27,12 @@ function Overview(props) {
         when: "afterChildren"
       }
     }
+  };
+
+  // variants for child animations on right side
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: "75px" }
   };
 
   return (
@@ -42,7 +48,11 @@ function Overview(props) {
 
         {/* this block is the right side of the overview */}
         <div className="countAndInfo">
-          <div className="profileContact">
+          <motion.div
+            variants={item}
+            transition={{ ease: "easeIn" }}
+            className="profileContact"
+          >
             <div className="profileContactSec">
               <i className="fas fa-map-marker-alt"></i>
               <h5 className="userLocation">
@@ -62,8 +72,12 @@ function Overview(props) {
                 {props.phone ? props.phone : "(Add phone)"}
               </h5>
             </div>
-          </div>
-          <div className="jobsAndConnections">
+          </motion.div>
+          <motion.div
+            variants={item}
+            transition={{ ease: "easeIn" }}
+            className="jobsAndConnections"
+          >
             {/* jobs applied block */}
             <div className="count">
               <i className="fas fa-hammer"></i>
@@ -81,11 +95,16 @@ function Overview(props) {
                 <h2 className="number">{props.connectionsTotal}</h2>
               </div>
             </div>
-          </div>
-          <button onClick={goToJobs} className="homeAddJob">
+          </motion.div>
+          <motion.button
+            variants={item}
+            transition={{ ease: "easeIn" }}
+            onClick={goToJobs}
+            className="homeAddJob"
+          >
             <h2>ADD A JOB</h2>
             <i className="fas fa-arrow-right"></i>
-          </button>
+          </motion.button>
         </div>
       </div>
     </motion.div>

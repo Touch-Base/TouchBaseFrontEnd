@@ -29,7 +29,7 @@ function ProfileForm(props) {
       .max(20, "Must be shorter than 20")
       .nullable(),
     position: Yup.string()
-      .max(180, "Must be shorter than 18")
+      .max(15, "Must be shorter than 15")
       .nullable(),
     age: Yup.string()
       .max(2, "Must be 2 digits")

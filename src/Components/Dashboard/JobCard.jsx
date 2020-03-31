@@ -74,7 +74,6 @@ function JobCard(props) {
   // this is the positioning for the color picker
   const popover = {
     position: "absolute",
-    zIndex: "2",
     top: "200px",
     opacity: 1,
     transition: "opacity 0.5s",
@@ -83,7 +82,6 @@ function JobCard(props) {
 
   const popoverhide = {
     position: "absolute",
-    zIndex: "2",
     top: "200px",
     opacity: 0,
     transition: "opacity 0.5s",
@@ -96,12 +94,6 @@ function JobCard(props) {
     right: "0px",
     bottom: "0px",
     left: "0px"
-  };
-
-  // variants for card animation
-  const item = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
   };
 
   return (

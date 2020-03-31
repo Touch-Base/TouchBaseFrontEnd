@@ -86,58 +86,72 @@ function Profile(props) {
       });
   };
 
+  // variants for animation
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: "-25px" }
+  };
+
   return (
-    <div className="profilePage">
-      <Loader loading={loading} />
-      <div className="profileBlock">
-        <div className="imageAndInfo">
-          <div className="image-upload">
-            <label for="file-input">
-              <img src={image} />
-            </label>
-            <input
-              id="file-input"
-              onChange={imgUploadHandler}
-              className="uploadImage"
-              hell
-              type="file"
-            />
-          </div>
+    <>
+      <motion.div
+        variants={item}
+        transition={{ ease: "easeIn" }}
+        className="profilePage"
+      >
+        <Loader loading={loading} />
+        <div className="profileBlock">
+          <div className="imageAndInfo">
+            <div className="image-upload">
+              <label for="file-input">
+                <img src={image} />
+              </label>
+              <input
+                id="file-input"
+                onChange={imgUploadHandler}
+                className="uploadImage"
+                hell
+                type="file"
+              />
+            </div>
 
-          <div className="namePosition">
-            <h2 className="fullName">
-              {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
-            </h2>
-            <h2 className="positionTitle">
-              {props.position ? props.position.toUpperCase() : "(Add position)"}
-            </h2>
-            <h3 className="userEmail">{props.email}</h3>
-            <h3 className="creationDate">
-              Creation Date: {date.toLocaleDateString()}
-            </h3>
+            <div className="namePosition">
+              <h2 className="fullName">
+                {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
+              </h2>
+              <h2 className="positionTitle">
+                {props.position
+                  ? props.position.toUpperCase()
+                  : "(Add position)"}
+              </h2>
+              <h3 className="userEmail">{props.email}</h3>
+              <h3 className="creationDate">
+                Creation Date: {date.toLocaleDateString()}
+              </h3>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="summaryBlock">
-        <h1 className="summaryTitle">SUMMARY</h1>
-        <p
-          className={
-            props.summary.length < 170 ? "summaryWords" : "summaryWordsLong"
-          }
-        >
-          {props.summary
-            ? `"${props.summary}"`
-            : '"Add a summary about yourself!"'}
-        </p>
-      </div>
-      <Modal visible={visibleProfile}>
-        <div className="grayedBackdrop">
-          <ProfileForm initialValues={initialValues} />
+        <div className="summaryBlock">
+          <h1 className="summaryTitle">SUMMARY</h1>
+          <p
+            className={
+              props.summary.length < 170 ? "summaryWords" : "summaryWordsLong"
+            }
+          >
+            {props.summary
+              ? `"${props.summary}"`
+              : '"Add a summary about yourself!"'}
+          </p>
         </div>
-      </Modal>
-      {/* this is an error pop up for updating a user, can be refactored */}
-      {/* <ErrorPopUp error={props.error ? true : false} /> */}
+        <Modal visible={visibleProfile}>
+          <div className="grayedBackdrop">
+            <ProfileForm initialValues={initialValues} />
+          </div>
+        </Modal>
+        {/* this is an error pop up for updating a user, can be refactored */}
+        {/* <ErrorPopUp error={props.error ? true : false} /> */}
+      </motion.div>
       <button
         className={visibleProfile ? "exOut" : "updateProfile"}
         onClick={showProfileForm}
@@ -146,7 +160,7 @@ function Profile(props) {
           className={visibleProfile ? "fas fa-times" : "fas fa-pencil-alt"}
         ></i>
       </button>
-    </div>
+    </>
   );
 }
 
