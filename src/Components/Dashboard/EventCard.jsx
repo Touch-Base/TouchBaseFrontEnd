@@ -3,6 +3,7 @@ import "../../Styling/dashboard/events.scss";
 import "../../Styling/dashboard/eventform.scss";
 import Modal from "./Modal";
 import EventForm from "./EventForm";
+import { motion } from "framer-motion";
 
 function Event(props) {
   /// we have to use 'evt' for the props event variable because it will confuse with
@@ -71,8 +72,18 @@ function Event(props) {
     left: "0px"
   };
 
+  // variants for card animation
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -25 }
+  };
+
   return (
-    <div className="eventCard">
+    <motion.div
+      variants={item}
+      transition={{ ease: "easeIn" }}
+      className="eventCard"
+    >
       <h1>{props.evt.name.toUpperCase()}</h1>
       <div className="evtRows">
         <div className="evtRow">
@@ -81,7 +92,7 @@ function Event(props) {
         </div>
         <div className="evtRow">
           <i className="far fa-calendar-alt"></i>
-          <h4>{props.evt.date.toUpperCase()}</h4>
+          <h4>{props.evt.date}</h4>
         </div>
         <div className="descEvtRow">
           <button className="editEvt" onClick={showForm}>
@@ -123,7 +134,7 @@ function Event(props) {
           </div>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }
 

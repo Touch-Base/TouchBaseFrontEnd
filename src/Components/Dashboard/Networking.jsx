@@ -59,6 +59,23 @@ function Networking(props) {
   const classes = useStyles();
   const theme = useTheme();
 
+  // variants for animation
+  const parentList = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  };
+
   // this function sets the visibility for the add form
   const showAddCnx = event => {
     event.preventDefault();
@@ -96,7 +113,13 @@ function Networking(props) {
   }
   if (table) {
     return (
-      <div className="networkingPage">
+      <motion.div
+        variants={parentList}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="networkingPage"
+      >
         <div className="switchAndSearch">
           <div className="switch">
             <h4 className="switchName">Layout</h4>
@@ -163,11 +186,17 @@ function Networking(props) {
             </div>
           </div>
         </Modal>
-      </div>
+      </motion.div>
     );
   } else {
     return (
-      <div className="networkingPage">
+      <motion.div
+        variants={parentList}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        className="networkingPage"
+      >
         <div className="switchAndSearch">
           <div className="switch">
             <h4 className="switchName">Layout</h4>
@@ -226,7 +255,7 @@ function Networking(props) {
             </div>
           </div>
         </Modal>
-      </div>
+      </motion.div>
     );
   }
 }

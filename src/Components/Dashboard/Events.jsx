@@ -51,8 +51,31 @@ function Events(props) {
 
   // using 'evt' as the variable to avoid javascript confusion
 
+  // variants for animation
+  const parentList = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3
+      }
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren"
+      }
+    }
+  };
+
   return (
-    <div className="eventsPage">
+    <motion.div
+      variants={parentList}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className="eventsPage"
+    >
       <input
         type="text"
         placeholder="Search by event name"
@@ -86,7 +109,7 @@ function Events(props) {
           </div>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }
 

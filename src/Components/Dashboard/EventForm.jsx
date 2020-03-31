@@ -23,8 +23,8 @@ function EventForm(props) {
       .required("Must enter a location"),
     date: Yup.string()
       .min(1, "Must have a character")
-      .max(15, "Must be shorter than 15")
-      .required("Must enter a date"),
+      .max(22, "Must be shorter than 22")
+      .required("Must enter a date and time"),
     description: Yup.string().max(400, "Must be under 400 characters.")
   });
 
@@ -57,6 +57,7 @@ function EventForm(props) {
             .addEvent(addPayload)
             .then(() => {
               console.log(addPayload);
+              console.log("This is the date value", values.date);
               console.log("added event!");
             })
             .catch(err => {
@@ -67,6 +68,7 @@ function EventForm(props) {
             .editEvent(editPayload)
             .then(() => {
               console.log("edited event!");
+              console.log("This is the date value", values.date);
             })
             .catch(err => {
               console.error("Here", err);
@@ -125,9 +127,9 @@ function EventForm(props) {
           {/* DATE INPUT */}
           <div className="eventInput">
             <input
-              type="date"
+              type="datetime-local"
               data-date=""
-              data-date-format="DD MMMM YYYY"
+              data-date-format="DD MMMM YYYY hh:mm"
               id="date"
               placeholder="Date"
               name="date"

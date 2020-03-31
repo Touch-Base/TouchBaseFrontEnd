@@ -84,8 +84,8 @@ function Connection(props) {
   return (
     <motion.div
       variants={item}
-      className="connectionCard"
       transition={{ ease: "easeIn" }}
+      className="connectionCard"
     >
       <h1>
         {props.connection.firstname.toUpperCase()}{" "}

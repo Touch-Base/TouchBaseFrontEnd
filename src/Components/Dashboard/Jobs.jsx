@@ -98,7 +98,7 @@ function Jobs(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.3
+        staggerChildren: 0.2
       }
     },
     hidden: {
