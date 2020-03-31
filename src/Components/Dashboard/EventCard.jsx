@@ -78,6 +78,10 @@ function Event(props) {
     hidden: { opacity: 0, x: -25 }
   };
 
+  // new date
+  let date = new Date(props.evt.date);
+  date.setSeconds(null);
+
   return (
     <motion.div
       variants={item}
@@ -92,7 +96,17 @@ function Event(props) {
         </div>
         <div className="evtRow">
           <i className="far fa-calendar-alt"></i>
-          <h4>{props.evt.date}</h4>
+          <h4 className="eventDate">
+            {date
+              .toLocaleString(navigator.language, {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+              })
+              .toUpperCase()}
+          </h4>
         </div>
         <div className="descEvtRow">
           <button className="editEvt" onClick={showForm}>
