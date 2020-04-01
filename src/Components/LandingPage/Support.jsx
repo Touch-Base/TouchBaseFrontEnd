@@ -12,6 +12,8 @@ function Support() {
     setMessage({ ...message, [event.target.name]: event.target.value });
   };
 
+  /// using basic jquery so it's easier to track the css and separate this information
+
   const sendMessage = event => {
     event.preventDefault();
 
