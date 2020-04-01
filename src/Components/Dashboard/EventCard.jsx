@@ -80,7 +80,6 @@ function Event(props) {
 
   // new date
   let date = new Date(props.evt.date);
-  date.setSeconds(null);
 
   return (
     <motion.div

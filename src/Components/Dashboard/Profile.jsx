@@ -9,7 +9,6 @@ import { updateUser } from "../../actions/index";
 import defaultPic from "../../img/profileplaceholder.png";
 import Loader from "../Dashboard/Loader";
 import { motion } from "framer-motion";
-import ErrorPopUp from "../../helpers/ErrorPopup";
 
 function Profile(props) {
   // this sets the visibility for the updating profile form
@@ -17,7 +16,7 @@ function Profile(props) {
 
   // current image hook
   const [image, setImage] = useState(
-    props.profilepic == "" || false ? defaultPic : props.profilepic
+    props.profilepic === "" || false ? defaultPic : props.profilepic
   );
 
   // loading image
@@ -104,7 +103,7 @@ function Profile(props) {
           <div className="imageAndInfo">
             <div className="image-upload">
               <label for="file-input">
-                <img src={image} />
+                <img src={image} alt="profile" />
               </label>
               <input
                 id="file-input"

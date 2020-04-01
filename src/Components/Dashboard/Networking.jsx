@@ -8,7 +8,7 @@ import NetworkingCard from "./NetworkingCard";
 import NetworkingRow from "./NetworkingRow";
 import Modal from "./Modal";
 import { Switch } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
 
 function Networking(props) {
@@ -57,7 +57,6 @@ function Networking(props) {
   }));
 
   const classes = useStyles();
-  const theme = useTheme();
 
   // variants for animation
   const parentList = {
@@ -108,9 +107,8 @@ function Networking(props) {
     cnx.lastname.toUpperCase().includes(searchValue.toUpperCase())
   );
 
-  {
-    /*this checks to see how the jobs should be displayed */
-  }
+  /*this returns however the connections should be displayed*/
+
   if (table) {
     return (
       <motion.div

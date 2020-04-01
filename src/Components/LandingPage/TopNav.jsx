@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../Styling/topnav.scss";
 import navLogo from "../../img/touchbase3.png";
 
 function TopNav(props) {
   if (props.uri === "/dashboard") {
-    return <div>WOAH WOAH OWAH</div>;
+    return <div></div>;
   } else {
     return (
       <div className="topBar">

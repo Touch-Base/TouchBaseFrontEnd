@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../Styling/dashboard/jobs.scss";
 import { connect } from "react-redux";
 import { editJob } from "../../actions/index";
@@ -10,14 +10,10 @@ function JobTile(props) {
   /// THE MAIN JOB MODAL
 
   // this is the color of the tile
-  const [bgcolor, setColor] = useState(props.job.color || "#35d3db");
+  const [bgcolor] = useState(props.job.color || "#35d3db");
 
   // this is to activate the job card modal
   const [clickedJob, setClickedJob] = useState(false);
-
-  useEffect(() => {
-    // checks to see if the job was updated
-  }, clickedJob);
 
   // closes child card component only if it's already open
   const closeCard = () => {

@@ -2,7 +2,7 @@ import React from "react";
 import "../../Styling/home.scss";
 import logo from "../../img/touchbasewhite.png";
 import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 function Home() {
   return (

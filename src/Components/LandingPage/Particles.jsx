@@ -5,8 +5,6 @@ class Canvas extends Component {
   state = { width: window.innerWidth, height: window.innerHeight };
 
   render() {
-    const { width, height } = this.state;
-
     return (
       <Particles
         {...this.state}

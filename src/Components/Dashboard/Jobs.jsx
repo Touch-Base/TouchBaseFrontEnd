@@ -7,7 +7,7 @@ import JobRow from "./JobRow";
 import { deleteJob } from "../../actions/index";
 import Modal from "./Modal";
 import { Switch } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
 import moment from "moment";
 
@@ -48,7 +48,6 @@ function Jobs(props) {
   }));
 
   const classes = useStyles();
-  const theme = useTheme();
 
   // this sets the visibility for the job form modal
   const [visibleAdd, setVisibility] = useState(false);
@@ -88,10 +87,6 @@ function Jobs(props) {
   const searchedJobs = props.jobs.filter(job =>
     job.company.toUpperCase().includes(searchValue.toUpperCase())
   );
-
-  {
-    /*this checks to see how the jobs should be displayed */
-  }
 
   // variants for animation
   const parentList = {

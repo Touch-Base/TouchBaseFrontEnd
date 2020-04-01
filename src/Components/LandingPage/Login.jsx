@@ -37,7 +37,6 @@ function Login(props) {
       exit={{ opacity: 0 }}
       animate={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: "-50%" }}
-      className="register"
       className="login"
     >
       <h1>LOGIN</h1>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Formik, Field } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import "../../Styling/dashboard/jobs.scss";
@@ -185,7 +185,7 @@ function JobForm(props) {
                 placeholder="Date"
                 name="appDate"
                 onChange={handleChange}
-                value={values.appDate ? values.appDate.slice(0, 10) : null}
+                value={values.appDate ? values.appDate.slice(0, 10) : ""}
                 onBlur={handleBlur}
                 className={
                   touched.appDate && errors.appDate ? "hasError" : "validInput"

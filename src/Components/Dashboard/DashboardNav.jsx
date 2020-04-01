@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../Styling/dashboard/dashboardnav.scss";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logOutState } from "../../actions/index";
 import navLogo from "../../img/touchbasewhite.png";
 
@@ -16,11 +16,6 @@ function DashboardNav(props) {
     setTimeout(() => props.logOutState(), 1001);
   };
 
-  // checks for active link
-  const isActive = ({ isCurrent }) => {
-    return isCurrent ? { id: "activeLink" } : {};
-  };
-
   // change warning value
   const warningHandler = event => {
     event.preventDefault();
@@ -30,21 +25,13 @@ function DashboardNav(props) {
 
   return (
     <nav className="dashboardNav">
-      <a href="#">
+      <a href="/">
         <img src={navLogo} alt="navLogo" />
       </a>
-      <Link getProps={isActive} to="/dashboard">
-        profile
-      </Link>
-      <Link getProps={isActive} to="/dashboard/jobs">
-        jobs
-      </Link>
-      <Link getProps={isActive} to="/dashboard/networking">
-        networking
-      </Link>
-      <Link getProps={isActive} to="/dashboard/events">
-        events
-      </Link>
+      <NavLink to="/dashboard">profile</NavLink>
+      <NavLink to="/dashboard/jobs">jobs</NavLink>
+      <NavLink to="/dashboard/networking">networking</NavLink>
+      <NavLink to="/dashboard/events">events</NavLink>
       <button
         id="signOutButton"
         onMouseEnter={warningHandler}
