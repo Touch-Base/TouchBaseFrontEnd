@@ -28,9 +28,15 @@ function ConnectionForm(props) {
       .min(1, "Must have a character")
       .max(20, "Must be shorter than 20")
       .required("Must enter a company"),
-    phone: Yup.string().max(20, "Must be shorter than 20"),
-    email: Yup.string().max(30, "Must be shorter than 30"),
-    notes: Yup.string().max(300, "Must be under 300 characters.")
+    phone: Yup.string()
+      .max(20, "Must be shorter than 20")
+      .nullable(),
+    email: Yup.string()
+      .max(30, "Must be shorter than 30")
+      .nullable(),
+    notes: Yup.string()
+      .max(300, "Must be under 300 characters.")
+      .nullable()
   });
 
   return (

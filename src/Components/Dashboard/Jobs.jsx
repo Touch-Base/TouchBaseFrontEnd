@@ -9,6 +9,7 @@ import Modal from "./Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
+import moment from "moment";
 
 function Jobs(props) {
   // these empty values are passed to the jobs form
@@ -18,7 +19,7 @@ function Jobs(props) {
     company: "",
     link: "",
     method: "",
-    appDate: "",
+    appDate: moment().format("YYYY-MM-DDTHH:MM"),
     notes: "",
     interview: false
   };

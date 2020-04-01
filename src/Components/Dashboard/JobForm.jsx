@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import Error from "../../helpers/Error";
 import "../../Styling/dashboard/jobs.scss";
@@ -35,11 +35,15 @@ function JobForm(props) {
       .required("Must enter a company"),
     link: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20"),
+      .max(20, "Must be shorter than 20")
+      .nullable(),
     appDate: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20"),
-    notes: Yup.string().max(400, "Must be under 400 characters.")
+      .nullable(),
+    notes: Yup.string()
+      .max(400, "Must be under 400 characters.")
+      .nullable(),
+    method: Yup.string().required("Must enter a method")
   });
 
   return (
@@ -51,15 +55,16 @@ function JobForm(props) {
         setSubmitting(true);
 
         const { position, company, link, method, appDate, notes } = values;
+        console.log("VALUES:", values);
 
         // payload for adding a job
         const addPayload = {
           position: position,
           company: company,
-          link: link,
+          link: link || null,
           method: method,
-          appDate: appDate,
-          notes: notes,
+          appDate: appDate || null,
+          notes: notes || null,
           interview: interview
         };
 
@@ -174,18 +179,24 @@ function JobForm(props) {
                 {!props.adding ? "Application Date" : null}
               </h4>
               <input
-                type="text"
+                type="date"
+                data-date=""
+                data-date-format="DD MMMM YYYY"
                 id="applicationDate"
-                placeholder="Application Date"
+                placeholder="Date"
                 name="appDate"
                 onChange={handleChange}
-                value={values.appDate}
+                value={values.appDate.slice(0, 10)}
                 onBlur={handleBlur}
                 className={
                   touched.appDate && errors.appDate ? "hasError" : "validInput"
                 }
               />
-              <Error touched={touched.appDate} message={errors.appDate} />
+              <Error
+                event={true}
+                touched={touched.appDate}
+                message={errors.appDate}
+              />
             </div>
           </div>
 

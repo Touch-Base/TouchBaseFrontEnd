@@ -25,7 +25,9 @@ function EventForm(props) {
       .min(1, "Must have a character")
       .max(22, "Must be shorter than 22")
       .required("Must enter a date and time"),
-    description: Yup.string().max(400, "Must be under 400 characters.")
+    description: Yup.string()
+      .max(400, "Must be under 400 characters.")
+      .nullable()
   });
 
   return (

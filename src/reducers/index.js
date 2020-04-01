@@ -524,7 +524,7 @@ const reducer = (state = initialState, action) => {
     }
 
     case RESET_STATE: {
-      return { state: initialState };
+      return initialState;
     }
 
     default: {

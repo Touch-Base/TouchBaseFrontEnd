@@ -96,6 +96,9 @@ function JobCard(props) {
     left: "0px"
   };
 
+  // new date
+  let date = new Date(props.job.appDate);
+
   return (
     <motion.div
       exit={{ opacity: 0 }}
@@ -108,8 +111,17 @@ function JobCard(props) {
       <h1 className="jobCompany">{props.job.company.toUpperCase()}</h1>
       <h1 className="jobTitle">{props.job.position}</h1>
       <h2 className="appliedText">
-        Applied on: <span>{props.job.appDate}</span> via{" "}
-        <span>{props.job.method}</span>
+        Applied on:{" "}
+        <span>
+          {date
+            .toLocaleString(navigator.language, {
+              month: "long",
+              day: "numeric",
+              year: "numeric"
+            })
+            .toUpperCase()}
+        </span>{" "}
+        via <span>{props.job.method}</span>
       </h2>
       <h2 className={props.job.interview ? "interview" : "nointerview"}>
         {props.job.interview ? "INTERVIEW REQUESTED" : "NO INTERVIEW"}
