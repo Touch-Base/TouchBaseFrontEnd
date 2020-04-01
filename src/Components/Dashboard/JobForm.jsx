@@ -163,7 +163,7 @@ function JobForm(props) {
                 placeholder="Link"
                 name="link"
                 onChange={handleChange}
-                value={values.link}
+                value={values.link || ""}
                 onBlur={handleBlur}
                 className={
                   touched.link && errors.link ? "jobError" : "validInput"
@@ -245,7 +245,7 @@ function JobForm(props) {
               placeholder="Notes"
               name="notes"
               onChange={handleChange}
-              value={values.notes}
+              value={values.notes || ""}
               onBlur={handleBlur}
               className={
                 touched.notes && errors.notes ? "jobError" : "validInput"

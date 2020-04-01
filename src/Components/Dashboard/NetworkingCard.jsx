@@ -46,7 +46,6 @@ function Connection(props) {
     // and closes the edit box
     setVisible(false);
     setVisibility(false);
-    console.log("here here");
   }, [props]);
 
   // this is the positioning for the notes

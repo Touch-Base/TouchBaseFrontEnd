@@ -227,6 +227,7 @@ function Networking(props) {
                   <NetworkingCard
                     removeCnx={props.deleteConnection}
                     connection={connection}
+                    key={connection.id}
                   />
                 );
               })

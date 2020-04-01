@@ -18,8 +18,6 @@ function JobTile(props) {
   // closes child card component only if it's already open
   const closeCard = () => {
     setClickedJob(false);
-    console.log(clickedJob);
-    console.log("here");
   };
 
   // this opens the job tile

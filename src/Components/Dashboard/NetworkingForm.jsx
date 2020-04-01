@@ -116,7 +116,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>First Name</h3> : null}
                 <input
                   type="text"
-                  id="firstname"
                   placeholder="First Name"
                   name="firstname"
                   onChange={handleChange}
@@ -140,7 +139,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>Last Name</h3> : null}
                 <input
                   type="text"
-                  id="lastname"
                   placeholder="Last Name"
                   name="lastname"
                   onChange={handleChange}
@@ -164,7 +162,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>Title</h3> : null}
                 <input
                   type="text"
-                  id="title"
                   placeholder="Title"
                   name="title"
                   onChange={handleChange}
@@ -188,7 +185,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>Company</h3> : null}
                 <input
                   type="text"
-                  id="company"
                   placeholder="Company"
                   name="company"
                   onChange={handleChange}
@@ -212,7 +208,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>Phone</h3> : null}
                 <input
                   type="text"
-                  id="phone"
                   placeholder="Phone Number"
                   name="phone"
                   onChange={handleChange}
@@ -234,7 +229,6 @@ function ConnectionForm(props) {
                 {props.editing ? <h3>Email</h3> : null}
                 <input
                   type="text"
-                  id="email"
                   placeholder="Email"
                   name="email"
                   onChange={handleChange}
@@ -258,7 +252,6 @@ function ConnectionForm(props) {
             {props.editing ? <h3>Notes</h3> : null}
             <textarea
               type="text"
-              id="notes"
               placeholder="Notes"
               name="notes"
               onChange={handleChange}
@@ -280,7 +273,7 @@ function ConnectionForm(props) {
               ADD CONNECTION
             </button>
           ) : (
-            <button id="updateCnxButton" type="submit">
+            <button className="updateCnxButton" type="submit">
               UPDATE
             </button>
           )}

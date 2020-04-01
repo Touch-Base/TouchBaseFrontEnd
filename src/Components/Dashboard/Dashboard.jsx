@@ -10,8 +10,6 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 function Dashboard(props) {
-  console.log("on the dashboard");
-
   const location = useLocation();
 
   return (
