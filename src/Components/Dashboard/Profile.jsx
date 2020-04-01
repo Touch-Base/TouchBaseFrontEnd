@@ -102,14 +102,13 @@ function Profile(props) {
         <div className="profileBlock">
           <div className="imageAndInfo">
             <div className="image-upload">
-              <label for="file-input">
+              <label htmlFor="file-input">
                 <img src={image} alt="profile" />
               </label>
               <input
                 id="file-input"
                 onChange={imgUploadHandler}
                 className="uploadImage"
-                hell
                 type="file"
               />
             </div>

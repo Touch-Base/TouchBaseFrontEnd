@@ -167,7 +167,7 @@ function ProfileForm(props) {
                   placeholder={props.age || "Age"}
                   name="age"
                   onChange={handleChange}
-                  value={values.age}
+                  value={values.age || ""}
                   onBlur={handleBlur}
                   className={
                     touched.age && errors.age ? "hasError" : "validInput"
@@ -186,7 +186,7 @@ function ProfileForm(props) {
                   placeholder={props.location || "Location"}
                   name="location"
                   onChange={handleChange}
-                  value={values.location}
+                  value={values.location || ""}
                   onBlur={handleBlur}
                   className={
                     touched.location && errors.location
@@ -205,7 +205,7 @@ function ProfileForm(props) {
                   placeholder={props.position || "Position"}
                   name="position"
                   onChange={handleChange}
-                  value={values.position}
+                  value={values.position || ""}
                   onBlur={handleBlur}
                   className={
                     touched.position && errors.position
@@ -226,7 +226,7 @@ function ProfileForm(props) {
                   placeholder={props.summary || "Add a summary!"}
                   name="summary"
                   onChange={handleChange}
-                  value={values.summary}
+                  value={values.summary || ""}
                   onBlur={handleBlur}
                   className={
                     touched.summary && errors.summary
