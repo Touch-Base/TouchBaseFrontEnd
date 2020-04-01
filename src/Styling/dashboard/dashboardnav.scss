@@ -13,12 +13,20 @@
     letter-spacing: 0.8px;
     font-size: 1.4em;
     color: white;
-    transition: 1s;
+    transition: 0.5s ease-in-out font-size;
+  }
+
+  // active link class for dashboard
+
+  .clickedDash {
+    color: rgb(51, 189, 253);
+    font-size: 2em;
+    transition: 0.5s ease-in-out font-size;
   }
 
   a:hover {
-    color: lightblue;
-    transition: 1s;
+    color: rgb(51, 189, 253);
+    transition: 0.5s ease-in-out;
   }
 
   // logo
@@ -59,12 +67,4 @@
     font-family: "Alata", sans-serif;
     letter-spacing: 1.3px;
   }
-}
-
-// active link class for dashboard
-
-#activeLink {
-  color: rgb(51, 189, 253);
-  font-size: 2em;
-  transition: 1s;
 }

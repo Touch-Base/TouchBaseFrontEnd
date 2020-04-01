@@ -28,10 +28,18 @@ function DashboardNav(props) {
       <a href="/">
         <img src={navLogo} alt="navLogo" />
       </a>
-      <NavLink to="/dashboard">profile</NavLink>
-      <NavLink to="/dashboard/jobs">jobs</NavLink>
-      <NavLink to="/dashboard/networking">networking</NavLink>
-      <NavLink to="/dashboard/events">events</NavLink>
+      <NavLink exact activeClassName="clickedDash" to="/dashboard">
+        profile
+      </NavLink>
+      <NavLink activeClassName="clickedDash" to="/dashboard/jobs">
+        jobs
+      </NavLink>
+      <NavLink activeClassName="clickedDash" to="/dashboard/networking">
+        networking
+      </NavLink>
+      <NavLink activeClassName="clickedDash" to="/dashboard/events">
+        events
+      </NavLink>
       <button
         id="signOutButton"
         onMouseEnter={warningHandler}

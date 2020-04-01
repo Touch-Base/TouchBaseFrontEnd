@@ -42,7 +42,7 @@ function LandingPage(props) {
           <Route exact path="/learn" component={Learn} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/support" component={Support} />
-          <Route exact path="/pricing" component={Pricing} />
+          <Route exact path="/developer" component={Pricing} />
         </Switch>
       </AnimatePresence>
       <div style={styles.root}>
