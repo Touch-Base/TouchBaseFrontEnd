@@ -55,7 +55,6 @@ function JobForm(props) {
         setSubmitting(true);
 
         const { position, company, link, method, appDate, notes } = values;
-        console.log("VALUES:", values);
 
         // payload for adding a job
         const addPayload = {
@@ -186,7 +185,7 @@ function JobForm(props) {
                 placeholder="Date"
                 name="appDate"
                 onChange={handleChange}
-                value={values.appDate.slice(0, 10)}
+                value={values.appDate ? values.appDate.slice(0, 10) : null}
                 onBlur={handleBlur}
                 className={
                   touched.appDate && errors.appDate ? "hasError" : "validInput"

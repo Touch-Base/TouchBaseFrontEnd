@@ -107,6 +107,9 @@ function JobRow(props) {
     hidden: { opacity: 0, x: -25 }
   };
 
+  // new date
+  let date = new Date(props.job.appDate);
+
   return (
     <motion.div
       variants={item}
@@ -121,7 +124,12 @@ function JobRow(props) {
         {props.job.position}
       </h5>
       <h5 className="jobcolumn" id="appDate">
-        {props.job.appDate}
+        {date
+          .toLocaleString(navigator.language, {
+            month: "long",
+            day: "numeric"
+          })
+          .toUpperCase()}
       </h5>
       <h5
         className="jobcolumn"

@@ -100,7 +100,11 @@ function Connection(props) {
         </div>
         <div className="divider"></div>
         <div className="cnxAddresses">
-          <h4>{props.connection.phone}</h4>
+          {props.connection.phone ? (
+            <h4>{props.connection.phone}</h4>
+          ) : (
+            <h4 className="invisiblePhoneH4">.</h4>
+          )}
           <a href={props.connection.email}>{props.connection.email}</a>
         </div>
       </div>
