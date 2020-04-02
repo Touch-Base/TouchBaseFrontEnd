@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { deleteConnection } from "../../../actions/index";
-import "../../../Styling/dashboard/networking.scss";
-import "../../../Styling/dashboard/networkingform.scss";
+import "../../../Styling/dashboard/networking/networking.scss";
+import "../../../Styling/dashboard/networking/networkingform.scss";
 import NetworkingForm from "./NetworkingForm";
 import NetworkingCard from "./NetworkingCard";
 import NetworkingRow from "./NetworkingRow";

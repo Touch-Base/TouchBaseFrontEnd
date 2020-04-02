@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../Helpers/Error";
-import "../../../Styling/dashboard/networking.scss";
+import "../../../Styling/dashboard/networking/networking.scss";
 import { addConnection, editConnection } from "../../../actions/index";
 
 function ConnectionForm(props) {

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../Helpers/Error";
-import "../../../Styling/dashboard/jobs.scss";
+import "../../../Styling/dashboard/jobs/jobs.scss";
 import { addJob, editJob } from "../../../actions/index";
 import Loader from "../../Helpers/Loader";
 

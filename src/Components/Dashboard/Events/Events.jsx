@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import "../../../Styling/dashboard/networking.scss";
+import "../../../Styling/dashboard/networking/networking.scss";
 import EventForm from "./EventForm";
 import EventCard from "./EventCard";
 import Modal from "../../Helpers/Modal";

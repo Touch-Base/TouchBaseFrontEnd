@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../../../Styling/dashboard/networkingrow.scss";
-import "../../../Styling/dashboard/networking.scss";
+import "../../../Styling/dashboard/networking/networkingrow.scss";
+import "../../../Styling/dashboard/networking/networking.scss";
 import NetworkingForm from "./NetworkingForm";
 import Modal from "../../Helpers/Modal";
 import { motion } from "framer-motion";

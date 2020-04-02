@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../Styling/dashboard/jobs.scss";
+import "../../../Styling/dashboard/jobs/jobs.scss";
 import { connect } from "react-redux";
 import { editJob } from "../../../actions/index";
 import { motion } from "framer-motion";

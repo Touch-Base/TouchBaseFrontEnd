@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../Helpers/Error";
-import "../../../Styling/dashboard/events.scss";
-import "../../../Styling/dashboard/eventform.scss";
+import "../../../Styling/dashboard/events/events.scss";
+import "../../../Styling/dashboard/events/eventform.scss";
 import { addEvent, editEvent } from "../../../actions/index";
 
 function EventForm(props) {

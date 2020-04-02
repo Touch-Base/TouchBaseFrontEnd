@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../../../Styling/dashboard/jobs.scss";
-import "../../../Styling/dashboard/jobcard.scss";
+import "../../../Styling/dashboard/jobs/jobs.scss";
+import "../../../Styling/dashboard/jobs/jobcard.scss";
 import JobForm from "./JobForm";
 import { TwitterPicker } from "react-color";
 import Modal from "../../Helpers/Modal";
