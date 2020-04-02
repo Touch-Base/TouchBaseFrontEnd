@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Error from "../../helpers/Error";
+import Error from "../Helpers/Error";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 import {
@@ -11,8 +11,8 @@ import {
 import * as Yup from "yup";
 import "../../Styling/login.scss";
 import { motion } from "framer-motion";
-import Loader from "../Dashboard/Loader";
-import IncorrectLogin from "../../helpers/IncorrectLogin";
+import Loader from "../Helpers/Loader";
+import IncorrectLogin from "../Helpers/IncorrectLogin";
 
 function Login(props) {
   /// loader state

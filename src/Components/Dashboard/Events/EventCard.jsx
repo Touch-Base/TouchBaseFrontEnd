@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../../Styling/dashboard/events.scss";
-import "../../Styling/dashboard/eventform.scss";
-import Modal from "./Modal";
+import "../../../Styling/dashboard/events.scss";
+import "../../../Styling/dashboard/eventform.scss";
+import Modal from "../../Helpers/Modal";
 import EventForm from "./EventForm";
 import { motion } from "framer-motion";
 

@@ -91,6 +91,7 @@ function Developer() {
       <a
         class="bmc"
         target="_blank"
+        rel="noopener noreferrer"
         href="https://www.buymeacoffee.com/anthonyvigz"
       >
         <img

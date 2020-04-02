@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProfileForm from "./ProfileForm";
-import Modal from "./Modal";
+import Modal from "../../Helpers/Modal";
 import { connect } from "react-redux";
-import "../../Styling/dashboard/profile.scss";
-import "../../Styling/dashboard/profileform.scss";
+import "../../../Styling/dashboard/profile.scss";
+import "../../../Styling/dashboard/profileform.scss";
 import axios from "axios";
-import { updateUser } from "../../actions/index";
-import defaultPic from "../../img/profileplaceholder.png";
-import Loader from "../Dashboard/Loader";
+import { updateUser } from "../../../actions/index";
+import defaultPic from "../../../img/profileplaceholder.png";
+import Loader from "../../Helpers/Loader";
 import { motion } from "framer-motion";
 
 function Profile(props) {

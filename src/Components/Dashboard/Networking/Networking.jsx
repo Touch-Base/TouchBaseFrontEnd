@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { deleteConnection } from "../../actions/index";
-import "../../Styling/dashboard/networking.scss";
-import "../../Styling/dashboard/networkingform.scss";
+import { deleteConnection } from "../../../actions/index";
+import "../../../Styling/dashboard/networking.scss";
+import "../../../Styling/dashboard/networkingform.scss";
 import NetworkingForm from "./NetworkingForm";
 import NetworkingCard from "./NetworkingCard";
 import NetworkingRow from "./NetworkingRow";
-import Modal from "./Modal";
+import Modal from "../../Helpers/Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";

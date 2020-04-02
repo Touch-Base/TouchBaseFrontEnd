@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Error from "../../helpers/Error";
-import "../../Styling/dashboard/jobs.scss";
-import { addJob, editJob } from "../../actions/index";
-import Loader from "./Loader";
+import Error from "../../Helpers/Error";
+import "../../../Styling/dashboard/jobs.scss";
+import { addJob, editJob } from "../../../actions/index";
+import Loader from "../../Helpers/Loader";
 
 function JobForm(props) {
   /// this sets up the interview switch button since it is not handled within Formik

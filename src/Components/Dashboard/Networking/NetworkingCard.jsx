@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
+import Modal from "../../Helpers/Modal";
 import NetworkingForm from "./NetworkingForm";
-import "../../Styling/dashboard/networking.scss";
+import "../../../Styling/dashboard/networking.scss";
 import { motion } from "framer-motion";
 
 function Connection(props) {

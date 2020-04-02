@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import "../../Styling/dashboard/profile.scss";
+import "../../../Styling/dashboard/profile.scss";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Error from "../../helpers/Error";
-import { updateUser } from "../../actions/index";
-import Loader from "./Loader";
+import Error from "../../Helpers/Error";
+import { updateUser } from "../../../actions/index";
+import Loader from "../../Helpers/Loader";
 
 function ProfileForm(props) {
   //  This validation schema comes from the Yup library, it checks

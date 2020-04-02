@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Error from "../../helpers/Error";
-import "../../Styling/dashboard/events.scss";
-import "../../Styling/dashboard/eventform.scss";
-import { addEvent, editEvent } from "../../actions/index";
+import Error from "../../Helpers/Error";
+import "../../../Styling/dashboard/events.scss";
+import "../../../Styling/dashboard/eventform.scss";
+import { addEvent, editEvent } from "../../../actions/index";
 
 function EventForm(props) {
   //  This validation schema comes from the Yup library, it checks

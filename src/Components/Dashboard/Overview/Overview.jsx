@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import "../../Styling/dashboard/overview.scss";
-import "../../Styling/dashboard/profile.scss";
+import "../../../Styling/dashboard/overview.scss";
+import "../../../Styling/dashboard/profile.scss";
 import Profile from "./Profile.jsx";
 import { motion } from "framer-motion";
 

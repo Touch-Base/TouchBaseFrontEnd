@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import DashboardNav from "./DashboardNav";
 import "../../Styling/dashboard/dashboard.scss";
-import Overview from "../Dashboard/Overview";
-import Jobs from "../Dashboard/Jobs";
-import Networking from "../Dashboard/Networking";
-import Events from "../Dashboard/Events";
+import Overview from "./Overview/Overview";
+import Jobs from "./Jobs/Jobs";
+import Networking from "./Networking/Networking";
+import Events from "../Dashboard/Events/Events";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 

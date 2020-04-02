@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styling/dashboard/dashboard.scss";
+import "../../Styling/dashboard/dashboard.scss";
 import { motion } from "framer-motion";
 
 function IncorrectLogin(props) {

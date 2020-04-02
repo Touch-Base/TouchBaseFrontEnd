@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import "../../Styling/dashboard/jobs.scss";
+import "../../../Styling/dashboard/jobs.scss";
 import JobForm from "./JobForm";
 import JobTile from "./JobTile";
 import JobRow from "./JobRow";
-import { deleteJob } from "../../actions/index";
-import Modal from "./Modal";
+import { deleteJob } from "../../../actions/index";
+import Modal from "../../Helpers/Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
