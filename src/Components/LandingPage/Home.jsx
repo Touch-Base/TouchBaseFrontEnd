@@ -1,5 +1,6 @@
 import React from "react";
 import "../../Styling/home.scss";
+import "../../Styling/landingPageMobile/homeMobile.scss";
 import logo from "../../img/touchbasewhite.png";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";

@@ -12,11 +12,13 @@ html {
 .landing {
   background: #141c39;
   height: 100vh;
+  transition: 0.5s;
 }
 
 .logo {
   width: 400px;
   margin-bottom: -50px;
+  transition: 0.5s;
 }
 
 .homeBlock {
@@ -24,6 +26,7 @@ html {
   flex-direction: column;
   width: 1000px;
   margin: 20px auto;
+  transition: 0.5s;
   align-items: center;
 }
 
