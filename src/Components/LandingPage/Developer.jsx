@@ -21,6 +21,11 @@ const parentList = {
   }
 };
 
+const item = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -25 }
+};
+
 function Developer() {
   return (
     <motion.div
@@ -40,16 +45,11 @@ function Developer() {
           including himself, were not getting in their search process:
           organization.
         </p>
-        <motion.div
-          exit={{ opacity: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: "-25%" }}
-          className="middle"
-        >
+        <div className="middle">
           <motion.a
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: "-25%" }}
+            variants={item}
+            className="jobTile"
+            transition={{ ease: "easeIn" }}
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/anthonyvigz"
@@ -57,9 +57,9 @@ function Developer() {
             <i className="fab fa-github"></i>
           </motion.a>
           <motion.a
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: "-25%" }}
+            variants={item}
+            className="jobTile"
+            transition={{ ease: "easeIn" }}
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/anthonyvigliotta/"
@@ -67,9 +67,9 @@ function Developer() {
             <i className="fab fa-linkedin-in"></i>
           </motion.a>
           <motion.a
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: "-25%" }}
+            variants={item}
+            className="jobTile"
+            transition={{ ease: "easeIn" }}
             target="_blank"
             rel="noopener noreferrer"
             href="https://twitter.com/anthonyvigz"
@@ -77,16 +77,16 @@ function Developer() {
             <i className="fab fa-twitter"></i>
           </motion.a>
           <motion.a
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: "-25%" }}
+            variants={item}
+            className="jobTile"
+            transition={{ ease: "easeIn" }}
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.anthonyvigliotta.com"
           >
             <i className="fas fa-id-card"></i>
           </motion.a>
-        </motion.div>
+        </div>
       </div>
       <a
         class="bmc"
