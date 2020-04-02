@@ -4,9 +4,9 @@
   z-index: 10;
 
   .contactForm {
-    background-color: rgba(0, 140, 255, 0.329);
+    background-color: rgba(0, 140, 255, 0.11);
     margin: 0 auto;
-    width: 500px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,16 +20,17 @@
       margin-bottom: 20px;
       padding: 10px;
       background: transparent;
-      color: rgba(0, 140, 255, 0.76);
+      color: #35d3db;
       border: none;
-      border-bottom: solid rgba(0, 140, 255, 0.76) 1px;
+      border-bottom: solid #35d3db 1px;
       opacity: 0.9;
+      font-size: 1.3em;
       outline: none;
       font-family: "Alata", sans-serif;
     }
 
     input::placeholder {
-      color: rgba(0, 140, 255, 0.76);
+      color: #35d3db;
       font-family: "Alata", sans-serif;
       transition: 0.8s;
     }
@@ -42,29 +43,56 @@
 
     textarea {
       margin-bottom: 20px;
-      padding: 10px;
+      padding: 30px;
       background: transparent;
-      color: rgba(0, 81, 255, 0.822);
+      color: #35d3db;
       border: none;
       border-bottom: solid rgba(0, 140, 255, 0.76) 1px;
       opacity: 0.9;
+      font-size: 1.2em;
       outline: none;
       resize: none;
       font-family: "Alata", sans-serif;
+      transition: 0.8s;
+    }
+
+    textarea::placeholder {
+      color: #35d3db;
+      transition: 0.8s;
+    }
+
+    textarea:hover::-webkit-input-placeholder {
+      color: rgba(146, 146, 146, 0.322);
+      font-size: 0.5em;
+      transition: 0.8s;
     }
 
     button {
       padding: 10px 20px;
+      letter-spacing: 2px;
+      font-family: "Alata", sans-serif;
       color: white;
-      font-size: 1.2em;
-      border: white 1px solid;
+      font-size: 1.4em;
+      border: none;
       border-radius: 5px;
-      background: rgba(0, 140, 255, 0.562);
+      background: none;
       transition: 1s;
+
+      i {
+        transition: 0.5s;
+        font-size: 1.4em;
+        color: white;
+      }
     }
 
     button:hover {
-      background: rgba(0, 140, 255, 0.842);
+      cursor: pointer;
+      color: rgba(119, 223, 188, 0.637);
+
+      i {
+        margin-left: 10px;
+        transition: 0.5s;
+      }
     }
   }
 }

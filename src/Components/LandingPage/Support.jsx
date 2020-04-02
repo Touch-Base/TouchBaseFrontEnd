@@ -93,7 +93,9 @@ function Support() {
           rows="4"
           cols="50"
         ></textarea>
-        <button type="submit">Submit</button>
+        <button>
+          SEND <i className="fas fa-paper-plane"></i>
+        </button>
       </form>
     </motion.div>
   );
