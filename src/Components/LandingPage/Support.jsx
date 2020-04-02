@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import * as emailjs from "emailjs-com";
 
 function Support() {
-  const [message, setMessage] = useState({ name: "", email: "", message: "" });
+  const [payload, setMessage] = useState({ name: "", email: "", message: "" });
 
   const changeHandler = event => {
     event.preventDefault();
 
-    setMessage({ ...message, [event.target.name]: event.target.value });
+    setMessage({ ...payload, [event.target.name]: event.target.value });
   };
 
   /// using basic jquery so it's easier to track the css and separate this information
@@ -17,7 +17,7 @@ function Support() {
   const sendMessage = event => {
     event.preventDefault();
 
-    const { name, email, message } = message;
+    const { name, email, message } = payload;
 
     let templateParams = {
       name: name,
@@ -72,21 +72,21 @@ function Support() {
       <form onSubmit={sendMessage} className="contactForm">
         <input
           onChange={changeHandler}
-          value={message.name}
+          value={payload.name}
           name="name"
           type="text"
           placeholder="Name"
         ></input>
         <input
           onChange={changeHandler}
-          value={message.email}
+          value={payload.email}
           name="email"
           type="text"
           placeholder="E-mail"
         ></input>
         <textarea
           onChange={changeHandler}
-          value={message.message}
+          value={payload.message}
           name="message"
           type="text"
           placeholder="Your message"
