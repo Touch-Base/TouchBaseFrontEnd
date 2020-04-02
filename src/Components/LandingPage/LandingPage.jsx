@@ -6,9 +6,9 @@ import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
 import Learn from "./Learn";
-import Blog from "./Blog";
+import Demo from "./Demo";
 import Support from "./Support";
-import Pricing from "./Pricing";
+import Developer from "./Developer";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -40,9 +40,9 @@ function LandingPage(props) {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/learn" component={Learn} />
-          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/demo" component={Demo} />
           <Route exact path="/support" component={Support} />
-          <Route exact path="/developer" component={Pricing} />
+          <Route exact path="/developer" component={Developer} />
         </Switch>
       </AnimatePresence>
       <div style={styles.root}>

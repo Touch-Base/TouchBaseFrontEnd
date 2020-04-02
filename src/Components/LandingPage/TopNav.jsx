@@ -15,8 +15,8 @@ function TopNav() {
         <NavLink activeClassName="clickedLan" to="/learn">
           learn
         </NavLink>
-        <NavLink activeClassName="clickedLan" to="/blog">
-          blog
+        <NavLink activeClassName="clickedLan" to="/demo">
+          demo
         </NavLink>
         <NavLink activeClassName="clickedLan" to="/support">
           support

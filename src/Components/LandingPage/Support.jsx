@@ -67,8 +67,7 @@ function Support() {
       <div id="popUp" style={{ opacity: "0" }}>
         Sent!
       </div>
-      <h5 className="projectsHeader">Contact</h5>
-      <div className="emptyBorder"></div>
+      <h2>Want to report a bug or make a suggestion?</h2>
       <form onSubmit={sendMessage} className="contactForm">
         <input
           onChange={changeHandler}

@@ -2,13 +2,15 @@
 
 TouchBase is a web application that streamlines job application data for a user.
 
+"Take a load off of your job search with TouchBase, the best tool for organizing your career development. Add and search through jobs you've applied to, and make optimal use of the connections you've made along the way. TouchBase brings you closer to that final offer letter.
+
 ## What has been done?
 
 TouchBase displays your data for a short profile, jobs you applied to, connections you've made through networking, and events you're interested in attending. It secures this data to an account using its very own API and through hashing passwords and creating an encrypted token. You can access, add, edit, and delete all of this data as the user sees fit. You can also organize how this data is displayed. Additional features for how this data is displayed can be continuously added.
 
 ## What needs to be done?
 
-TouchBase was built with a plan, but with as the codebase progressed an on-needed basis formed. The three main components (Jobs, Connections, and Events) are almost entirely identically to each other with the exception of styling and small functionality changes. These components are well-commented, so it's easy to understand what is happening in the code, but there's a lot of repeated information between the components. 
+TouchBase was built with a plan, but with as the codebase progressed an on-needed basis formed. The three main components (Jobs, Connections, and Events) are almost entirely identically to each other with the exception of styling and small functionality changes. These components are well-commented, so it's easy to understand what is happening in the code, but there's a lot of repeated information between the components.
 
 TouchBase may need DRY refactoring in how these components relate to one another. The components operate in a very straight-forward and clear way, but there are areas where it can definitely be consolidated.
 
@@ -52,7 +54,6 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 
 ### Deployment
 
