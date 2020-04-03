@@ -33,7 +33,34 @@ function TopNav() {
       </div>
     );
   } else {
-    return <h1>hi</h1>;
+    return (
+      <div className="topNavMobile">
+        <div className="mobileBar">
+          <button>
+            <i className="fas fa-bars"></i>
+          </button>
+        </div>
+        <div className="mobileLanNav">
+          {/* <nav>
+          <NavLink activeClassName="clickedLan" to="/learn">
+            learn
+          </NavLink>
+          <NavLink activeClassName="clickedLan" to="/learn">
+            learn
+          </NavLink>
+          <NavLink activeClassName="clickedLan" to="/demo">
+            demo
+          </NavLink>
+          <NavLink activeClassName="clickedLan" to="/support">
+            support
+          </NavLink>
+          <NavLink activeClassName="clickedLan" to="/developer">
+            developer
+          </NavLink>
+        </nav> */}
+        </div>
+      </div>
+    );
   }
 }
 

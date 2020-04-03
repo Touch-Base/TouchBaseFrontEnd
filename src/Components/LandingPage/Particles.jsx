@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import Particles from "react-particles-js";
+import useWindowDimensions from "../Helpers/WindowSize";
 
-class Canvas extends Component {
-  state = { width: window.innerWidth, height: window.innerHeight };
-
-  render() {
+function Canvas() {
+  const state = { width: window.innerWidth, height: window.innerHeight };
+  const { width } = useWindowDimensions();
+  if (width > 465) {
     return (
       <Particles
-        {...this.state}
+        {...state}
         params={{
           particles: {
             number: {
@@ -95,6 +96,8 @@ class Canvas extends Component {
         }}
       />
     );
+  } else {
+    return null;
   }
 }
 
