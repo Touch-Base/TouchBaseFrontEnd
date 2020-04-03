@@ -1,14 +1,17 @@
 @media (max-width: 465px) {
   .topNavMobile {
     .mobileBar {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       background: #35d3db;
-      height: 45px;
+      height: 50px;
       z-index: 2;
       justify-content: space-between;
 
       img {
-        width: 60px;
+        width: 70px;
         opacity: 0.8;
       }
 
