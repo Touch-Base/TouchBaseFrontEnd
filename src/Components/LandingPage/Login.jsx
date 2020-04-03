@@ -10,6 +10,7 @@ import {
 } from "../../actions/index";
 import * as Yup from "yup";
 import "../../Styling/login.scss";
+import "../../Styling/landingPageMobile/loginMobile.scss";
 import { motion } from "framer-motion";
 import Loader from "../Helpers/Loader";
 import IncorrectLogin from "../Helpers/IncorrectLogin";

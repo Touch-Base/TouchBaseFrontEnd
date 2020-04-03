@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../Styling/support.scss";
+import "../../Styling/landingPageMobile/supportMobile.scss";
 import { motion } from "framer-motion";
 import * as emailjs from "emailjs-com";
 

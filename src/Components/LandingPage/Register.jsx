@@ -5,6 +5,7 @@ import Error from "../Helpers/Error";
 import { registerUser } from "../../actions/index";
 import { connect } from "react-redux";
 import "../../Styling/register.scss";
+import "../../Styling/landingPageMobile/registerMobile.scss";
 import { motion } from "framer-motion";
 import Loader from "../Helpers/Loader";
 

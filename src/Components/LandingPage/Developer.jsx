@@ -1,5 +1,7 @@
 import React from "react";
 import "../../Styling/developer.scss";
+import "../../Styling/landingPageMobile/developerMobile.scss";
+
 import { motion } from "framer-motion";
 
 // variants for parent animation

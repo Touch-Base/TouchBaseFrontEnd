@@ -1,5 +1,6 @@
 import React from "react";
 import "../../Styling/learn.scss";
+import "../../Styling/landingPageMobile/learnMobile.scss";
 import { motion } from "framer-motion";
 import whiteLogo from "../../img/touchbasewhite.png";
 
