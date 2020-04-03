@@ -10,10 +10,13 @@ import Modal from "../../Helpers/Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
-
+import useWindowDimensions from "../../Helpers/WindowSize";
 import moment from "moment";
 
 function Jobs(props) {
+  // width of window from window component
+  const { width } = useWindowDimensions();
+
   // these empty values are passed to the jobs form
   // for adding a new job
   const initialValues = {
@@ -208,7 +211,7 @@ function Jobs(props) {
           </div>
         </Modal>
         <div className="switchAndSearch">
-          <div className="switch">
+          <div className={width > 620 ? "switch" : "switchHide"}>
             <h4 className="switchName">Layout</h4>
             <Switch
               classes={{

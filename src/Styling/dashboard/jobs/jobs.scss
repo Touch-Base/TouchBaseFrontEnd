@@ -138,6 +138,7 @@
     font-size: 2em;
     color: white;
     letter-spacing: 1px;
+    margin-top: 25px;
   }
 
   form {
@@ -147,12 +148,14 @@
     width: 100%;
 
     .positionAndCompany {
+      flex-direction: row;
       width: 100%;
       display: flex;
       justify-content: space-evenly;
     }
 
     .linkAndDate {
+      flex-direction: row;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -352,6 +355,11 @@
       margin: 0;
       color: rgba(0, 0, 0, 0.568);
     }
+  }
+
+  .switchHide {
+    display: none;
+    visibility: hidden;
   }
 
   input {

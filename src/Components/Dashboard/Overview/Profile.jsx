@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import "../../../Styling/dashboard/profile.scss";
 import "../../../Styling/dashboard/profileform.scss";
 import "../../../Styling/dashboard/mobile/overviewMobile.scss";
-
 import axios from "axios";
 import { updateUser } from "../../../actions/index";
 import defaultPic from "../../../img/profileplaceholder.png";
