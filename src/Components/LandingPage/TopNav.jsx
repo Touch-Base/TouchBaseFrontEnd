@@ -13,7 +13,6 @@ function TopNav() {
 
   // location
   const location = useLocation();
-  console.log(location);
 
   // this is for the mobile side nav
   const [sidenav, showNav] = useState(false);
