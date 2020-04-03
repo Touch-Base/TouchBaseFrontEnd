@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../../../Styling/dashboard/jobs/jobs.scss";
+import "../../../Styling/dashboard/mobile/jobsMobile.scss";
 import JobForm from "./JobForm";
 import JobTile from "./JobTile";
 import JobRow from "./JobRow";
@@ -9,6 +10,7 @@ import Modal from "../../Helpers/Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
+
 import moment from "moment";
 
 function Jobs(props) {
