@@ -1,7 +1,6 @@
 .profileForm {
   display: flex;
   flex-direction: column;
-  width: 500px;
   background: red;
   color: white;
   margin: 50px auto;
@@ -17,6 +16,7 @@
     color: white;
     letter-spacing: 1px;
     font-family: "Oswald", sans-serif;
+    margin-top: 25px;
   }
 
   form {
@@ -43,6 +43,7 @@
           border-radius: 5px;
           border: solid #35d3db 2px;
           transition: 0.5s;
+          margin-top: 0;
         }
 
         input:focus {

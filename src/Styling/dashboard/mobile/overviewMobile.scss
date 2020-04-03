@@ -1,0 +1,168 @@
+@media (max-width: 620px) {
+  /// this is the pop up profile form
+  div .profileForm {
+    margin-top: -55px;
+    width: 300px;
+
+    .editProfileTitle {
+      font-size: 1.5em;
+      color: white;
+      letter-spacing: 1px;
+      font-family: "Oswald", sans-serif;
+    }
+
+    form {
+      .inputSec {
+        flex-direction: column;
+        width: 280px;
+        .userInput {
+          input {
+            margin-top: 10px;
+          }
+          textarea {
+            width: 90%;
+            border: none;
+            border-radius: 5px;
+            resize: none;
+            height: 70px;
+            padding: 5px;
+            transition: 0.5s;
+            border: solid #35d3db 2px;
+            margin-top: 10px;
+          }
+
+          textarea:focus {
+            transition: 0.5s;
+            border: solid rgb(44, 206, 255) 3px;
+          }
+
+          select {
+            margin-top: 0;
+            color: rgb(0, 162, 255);
+            border-radius: 5px;
+            padding: 5px;
+            letter-spacing: 1.5px;
+            font-family: "Oswald", sans-serif;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    button {
+      border: none;
+      background: #35d3db;
+      letter-spacing: 1.5px;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.2em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: 0.5s;
+      color: white;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      transition: 0.5s;
+      background: rgba(133, 210, 235, 0.753);
+      cursor: pointer;
+    }
+  }
+
+  .overviewPage {
+    margin: 50px auto;
+
+    .profilePage {
+      width: 280px;
+      height: 1000px;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .profileBlock {
+        height: 400px;
+        .imageAndInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+
+          .image-upload {
+            opacity: 0.8;
+            margin: 0;
+            padding: 0;
+            height: 50%;
+          }
+          .namePosition {
+            height: 50%;
+
+            .fullName {
+              margin-top: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .overviewBlocks {
+    flex-direction: column;
+    align-items: center;
+
+    .countAndInfo {
+      margin-left: 0;
+
+      // the top contact info
+      .profileContact {
+        margin-top: 15px;
+        font-family: "Alata", sans-serif;
+        align-items: left;
+        width: 280px;
+        color: black;
+        height: 25%;
+        background: #141c39;
+        padding-top: 8px;
+        border-radius: 5px;
+      }
+
+      // this is the overview page jobs and connections count block
+      .jobsAndConnections {
+        margin-top: 15px;
+        width: 280px;
+      }
+    }
+
+    // home page button to go to jobs
+    .homeAddJob {
+      margin-top: 15px;
+    }
+  }
+
+  // summary block
+
+  .summaryBlock {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /// update profile button styling
+  .updateProfile {
+    width: 75px;
+    height: 75px;
+    transition: 0.5s;
+
+    i {
+      font-size: 3em;
+    }
+  }
+
+  .exOut {
+    width: 75px;
+    height: 75px;
+    transition: 0.5s;
+
+    i {
+      font-size: 3em;
+    }
+  }
+}

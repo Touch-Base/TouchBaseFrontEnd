@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../../../Styling/dashboard/profile.scss";
+import "../../../Styling/dashboard/mobile/overviewMobile.scss";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../Helpers/Error";

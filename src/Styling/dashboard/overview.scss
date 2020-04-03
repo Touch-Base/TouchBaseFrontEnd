@@ -31,6 +31,7 @@
       background: #141c39;
       padding-top: 8px;
       border-radius: 5px;
+      margin-top: 0;
 
       .profileContactSec {
         display: flex;
@@ -87,6 +88,7 @@
       border-radius: 5px;
       box-shadow: inset 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.1);
       box-shadow: 0 8px 6px -6px rgb(82, 82, 82);
+      margin-top: 0;
 
       .count {
         display: flex;
@@ -155,6 +157,7 @@
     height: 20%;
     outline: none;
     transition: ease-in-out 0.5s;
+    margin-top: 0;
 
     h2 {
       color: #35d3db;
