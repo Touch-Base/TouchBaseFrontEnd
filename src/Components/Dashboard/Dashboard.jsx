@@ -12,6 +12,16 @@ import { AnimatePresence } from "framer-motion";
 function Dashboard(props) {
   const location = useLocation();
 
+  // this checks what background should be used on the body
+
+  if (location.pathname.includes("/dashboard")) {
+    document.body.classList.add("dashBody");
+    document.body.classList.remove("lgBody");
+  } else {
+    document.body.classList.add("lgBody");
+    document.body.classList.remove("dashBody");
+  }
+
   return (
     <div className="mainDashboard">
       <DashboardNav props={props} />

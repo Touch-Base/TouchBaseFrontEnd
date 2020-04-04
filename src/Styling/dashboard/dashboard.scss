@@ -1,4 +1,4 @@
-.mainDashboard {
+.dashBody {
   background: repeating-linear-gradient(
     135deg,
     #21252907,
@@ -6,9 +6,11 @@
     rgba(0, 0, 0, 0.007) 5px,
     rgba(0, 0, 0, 0) 10px
   );
-  height: 100vh;
 }
 
+.lgBody {
+  background: #141c39;
+}
 // error pop up on bad server request
 
 .errorPopup {
