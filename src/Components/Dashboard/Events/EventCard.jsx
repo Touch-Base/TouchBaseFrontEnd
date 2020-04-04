@@ -70,7 +70,7 @@ function Event(props) {
   const popoverhide = {
     position: "absolute",
     zIndex: "2",
-    top: "200px",
+    top: topPop,
     opacity: 0,
     transition: "opacity 0.5s",
     pointerEvents: "none",
