@@ -21,7 +21,7 @@ function DashboardNav(props) {
   const [sidenav, showNav] = useState(false);
 
   // show side nav
-  const openNav = event => {
+  const openNav = (event) => {
     event.preventDefault();
 
     showNav(!sidenav);
@@ -31,11 +31,12 @@ function DashboardNav(props) {
   const signOut = () => {
     window.localStorage.clear();
     setTimeout(() => props.props.history.push("/"), 1000);
+    setTimeout(() => document.body.classList.remove("dashBody"), 1000);
     setTimeout(() => props.logOutState(), 1001);
   };
 
   // change warning value
-  const warningHandler = event => {
+  const warningHandler = (event) => {
     event.preventDefault();
 
     setWarning(!warning);
@@ -123,7 +124,7 @@ function DashboardNav(props) {
 }
 
 const mapDispatchToProps = {
-  logOutState: logOutState
+  logOutState: logOutState,
 };
 
 export default connect(null, mapDispatchToProps)(DashboardNav);

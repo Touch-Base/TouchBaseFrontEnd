@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { deleteConnection } from "../../../actions/index";
 import "../../../Styling/dashboard/networking/networking.scss";
 import "../../../Styling/dashboard/networking/networkingform.scss";
+import "../../../Styling/dashboard/mobile/networkingMobile.scss";
 import NetworkingForm from "./NetworkingForm";
 import NetworkingCard from "./NetworkingCard";
 import NetworkingRow from "./NetworkingRow";
@@ -10,8 +11,11 @@ import Modal from "../../Helpers/Modal";
 import { Switch } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
+import useWindowDimensions from "../../Helpers/WindowSize";
 
 function Networking(props) {
+  // width of window from window component
+  const { width } = useWindowDimensions();
   // this sets the visibility for adding a new connection form
   const [cnxform, setCnx] = useState(false);
 
@@ -20,6 +24,9 @@ function Networking(props) {
 
   // this sets the value for the search feature
   const [searchValue, setSearch] = useState("");
+
+  // makes component scroll to the top of the page on render
+  useEffect(() => window.scrollTo(0, 0), []);
 
   // these empty values are passed to the connection form
   // for adding a new connection
@@ -30,30 +37,30 @@ function Networking(props) {
     company: "",
     phone: "",
     email: "",
-    notes: ""
+    notes: "",
   };
 
   // material ui theme
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles((theme) => ({
     track: {
       "&.Mui-checked": {
-        backgroundColor: "rgb(0, 162, 255)"
+        backgroundColor: "rgb(0, 162, 255)",
       },
       opacity: 1,
-      backgroundColor: "#35d3dbc2"
+      backgroundColor: "#35d3dbc2",
     },
     switchBase: {
-      color: "black"
+      color: "black",
     },
     root: {
-      width: "58px"
+      width: "58px",
     },
     colorSecondary: {
       "&.Mui-checked": {
-        color: "rgb(0, 162, 255)"
+        color: "rgb(0, 162, 255)",
       },
-      color: "#35d3db"
-    }
+      color: "#35d3db",
+    },
   }));
 
   const classes = useStyles();
@@ -64,33 +71,33 @@ function Networking(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.2
-      }
+        staggerChildren: 0.2,
+      },
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren"
-      }
-    }
+        when: "afterChildren",
+      },
+    },
   };
 
   // this function sets the visibility for the add form
-  const showAddCnx = event => {
+  const showAddCnx = (event) => {
     event.preventDefault();
 
     setCnx(!cnxform);
   };
 
   // change handler for search value
-  const searchChange = event => {
+  const searchChange = (event) => {
     event.preventDefault();
 
     setSearch(event.target.value);
   };
 
   // this function is the switch for how the jobs are displayed
-  const switchOrganizer = event => {
+  const switchOrganizer = (event) => {
     event.preventDefault();
 
     setOrganizer(!table);
@@ -103,7 +110,7 @@ function Networking(props) {
   }, [props]);
 
   // search array
-  const searchedCnx = props.connections.filter(cnx =>
+  const searchedCnx = props.connections.filter((cnx) =>
     cnx.lastname.toUpperCase().includes(searchValue.toUpperCase())
   );
 
@@ -127,7 +134,7 @@ function Networking(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase
+                switchBase: classes.switchBase,
               }}
               onClick={switchOrganizer}
               checked={false}
@@ -153,7 +160,7 @@ function Networking(props) {
             <h4 id="cnxeditcolumn">Edit</h4>
           </div>
           {searchValue === ""
-            ? props.connections.map(connection => {
+            ? props.connections.map((connection) => {
                 return (
                   <NetworkingRow
                     removeCnx={props.deleteConnection}
@@ -161,7 +168,7 @@ function Networking(props) {
                   />
                 );
               })
-            : searchedCnx.map(connection => {
+            : searchedCnx.map((connection) => {
                 return (
                   <NetworkingRow
                     removeCnx={props.deleteConnection}
@@ -196,7 +203,7 @@ function Networking(props) {
         className="networkingPage"
       >
         <div className="switchAndSearch">
-          <div className="switch">
+          <div className={width > 620 ? "switch" : "switchHide"}>
             <h4 className="switchName">Layout</h4>
             <Switch
               classes={{
@@ -204,7 +211,7 @@ function Networking(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase
+                switchBase: classes.switchBase,
               }}
               onClick={switchOrganizer}
               checked={true}
@@ -222,7 +229,7 @@ function Networking(props) {
         ) : null}
         <div className="networkingBlocks">
           {searchValue === ""
-            ? props.connections.map(connection => {
+            ? props.connections.map((connection) => {
                 return (
                   <NetworkingCard
                     removeCnx={props.deleteConnection}
@@ -231,7 +238,7 @@ function Networking(props) {
                   />
                 );
               })
-            : searchedCnx.map(connection => {
+            : searchedCnx.map((connection) => {
                 return (
                   <NetworkingCard
                     removeCnx={props.deleteConnection}
@@ -259,17 +266,17 @@ function Networking(props) {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    connections: state.user.connections
+    connections: state.user.connections,
   };
 };
 
 const mapDispatchToProps = {
-  deleteConnection: deleteConnection
+  deleteConnection: deleteConnection,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Networking);

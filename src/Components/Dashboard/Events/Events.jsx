@@ -14,6 +14,9 @@ function Events(props) {
   // this sets the value for the search feature
   const [searchValue, setSearch] = useState("");
 
+  // makes component scroll to the top of the page on render
+  useEffect(() => window.scrollTo(0, 0), []);
+
   // these empty values are passed to the event form
   // for adding a new event
   const initialValues = {
@@ -21,18 +24,18 @@ function Events(props) {
     location: "",
     date: "",
     description: "",
-    attended: false
+    attended: false,
   };
 
   // this function sets the visibility for the add form
-  const showAddEvt = event => {
+  const showAddEvt = (event) => {
     event.preventDefault();
 
     setEvt(!evtform);
   };
 
   // change handler for search value
-  const searchChange = event => {
+  const searchChange = (event) => {
     event.preventDefault();
 
     setSearch(event.target.value);
@@ -45,7 +48,7 @@ function Events(props) {
   }, [props]);
 
   // search array
-  const searchedEvt = props.events.filter(evt =>
+  const searchedEvt = props.events.filter((evt) =>
     evt.name.toUpperCase().includes(searchValue.toUpperCase())
   );
 
@@ -57,15 +60,15 @@ function Events(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.3
-      }
+        staggerChildren: 0.3,
+      },
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren"
-      }
-    }
+        when: "afterChildren",
+      },
+    },
   };
 
   return (
@@ -87,10 +90,10 @@ function Events(props) {
       ) : null}
       <div className="eventsBlocks">
         {searchValue === ""
-          ? props.events.map(evt => {
+          ? props.events.map((evt) => {
               return <EventCard removeEvent={props.deleteEvent} evt={evt} />;
             })
-          : searchedEvt.map(evt => {
+          : searchedEvt.map((evt) => {
               return <EventCard removeEvent={props.deleteEvent} evt={evt} />;
             })}
       </div>
@@ -113,17 +116,17 @@ function Events(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    events: state.user.events
+    events: state.user.events,
   };
 };
 
 const mapDispatchToProps = {
-  deleteEvent: deleteEvent
+  deleteEvent: deleteEvent,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events);

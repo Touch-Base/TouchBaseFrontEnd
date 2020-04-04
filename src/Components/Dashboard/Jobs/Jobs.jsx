@@ -17,6 +17,9 @@ function Jobs(props) {
   // width of window from window component
   const { width } = useWindowDimensions();
 
+  // makes component scroll to the top of the page on render
+  useEffect(() => window.scrollTo(0, 0), []);
+
   // these empty values are passed to the jobs form
   // for adding a new job
   const initialValues = {
@@ -26,30 +29,30 @@ function Jobs(props) {
     method: "",
     appDate: moment().format("YYYY-MM-DDTHH:MM"),
     notes: "",
-    interview: false
+    interview: false,
   };
 
   // material ui theme
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles((theme) => ({
     track: {
       "&.Mui-checked": {
-        backgroundColor: "rgb(0, 162, 255)"
+        backgroundColor: "rgb(0, 162, 255)",
       },
       opacity: 1,
-      backgroundColor: "#35d3dbc2"
+      backgroundColor: "#35d3dbc2",
     },
     switchBase: {
-      color: "black"
+      color: "black",
     },
     root: {
-      width: "58px"
+      width: "58px",
     },
     colorSecondary: {
       "&.Mui-checked": {
-        color: "rgb(0, 162, 255)"
+        color: "rgb(0, 162, 255)",
       },
-      color: "#35d3db"
-    }
+      color: "#35d3db",
+    },
   }));
 
   const classes = useStyles();
@@ -63,21 +66,21 @@ function Jobs(props) {
   // this sets the value for the search feature
   const [searchValue, setSearch] = useState("");
 
-  const showAddForm = event => {
+  const showAddForm = (event) => {
     event.preventDefault();
 
     setVisibility(!visibleAdd);
   };
 
   // change handler for search value
-  const searchChange = event => {
+  const searchChange = (event) => {
     event.preventDefault();
 
     setSearch(event.target.value);
   };
 
   // this function is the switch for how the jobs are displayed
-  const switchOrganizer = event => {
+  const switchOrganizer = (event) => {
     event.preventDefault();
 
     setOrganizer(!table);
@@ -89,7 +92,7 @@ function Jobs(props) {
   }, [props.jobs]);
 
   // search array
-  const searchedJobs = props.jobs.filter(job =>
+  const searchedJobs = props.jobs.filter((job) =>
     job.company.toUpperCase().includes(searchValue.toUpperCase())
   );
 
@@ -99,15 +102,15 @@ function Jobs(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.2
-      }
+        staggerChildren: 0.2,
+      },
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren"
-      }
-    }
+        when: "afterChildren",
+      },
+    },
   };
 
   if (table) {
@@ -141,7 +144,7 @@ function Jobs(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase
+                switchBase: classes.switchBase,
               }}
               onClick={switchOrganizer}
               checked={false}
@@ -175,12 +178,12 @@ function Jobs(props) {
             <h4 id="editcolumn">Edit</h4>
           </div>
           {searchValue === ""
-            ? props.jobs.map(job => {
+            ? props.jobs.map((job) => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
-            : searchedJobs.map(job => {
+            : searchedJobs.map((job) => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
@@ -219,7 +222,7 @@ function Jobs(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase
+                switchBase: classes.switchBase,
               }}
               onClick={switchOrganizer}
               checked={true}
@@ -243,12 +246,12 @@ function Jobs(props) {
         ) : null}
         <div className="jobsBlocks">
           {searchValue === ""
-            ? props.jobs.map(job => {
+            ? props.jobs.map((job) => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
-            : searchedJobs.map(job => {
+            : searchedJobs.map((job) => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
@@ -259,17 +262,17 @@ function Jobs(props) {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    jobs: state.user.jobs
+    jobs: state.user.jobs,
   };
 };
 
 const mapDispatchToProps = {
-  deleteJob: deleteJob
+  deleteJob: deleteJob,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jobs);

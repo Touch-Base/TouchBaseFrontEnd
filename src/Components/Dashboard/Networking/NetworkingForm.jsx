@@ -36,7 +36,7 @@ function ConnectionForm(props) {
       .nullable(),
     notes: Yup.string()
       .max(300, "Must be under 300 characters.")
-      .nullable()
+      .nullable(),
   });
 
   return (
@@ -55,7 +55,7 @@ function ConnectionForm(props) {
           company,
           phone,
           email,
-          notes
+          notes,
         } = values;
 
         // payload for adding a connection
@@ -66,13 +66,13 @@ function ConnectionForm(props) {
           company: company,
           phone: phone,
           email: email,
-          notes: notes
+          notes: notes,
         };
 
         // payload for updating a connection
         const editPayload = {
           ...addPayload,
-          id: props.id
+          id: props.id,
         };
 
         // add connection function
@@ -82,7 +82,7 @@ function ConnectionForm(props) {
             .then(() => {
               console.log("added connection!");
             })
-            .catch(err => {
+            .catch((err) => {
               console.error(err);
             });
 
@@ -93,7 +93,7 @@ function ConnectionForm(props) {
             .then(() => {
               console.log("updated connection!");
             })
-            .catch(err => {
+            .catch((err) => {
               console.error(err);
             });
         }
@@ -106,7 +106,7 @@ function ConnectionForm(props) {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting
+        isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
           <div className="inputCnxBlocks">
@@ -285,15 +285,15 @@ function ConnectionForm(props) {
 
 const mapDispatchToProps = {
   addConnection: addConnection,
-  editConnection: editConnection
+  editConnection: editConnection,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    connections: state.user.connections
+    connections: state.user.connections,
   };
 };
 
