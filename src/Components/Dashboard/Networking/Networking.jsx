@@ -16,6 +16,7 @@ import useWindowDimensions from "../../Helpers/WindowSize";
 function Networking(props) {
   // width of window from window component
   const { width } = useWindowDimensions();
+
   // this sets the visibility for adding a new connection form
   const [cnxform, setCnx] = useState(false);
 
@@ -29,7 +30,7 @@ function Networking(props) {
   useEffect(() => window.scrollTo(0, 0), []);
 
   // these empty values are passed to the connection form
-  // for adding a new connection
+  // for adding a new connectiony
   const initialValues = {
     firstname: "",
     lastname: "",
