@@ -28,11 +28,12 @@ function JobTile(props) {
   // variants for card animation
   const item = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
+    hidden: { opacity: 0, x: -25 },
   };
 
   return (
     <motion.div
+      draggable
       variants={item}
       className="jobTile"
       style={{ background: bgcolor }}
@@ -81,7 +82,7 @@ function JobTile(props) {
 }
 
 const mapDispatchToProps = {
-  editJob: editJob
+  editJob: editJob,
 };
 
 export default connect(null, mapDispatchToProps)(JobTile);

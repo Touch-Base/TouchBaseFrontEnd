@@ -53,6 +53,13 @@ function Events(props) {
     evt.name.toUpperCase().includes(searchValue.toUpperCase())
   );
 
+  // sortred by date
+  const sortedEvts = props.events.sort(function(a, b) {
+    return new Date(a.date) - new Date(b.date);
+  });
+
+  console.log(sortedEvts);
+
   // using 'evt' as the variable to avoid javascript confusion
 
   // variants for animation
@@ -91,7 +98,7 @@ function Events(props) {
       ) : null}
       <div className="eventsBlocks">
         {searchValue === ""
-          ? props.events.map((evt) => {
+          ? sortedEvts.map((evt) => {
               return (
                 <EventCard
                   key={evt.id}
