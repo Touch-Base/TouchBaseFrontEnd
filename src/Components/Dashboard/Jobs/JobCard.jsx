@@ -151,7 +151,7 @@ function JobCard(props) {
         rel="noopener noreferrer"
         className="jobLink"
         href={
-          props.job.link.includes("http")
+          props.job.link && props.job.link.includes("http")
             ? props.job.link
             : "http://" + props.job.link
         }

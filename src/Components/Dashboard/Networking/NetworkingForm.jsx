@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Error from "../../Helpers/Error";
 import "../../../Styling/dashboard/networking/networking.scss";
 import { addConnection, editConnection } from "../../../actions/index";
+import Loader from "../../Helpers/Loader";
 
 function ConnectionForm(props) {
   //  This validation schema comes from the Yup library, it checks
@@ -38,6 +39,9 @@ function ConnectionForm(props) {
       .max(300, "Must be under 300 characters.")
       .nullable(),
   });
+
+  // this is the loader
+  const [loading, isLoading] = useState(false);
 
   return (
     <Formik
@@ -77,9 +81,11 @@ function ConnectionForm(props) {
 
         // add connection function
         if (props.addingCnx) {
+          isLoading(true);
           props
             .addConnection(addPayload)
             .then(() => {
+              isLoading(false);
               console.log("added connection!");
             })
             .catch((err) => {
@@ -88,9 +94,11 @@ function ConnectionForm(props) {
 
           // update connection
         } else {
+          isLoading(true);
           props
             .editConnection(editPayload)
             .then(() => {
+              isLoading(false);
               console.log("updated connection!");
             })
             .catch((err) => {
@@ -109,6 +117,7 @@ function ConnectionForm(props) {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
+          <Loader loading={loading} />
           <div className="inputCnxBlocks">
             <div className="cnxNameAndTitle">
               {/* FIRSTNAME INPUT */}

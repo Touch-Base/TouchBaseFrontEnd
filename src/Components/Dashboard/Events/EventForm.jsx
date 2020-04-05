@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -6,6 +6,7 @@ import Error from "../../Helpers/Error";
 import "../../../Styling/dashboard/events/events.scss";
 import "../../../Styling/dashboard/events/eventform.scss";
 import { addEvent, editEvent } from "../../../actions/index";
+import Loader from "../../Helpers/Loader";
 
 function EventForm(props) {
   //  This validation schema comes from the Yup library, it checks
@@ -29,6 +30,9 @@ function EventForm(props) {
       .max(400, "Must be under 400 characters.")
       .nullable(),
   });
+
+  // this is the loader
+  const [loading, isLoading] = useState(false);
 
   return (
     <Formik
@@ -55,22 +59,21 @@ function EventForm(props) {
           id: props.id,
         };
         if (props.addingEvt) {
+          isLoading(true);
           props
             .addEvent(addPayload)
             .then(() => {
-              console.log(addPayload);
-              console.log("This is the date value", values.date);
-              console.log("added event!");
+              isLoading(false);
             })
             .catch((err) => {
               console.error("Here", err);
             });
         } else {
+          isLoading(true);
           props
             .editEvent(editPayload)
             .then(() => {
-              console.log("edited event!");
-              console.log("This is the date value", values.date);
+              isLoading(false);
             })
             .catch((err) => {
               console.error("Here", err);
@@ -88,6 +91,7 @@ function EventForm(props) {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit} className="updateEventForm">
+          <Loader loading={loading} />
           {/* NAME INPUT */}
           <div className="eventInput">
             <input
