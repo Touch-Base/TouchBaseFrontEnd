@@ -92,10 +92,22 @@ function Events(props) {
       <div className="eventsBlocks">
         {searchValue === ""
           ? props.events.map((evt) => {
-              return <EventCard removeEvent={props.deleteEvent} evt={evt} />;
+              return (
+                <EventCard
+                  key={evt.id}
+                  removeEvent={props.deleteEvent}
+                  evt={evt}
+                />
+              );
             })
           : searchedEvt.map((evt) => {
-              return <EventCard removeEvent={props.deleteEvent} evt={evt} />;
+              return (
+                <EventCard
+                  key={evt.id}
+                  removeEvent={props.deleteEvent}
+                  evt={evt}
+                />
+              );
             })}
       </div>
       <button

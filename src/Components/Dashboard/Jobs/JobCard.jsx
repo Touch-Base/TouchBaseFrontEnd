@@ -17,13 +17,13 @@ function JobCard(props) {
 
   // this controls the visibility of the modal for the form
 
-  const showForm = event => {
+  const showForm = (event) => {
     event.preventDefault();
 
     setVisibility(!visible);
   };
 
-  const deleteButton = event => {
+  const deleteButton = (event) => {
     event.preventDefault();
 
     const id = props.job.id;
@@ -41,7 +41,7 @@ function JobCard(props) {
 
   /// this handles the color change in the color picker
   /// it also sends the color to the job on the server
-  const handleChangeComplete = color => {
+  const handleChangeComplete = (color) => {
     setColor(color.hex);
     const newColor = color.hex;
     const payload = { color: newColor, id: props.job.id };
@@ -49,7 +49,7 @@ function JobCard(props) {
   };
 
   // this is the handler to show the notes
-  const handlesNotes = event => {
+  const handlesNotes = (event) => {
     event.preventDefault();
 
     setShowNotes(!notes);
@@ -77,7 +77,7 @@ function JobCard(props) {
     top: "200px",
     opacity: 1,
     transition: "opacity 0.5s",
-    border: "none"
+    border: "none",
   };
 
   const popoverhide = {
@@ -85,7 +85,7 @@ function JobCard(props) {
     top: "200px",
     opacity: 0,
     transition: "opacity 0.5s",
-    pointerEvents: "none"
+    pointerEvents: "none",
   };
 
   const cover = {
@@ -93,7 +93,7 @@ function JobCard(props) {
     top: "0px",
     right: "0px",
     bottom: "0px",
-    left: "0px"
+    left: "0px",
   };
 
   // new date
@@ -117,7 +117,7 @@ function JobCard(props) {
             .toLocaleString(navigator.language, {
               month: "long",
               day: "numeric",
-              year: "numeric"
+              year: "numeric",
             })
             .toUpperCase()}
         </span>{" "}
@@ -146,15 +146,20 @@ function JobCard(props) {
         <i className="fas fa-times" />
       </button>
 
-      {/* this is the edit button */}
       <a
         target="_blank"
         rel="noopener noreferrer"
         className="jobLink"
-        href={props.job.link}
+        href={
+          props.job.link.includes("http")
+            ? props.job.link
+            : "http://" + props.job.link
+        }
       >
         <i className="fas fa-link"></i>
       </a>
+
+      {/* this is the edit button */}
       <button className="editLink" onClick={showForm}>
         <i className="fas fa-pencil-alt"></i>
       </button>
@@ -187,7 +192,7 @@ function JobCard(props) {
 }
 
 const mapDispatchToProps = {
-  editJob: editJob
+  editJob: editJob,
 };
 
 export default connect(null, mapDispatchToProps)(JobCard);

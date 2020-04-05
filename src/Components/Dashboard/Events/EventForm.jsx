@@ -27,7 +27,7 @@ function EventForm(props) {
       .required("Must enter a date and time"),
     description: Yup.string()
       .max(400, "Must be under 400 characters.")
-      .nullable()
+      .nullable(),
   });
 
   return (
@@ -46,13 +46,13 @@ function EventForm(props) {
           location: location,
           date: date,
           description: description,
-          attended: attended
+          attended: attended,
         };
 
         /// this is the payload for editing an event
         const editPayload = {
           ...addPayload,
-          id: props.id
+          id: props.id,
         };
         if (props.addingEvt) {
           props
@@ -62,7 +62,7 @@ function EventForm(props) {
               console.log("This is the date value", values.date);
               console.log("added event!");
             })
-            .catch(err => {
+            .catch((err) => {
               console.error("Here", err);
             });
         } else {
@@ -72,7 +72,7 @@ function EventForm(props) {
               console.log("edited event!");
               console.log("This is the date value", values.date);
             })
-            .catch(err => {
+            .catch((err) => {
               console.error("Here", err);
             });
         }
@@ -85,14 +85,13 @@ function EventForm(props) {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting
+        isSubmitting,
       }) => (
         <form onSubmit={handleSubmit} className="updateEventForm">
           {/* NAME INPUT */}
           <div className="eventInput">
             <input
               type="text"
-              id="name"
               placeholder="Event Name"
               name="name"
               onChange={handleChange}
@@ -109,7 +108,6 @@ function EventForm(props) {
           <div className="eventInput">
             <input
               type="text"
-              id="location"
               placeholder="Location"
               name="location"
               onChange={handleChange}
@@ -132,7 +130,6 @@ function EventForm(props) {
               type="datetime-local"
               data-date=""
               data-date-format="DD MMMM YYYY hh:mm"
-              id="date"
               placeholder="Date"
               name="date"
               onChange={handleChange}
@@ -149,7 +146,6 @@ function EventForm(props) {
           <div className="eventInput">
             <textarea
               type="text"
-              id="description"
               placeholder="Description"
               name="description"
               onChange={handleChange}
@@ -182,15 +178,15 @@ function EventForm(props) {
 
 const mapDispatchToProps = {
   addEvent: addEvent,
-  editEvent: editEvent
+  editEvent: editEvent,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    events: state.user.events
+    events: state.user.events,
   };
 };
 

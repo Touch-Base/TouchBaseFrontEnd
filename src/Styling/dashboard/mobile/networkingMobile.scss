@@ -28,6 +28,12 @@
       .cnxContact {
         top: 120px;
 
+        .cnxAddresses {
+          a {
+            font-size: 0.6em;
+          }
+        }
+
         .divider {
           height: 40px;
         }
@@ -37,6 +43,7 @@
     // to show the notes for each connection
     .cnxNotesButton {
       top: 135px;
+      right: 0;
     }
 
     .cnxNotes {
@@ -69,11 +76,11 @@
 
     // this is the edit a connection button
     .editCnx {
-      top: 95px;
-      right: 25px;
+      top: 85px;
+      right: 15px;
 
       i {
-        font-size: 2.8em;
+        font-size: 2.6em;
       }
     }
   }

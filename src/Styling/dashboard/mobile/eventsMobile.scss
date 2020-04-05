@@ -78,181 +78,22 @@
   }
 
   /// this is event form styling for mobile
-  #addEvent {
-    height: 450px;
-    background: #141c39d8;
-    width: 400px;
-
-    h3 {
-      font-family: "Oswald", sans-serif;
-    }
-
-    .evtAdd {
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-family: "Oswald", sans-serif;
-      letter-spacing: 1px;
-      color: white;
-      background-color: #35d3db;
-      font-size: 1.5em;
-      border: none;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      transition: 0.25s;
-      cursor: pointer;
-    }
-
-    .evtAdd:hover {
-      background-color: #35d3dba2;
-      transition: 0.25s;
-    }
+  div #addEvent {
+    margin-top: -50px;
+    height: 410px;
+    width: 280px;
+    cursor: pointer;
   }
 
-  .editEventForm {
-    position: relative;
-    width: 400px;
-    height: 450px;
+  div .editEventForm {
+    margin-top: -50px;
+    height: 440px;
     background: #141c39d8;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    align-items: center;
-    margin: 0 auto;
+    width: 280px;
 
     // the update and delete buttons
     .updateEvtButton {
-      padding: 5px 15px;
-      border-radius: 5px;
-      font-family: "Oswald", sans-serif;
-      letter-spacing: 1px;
-      color: white;
-      background-color: #35d3db;
-      font-size: 1.3em;
-      border: none;
-      margin-top: 0;
-      margin-bottom: 10px;
-      transition: 0.25s;
-      cursor: pointer;
-    }
-
-    .updateEvtButton:hover {
-      background-color: #35d3dba2;
-      transition: 0.25s;
-    }
-
-    .deleteEvtButton {
-      padding: 5px 15px;
-      border-radius: 5px;
-      font-family: "Oswald", sans-serif;
-      letter-spacing: 1px;
-      color: white;
-      background-color: rgb(214, 43, 43);
-      font-size: 0.7em;
-      border: none;
-      margin-top: 0;
-      margin-bottom: 15px;
-      transition: 0.25s;
-      cursor: pointer;
-    }
-
-    .deleteEvtButton:hover {
-      background-color: rgba(255, 5, 5, 0.918);
-      transition: 0.25s;
-    }
-
-    h3 {
-      color: white;
-      font-size: 1.5em;
-      font-weight: normal;
-      padding-top: 20px;
-      margin: 0;
-      margin-bottom: 10px;
-      letter-spacing: 1.5px;
-    }
-
-    .eventInput {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: right;
-      margin-bottom: 5px;
-      width: 250px;
-      margin: 0 10px;
-      border-radius: 2px;
-
-      textarea {
-        padding: 10px 5px;
-        font-family: "Oswald", sans-serif;
-        color: rgba(0, 0, 0, 0.842);
-        margin: 0;
-        margin-bottom: 3px;
-        border-radius: 3px;
-        border: none;
-        transition: 0.5s;
-        border: #35d3dba2 solid 2px;
-        resize: none;
-      }
-
-      textarea:hover {
-        transition: 0.5s;
-        border: solid rgb(19, 230, 19) 3px;
-      }
-
-      textarea:focus {
-        transition: 0.5s;
-        border: solid rgb(44, 206, 255) 3px;
-      }
-
-      h3 {
-        margin: 0;
-        padding: 0;
-        font-size: 0.7em;
-        margin-bottom: 2px;
-        margin-right: 5px;
-        color: rgba(255, 255, 255, 0.781);
-        text-align: left;
-      }
-
-      input {
-        padding: 10px 5px;
-        font-family: "Oswald", sans-serif;
-        color: rgba(0, 0, 0, 0.842);
-        margin: 0;
-        margin-bottom: 3px;
-        border-radius: 3px;
-        border: none;
-        transition: 0.5s;
-        border: #35d3dba2 solid 2px;
-      }
-
-      input:hover {
-        transition: 0.5s;
-        border: solid rgb(19, 230, 19) 3px;
-      }
-
-      input:focus {
-        transition: 0.5s;
-        border: solid rgb(44, 206, 255) 3px;
-      }
-    }
-
-    // closeButton
-    .closeButton {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 2;
-      background: none;
-      border-radius: 500px;
-      width: 30px;
-      height: 30px;
-      border: none;
-      cursor: pointer;
-
-      i {
-        color: rgb(255, 93, 93);
-        font-size: 2em;
-      }
+      margin-top: 25px;
     }
   }
 
@@ -268,22 +109,5 @@
     margin-bottom: 20px;
     border: solid red 2px;
     border-radius: 5px;
-  }
-
-  // input form message styling
-  .cnxInvalid {
-    color: rgb(245, 153, 166);
-    margin: 0;
-    font-family: sans-serif;
-    font-size: 0.9em;
-    letter-spacing: 1px;
-  }
-
-  .evtinvalid {
-    color: #f06060;
-    margin: 0;
-    font-family: sans-serif;
-    font-size: 0.9em;
-    letter-spacing: 1px;
   }
 }
