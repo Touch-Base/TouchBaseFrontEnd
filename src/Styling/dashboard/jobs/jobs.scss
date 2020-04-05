@@ -1,6 +1,7 @@
 /// organizes all the job blocks on the page
 .jobsPage {
   margin: 90px auto;
+  overflow-y: hidden;
   /// add job button styling
   .addJobButton {
     position: fixed;
@@ -463,4 +464,13 @@
 //feedback for job method error
 .input-feedback {
   color: red;
+}
+
+// the tile favorite start
+#favStar {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 11;
+  color: white;
 }

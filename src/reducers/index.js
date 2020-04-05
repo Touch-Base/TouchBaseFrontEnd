@@ -57,7 +57,7 @@ import {
   REMOVE_ERROR,
 
   ///////////
-  RESET_STATE
+  RESET_STATE,
 } from "../actions/index";
 
 let initialState = {
@@ -77,10 +77,10 @@ let initialState = {
     connections: [],
     events: [],
     jobsTotal: 0,
-    connectionsTotal: 0
+    connectionsTotal: 0,
   },
   token: "",
-  error: null
+  error: null,
 };
 
 // // // /* persistent storage */
@@ -99,7 +99,7 @@ const reducer = (state = initialState, action) => {
 
     case REGISTERING_USER: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -112,16 +112,16 @@ const reducer = (state = initialState, action) => {
           lastname: action.payload.user.lastname,
           email: action.payload.user.email,
           creationDate: action.payload.user.creationDate,
-          password: action.payload.user.password
+          password: action.payload.user.password,
         },
-        token: action.payload.token
+        token: action.payload.token,
       };
     }
 
     case FAILED_REGISTER: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -129,7 +129,7 @@ const reducer = (state = initialState, action) => {
 
     case LOGGING_IN: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -148,16 +148,16 @@ const reducer = (state = initialState, action) => {
           summary: action.payload.user.summary,
           phone: action.payload.user.phone,
           creationDate: action.payload.user.creationDate,
-          profilepic: action.payload.user.profilepic
+          profilepic: action.payload.user.profilepic,
         },
-        token: action.payload.token
+        token: action.payload.token,
       };
     }
 
     case FAILED_LOGIN: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -165,7 +165,7 @@ const reducer = (state = initialState, action) => {
 
     case UPDATING_USER: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -181,15 +181,15 @@ const reducer = (state = initialState, action) => {
           phone: action.payload.user.phone,
           position: action.payload.user.position,
           summary: action.payload.user.summary,
-          profilepic: action.payload.user.profilepic
-        }
+          profilepic: action.payload.user.profilepic,
+        },
       };
     }
 
     case FAILED_USER_UPDATE: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -197,7 +197,7 @@ const reducer = (state = initialState, action) => {
 
     case FILLING_STATE_JOBS: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -207,21 +207,21 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           jobs: action.payload.allJobs,
-          jobsTotal: action.payload.allJobs.length
-        }
+          jobsTotal: action.payload.allJobs.length,
+        },
       };
     }
 
     case FAILED_FILLED_JOBS: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
     case FILLING_STATE_CONNECTIONS: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -231,21 +231,21 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           connections: action.payload.allConnections,
-          connectionsTotal: action.payload.allConnections.length
-        }
+          connectionsTotal: action.payload.allConnections.length,
+        },
       };
     }
 
     case FAILED_FILLED_CONNECTIONS: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
     case FILLING_STATE_EVENTS: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -254,15 +254,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          events: action.payload.allEvents
-        }
+          events: action.payload.allEvents,
+        },
       };
     }
 
     case FAILED_FILLED_EVENTS: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -270,7 +270,7 @@ const reducer = (state = initialState, action) => {
 
     case ADDING_JOB: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -280,15 +280,15 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           jobs: action.payload.allJobs,
-          jobsTotal: action.payload.allJobs.length
-        }
+          jobsTotal: action.payload.allJobs.length,
+        },
       };
     }
 
     case FAILED_ADD_JOB: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -296,7 +296,7 @@ const reducer = (state = initialState, action) => {
 
     case UPDATING_JOB: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -308,19 +308,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          jobs: state.user.jobs.map(job =>
+          jobs: state.user.jobs.map((job) =>
             job.id === action.payload.updatedjob.id
               ? action.payload.updatedjob
               : job
-          )
-        }
+          ),
+        },
       };
     }
 
     case FAILED_UPDATE_JOB: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -328,7 +328,7 @@ const reducer = (state = initialState, action) => {
 
     case DELETING_JOB: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -338,15 +338,15 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           jobs: action.payload.allJobs,
-          jobsTotal: action.payload.allJobs.length
-        }
+          jobsTotal: action.payload.allJobs.length,
+        },
       };
     }
 
     case FAILED_DELETE_JOB: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -354,7 +354,7 @@ const reducer = (state = initialState, action) => {
 
     case ADDING_CONNECTION: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -364,15 +364,15 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           connections: action.payload.allConnections,
-          connectionsTotal: action.payload.allConnections.length
-        }
+          connectionsTotal: action.payload.allConnections.length,
+        },
       };
     }
 
     case FAILED_ADD_CONNECTION: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -380,7 +380,7 @@ const reducer = (state = initialState, action) => {
 
     case UPDATING_CONNECTION: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -392,19 +392,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          connections: state.user.connections.map(connection =>
+          connections: state.user.connections.map((connection) =>
             connection.id === action.payload.updatedconnection.id
               ? action.payload.updatedconnection
               : connection
-          )
-        }
+          ),
+        },
       };
     }
 
     case FAILED_UPDATE_CONNECTION: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -412,7 +412,7 @@ const reducer = (state = initialState, action) => {
 
     case DELETING_CONNECTION: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -422,15 +422,15 @@ const reducer = (state = initialState, action) => {
         user: {
           ...state.user,
           connections: action.payload.allConnections,
-          connectionsTotal: action.payload.allConnections.length
-        }
+          connectionsTotal: action.payload.allConnections.length,
+        },
       };
     }
 
     case FAILED_DELETE_CONNECTION: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -438,7 +438,7 @@ const reducer = (state = initialState, action) => {
 
     case ADDING_EVENT: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -447,15 +447,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          events: action.payload.allEvents
-        }
+          events: action.payload.allEvents,
+        },
       };
     }
 
     case FAILED_ADD_EVENT: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -463,7 +463,7 @@ const reducer = (state = initialState, action) => {
 
     case UPDATING_EVENT: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -475,19 +475,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          events: state.user.events.map(evt =>
+          events: state.user.events.map((evt) =>
             evt.id === action.payload.updatedevent.id
               ? action.payload.updatedevent
               : evt
-          )
-        }
+          ),
+        },
       };
     }
 
     case FAILED_UPDATE_EVENT: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
@@ -495,7 +495,7 @@ const reducer = (state = initialState, action) => {
 
     case DELETING_EVENT: {
       return {
-        ...state
+        ...state,
       };
     }
 
@@ -504,22 +504,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: {
           ...state.user,
-          events: action.payload.allEvents
-        }
+          events: action.payload.allEvents,
+        },
       };
     }
 
     case FAILED_DELETE_EVENT: {
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     }
 
     case REMOVE_ERROR: {
       return {
         ...state,
-        error: null
+        error: null,
       };
     }
 

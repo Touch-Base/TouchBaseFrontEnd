@@ -40,9 +40,10 @@ function JobTile(props) {
       transition={{ ease: "easeIn" }}
       onClick={!clickedJob ? clickJob : null}
     >
+      {" "}
+      {props.job.favorite ? <i id="favStar" className="fas fa-star"></i> : null}
       <h1 className="tileCompany">{props.job.company.toUpperCase()}</h1>
       <h1 className="tileJob">{props.job.position}</h1>
-
       {/* these are the card corners for hover effect  */}
       <div className="cardCorners">
         <i
@@ -66,7 +67,6 @@ function JobTile(props) {
           className="fas fa-chevron-up"
         ></i>
       </div>
-
       {clickedJob ? (
         <div className="grayedBackdrop">
           <JobCard

@@ -10,7 +10,8 @@ import { motion } from "framer-motion";
 
 function JobCard(props) {
   const [visible, setVisibility] = useState(false);
-  const [bgcolor, setColor] = useState(props.job.color || "#35d3db");
+  const [bgcolor, setColor] = useState(props.job.color || "#141c39");
+  const [favorite, setFavorite] = useState(false);
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
   const [clickedJob, setClickedJob] = useState(false);
@@ -45,6 +46,15 @@ function JobCard(props) {
     setColor(color.hex);
     const newColor = color.hex;
     const payload = { color: newColor, id: props.job.id };
+    props.editJob(payload);
+  };
+
+  /// this handles the favorite picker
+  /// it also sends the favorite information to the server
+  const handleChangeFavorite = (event) => {
+    event.preventDefault();
+    setFavorite(!favorite);
+    const payload = { favorite: favorite, id: props.job.id };
     props.editJob(payload);
   };
 
@@ -141,6 +151,11 @@ function JobCard(props) {
         </div>
       ) : null}
 
+      {/* this is the favorite button for the job */}
+      <button className="favoriteButton" onClick={handleChangeFavorite}>
+        <i className={props.job.favorite ? "fas fa-star" : "far fa-star"}></i>
+      </button>
+
       {/* popout button to exit the modal */}
       <button onClick={props.closeCard} className="exitJobCard">
         <i className="fas fa-times" />
@@ -171,7 +186,11 @@ function JobCard(props) {
       </button>
       <div style={notes ? popover : popoverhide}>
         <div style={cover} onClick={handleClose} />
-        <p>{props.job.notes}</p>
+        <p>
+          {props.job.notes && props.job.notes.length > 1
+            ? props.job.notes
+            : "Add some notes!"}
+        </p>
       </div>
 
       {/* this is the modal for the edit form */}

@@ -30,6 +30,7 @@ function Jobs(props) {
     appDate: moment().format("YYYY-MM-DDTHH:MM"),
     notes: "",
     interview: false,
+    favorite: false,
   };
 
   // material ui theme

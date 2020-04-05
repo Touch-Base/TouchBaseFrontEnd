@@ -20,7 +20,6 @@
   box-shadow: 0 8px 6px -6px black;
   transition: 0.5s;
   cursor: default;
-  overflow-y: hidden;
 
   // the exit job card modal button
   .exitJobCard {
@@ -42,7 +41,7 @@
   }
 
   .jobCompany {
-    margin-top: -40px;
+    margin-top: -50px;
     color: white;
     font-size: 2.3em;
     letter-spacing: 2.3px;
@@ -71,7 +70,7 @@
   .interview {
     font-size: 0.9em;
     color: white;
-    margin: -5px 0;
+    margin: -5px 0 0 1px;
     letter-spacing: 2px;
   }
 
@@ -102,16 +101,16 @@
 
   .jobLink {
     position: absolute;
-    right: 45px;
-    top: 70px;
+    right: 10px;
+    top: 80px;
     padding: 13px;
     border-radius: 100px;
     transition: 0.5s;
-    border: solid white 2px;
+    border: none;
     background: none;
 
     i {
-      font-size: 2.3em;
+      font-size: 1.8em;
       color: white;
     }
   }
@@ -149,9 +148,35 @@
     }
   }
 
+  .favoriteButton {
+    position: absolute;
+    right: 75px;
+    top: 150px;
+    background: none;
+    padding: 9px;
+    border-radius: 100px;
+    transition: 0.5s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    i {
+      font-size: 2.1em;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+    }
+  }
+
+  .favoriteButton:hover {
+    i {
+      transform: rotate(360deg);
+      transition: 1s;
+    }
+  }
+
   .notes {
     position: absolute;
-    right: 185px;
+    right: 175px;
     top: 140px;
     background: none;
     padding: 9px;
