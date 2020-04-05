@@ -79,6 +79,10 @@ function Events(props) {
     },
   };
 
+  sortedEvts.map((evt) => {
+    console.log(evt);
+  });
+
   return (
     <motion.div
       variants={parentList}
@@ -98,21 +102,23 @@ function Events(props) {
       ) : null}
       <div className="eventsBlocks">
         {searchValue === ""
-          ? sortedEvts.map((evt) => {
+          ? sortedEvts.map((evt, index) => {
               return (
                 <EventCard
                   key={evt.id}
                   removeEvent={props.deleteEvent}
                   evt={evt}
+                  index={index}
                 />
               );
             })
-          : searchedEvt.map((evt) => {
+          : searchedEvt.map((evt, index) => {
               return (
                 <EventCard
                   key={evt.id}
                   removeEvent={props.deleteEvent}
                   evt={evt}
+                  index={index}
                 />
               );
             })}

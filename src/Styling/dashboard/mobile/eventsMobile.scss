@@ -9,6 +9,10 @@
     width: 250px;
     height: 170px;
 
+    .upcoming {
+      display: none;
+    }
+
     .evtRows {
       display: flex;
       flex-direction: column;

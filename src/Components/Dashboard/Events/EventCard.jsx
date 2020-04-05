@@ -97,9 +97,14 @@ function Event(props) {
     <motion.div
       variants={item}
       transition={{ ease: "easeIn" }}
-      className="eventCard"
+      className={props.index === 0 ? "eventCard nextEvent" : "eventCard"}
     >
-      <h1>{props.evt.name.toUpperCase()}</h1>
+      <h1>
+        {props.evt.name.toUpperCase()}
+        <span className={props.index === 0 ? "upcoming" : "upcomingHide"}>
+          next event!
+        </span>
+      </h1>
       <div className="evtRows">
         <div className="evtRow">
           <i className="fas fa-map-marker-alt"></i>
