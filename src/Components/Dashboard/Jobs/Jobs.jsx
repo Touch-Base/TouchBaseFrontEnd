@@ -90,6 +90,9 @@ function Jobs(props) {
   // this is the sort by interviews value
   const [interviewed, setInterview] = useState(false);
 
+  // this is the popup for the layout increase screen size
+  const [rowpop, setRowpop] = useState(false);
+
   const showAddForm = (event) => {
     event.preventDefault();
 
@@ -101,6 +104,18 @@ function Jobs(props) {
     event.preventDefault();
 
     setSearch(event.target.value);
+  };
+
+  const widthCheck = () => {
+    if (width < 950) {
+      console.log("hello");
+      setRowpop(true);
+      setTimeout(function() {
+        setRowpop(false);
+      }, 2000);
+    } else {
+      return setRowpop(false);
+    }
   };
 
   // this function is the switch for how the jobs are displayed
@@ -137,7 +152,7 @@ function Jobs(props) {
 
   // sort by application date array
   const datedJobs = props.jobs.sort(function(a, b) {
-    return new Date(b.appDate) - new Date(a.appDate);
+    return new Date(a.appDate) - new Date(b.appDate);
   });
 
   // function to change to above array
@@ -191,7 +206,7 @@ function Jobs(props) {
     },
   };
 
-  if (table) {
+  if (table && width > 950) {
     return (
       <motion.div
         variants={parentList}
@@ -213,7 +228,36 @@ function Jobs(props) {
             </div>
           </div>
         </Modal>
+        <div className={rowpop ? "rowPopup" : "rowPopup hide"}>
+          Increase window size!
+        </div>
         <div className="switchAndSearch">
+          <div className="sortButtons">
+            <div className="sButton">
+              <h3>Favorites</h3>
+              <BlueRadio
+                checked={faved}
+                onChange={changeFav}
+                name="favoriteSort"
+              />
+            </div>
+            <div className="sButton">
+              <h3>Oldest</h3>
+              <BlueRadio
+                checked={dated}
+                onChange={changeDated}
+                name="dateSort"
+              />
+            </div>
+            <div className="sButton">
+              <h3>Interviews</h3>
+              <BlueRadio
+                checked={interviewed}
+                onChange={changeInt}
+                name="interviewSort"
+              />
+            </div>
+          </div>
           <div className="switch">
             <h4 className="switchName">Layout</h4>
             <Switch
@@ -255,8 +299,20 @@ function Jobs(props) {
             <h4 id="linkcolumn">Link</h4>
             <h4 id="editcolumn">Edit</h4>
           </div>
-          {searchValue === ""
-            ? props.jobs.map((job) => {
+          {faved === true
+            ? favJobs.map((job) => {
+                return (
+                  <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
+                );
+              })
+            : dated === true
+            ? datedJobs.map((job) => {
+                return (
+                  <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
+                );
+              })
+            : interviewed === true
+            ? intJobs.map((job) => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
@@ -291,6 +347,9 @@ function Jobs(props) {
             </div>
           </div>
         </Modal>
+        <div className={rowpop ? "rowPopup" : "rowPopup hide"}>
+          Increase window size!
+        </div>
         <div className="switchAndSearch">
           <div className="sortButtons">
             <div className="sButton">
@@ -328,7 +387,10 @@ function Jobs(props) {
                 track: classes.track,
                 switchBase: classes.switchBase,
               }}
-              onClick={switchOrganizer}
+              onClick={(event) => {
+                switchOrganizer(event);
+                widthCheck(event);
+              }}
               checked={true}
             />
           </div>
