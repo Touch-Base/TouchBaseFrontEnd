@@ -18,20 +18,20 @@ const favJobs = props.jobs.filter((job) => {
       });
 }
 
-if (faved === true) {
-  favJobs.map((job) => {
-    return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
-  });
-} else if (dated === true) {
-  datedJobs.map((job) => {
-    return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
-  });
-} else if (interviewed === true) {
-  intJobs.map((job) => {
-    return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
-  });
-} else {
-  searchedJobs.map((job) => {
-    return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
-  });
+{
+  faved === true
+    ? favJobs.map((job) => {
+        return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
+      })
+    : dated === true
+    ? datedJobs.map((job) => {
+        return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
+      })
+    : interviewed === true
+    ? intJobs.map((job) => {
+        return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
+      })
+    : searchedJobs.map((job) => {
+        return <JobTile job={job} removeJob={props.deleteJob} key={job.id} />;
+      });
 }

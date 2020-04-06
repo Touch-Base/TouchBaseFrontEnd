@@ -28,8 +28,8 @@ body {
 .homeBlock {
   display: flex;
   flex-direction: column;
-  width: 1000px;
-  margin: 20px auto;
+  margin-top: 20px;
+  justify-content: center;
   transition: 0.5s;
   align-items: center;
 }

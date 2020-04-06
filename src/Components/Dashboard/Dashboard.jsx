@@ -8,6 +8,7 @@ import Networking from "./Networking/Networking";
 import Events from "../Dashboard/Events/Events";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import Footer from "../Helpers/Footer";
 
 function Dashboard(props) {
   const location = useLocation();
@@ -37,11 +38,11 @@ function Dashboard(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
-    email: state.user.email
+    email: state.user.email,
   };
 };
 
