@@ -67,6 +67,15 @@ function Jobs(props) {
   // this sets the value for the search feature
   const [searchValue, setSearch] = useState("");
 
+  // this is the sort by favorite value
+  const [faved, setFaved] = useState(false);
+
+  // this is the sort by date value
+  const [dated, setDated] = useState(false);
+
+  // this is the sort by interviews value
+  const [interviewed, setInterview] = useState(false);
+
   const showAddForm = (event) => {
     event.preventDefault();
 
@@ -92,10 +101,25 @@ function Jobs(props) {
     setVisibility(false);
   }, [props.jobs]);
 
-  // search array
+  // search by company array
   const searchedJobs = props.jobs.filter((job) =>
     job.company.toUpperCase().includes(searchValue.toUpperCase())
   );
+
+  // filter by favorites array
+  const favJobs = props.jobs.filter((job) => {
+    return job.favorite === true;
+  });
+
+  // sort by application date array
+  const datedJobs = props.jobs.sort(function(a, b) {
+    return new Date(b.appDate) - new Date(a.appDate);
+  });
+
+  // filter by interview array
+  const intJobs = props.jobs.filter((job) => {
+    return job.interview === true;
+  });
 
   // variants for animation
   const parentList = {
@@ -246,8 +270,20 @@ function Jobs(props) {
           <h1 className="emptyPageHeader">Add a job you applied to!</h1>
         ) : null}
         <div className="jobsBlocks">
-          {searchValue === ""
-            ? props.jobs.map((job) => {
+          {faved === true
+            ? favJobs.map((job) => {
+                return (
+                  <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
+                );
+              })
+            : dated === true
+            ? datedJobs.map((job) => {
+                return (
+                  <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
+                );
+              })
+            : interviewed === true
+            ? intJobs.map((job) => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );

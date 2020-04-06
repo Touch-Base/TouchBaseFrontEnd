@@ -58,8 +58,6 @@ function Events(props) {
     return new Date(a.date) - new Date(b.date);
   });
 
-  console.log(sortedEvts);
-
   // using 'evt' as the variable to avoid javascript confusion
 
   // variants for animation
