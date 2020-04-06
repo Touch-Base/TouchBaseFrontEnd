@@ -12,6 +12,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
 import useWindowDimensions from "../../Helpers/WindowSize";
 import moment from "moment";
+import { blue } from "@material-ui/core/colors";
+import Radio from "@material-ui/core/Radio";
+import { withStyles } from "@material-ui/core/styles";
 
 function Jobs(props) {
   // width of window from window component
@@ -32,6 +35,17 @@ function Jobs(props) {
     interview: false,
     favorite: false,
   };
+
+  // this is the blue radio button
+  const BlueRadio = withStyles({
+    root: {
+      color: blue[600],
+      "&$checked": {
+        color: blue[600],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
 
   // material ui theme
   const useStyles = makeStyles((theme) => ({
@@ -111,15 +125,54 @@ function Jobs(props) {
     return job.favorite === true;
   });
 
+  // function to change to above array
+  const changeFav = (event) => {
+    event.preventDefault();
+
+    setInterview(false);
+    setDated(false);
+    setSearch("");
+    setFaved(!faved);
+  };
+
   // sort by application date array
   const datedJobs = props.jobs.sort(function(a, b) {
     return new Date(b.appDate) - new Date(a.appDate);
   });
 
+  // function to change to above array
+  const changeDated = (event) => {
+    event.preventDefault();
+
+    setInterview(false);
+    setFaved(false);
+    setSearch("");
+    setDated(!dated);
+  };
+
   // filter by interview array
   const intJobs = props.jobs.filter((job) => {
     return job.interview === true;
   });
+
+  // function to change to above array
+  const changeInt = (event) => {
+    event.preventDefault();
+
+    setFaved(false);
+    setDated(false);
+    setSearch("");
+    setInterview(!interviewed);
+  };
+
+  // this turns off all the buttons for the search
+  const startSearch = (event) => {
+    event.preventDefault();
+
+    setFaved(false);
+    setDated(false);
+    setInterview(false);
+  };
 
   // variants for animation
   const parentList = {
@@ -239,6 +292,32 @@ function Jobs(props) {
           </div>
         </Modal>
         <div className="switchAndSearch">
+          <div className="sortButtons">
+            <div className="sButton">
+              <h3>Favorites</h3>
+              <BlueRadio
+                checked={faved}
+                onChange={changeFav}
+                name="favoriteSort"
+              />
+            </div>
+            <div className="sButton">
+              <h3>Oldest</h3>
+              <BlueRadio
+                checked={dated}
+                onChange={changeDated}
+                name="dateSort"
+              />
+            </div>
+            <div className="sButton">
+              <h3>Interviews</h3>
+              <BlueRadio
+                checked={interviewed}
+                onChange={changeInt}
+                name="interviewSort"
+              />
+            </div>
+          </div>
           <div className={width > 620 ? "switch" : "switchHide"}>
             <h4 className="switchName">Layout</h4>
             <Switch
@@ -258,6 +337,7 @@ function Jobs(props) {
             placeholder="Search by company"
             onChange={searchChange}
             value={searchValue}
+            onClick={startSearch}
           />
         </div>
         <button

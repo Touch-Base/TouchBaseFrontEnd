@@ -345,6 +345,29 @@
   align-items: center;
   padding: 10px 0;
 
+  /// these are the buttons for sorting jobs
+  .sortButtons {
+    display: flex;
+    margin-left: 0;
+
+    .sButton {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        font-family: "Alata", sans-serif;
+        margin: 0;
+        color: rgba(0, 0, 0, 0.568);
+        font-size: 0.8em;
+        padding: 0;
+      }
+      span {
+        margin: 0 10px;
+        padding: 0;
+      }
+    }
+  }
+
   .switch {
     display: flex;
     align-items: center;
