@@ -1,0 +1,246 @@
+#addConnection {
+  height: 470px;
+  background: #141c39d8;
+
+  h3 {
+    font-family: "Oswald", sans-serif;
+  }
+
+  .cnxAdd {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #35d3db;
+    font-size: 1.5em;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .cnxAdd:hover {
+    background-color: rgba(119, 238, 145, 0.918);
+    transition: 0.25s;
+  }
+}
+
+.editConnectionForm {
+  position: relative;
+  width: 600px;
+  height: 550px;
+  margin: 0 auto;
+  background: #141c39d8;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+
+  // the update and delete buttons
+  .updateCnxButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #35d3db;
+    font-size: 1.3em;
+    border: none;
+    margin: 10px;
+    text-align: center;
+    transition: 0.25s;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .updateCnxButton:hover {
+    background-color: rgba(119, 167, 238, 0.918);
+    transition: 0.25s;
+  }
+
+  .deleteCnxButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: rgb(214, 43, 43);
+    font-size: 0.7em;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 15px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .deleteCnxButton:hover {
+    background-color: rgba(255, 5, 5, 0.918);
+    transition: 0.25s;
+  }
+
+  h3 {
+    color: white;
+    font-size: 1.5em;
+    font-weight: normal;
+    padding-top: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .inputCnxBlocks {
+    display: flex;
+  }
+
+  .cnxNameAndTitle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cnxCompanyAndContact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .connectionInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+    margin-bottom: 5px;
+    width: 250px;
+    margin: 0 10px;
+    border-radius: 2px;
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      font-size: 0.7em;
+      margin-bottom: 2px;
+      margin-right: 5px;
+      color: rgba(255, 255, 255, 0.781);
+      text-align: left;
+    }
+
+    input {
+      padding: 10px 5px;
+      font-family: "Oswald", sans-serif;
+      color: rgba(0, 0, 0, 0.842);
+      margin: 0;
+      margin-bottom: 3px;
+      border-radius: 3px;
+      border: none;
+      transition: 0.5s;
+      border: solid rgb(44, 206, 255) 3px;
+    }
+
+    input:hover {
+      transition: 0.5s;
+      border: solid rgb(19, 230, 19) 3px;
+    }
+
+    input:focus {
+      transition: 0.5s;
+      border: solid rgb(44, 206, 255) 3px;
+    }
+  }
+
+  .notesArea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    width: 505px;
+    margin: 0 10px;
+    border-radius: 2px;
+    border: none;
+    border-radius: 3px;
+
+    textarea {
+      width: 100%;
+      border: none;
+      border-radius: 3px;
+      margin-left: 8px;
+      resize: none;
+      height: 70px;
+      padding: 5px;
+      transition: 0.5s;
+      border: solid rgb(44, 206, 255) 3px;
+    }
+
+    textarea:focus {
+      transition: 0.5s;
+      border: solid rgb(44, 206, 255) 3px;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      font-size: 0.7em;
+      margin-bottom: 2px;
+      margin-right: 5px;
+      color: rgba(255, 255, 255, 0.781);
+      text-align: left;
+    }
+  }
+
+  // closeButton
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background: none;
+    border-radius: 500px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+
+    i {
+      color: rgb(255, 93, 93);
+      font-size: 2em;
+    }
+  }
+}
+
+// errors for form
+// input error in validation
+.cnxError {
+  color: pink;
+  background: white;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  margin-bottom: 20px;
+  border: solid red 2px;
+  border-radius: 5px;
+}
+
+// input form message styling
+.cnxInvalid {
+  color: rgb(245, 153, 166);
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+.modalBackdrop {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}

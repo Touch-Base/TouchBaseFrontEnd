@@ -1,0 +1,524 @@
+/// organizes all the job blocks on the page
+.jobsPage {
+  margin: 90px auto;
+  overflow-y: hidden;
+  /// add job button styling
+  .addJobButton {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 1;
+    background: #35d3db;
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+
+    i {
+      color: white;
+      font-size: 5em;
+    }
+  }
+
+  .exOutButton {
+    position: fixed;
+    display: block;
+    top: 80%;
+    right: 20px;
+    z-index: 4;
+    background: rgba(255, 34, 34, 0.911);
+    border: solid white 2px;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    transition: 0.5s;
+    outline: none;
+
+    i {
+      color: white;
+      font-size: 5em;
+    }
+  }
+
+  .addJobButton:hover {
+    background: #35d3dbb9;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .exOutButton:hover {
+    background: rgba(253, 17, 17, 0.76);
+    transition: 0.5s;
+    cursor: pointer;
+  }
+}
+
+.jobsBlocks {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 25px;
+  justify-content: center;
+  font-family: "Oswald", sans-serif;
+  flex-wrap: wrap;
+  transition: 0.5s;
+
+  .jobTile {
+    width: 150px;
+    height: 100px;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 25px;
+    box-shadow: 0 4px 3px -3px rgb(58, 58, 58);
+
+    .tileCompany {
+      font-size: 0.9em;
+      color: white;
+      letter-spacing: 2.3px;
+      margin: 0;
+      margin-bottom: 3px;
+    }
+
+    .tileJob {
+      font-size: 0.7em;
+      color: white;
+      letter-spacing: 2.3px;
+      margin: 0;
+    }
+  }
+
+  .jobTile:hover {
+    cursor: pointer;
+
+    .cardCorners {
+      #topRight {
+        margin: -24px -22px 0 0;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
+      }
+
+      #topLeft {
+        margin: -24px 0 0 -22px;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
+      }
+
+      #bottomLeft {
+        margin: 0 0 -24px -22px;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
+      }
+
+      #bottomRight {
+        margin: 0 -22px -24px 0;
+        transition: 0.5s;
+        transition: all ease-in-out 0.33s;
+      }
+    }
+  }
+}
+
+/// this is the form for adding and updating a job
+.jobForm {
+  background: #141c39d8;
+  margin: 0 auto;
+  width: 550px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .editJobTitle {
+    font-size: 2em;
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 25px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .positionAndCompany {
+      flex-direction: row;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .linkAndDate {
+      flex-direction: row;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .methodAndInterview {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .position {
+      width: 100%;
+      margin-left: 15px;
+    }
+
+    .company {
+      width: 100%;
+    }
+
+    .appDate {
+      width: 100%;
+    }
+
+    .joblink {
+      width: 100%;
+      margin-left: 15px;
+    }
+
+    input {
+      color: rgba(0, 0, 0, 0.473);
+      width: 90%;
+      padding: 10px 5px;
+      letter-spacing: 1.5px;
+      font-family: "Oswald", sans-serif;
+      border-radius: 5px;
+      border: solid #35d3db 2px;
+      transition: 0.5s;
+    }
+
+    input:hover {
+      color: rgba(0, 0, 0, 0.973);
+      transition: 0.5s;
+    }
+
+    textarea {
+      margin-top: 25px;
+      color: black;
+      resize: none;
+      border-radius: 3px;
+      border: solid #35d3db 2px;
+    }
+
+    select {
+      margin-top: 0;
+      color: #35d3db;
+      border-radius: 5px;
+      padding: 5px;
+      letter-spacing: 1.5px;
+      font-family: "Oswald", sans-serif;
+      outline: none;
+    }
+  }
+
+  // closeButton
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background: none;
+    border-radius: 500px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+
+    i {
+      color: rgb(255, 93, 93);
+      font-size: 2em;
+    }
+  }
+
+  .deleteButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: rgb(214, 43, 43);
+    font-size: 0.7em;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 15px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .deleteButton:hover {
+    background-color: rgba(255, 5, 5, 0.918);
+    transition: 0.25s;
+  }
+
+  .updateButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #35d3db;
+    font-size: 1.3em;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .updateButton:hover {
+    background-color: #35d3dbaf;
+    transition: 0.25s;
+  }
+
+  .addButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #35d3db;
+    font-size: 1.3em;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .addButton:hover {
+    background-color: #35d3dbbe;
+    transition: 0.25s;
+  }
+}
+
+// styling for interview button on job form
+.interviewButton {
+  padding: 10px 20px;
+  background: rgb(22, 182, 22);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 140px;
+  transition: 0.5s;
+  margin-top: 15px;
+  border: solid white 2px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.noInterviewButton {
+  padding: 10px 20px;
+  background: rgb(1, 20, 46);
+  color: white;
+  border-radius: 5px;
+  border: solid white 2px;
+  width: 140px;
+  transition: 0.5s;
+  margin-top: 15px;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  font-family: "Oswald", sans-serif;
+  outline: none;
+  cursor: pointer;
+}
+
+// this is the switch organizer and search block
+.switchAndSearch {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+
+  /// these are the buttons for sorting jobs
+  .sortButtons {
+    display: flex;
+    margin-left: 0;
+
+    .sButton {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        font-family: "Alata", sans-serif;
+        margin: 0;
+        color: rgba(0, 0, 0, 0.568);
+        font-size: 0.8em;
+        padding: 0;
+      }
+      span {
+        margin: 0 10px;
+        padding: 0;
+        margin-left: 3px;
+      }
+    }
+  }
+
+  .switch {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+
+    .switchName {
+      font-size: 1.1em;
+      font-family: "Alata", sans-serif;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.568);
+    }
+  }
+
+  .switchHide {
+    display: none;
+    visibility: hidden;
+  }
+
+  input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: solid #35d3db94 3px;
+    font-family: "Alata", sans-serif;
+    font-size: 1em;
+  }
+}
+
+.inputTitle {
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.76);
+  padding: 0;
+  display: block;
+}
+
+#notesTitle {
+  margin-bottom: -10px;
+}
+
+// errors for form
+// input error in validation
+.jobError {
+  color: pink;
+  background: white;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  margin-bottom: 20px;
+  border: solid red 2px;
+  border-radius: 5px;
+}
+
+// card corners for hover effect
+.cardCorners {
+  margin: 0;
+  color: black;
+  font-size: 2.4em;
+
+  #topRight {
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    right: 0;
+    transition: all ease-in-out 0.5s;
+  }
+
+  #topLeft {
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 0.5s;
+  }
+
+  #bottomLeft {
+    position: absolute;
+    transform: rotate(-135deg);
+    bottom: 0;
+    left: 0;
+    transition: all ease-in-out 0.5s;
+  }
+
+  #bottomRight {
+    position: absolute;
+    transform: rotate(135deg);
+    bottom: 0;
+    right: 0;
+    transition: all ease-in-out 0.5s;
+  }
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: rgb(0, 162, 255) !important;
+}
+
+// backdrop the for the full job card
+.grayedBackdrop {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}
+
+//feedback for job method error
+.input-feedback {
+  color: red;
+}
+
+// the tile favorite start
+#favStar {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+  color: white;
+}
+
+// this is the alert to increase screen size for rows
+.rowPopup {
+  position: fixed;
+  top: 145px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  background: rgba(234, 255, 112, 0.63);
+  font-family: "Alata", sans-serif;
+  color: darkblue;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  display: flex;
+  opacity: 1;
+  z-index: 15;
+}
+
+.rowPopup.hide {
+  display: none;
+  opacity: 0;
+  transition: 1s;
+}

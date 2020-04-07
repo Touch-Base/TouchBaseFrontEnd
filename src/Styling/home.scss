@@ -1,15 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #141c39;
+}
+* {
+  box-sizing: border-box;
+}
+
+.landing {
+  background: #141c39;
+  height: 100vh;
+  transition: 0.5s;
+}
+
 .logo {
   width: 400px;
   margin-bottom: -50px;
+  transition: 0.5s;
 }
 
 .homeBlock {
   display: flex;
   flex-direction: column;
-  width: 1000px;
-  margin: 20px auto;
+  margin-top: 20px;
+  justify-content: center;
+  transition: 0.5s;
   align-items: center;
 }
 
@@ -17,7 +38,7 @@ h1 {
   display: inline-block;
   font-size: 5.6em;
   text-decoration: none;
-  color: black;
+  color: #35d3db;
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -2px;
@@ -29,7 +50,7 @@ h1 {
   }
 
   .jobWord {
-    color: rgb(0, 81, 255);
+    color: white;
   }
 }
 
@@ -39,6 +60,7 @@ h1 {
   align-items: center;
   margin-bottom: 20px;
   transition: 1s;
+  z-index: 2;
 
   .homeLink {
     display: flex;
@@ -49,14 +71,15 @@ h1 {
     i {
       margin: 0 13px 8px 0;
       font-size: 2.7em;
+      transition: 0.5s ease-in-out transform;
     }
 
     .fa-arrow-circle-down {
-      color: rgb(43, 142, 255);
+      color: white;
     }
 
     .fa-clipboard-list {
-      color: rgb(186, 43, 214);
+      color: white;
     }
 
     a {
@@ -68,22 +91,26 @@ h1 {
     }
 
     #log {
-      color: rgb(43, 142, 255);
+      color: white;
     }
 
     #reg {
-      color: rgb(186, 43, 214);
+      color: white;
     }
   }
 
   .homeLink:hover {
+    i {
+      transition: 0.5s ease-in-out transform;
+      transform: translateY(5px);
+    }
     #log {
-      color: rgb(106, 175, 255);
+      color: rgb(116, 250, 255);
       transition: 0.5s;
     }
 
     #reg {
-      color: rgb(218, 100, 241);
+      color: rgb(116, 250, 255);
       transition: 0.5s;
     }
   }

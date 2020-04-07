@@ -1,0 +1,41 @@
+@media (max-width: 465px) {
+  .contactBlock {
+    h2 {
+      color: rgba(255, 255, 255, 0.931);
+      font-size: 2em;
+      margin: 15px;
+    }
+
+    .contactForm {
+      margin: 25px auto;
+      width: 250px;
+      display: flex;
+      padding: 10px 0;
+
+      input {
+        width: 70%;
+        padding: 10px;
+        font-size: 0.9em;
+        outline: none;
+        font-family: "Alata", sans-serif;
+      }
+
+      textarea {
+        font-size: 0.9em;
+        width: 80%;
+        transition: 0.8s;
+      }
+
+      textarea::placeholder {
+        color: #35d3db;
+        transition: 0.8s;
+      }
+
+      textarea:hover::-webkit-input-placeholder {
+        color: rgba(146, 146, 146, 0.322);
+        font-size: 0.5em;
+        transition: 0.8s;
+      }
+    }
+  }
+}

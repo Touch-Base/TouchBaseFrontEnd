@@ -1,0 +1,207 @@
+@media (max-width: 620px) {
+  .networkingPage {
+    margin: 60px auto;
+
+    // the entire card for any given connection on
+    // the networking page
+    .connectionCard {
+      width: 240px;
+      transition: 1s;
+      height: 180px;
+      p {
+        width: 200px;
+      }
+
+      h1 {
+        font-size: 0.75em;
+      }
+
+      h5 {
+        font-size: 0.7em;
+      }
+
+      h4 {
+        font-size: 0.5em;
+      }
+
+      // this is for the contact portion of the connection card
+      .cnxContact {
+        top: 120px;
+
+        .cnxAddresses {
+          a {
+            font-size: 0.6em;
+          }
+        }
+
+        .divider {
+          height: 40px;
+        }
+      }
+    }
+
+    // to show the notes for each connection
+    .cnxNotesButton {
+      top: 135px;
+      right: 0;
+    }
+
+    .cnxNotes {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: solid purple 3px;
+    }
+
+    // add connection button
+    .addCnxButton {
+      width: 75px;
+      height: 75px;
+      transition: 0.5s;
+
+      i {
+        font-size: 3em;
+      }
+    }
+
+    .exOutCnx {
+      width: 75px;
+      height: 75px;
+      transition: 0.5s;
+
+      i {
+        font-size: 3em;
+      }
+    }
+
+    // this is the edit a connection button
+    .editCnx {
+      top: 85px;
+      right: 15px;
+
+      i {
+        font-size: 2.6em;
+      }
+    }
+  }
+
+  /// this is the networking form for mobile
+  #addConnection {
+    height: 530px;
+
+    input {
+      margin-left: 1px;
+    }
+
+    textarea {
+      margin-left: 3px;
+      margin-top: 10px;
+    }
+  }
+
+  .editConnectionForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 640px;
+    margin: -45px auto;
+
+    form {
+      width: 250px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    // the update and delete buttons
+    .updateCnxButton {
+      font-size: 1em;
+    }
+
+    h3 {
+      font-size: 1.2em;
+    }
+
+    .inputCnxBlocks {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      width: 240px;
+      justify-content: center;
+    }
+
+    .cnxNameAndTitle {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cnxCompanyAndContact {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    .connectionInput {
+      padding: 0;
+      margin-bottom: -5px;
+      margin-left: 18px;
+
+      h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 0.7em;
+        margin-bottom: 2px;
+        margin-right: 5px;
+        color: rgba(255, 255, 255, 0.781);
+        text-align: left;
+      }
+
+      input {
+        width: 80%;
+        margin-bottom: 0;
+        margin: 0;
+        padding: 4px;
+      }
+    }
+
+    .notesArea {
+      width: 80%;
+      border-radius: 3px;
+      padding: 0;
+      margin-left: 4px;
+
+      textarea {
+        margin: 0;
+        padding: 5px;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  // errors for form
+  // input error in validation
+  .cnxError {
+    color: pink;
+    background: white;
+    padding: 0;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    border: solid red 2px;
+    border-radius: 5px;
+  }
+
+  // input form message styling
+  .cnxInvalid {
+    color: rgb(245, 153, 166);
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+  }
+}

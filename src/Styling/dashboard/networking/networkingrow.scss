@@ -1,0 +1,227 @@
+.connectionsTable {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+
+  // these are the titles for the rows
+  .columnnull {
+    display: none;
+  }
+
+  .columnNames {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 1300px;
+
+    h4 {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      padding: 5px 0;
+      font-family: "Oswald", sans-serif;
+      color: rgba(0, 0, 0, 0.678);
+    }
+
+    #namecolumn {
+      margin-left: 310px;
+    }
+
+    #cnxcocolumn {
+      margin-left: 228px;
+    }
+
+    #titlecolumn {
+      margin-left: 133px;
+    }
+
+    #cnxphonecolumn {
+      margin-left: 97px;
+      font-size: 0.8em;
+    }
+
+    #cnxemailcolumn {
+      margin-left: 63px;
+      font-size: 0.8em;
+    }
+
+    #cnxnotescolumn {
+      margin-left: 43px;
+      font-size: 0.8em;
+    }
+
+    #cnxeditcolumn {
+      margin-left: 39px;
+      font-size: 0.8em;
+    }
+  }
+
+  .connectionRow {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #141c39;
+    box-shadow: 0 4px 3px -3px black;
+    transition: 0.5s;
+    border-top: solid #35d3db 3px;
+    border-bottom: solid #35d3db 3px;
+    border-left: solid #35d3db 3px;
+    border-right: solid #35d3db 3px;
+
+    // notes pop up for row
+    p {
+      position: fixed;
+      z-index: 2;
+      display: flex;
+      font-size: 1em;
+      text-align: left;
+      color: rgb(0, 23, 65);
+      letter-spacing: 1.5px;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 7px 5px -5px black;
+      max-width: 700px;
+      word-wrap: break-word;
+      white-space: initial;
+      border-radius: 5px;
+    }
+
+    .cnxcolumn {
+      font-family: "Oswald", sans-serif;
+    }
+
+    #cnxname {
+      display: flex;
+      color: #35d3db;
+      letter-spacing: 1.2px;
+      padding-bottom: 5px;
+      width: 330px;
+      font-size: 1.6em;
+      border-right: solid #35d3db 3px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-weight: normal;
+    }
+
+    #cnxcompany {
+      display: flex;
+      color: #35d3db;
+      letter-spacing: 1.2px;
+      width: 200px;
+      font-size: 1em;
+      border-right: solid #35d3db 3px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-weight: normal;
+    }
+
+    #cnxtitle {
+      display: flex;
+      color: #35d3db;
+      letter-spacing: 1.2px;
+      width: 150px;
+      font-size: 0.8em;
+      border-right: solid #35d3db 3px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-weight: normal;
+    }
+
+    #cnxphone {
+      display: flex;
+      color: #35d3db;
+      letter-spacing: 1.2px;
+      width: 95px;
+      font-size: 0.7em;
+      border-right: solid #35d3db 3px;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-weight: normal;
+    }
+
+    a {
+      display: flex;
+      color: white;
+      letter-spacing: 1.2px;
+      width: 50px;
+      font-size: 0.9em;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-weight: normal;
+      text-decoration: none;
+      margin-left: 15px;
+
+      i {
+        font-size: 1.8em;
+        color: #35d3db;
+        transition: 0.5s;
+      }
+    }
+
+    a:hover {
+      i {
+        color: white;
+        transition: 0.5s;
+      }
+    }
+
+    .notesRow {
+      border: none;
+      background: none;
+      margin-left: 13px;
+
+      i {
+        font-size: 1.5em;
+        color: #35d3db;
+        transition: 0.5s;
+      }
+    }
+
+    .notesRow:hover {
+      i {
+        cursor: pointer;
+        color: white;
+        transition: 0.5s;
+      }
+    }
+
+    .editButton {
+      border: none;
+      background: none;
+      margin-left: 15px;
+
+      i {
+        font-size: 1.7em;
+        color: #35d3db;
+        transition: 0.5s;
+      }
+    }
+
+    .editButton:hover {
+      i {
+        cursor: pointer;
+        color: white;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  .connectionRow:hover {
+    transition: 0.5s;
+    background-color: #0d2477;
+    cursor: pointer;
+  }
+}

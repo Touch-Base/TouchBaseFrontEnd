@@ -1,0 +1,127 @@
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  z-index: 11;
+  margin-top: 50px;
+
+  h2 {
+    color: rgba(255, 255, 255, 0.931);
+  }
+
+  .contactForm {
+    background-color: rgba(0, 140, 255, 0.11);
+    margin: 0 auto;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    border-radius: 10px;
+    z-index: 6;
+
+    input {
+      width: 50%;
+      margin-bottom: 20px;
+      padding: 10px;
+      background: transparent;
+      color: #35d3db;
+      border: none;
+      border-bottom: solid #35d3db 1px;
+      opacity: 0.9;
+      font-size: 1.3em;
+      outline: none;
+      font-family: "Alata", sans-serif;
+    }
+
+    input::placeholder {
+      color: #35d3db;
+      font-family: "Alata", sans-serif;
+      transition: 0.8s;
+    }
+
+    input:hover::-webkit-input-placeholder {
+      color: rgba(146, 146, 146, 0.322);
+      font-size: 0.5em;
+      transition: 0.8s;
+    }
+
+    textarea {
+      margin-bottom: 20px;
+      padding: 30px;
+      background: transparent;
+      color: #35d3db;
+      border: none;
+      border-bottom: solid rgba(0, 140, 255, 0.76) 1px;
+      opacity: 0.9;
+      font-size: 1.2em;
+      outline: none;
+      resize: none;
+      font-family: "Alata", sans-serif;
+      transition: 0.8s;
+    }
+
+    textarea::placeholder {
+      color: #35d3db;
+      transition: 0.8s;
+    }
+
+    textarea:hover::-webkit-input-placeholder {
+      color: rgba(146, 146, 146, 0.322);
+      font-size: 0.5em;
+      transition: 0.8s;
+    }
+
+    button {
+      padding: 10px 20px;
+      letter-spacing: 2px;
+      font-family: "Alata", sans-serif;
+      color: white;
+      font-size: 1.4em;
+      border: none;
+      border-radius: 5px;
+      background: none;
+      transition: 1s;
+      outline: none;
+
+      i {
+        transition: 0.5s;
+        font-size: 1.4em;
+        color: white;
+      }
+    }
+
+    button:hover {
+      cursor: pointer;
+      color: rgba(119, 223, 188, 0.637);
+
+      i {
+        margin-left: 10px;
+        transition: 0.5s;
+      }
+    }
+
+    button {
+      outline: none;
+    }
+  }
+}
+
+#popUp {
+  font-size: 2em;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: rgba(19, 224, 19, 0.774);
+  z-index: 11;
+  transition: 1s;
+  font-family: "Alata", sans-serif;
+}

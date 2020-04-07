@@ -1,0 +1,40 @@
+@media (max-width: 465px) {
+  .developerBlock {
+    margin-top: 90px;
+    display: flex;
+
+    .contentAndLinks {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .bmc {
+      margin-top: 0;
+
+      .bmcText {
+        margin-left: 15px;
+        color: #35d3dbb9;
+        font-size: 1.2em;
+        font-family: "Alata", sans-serif;
+      }
+    }
+
+    .bmc:hover {
+      background: rgba(3, 4, 34, 0.493);
+      transition: 0.5s;
+    }
+
+    p {
+      line-height: 25px;
+      font-size: 1em;
+      width: 300px;
+    }
+
+    .middle {
+      flex-direction: row;
+      margin-bottom: 0;
+      transition: 1s;
+      height: 100%;
+    }
+  }
+}

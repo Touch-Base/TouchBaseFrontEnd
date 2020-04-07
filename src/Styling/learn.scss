@@ -1,0 +1,58 @@
+.learnBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .learnHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    h2 {
+      color: white;
+      letter-spacing: 1.5px;
+      display: block;
+      align-items: center;
+      font-size: 5.4em;
+      transition: 0.5s;
+      margin: 0;
+      padding: 0;
+      margin-right: -25px;
+      margin-left: -25px;
+      font-family: "Oswald", sans-serif;
+    }
+  }
+
+  .learnLogo {
+    display: inline-block;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+  }
+
+  .contentSections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    p {
+      color: rgba(255, 255, 255, 0.863);
+      letter-spacing: 1.3px;
+      line-height: 35px;
+      font-size: 1.1em;
+      width: 400px;
+      font-family: "Alata", sans-serif;
+      background: rgba(3, 4, 34, 0.493);
+      margin: 20px;
+      border-radius: 5px;
+      padding: 15px;
+
+      .tColor {
+        color: #35d3db;
+      }
+    }
+  }
+}

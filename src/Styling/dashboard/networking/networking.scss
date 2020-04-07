@@ -1,0 +1,289 @@
+.networkingPage {
+  display: flex;
+  flex-direction: column;
+  margin: 90px auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  // this is for when the page is showing the cnx cards
+  .networkingBlocks {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+// the entire card for any given connection on
+// the networking page
+.connectionCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 335px;
+  height: 200px;
+  background-color: #141c39;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  box-shadow: 0 8px 6px -6px black;
+  margin: 15px;
+  transition: 1s;
+  border: solid 3px #141c39;
+
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1em;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.815);
+    letter-spacing: 1.5px;
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 12px;
+    margin-top: 5px;
+    box-shadow: 0 7px 5px -5px black;
+    max-width: 600px;
+    overflow-wrap: break-word;
+    white-space: initial;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #35d3db;
+    letter-spacing: 1.3px;
+    border-top: solid 2px #35d3db;
+    border-bottom: solid 2px #35d3db;
+    padding: 10px 0;
+    width: 85%;
+    transition: 0.5s;
+    margin-bottom: 5px;
+  }
+
+  h5 {
+    margin: 0;
+    color: #35d3db;
+    letter-spacing: 1.7px;
+    font-size: 0.9em;
+    font-weight: normal;
+  }
+
+  h4 {
+    margin: 0;
+    color: #35d3db;
+    letter-spacing: 1.7px;
+    font-size: 0.7em;
+    font-weight: normal;
+  }
+
+  // this is for the contact portion of the connection card
+  .cnxContact {
+    display: flex;
+    font-family: "Oswald", sans-serif;
+    position: absolute;
+    top: 140px;
+    left: 20px;
+
+    h3 {
+      color: #35d3db;
+      text-align: left;
+    }
+
+    .cnxIcons {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items: center;
+
+      i {
+        color: #35d3dbc9;
+        font-size: 1em;
+        margin-bottom: 7px;
+      }
+    }
+
+    .divider {
+      border: solid #7be1e671 1px;
+      height: 30px;
+      margin-left: 16px;
+    }
+
+    .cnxAddresses {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      align-items: left;
+      text-align: left;
+      margin-left: 15px;
+
+      a {
+        color: rgba(173, 216, 230, 0.836);
+        font-size: 0.8em;
+        letter-spacing: 1.2px;
+        text-decoration: none;
+      }
+
+      h4 {
+        color: rgba(173, 216, 230, 0.794);
+        font-size: 0.8em;
+        letter-spacing: 1.2px;
+        display: inline-block;
+      }
+
+      .invisiblePhoneH4 {
+        color: rgba(255, 255, 255, 0);
+      }
+    }
+  }
+}
+
+.connectionCard:hover {
+  background-color: rgb(18, 30, 73);
+  transition: 1s;
+  box-shadow: 0 14px 10px -10px black;
+  border: solid 3px #35d3db;
+  cursor: pointer;
+
+  h1 {
+    transition: 0.5s;
+  }
+}
+
+.cnxNotes {
+  position: absolute;
+  top: 0;
+  right: 500px;
+  border-radius: 5px;
+  background: white;
+  color: black;
+  border: black solid 2px;
+}
+
+// to show the notes for each connection
+.cnxNotesButton {
+  padding: 9px;
+  transition: 0.5s;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 155px;
+  right: 10px;
+  outline: none;
+
+  i {
+    font-size: 1.2em;
+    color: #76dee4;
+    transition: 0.5s;
+  }
+}
+
+.cnxNotesButton:hover {
+  cursor: pointer;
+
+  i {
+    color: #9dcacc;
+    transition: 0.5s;
+  }
+}
+
+.cnxNotes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: solid purple 3px;
+}
+
+// add connection button
+.addCnxButton {
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  background: #35d3db;
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
+
+  i {
+    color: white;
+    font-size: 5em;
+  }
+}
+
+.addCnxButton:hover {
+  background: #35d3dbbd;
+  transition: 0.5s;
+}
+
+.exOutCnx {
+  position: fixed;
+  display: block;
+  top: 80%;
+  right: 20px;
+  z-index: 5;
+  background: rgba(255, 34, 34, 0.911);
+  border: solid white 2px;
+  border-radius: 500px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
+
+  i {
+    color: white;
+    font-size: 5em;
+  }
+}
+
+// this is the edit a connection button
+.editCnx {
+  position: absolute;
+  cursor: pointer;
+  top: 100px;
+  right: 25px;
+  border: none;
+  outline: none;
+  background: none;
+
+  i {
+    color: #8decf1;
+    font-size: 3em;
+    transition: 0.5s;
+  }
+}
+
+.editCnx:hover {
+  i {
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+  }
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: #35d3db !important;
+}
+
+// backdrop the for the full networking form
+.grayedBackdrop {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}

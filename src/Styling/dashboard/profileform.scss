@@ -1,20 +1,22 @@
 .profileForm {
   display: flex;
   flex-direction: column;
-  width: 500px;
   background: red;
   color: white;
   margin: 50px auto;
-  background: rgba(108, 42, 146, 0.911);
+  background: #141c39d8;
   width: 550px;
   border-radius: 5px;
   display: flex;
   position: relative;
+  font-family: "Oswald", sans-serif;
 
   .editProfileTitle {
     font-size: 2em;
     color: white;
     letter-spacing: 1px;
+    font-family: "Oswald", sans-serif;
+    margin-top: 25px;
   }
 
   form {
@@ -39,8 +41,9 @@
           letter-spacing: 1.5px;
           font-family: "Oswald", sans-serif;
           border-radius: 5px;
-          border: solid rgb(199, 82, 253) 2px;
+          border: solid #35d3db 2px;
           transition: 0.5s;
+          margin-top: 0;
         }
 
         input:focus {
@@ -61,8 +64,7 @@
           height: 70px;
           padding: 5px;
           transition: 0.5s;
-          border: solid white 3px;
-          border: solid rgb(199, 82, 253) 2px;
+          border: solid #35d3db 2px;
           margin-top: 5px;
         }
 
@@ -85,7 +87,7 @@
 
     button {
       border: none;
-      background: rgb(0, 174, 255);
+      background: #35d3db;
       letter-spacing: 1.5px;
       font-family: "Oswald", sans-serif;
       font-size: 1.2em;
@@ -99,7 +101,7 @@
 
     button:hover {
       transition: 0.5s;
-      background: rgb(133, 209, 235);
+      background: rgba(133, 210, 235, 0.753);
       cursor: pointer;
     }
   }

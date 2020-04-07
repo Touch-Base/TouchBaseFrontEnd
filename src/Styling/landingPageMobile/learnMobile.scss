@@ -1,0 +1,28 @@
+@media (max-width: 465px) {
+  .learnBlock {
+    margin-top: 25px;
+    .learnHeader {
+      h2 {
+        font-size: 2.4em;
+        transition: 0.5s;
+      }
+    }
+
+    .learnLogo {
+      transition: 0.5s;
+      width: 170px;
+    }
+
+    .contentSections {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 0.9em;
+        width: 275px;
+        line-height: 25px;
+        margin: 10px;
+      }
+    }
+  }
+}

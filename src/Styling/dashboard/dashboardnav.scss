@@ -6,19 +6,29 @@
   justify-content: space-evenly;
   border-bottom: solid 1px rgba(128, 128, 128, 0.404);
   width: 100%;
-  background: rgb(22, 22, 22);
-  height: 30px;
+  background: #141c39;
+  height: 90px;
+  position: fixed;
+  top: 0;
 
   a {
     letter-spacing: 0.8px;
     font-size: 1.4em;
     color: white;
-    transition: 1s;
+    transition: 0.5s ease-in-out font-size;
+  }
+
+  // active link class for dashboard
+
+  .clickedDash {
+    color: rgb(51, 189, 253);
+    font-size: 2em;
+    transition: 0.5s ease-in-out font-size;
   }
 
   a:hover {
-    color: lightblue;
-    transition: 1s;
+    color: rgb(51, 189, 253);
+    transition: 0.5s ease-in-out;
   }
 
   // logo
@@ -32,6 +42,7 @@
     border: none;
     cursor: pointer;
     background: none;
+    outline: none;
 
     i {
       font-size: 2.1em;
@@ -52,18 +63,10 @@
   .signOut {
     transition: 0.5s;
     color: rgb(240, 240, 240);
-    font-size: 1em;
+    font-size: 0.7em;
     margin: 0;
-    margin-left: -25px;
+    margin-left: 0;
     font-family: "Alata", sans-serif;
     letter-spacing: 1.3px;
   }
-}
-
-// active link class for dashboard
-
-#activeLink {
-  color: rgb(51, 189, 253);
-  font-size: 2em;
-  transition: 1s;
 }

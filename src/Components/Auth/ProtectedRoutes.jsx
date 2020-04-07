@@ -1,14 +1,9 @@
 import React from "react";
-import { Router, Redirect, Link, Location } from "@reach/router";
-import Dashboard from "../Dashboard/Dashboard";
-import Overview from "../Dashboard/Overview";
-import Profile from "../Dashboard/Profile";
-import Jobs from "../Dashboard/Jobs";
-import Networking from "../Dashboard/Networking";
-import Events from "../Dashboard/Events";
 import "../../Styling/home.scss";
+import { Route, Redirect } from "react-router-dom";
+import Dashboard from "../Dashboard/Dashboard";
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ path }) {
   // eslint-disable-next-line consistent-return
   function getToken() {
     try {
@@ -25,19 +20,9 @@ function ProtectedRoutes() {
 
   if (!token) {
     console.log("no token");
-    return <Redirect to="/" noThrow />;
+    return <Redirect to={{ pathname: "/login", error: true }} />;
   } else {
-    return (
-      <Router>
-        <Dashboard path="/">
-          <Overview path="/" />
-          <Profile path="/profile" />
-          <Jobs path="/jobs" />
-          <Networking path="/networking" />
-          <Events path="/events" />
-        </Dashboard>
-      </Router>
-    );
+    return <Route path={path} component={Dashboard} />;
   }
 }
 
