@@ -24,11 +24,9 @@ function EventForm(props) {
       .required("Must enter a location"),
     date: Yup.string()
       .min(1, "Must have a character")
-      .max(22, "Must be shorter than 22")
       .required("Must enter a date"),
     time: Yup.string()
       .min(1, "Must have a character")
-      .max(22, "Must be shorter than 22")
       .required("Must enter a time"),
     description: Yup.string()
       .max(400, "Must be under 400 characters.")
