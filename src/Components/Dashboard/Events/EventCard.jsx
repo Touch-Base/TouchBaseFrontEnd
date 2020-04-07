@@ -5,6 +5,7 @@ import Modal from "../../Helpers/Modal";
 import EventForm from "./EventForm";
 import { motion } from "framer-motion";
 import useWindowDimensions from "../../Helpers/WindowSize";
+import moment from "moment";
 
 function Event(props) {
   /// we have to use 'evt' for the props event variable because it will confuse with
@@ -93,6 +94,13 @@ function Event(props) {
   // new date
   let date = new Date(props.evt.date);
 
+  // get 12 hour time
+  function convert(input) {
+    return moment(input, "HH:mm").format("h:mm A");
+  }
+
+  const newtime = convert(props.evt.time);
+
   return (
     <motion.div
       variants={item}
@@ -120,7 +128,7 @@ function Event(props) {
                 year: "numeric",
               })
               .toUpperCase()}{" "}
-            {props.evt.time}
+            {newtime}
           </h4>
         </div>
         <div className="descEvtRow">

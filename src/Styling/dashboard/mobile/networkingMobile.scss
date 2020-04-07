@@ -87,7 +87,7 @@
 
   /// this is the networking form for mobile
   #addConnection {
-    height: 530px;
+    height: 560px;
 
     input {
       margin-left: 1px;
@@ -197,11 +197,12 @@
   }
 
   // input form message styling
-  .cnxInvalid {
+  div .cnxInvalid {
     color: rgb(245, 153, 166);
     margin: 0;
     font-family: sans-serif;
     font-size: 0.9em;
+    margin-bottom: 5px;
     letter-spacing: 1px;
   }
 }
