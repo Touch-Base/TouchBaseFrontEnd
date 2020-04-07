@@ -25,7 +25,11 @@ function EventForm(props) {
     date: Yup.string()
       .min(1, "Must have a character")
       .max(22, "Must be shorter than 22")
-      .required("Must enter a date and time"),
+      .required("Must enter a date"),
+    time: Yup.string()
+      .min(1, "Must have a character")
+      .max(22, "Must be shorter than 22")
+      .required("Must enter a time"),
     description: Yup.string()
       .max(400, "Must be under 400 characters.")
       .nullable(),
@@ -42,7 +46,7 @@ function EventForm(props) {
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
 
-        const { name, location, date, description, attended } = values;
+        const { name, location, date, description, attended, time } = values;
 
         /// this is the payload for adding an event
         const addPayload = {
@@ -51,6 +55,7 @@ function EventForm(props) {
           date: date,
           description: description,
           attended: attended,
+          time: time,
         };
 
         /// this is the payload for editing an event
@@ -60,6 +65,7 @@ function EventForm(props) {
         };
         if (props.addingEvt) {
           isLoading(true);
+          console.log(addPayload);
           props
             .addEvent(addPayload)
             .then(() => {
@@ -131,19 +137,36 @@ function EventForm(props) {
           {/* DATE INPUT */}
           <div className="eventInput">
             <input
-              type="datetime-local"
+              type="date"
               data-date=""
-              data-date-format="DD MMMM YYYY hh:mm"
+              data-date-format="DD MMMM YYYY"
               placeholder="Date"
               name="date"
               onChange={handleChange}
-              value={values.date.slice(0, 16)}
+              value={values.date.slice(0, 10)}
               onBlur={handleBlur}
               className={
                 touched.date && errors.date ? "hasError" : "validInput"
               }
             />
             <Error event={true} touched={touched.date} message={errors.date} />
+          </div>
+
+          {/* TIME INPUT */}
+          <div className="timeInput">
+            <label>Time</label>
+            <input
+              type="time"
+              placeholder="Time"
+              name="time"
+              onChange={handleChange}
+              value={values.time}
+              onBlur={handleBlur}
+              className={
+                touched.time && errors.time ? "hasError" : "validInput"
+              }
+            />
+            <Error event={true} touched={touched.time} message={errors.time} />
           </div>
 
           {/* DESCRIPTION INPUT */}

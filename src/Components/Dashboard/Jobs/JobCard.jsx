@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 function JobCard(props) {
   const [visible, setVisibility] = useState(false);
   const [bgcolor, setColor] = useState(props.job.color || "#141c39");
-  const [favorite, setFavorite] = useState(false);
+  const [fav, setFavorite] = useState(false);
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
   const [clickedJob, setClickedJob] = useState(false);
@@ -53,8 +53,8 @@ function JobCard(props) {
   /// it also sends the favorite information to the server
   const handleChangeFavorite = (event) => {
     event.preventDefault();
-    setFavorite(!favorite);
-    const payload = { favorite: favorite, id: props.job.id };
+    setFavorite(!fav);
+    const payload = { favorite: fav, id: props.job.id };
     props.editJob(payload);
   };
 

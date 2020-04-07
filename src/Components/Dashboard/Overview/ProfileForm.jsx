@@ -37,7 +37,7 @@ function ProfileForm(props) {
       .nullable(),
     summary: Yup.string()
       .max(300, "Must be under 300 characters.")
-      .nullable()
+      .nullable(),
   });
 
   return (
@@ -62,10 +62,10 @@ function ProfileForm(props) {
             location,
             phone,
             position,
-            summary
+            summary,
           } = values;
           const headers = {
-            Authorization: localStorage.getItem("token")
+            Authorization: localStorage.getItem("token"),
           };
 
           props
@@ -77,7 +77,7 @@ function ProfileForm(props) {
                 location: location || null,
                 summary: summary || null,
                 position: position || null,
-                phone: phone || null
+                phone: phone || null,
               },
               headers
             )
@@ -87,7 +87,7 @@ function ProfileForm(props) {
               console.log("Updated user!", props);
               isLoading(false);
             })
-            .catch(err => {
+            .catch((err) => {
               console.error("Error:", err);
             });
         }}
@@ -99,7 +99,7 @@ function ProfileForm(props) {
           handleChange,
           handleBlur,
           handleSubmit,
-          isSubmitting
+          isSubmitting,
         }) => (
           <form onSubmit={handleSubmit} className="updateUserForm">
             <div className="inputSec">
@@ -151,7 +151,7 @@ function ProfileForm(props) {
                   placeholder={props.phone || "Phone"}
                   name="phone"
                   onChange={handleChange}
-                  value={values.phone}
+                  value={values.phone || ""}
                   onBlur={handleBlur}
                   className={
                     touched.phone && errors.phone ? "hasError" : "validInput"
@@ -250,7 +250,7 @@ function ProfileForm(props) {
 // passes the user update action from redux into component state
 
 const mapDispatchToProps = {
-  updateUser: updateUser
+  updateUser: updateUser,
 };
 
 export default connect(null, mapDispatchToProps)(ProfileForm);

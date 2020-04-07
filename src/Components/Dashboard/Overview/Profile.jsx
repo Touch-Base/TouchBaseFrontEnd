@@ -20,7 +20,7 @@ function Profile(props) {
 
   // current image hook
   const [image, setImage] = useState(
-    props.profilepic === "" || false ? defaultPic : props.profilepic
+    props.profilepic === null ? defaultPic : props.profilepic
   );
 
   // loading image
@@ -118,6 +118,9 @@ function Profile(props) {
             </div>
 
             <div className="namePosition">
+              <button className="profilePencil" onClick={showProfileForm}>
+                <i className="fas fa-pencil-alt" />
+              </button>
               <h2 className="fullName">
                 {props.firstname.toUpperCase()} {props.lastname.toUpperCase()}
               </h2>

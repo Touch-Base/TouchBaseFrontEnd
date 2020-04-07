@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 
 .profilePage {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -87,11 +88,27 @@
         align-items: center;
         flex-direction: column;
         background: white;
+        position: relative;
         height: 50%;
         width: 100%;
         padding: 0;
         margin: 0;
+        position: relative;
         box-shadow: inset 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.1);
+
+        .profilePencil {
+          position: absolute;
+          right: 0;
+          top: 10px;
+          border: none;
+          background: none;
+          cursor: pointer;
+
+          i {
+            font-size: 1.82em;
+            color: rgba(0, 0, 0, 0.705);
+          }
+        }
 
         .positionTitle {
           font-size: 1.4em;

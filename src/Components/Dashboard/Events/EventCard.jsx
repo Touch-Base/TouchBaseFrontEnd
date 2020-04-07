@@ -118,10 +118,9 @@ function Event(props) {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
               })
-              .toUpperCase()}
+              .toUpperCase()}{" "}
+            {props.evt.time}
           </h4>
         </div>
         <div className="descEvtRow">
