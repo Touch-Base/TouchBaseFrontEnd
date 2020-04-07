@@ -83,6 +83,17 @@ let initialState = {
   error: null,
 };
 
+///
+
+export const rootReducer = (state, action) => {
+  if (action.type === RESET_STATE) {
+    console.log("state is now undefined");
+    state = undefined;
+  }
+
+  return userReducer(state, action);
+};
+
 // // // /* persistent storage */
 
 const persistedState = localStorage.getItem("reduxState");
@@ -93,7 +104,7 @@ if (persistedState) {
 
 // /* reducer */
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     /// REGISTERING CASES
 
@@ -523,15 +534,8 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case RESET_STATE: {
-      console.log("resetting state");
-      return (state = initialState);
-    }
-
     default: {
       return state;
     }
   }
 };
-
-export default reducer;
