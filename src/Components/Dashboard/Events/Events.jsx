@@ -24,6 +24,7 @@ function Events(props) {
     name: "",
     location: "",
     date: "",
+    time: "",
     description: "",
     attended: false,
   };

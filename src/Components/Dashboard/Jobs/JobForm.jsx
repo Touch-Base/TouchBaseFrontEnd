@@ -209,12 +209,12 @@ function JobForm(props) {
                 onChange={handleChange}
                 onBlur={handleBlur}
               >
-                <option value="" label="Select a method" />
-                <option value="LinkedIn" label="LinkedIn" />
-                <option value="Connection" label="Connection" />
-                <option value="Job Website" label="Job Website" />
-                <option value="Company Site" label="Company Site" />
-                <option value="Other" label="Other" />
+                <option value="">Select a method</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Connection">Connection</option>
+                <option value="Job Website">Job Website</option>
+                <option value="Company Site">Company Site</option>
+                <option value="Other">Other</option>
               </select>
               {errors.method && touched.method && (
                 <div className="input-feedback">{errors.method}</div>

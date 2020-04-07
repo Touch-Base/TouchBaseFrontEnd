@@ -11,21 +11,21 @@ const parentList = {
     y: 0,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.2
-    }
+      staggerChildren: 0.2,
+    },
   },
   hidden: {
     opacity: 0,
     y: "-10%",
     transition: {
-      when: "afterChildren"
-    }
-  }
+      when: "afterChildren",
+    },
+  },
 };
 
 const item = {
   visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -25 }
+  hidden: { opacity: 0, x: -25 },
 };
 
 function Developer() {
@@ -91,7 +91,7 @@ function Developer() {
         </div>
       </div>
       <a
-        class="bmc"
+        className="bmc"
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.buymeacoffee.com/anthonyvigz"

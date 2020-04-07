@@ -7,7 +7,7 @@ import Profile from "./Profile.jsx";
 import { motion } from "framer-motion";
 
 function Overview(props) {
-  const goToJobs = event => {
+  const goToJobs = (event) => {
     event.preventDefault();
 
     props.history.push("dashboard/jobs");
@@ -19,21 +19,21 @@ function Overview(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.5
-      }
+        staggerChildren: 0.5,
+      },
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren"
-      }
-    }
+        when: "afterChildren",
+      },
+    },
   };
 
   // variants for child animations on right side
   const item = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: "75px" }
+    hidden: { opacity: 0, x: "75px" },
   };
 
   return (
@@ -112,7 +112,7 @@ function Overview(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
@@ -121,7 +121,7 @@ const mapStateToProps = state => {
     phone: state.user.phone,
     age: state.user.age,
     location: state.user.location,
-    connectionsTotal: state.user.connectionsTotal
+    connectionsTotal: state.user.connectionsTotal,
   };
 };
 
