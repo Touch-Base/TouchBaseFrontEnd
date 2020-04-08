@@ -181,7 +181,6 @@ function JobForm(props) {
                 type="date"
                 data-date=""
                 data-date-format="DD MMMM YYYY"
-                id="applicationDate"
                 placeholder="Date"
                 name="appDate"
                 onChange={handleChange}

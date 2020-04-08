@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 function JobCard(props) {
   const [visible, setVisibility] = useState(false);
   const [bgcolor, setColor] = useState(props.job.color || "#141c39");
-  const [fav, setFavorite] = useState(false);
   const [picker, setShowPicker] = useState(false);
   const [notes, setShowNotes] = useState(false);
   const [clickedJob, setClickedJob] = useState(false);
@@ -52,9 +51,7 @@ function JobCard(props) {
   /// this handles the favorite picker
   /// it also sends the favorite information to the server
   const handleChangeFavorite = (event) => {
-    event.preventDefault();
-    setFavorite(!fav);
-    const payload = { favorite: fav, id: props.job.id };
+    const payload = { favorite: !props.job.favorite, id: props.job.id };
     props.editJob(payload);
   };
 
@@ -195,7 +192,7 @@ function JobCard(props) {
 
       {/* this is the modal for the edit form */}
       <Modal visible={visible}>
-        <div className="jobForm">
+        <div className="jobForm" id="editJobForm">
           <h1 className="editJobTitle">EDIT JOB</h1>
           <JobForm initialValues={props.job} editing={true} id={props.job.id} />
           <button className="closeButton" onClick={showForm}>

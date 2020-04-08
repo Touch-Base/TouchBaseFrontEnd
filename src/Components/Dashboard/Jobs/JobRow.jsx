@@ -16,14 +16,14 @@ function JobRow(props) {
 
   // this controls the visibility of the modal for the form
 
-  const showForm = event => {
+  const showForm = (event) => {
     event.preventDefault();
 
     setVisibility(!visible);
     setShowNotes(false);
   };
 
-  const deleteButton = event => {
+  const deleteButton = (event) => {
     event.preventDefault();
 
     const id = props.job.id;
@@ -37,19 +37,27 @@ function JobRow(props) {
     // checks to see if the job was updated
     // and closes the edit box
     setVisibility(false);
-  }, [props.job]);
+  }, [props.job, props.job.interview]);
 
   /// this handles the color change in the color picker
   /// it also sends the color to the job on the server
-  const handleChangeComplete = color => {
+  const handleChangeComplete = (color) => {
     setColor(color.hex);
     const newColor = color.hex;
     const payload = { color: newColor, id: props.job.id };
     props.editJob(payload);
   };
 
+  /// this handles the interview change in the job row
+  const handleInterviewChange = (event) => {
+    event.preventDefault();
+    const payload = { interview: !props.job.interview, id: props.job.id };
+    console.log(payload);
+    props.editJob(payload);
+  };
+
   // this is the handler to show the notes
-  const handlesNotes = event => {
+  const handlesNotes = (event) => {
     event.preventDefault();
 
     setShowNotes(!notes);
@@ -67,19 +75,26 @@ function JobRow(props) {
     setShowNotes(false);
   };
 
+  /// this handles the favorite picker
+  /// it also sends the favorite information to the server
+  const handleChangeFavorite = (event) => {
+    const payload = { favorite: !props.job.favorite, id: props.job.id };
+    props.editJob(payload);
+  };
+
   // this is the positioning for the color picker
   const popover = {
     position: "absolute",
     zIndex: "2",
     top: "50px",
-    right: "25px"
+    right: "25px",
   };
   const cover = {
     position: "fixed",
     top: "0px",
     right: "0px",
     bottom: "0px",
-    left: "0px"
+    left: "0px",
   };
 
   // this is the positioning for the notes
@@ -89,7 +104,7 @@ function JobRow(props) {
     top: "40px",
     opacity: 1,
     transition: "opacity 0.5s",
-    border: "none"
+    border: "none",
   };
 
   const popupNotesHide = {
@@ -98,13 +113,13 @@ function JobRow(props) {
     top: "40px",
     opacity: 0,
     transition: "opacity 0.5s",
-    pointerEvents: "none"
+    pointerEvents: "none",
   };
 
   // variants for card animation
   const item = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 }
+    hidden: { opacity: 0, x: -25 },
   };
 
   // new date
@@ -117,6 +132,10 @@ function JobRow(props) {
       className="jobRow"
       style={{ background: bgcolor }}
     >
+      {/* this is the favorite button for the job */}
+      <button className="favoriteButton" onClick={handleChangeFavorite}>
+        <i className={props.job.favorite ? "fas fa-star" : "far fa-star"}></i>
+      </button>
       <h5 className="jobcolumn" id="company">
         {props.job.company}
       </h5>
@@ -127,12 +146,13 @@ function JobRow(props) {
         {date
           .toLocaleString(navigator.language, {
             month: "long",
-            day: "numeric"
+            day: "numeric",
           })
           .toUpperCase()}
       </h5>
       <h5
         className="jobcolumn"
+        onClick={handleInterviewChange}
         id={props.job.interview ? "interview" : "nointerview"}
       >
         {props.job.interview ? (
@@ -188,7 +208,7 @@ function JobRow(props) {
 
       {/* this is the modal for the edit form */}
       <Modal visible={visible}>
-        <div className="jobForm">
+        <div className="jobForm" id="editJobForm">
           <h1 className="editJobTitle">EDIT JOB</h1>
           <JobForm initialValues={props.job} editing={true} id={props.job.id} />
           <button className="closeButton" onClick={showForm}>
@@ -204,7 +224,7 @@ function JobRow(props) {
 }
 
 const mapDispatchToProps = {
-  editJob: editJob
+  editJob: editJob,
 };
 
 export default connect(null, mapDispatchToProps)(JobRow);
