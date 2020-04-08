@@ -90,6 +90,9 @@ function Jobs(props) {
   // this is the sort by interviews value
   const [interviewed, setInterview] = useState(false);
 
+  // this is the all value
+  const [all, setAll] = useState(false);
+
   // this is the popup for the layout increase screen size
   const [rowpop, setRowpop] = useState(false);
 
@@ -146,6 +149,7 @@ function Jobs(props) {
 
     setInterview(false);
     setDated(false);
+    setAll(false);
     setSearch("");
     setFaved(!faved);
   };
@@ -161,6 +165,7 @@ function Jobs(props) {
 
     setInterview(false);
     setFaved(false);
+    setAll(false);
     setSearch("");
     setDated(!dated);
   };
@@ -177,6 +182,7 @@ function Jobs(props) {
     setFaved(false);
     setDated(false);
     setSearch("");
+    setAll(false);
     setInterview(!interviewed);
   };
 
@@ -186,7 +192,19 @@ function Jobs(props) {
 
     setFaved(false);
     setDated(false);
+    setAll(false);
     setInterview(false);
+  };
+
+  // set the all button
+  const allHandleChange = (event) => {
+    event.preventDefault();
+
+    setFaved(false);
+    setDated(false);
+    setSearch("");
+    setInterview(false);
+    setAll(true);
   };
 
   // variants for animation
@@ -234,6 +252,14 @@ function Jobs(props) {
         <div className="switchAndSearch">
           <div className="sortButtons">
             <div className="sButton">
+              <h3>All</h3>
+              <BlueRadio
+                checked={all}
+                onChange={allHandleChange}
+                name="favoriteSort"
+              />
+            </div>
+            <div className="sButton">
               <h3>Favorites</h3>
               <BlueRadio
                 checked={faved}
@@ -277,6 +303,7 @@ function Jobs(props) {
             placeholder="Search by company"
             onChange={searchChange}
             value={searchValue}
+            onClick={startSearch}
           />
         </div>
         <button
@@ -352,6 +379,14 @@ function Jobs(props) {
         </div>
         <div className="switchAndSearch">
           <div className="sortButtons">
+            <div className="sButton">
+              <h3>All</h3>
+              <BlueRadio
+                checked={all}
+                onChange={allHandleChange}
+                name="favoriteSort"
+              />
+            </div>
             <div className="sButton">
               <h3>Favorites</h3>
               <BlueRadio
