@@ -20,6 +20,31 @@
     box-shadow: 0 4px 3px -3px black;
     transition: 0.5s;
 
+    .favoriteButton {
+      position: absolute;
+      top: 0;
+      background: none;
+      padding: 9px;
+      border-radius: 100px;
+      transition: 0.5s;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      i {
+        font-size: 1.4em;
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+      }
+    }
+
+    .favoriteButton:hover {
+      i {
+        transform: rotate(360deg);
+        transition: 1s;
+      }
+    }
+
     .jobcolumn {
       font-family: "Oswald", sans-serif;
     }
