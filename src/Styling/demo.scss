@@ -1,0 +1,12 @@
+iframe {
+  margin: 25px auto;
+  border: solid white 3px;
+  border-radius: 5px;
+}
+
+@media (max-width: 465px) {
+  iframe {
+    width: 300px;
+    border: none;
+  }
+}
