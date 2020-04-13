@@ -45,9 +45,7 @@ function DashboardNav(props) {
   if (width > 620) {
     return (
       <nav className="dashboardNav">
-        <a href="/">
-          <img src={navLogo} alt="navLogo" />
-        </a>
+        <img src={navLogo} alt="navLogo" />
         <NavLink exact activeClassName="clickedDash" to="/dashboard">
           profile
         </NavLink>
