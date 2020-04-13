@@ -26,18 +26,18 @@ function Events(props) {
     date: "",
     time: "",
     description: "",
-    attended: false,
+    attended: false
   };
 
   // this function sets the visibility for the add form
-  const showAddEvt = (event) => {
+  const showAddEvt = event => {
     event.preventDefault();
 
     setEvt(!evtform);
   };
 
   // change handler for search value
-  const searchChange = (event) => {
+  const searchChange = event => {
     event.preventDefault();
 
     setSearch(event.target.value);
@@ -50,7 +50,7 @@ function Events(props) {
   }, [props]);
 
   // search array
-  const searchedEvt = props.events.filter((evt) =>
+  const searchedEvt = props.events.filter(evt =>
     evt.name.toUpperCase().includes(searchValue.toUpperCase())
   );
 
@@ -67,20 +67,16 @@ function Events(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.3,
-      },
+        staggerChildren: 0.3
+      }
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren",
-      },
-    },
+        when: "afterChildren"
+      }
+    }
   };
-
-  sortedEvts.map((evt) => {
-    console.log(evt);
-  });
 
   return (
     <motion.div
@@ -141,17 +137,17 @@ function Events(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    events: state.user.events,
+    events: state.user.events
   };
 };
 
 const mapDispatchToProps = {
-  deleteEvent: deleteEvent,
+  deleteEvent: deleteEvent
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events);
