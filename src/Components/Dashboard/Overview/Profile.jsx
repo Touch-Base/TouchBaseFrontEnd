@@ -30,7 +30,7 @@ function Profile(props) {
   let date = new Date(props.creationDate);
 
   // this is the function for form visibility
-  const showProfileForm = (event) => {
+  const showProfileForm = event => {
     event.preventDefault();
 
     setVisibility(!visibleProfile);
@@ -50,11 +50,11 @@ function Profile(props) {
     age: props.age,
     location: props.location,
     position: props.position,
-    summary: props.summary,
+    summary: props.summary
   };
 
   // function to upload image
-  const imgUploadHandler = (event) => {
+  const imgUploadHandler = event => {
     event.preventDefault();
 
     const files = event.target.files;
@@ -68,7 +68,7 @@ function Profile(props) {
     // adds the image to cloudinary
     axios
       .post("https://api.cloudinary.com/v1_1/dthd6avfb/image/upload", data)
-      .then((res) => {
+      .then(res => {
         console.log(res);
         setLoading(false);
         setImage(res.data.secure_url);
@@ -77,14 +77,14 @@ function Profile(props) {
         // sends the image to the server
         props
           .updateUser(payload)
-          .then((res) => {
+          .then(res => {
             console.log(res);
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
           });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
@@ -92,7 +92,7 @@ function Profile(props) {
   // variants for animation
   const item = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: "-25px" },
+    hidden: { opacity: 0, x: "-25px" }
   };
 
   return (
@@ -107,7 +107,7 @@ function Profile(props) {
           <div className="imageAndInfo">
             <div className="image-upload">
               <label htmlFor="file-input">
-                <img src={image} alt="profile" />
+                <img src={image || defaultPic} alt="profile" />
               </label>
               <input
                 id="file-input"
@@ -172,12 +172,12 @@ function Profile(props) {
 }
 
 const mapDispatchToProps = {
-  updateUser: updateUser,
+  updateUser: updateUser
 };
 
 // passes the user state from redux into component state
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
@@ -189,7 +189,7 @@ const mapStateToProps = (state) => {
     profilepic: state.user.profilepic,
     user: state.user,
     creationDate: state.user.creationDate,
-    error: state.error,
+    error: state.error
   };
 };
 

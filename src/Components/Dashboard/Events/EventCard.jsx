@@ -21,7 +21,7 @@ function Event(props) {
   const [eventDescrip, setEventDescrip] = useState(false);
 
   // this is the delete button
-  const deleteButton = (event) => {
+  const deleteButton = event => {
     event.preventDefault();
 
     const id = props.evt.id;
@@ -30,14 +30,14 @@ function Event(props) {
   };
 
   // this handles the event description modal
-  const showEventDescription = (event) => {
+  const showEventDescription = event => {
     event.preventDefault();
 
     setEventDescrip(!eventDescrip);
   };
 
   // this sets the visibility for the form modal
-  const showForm = (event) => {
+  const showForm = event => {
     event.preventDefault();
 
     setVisible(!form);
@@ -47,7 +47,6 @@ function Event(props) {
     // checks to see if the connection was updated
     // and closes the edit box
     setVisible(false);
-    console.log("here here");
   }, [props]);
 
   // these are the variable stylings for the event descrip
@@ -65,7 +64,7 @@ function Event(props) {
     zIndex: "2",
     top: topPop,
     opacity: 1,
-    transition: "opacity 0.5s",
+    transition: "opacity 0.5s"
   };
 
   const popoverhide = {
@@ -74,7 +73,7 @@ function Event(props) {
     top: topPop,
     opacity: 0,
     transition: "opacity 0.5s",
-    pointerEvents: "none",
+    pointerEvents: "none"
   };
 
   const cover = {
@@ -82,13 +81,13 @@ function Event(props) {
     top: "0px",
     right: "0px",
     bottom: "0px",
-    left: "0px",
+    left: "0px"
   };
 
   // variants for card animation
   const item = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -25 },
+    hidden: { opacity: 0, x: -25 }
   };
 
   // new date
@@ -100,6 +99,9 @@ function Event(props) {
   }
 
   const newtime = convert(props.evt.time);
+
+  console.log(props.evt.date);
+  console.log(date);
 
   return (
     <motion.div
@@ -125,7 +127,7 @@ function Event(props) {
               .toLocaleString(navigator.language, {
                 month: "long",
                 day: "numeric",
-                year: "numeric",
+                year: "numeric"
               })
               .toUpperCase()}{" "}
             {newtime}

@@ -2,6 +2,7 @@ iframe {
   margin: 25px auto;
   border: solid white 3px;
   border-radius: 5px;
+  z-index: 12;
 }
 
 @media (max-width: 465px) {
