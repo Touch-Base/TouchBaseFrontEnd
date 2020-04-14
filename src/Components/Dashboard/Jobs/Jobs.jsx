@@ -33,7 +33,7 @@ function Jobs(props) {
     appDate: moment().format("YYYY-MM-DDTHH:MM"),
     notes: "",
     interview: false,
-    favorite: false,
+    favorite: false
   };
 
   // this is the blue radio button
@@ -41,33 +41,33 @@ function Jobs(props) {
     root: {
       color: blue[600],
       "&$checked": {
-        color: blue[600],
-      },
+        color: blue[600]
+      }
     },
-    checked: {},
-  })((props) => <Radio color="default" {...props} />);
+    checked: {}
+  })(props => <Radio color="default" {...props} />);
 
   // material ui theme
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles(theme => ({
     track: {
       "&.Mui-checked": {
-        backgroundColor: "rgb(0, 162, 255)",
+        backgroundColor: "rgb(0, 162, 255)"
       },
       opacity: 1,
-      backgroundColor: "#35d3dbc2",
+      backgroundColor: "#35d3dbc2"
     },
     switchBase: {
-      color: "black",
+      color: "black"
     },
     root: {
-      width: "58px",
+      width: "58px"
     },
     colorSecondary: {
       "&.Mui-checked": {
-        color: "rgb(0, 162, 255)",
+        color: "rgb(0, 162, 255)"
       },
-      color: "#35d3db",
-    },
+      color: "#35d3db"
+    }
   }));
 
   const classes = useStyles();
@@ -96,14 +96,14 @@ function Jobs(props) {
   // this is the popup for the layout increase screen size
   const [rowpop, setRowpop] = useState(false);
 
-  const showAddForm = (event) => {
+  const showAddForm = event => {
     event.preventDefault();
 
     setVisibility(!visibleAdd);
   };
 
   // change handler for search value
-  const searchChange = (event) => {
+  const searchChange = event => {
     event.preventDefault();
 
     setSearch(event.target.value);
@@ -122,7 +122,7 @@ function Jobs(props) {
   };
 
   // this function is the switch for how the jobs are displayed
-  const switchOrganizer = (event) => {
+  const switchOrganizer = event => {
     event.preventDefault();
 
     setOrganizer(!table);
@@ -134,17 +134,17 @@ function Jobs(props) {
   }, [props.jobs]);
 
   // search by company array
-  const searchedJobs = props.jobs.filter((job) =>
+  const searchedJobs = props.jobs.filter(job =>
     job.company.toUpperCase().includes(searchValue.toUpperCase())
   );
 
   // filter by favorites array
-  const favJobs = props.jobs.filter((job) => {
+  const favJobs = props.jobs.filter(job => {
     return job.favorite === true;
   });
 
   // function to change to above array
-  const changeFav = (event) => {
+  const changeFav = event => {
     event.preventDefault();
 
     setInterview(false);
@@ -155,12 +155,17 @@ function Jobs(props) {
   };
 
   // sort by application date array
-  const datedJobs = props.jobs.sort(function(a, b) {
-    return new Date(a.appDate) - new Date(b.appDate);
-  });
+
+  function sort(arr) {
+    return arr.concat().sort(function(a, b) {
+      return new Date(a.appDate) - new Date(b.appDate);
+    });
+  }
+
+  const datedJobs = sort(props.jobs);
 
   // function to change to above array
-  const changeDated = (event) => {
+  const changeDated = event => {
     event.preventDefault();
 
     setInterview(false);
@@ -171,12 +176,12 @@ function Jobs(props) {
   };
 
   // filter by interview array
-  const intJobs = props.jobs.filter((job) => {
+  const intJobs = props.jobs.filter(job => {
     return job.interview === true;
   });
 
   // function to change to above array
-  const changeInt = (event) => {
+  const changeInt = event => {
     event.preventDefault();
 
     setFaved(false);
@@ -187,7 +192,7 @@ function Jobs(props) {
   };
 
   // this turns off all the buttons for the search
-  const startSearch = (event) => {
+  const startSearch = event => {
     event.preventDefault();
 
     setFaved(false);
@@ -197,7 +202,7 @@ function Jobs(props) {
   };
 
   // set the all button
-  const allHandleChange = (event) => {
+  const allHandleChange = event => {
     event.preventDefault();
 
     setFaved(false);
@@ -213,15 +218,15 @@ function Jobs(props) {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
+        staggerChildren: 0.2
+      }
     },
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren",
-      },
-    },
+        when: "afterChildren"
+      }
+    }
   };
 
   if (table && width > 950) {
@@ -292,7 +297,7 @@ function Jobs(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase,
+                switchBase: classes.switchBase
               }}
               onClick={switchOrganizer}
               checked={false}
@@ -327,24 +332,24 @@ function Jobs(props) {
             <h4 id="editcolumn">Edit</h4>
           </div>
           {faved === true
-            ? favJobs.map((job) => {
+            ? favJobs.map(job => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
             : dated === true
-            ? datedJobs.map((job) => {
+            ? datedJobs.map(job => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
             : interviewed === true
-            ? intJobs.map((job) => {
+            ? intJobs.map(job => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
-            : searchedJobs.map((job) => {
+            : searchedJobs.map(job => {
                 return (
                   <JobRow job={job} removeJob={props.deleteJob} key={job.id} />
                 );
@@ -420,9 +425,9 @@ function Jobs(props) {
                 checked: classes.checked,
                 colorSecondary: classes.colorSecondary, // class name, e.g. `disabled-x`
                 track: classes.track,
-                switchBase: classes.switchBase,
+                switchBase: classes.switchBase
               }}
-              onClick={(event) => {
+              onClick={event => {
                 switchOrganizer(event);
                 widthCheck(event);
               }}
@@ -448,24 +453,24 @@ function Jobs(props) {
         ) : null}
         <div className="jobsBlocks">
           {faved === true
-            ? favJobs.map((job) => {
+            ? favJobs.map(job => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
             : dated === true
-            ? datedJobs.map((job) => {
+            ? datedJobs.map(job => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
             : interviewed === true
-            ? intJobs.map((job) => {
+            ? intJobs.map(job => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
               })
-            : searchedJobs.map((job) => {
+            : searchedJobs.map(job => {
                 return (
                   <JobTile job={job} removeJob={props.deleteJob} key={job.id} />
                 );
@@ -476,17 +481,17 @@ function Jobs(props) {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    jobs: state.user.jobs,
+    jobs: state.user.jobs
   };
 };
 
 const mapDispatchToProps = {
-  deleteJob: deleteJob,
+  deleteJob: deleteJob
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jobs);

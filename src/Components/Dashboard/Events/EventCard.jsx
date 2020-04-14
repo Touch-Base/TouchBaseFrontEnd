@@ -91,7 +91,7 @@ function Event(props) {
   };
 
   // new date
-  let date = new Date(props.evt.date);
+  let date = new Date(props.evt.date.replace(/-/g, "/").replace(/T.+/, ""));
 
   // get 12 hour time
   function convert(input) {
