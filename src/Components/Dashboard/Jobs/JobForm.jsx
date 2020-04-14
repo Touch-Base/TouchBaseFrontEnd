@@ -14,7 +14,7 @@ function JobForm(props) {
   // this is the loader
   const [loading, isLoading] = useState(false);
 
-  const interviewSwitch = (event) => {
+  const interviewSwitch = event => {
     event.preventDefault();
 
     setInterview(!interview);
@@ -27,15 +27,15 @@ function JobForm(props) {
   const validationSchema = Yup.object().shape({
     position: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20")
+      .max(26, "Must be shorter than 26")
       .required("Must enter a company"),
     company: Yup.string()
       .min(1, "Must have a character")
-      .max(20, "Must be shorter than 20")
+      .max(26, "Must be shorter than 26")
       .required("Must enter a company"),
     link: Yup.string()
       .min(1, "Must have a character")
-      .max(100, "Must be shorter than 100")
+      .max(300, "Must be shorter than 300")
       .nullable(),
     appDate: Yup.string()
       .min(1, "Must have a character")
@@ -43,7 +43,7 @@ function JobForm(props) {
     notes: Yup.string()
       .max(400, "Must be under 400 characters.")
       .nullable(),
-    method: Yup.string().required("Must enter a method"),
+    method: Yup.string().required("Must enter a method")
   });
 
   return (
@@ -64,13 +64,13 @@ function JobForm(props) {
           method: method,
           appDate: appDate || null,
           notes: notes || null,
-          interview: interview,
+          interview: interview
         };
 
         // payload for updating a job
         const editPayload = {
           ...addPayload,
-          id: props.id,
+          id: props.id
         };
 
         /// checks if form is either adding or updating a job
@@ -84,7 +84,7 @@ function JobForm(props) {
               isLoading(false);
               console.log("added job!");
             })
-            .catch((err) => {
+            .catch(err => {
               console.error("Here", err);
             });
         } else {
@@ -96,7 +96,7 @@ function JobForm(props) {
               isLoading(false);
               console.log("updated job!");
             })
-            .catch((err) => {
+            .catch(err => {
               console.error("Here", err);
             });
         }
@@ -109,7 +109,7 @@ function JobForm(props) {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
+        isSubmitting
       }) => (
         <form onSubmit={handleSubmit}>
           <Loader loading={loading} />
@@ -268,15 +268,15 @@ function JobForm(props) {
 
 const mapDispatchToProps = {
   addJob: addJob,
-  editJob: editJob,
+  editJob: editJob
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     firstname: state.user.firstname,
     lastname: state.user.lastname,
     email: state.user.email,
-    jobs: state.user.jobs,
+    jobs: state.user.jobs
   };
 };
 

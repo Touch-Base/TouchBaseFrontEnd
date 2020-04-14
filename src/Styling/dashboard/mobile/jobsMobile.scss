@@ -37,16 +37,20 @@
 
     .jobCompany {
       margin-top: -50px;
-      font-size: 1.5em;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      margin-left: 3px;
     }
 
     .jobTitle {
       margin-top: -15px;
-      font-size: 1.2em;
+      font-size: 1em;
+      padding: 2px;
     }
 
     .appliedText {
       margin-top: -10px;
+      margin-left: 2px;
     }
 
     p {
@@ -54,8 +58,8 @@
     }
 
     .jobLink {
-      right: 75px;
-      top: 145px;
+      right: 45px;
+      top: 115px;
       padding: 8px;
       transition: 0.5s;
 
