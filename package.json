@@ -20,7 +20,7 @@
     "framer-motion": "^1.10.2",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "particles-bg": "^2.4.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
