@@ -68,26 +68,6 @@ function Developer() {
           >
             <i className="fab fa-linkedin-in"></i>
           </motion.a>
-          <motion.a
-            variants={item}
-            className="jobTile"
-            transition={{ ease: "easeIn" }}
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://twitter.com/anthonyvigz"
-          >
-            <i className="fab fa-twitter"></i>
-          </motion.a>
-          <motion.a
-            variants={item}
-            className="jobTile"
-            transition={{ ease: "easeIn" }}
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.anthonyvigliotta.com"
-          >
-            <i className="fas fa-id-card"></i>
-          </motion.a>
         </div>
       </div>
       <a
